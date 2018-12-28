@@ -7,7 +7,7 @@ do
     cp html/custom.css html/$dir/custom.css
 done
 
-rsync -r html root@185.246.65.88:/var/www/html
+rsync -r html root@185.246.65.88:/var/www
 git add *
 read -p "Commit description: " desc
 git commit -m "$desc"
