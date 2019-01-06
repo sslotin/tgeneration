@@ -64,7 +64,7 @@ a {
 }
 
 a[href^='http://sereja.me']:before {
-    content: url('/favicon.ico');
+    content: url('http//sereja.me/favicon.ico');
     margin-right: 4px;
 }
 
