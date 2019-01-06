@@ -1,13 +1,14 @@
 #!/bin/bash
 
-for dir in $(ls ipynb)
+jupyter-nbconvert `find content -name *.ipynb`
+
+for dir in $(find content -type d | tail +2)
 do
-    jupyter-nbconvert ipynb/$dir/*.ipynb
-    mv ipynb/$dir/*.html html/$dir
-    cp html/custom.css html/$dir/custom.css
+    cp content/custom.css $dir/custom.css
+    cp content/custom.js $dir/custom.js
 done
 
-rsync -r html root@185.246.65.88:/var/www
+rsync -r content root@tgeneration.ru:/var/www
 git add *
 read -p "Commit description: " desc
 git commit -m "$desc"
