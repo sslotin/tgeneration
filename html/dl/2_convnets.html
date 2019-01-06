@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>index</title>
+<title>2_convnets</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13116,43 +13116,501 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;">&#182;</a></h1><p>Стараюсь писать только про то, чего нет в интернете в нормальном виде. Либо про то, что мне очень сложно давалось, когда я был в школе.</p>
-<p>Более-менее готово:</p>
+<h1 id="&#1057;&#1074;&#1105;&#1088;&#1090;&#1086;&#1095;&#1085;&#1099;&#1077;-&#1089;&#1077;&#1090;&#1080;">&#1057;&#1074;&#1105;&#1088;&#1090;&#1086;&#1095;&#1085;&#1099;&#1077; &#1089;&#1077;&#1090;&#1080;<a class="anchor-link" href="#&#1057;&#1074;&#1105;&#1088;&#1090;&#1086;&#1095;&#1085;&#1099;&#1077;-&#1089;&#1077;&#1090;&#1080;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Нейронные сети привлекли по-настоящему всеобщее внимание в 2012 году, когда Алекс Крижевски благодаря им выиграл конкурс ImageNet — крупнейшее ежегодное соревнование по машинному зрению — снизив рекорд ошибок классификации с 26% до 15%, что тогда стало прорывом.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Свёрточные сети были придуманы при анализе части мозга, отвечающей за зрение. Оказывается, что соответствующие нейроны отвечают за абстрактные фичи в сигнале.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Крижевски не сделал ничего принципиально нового. Он взял эту архитектуру, которая была придумана ещё в девяностых, и нашел способ обучить её быстро — то есть на GPU.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://habrastorage.org/files/c36/bc5/b99/c36bc5b99dc14342b156fa742b285418.png" alt="CNN"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#1055;&#1088;&#1077;&#1076;&#1089;&#1090;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077;-&#1080;&#1079;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1081;">&#1055;&#1088;&#1077;&#1076;&#1089;&#1090;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077; &#1080;&#1079;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1081;<a class="anchor-link" href="#&#1055;&#1088;&#1077;&#1076;&#1089;&#1090;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077;-&#1080;&#1079;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1081;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Изображения будем представлять.</p>
+<p>Хоть в случае черно-белых картинок (MNIST) первое измерение всегда равно единице, все равно будем.</p>
+<p>Когда говорят «изображение», представляйте не прямоугольник, а параллелепипед, высотой которого будет размер каналов.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#1057;&#1074;&#1105;&#1088;&#1090;&#1082;&#1072;">&#1057;&#1074;&#1105;&#1088;&#1090;&#1082;&#1072;<a class="anchor-link" href="#&#1057;&#1074;&#1105;&#1088;&#1090;&#1082;&#1072;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Суть у них такая: давайте введем такую функцию, как <strong>ядро</strong> (англ. <strong>kernel</strong>). Он</p>
+<ol>
+<li>Разобьем искомый паралеллелепипед на сколько-то одинаковых параллелепипедов. Они могут пересекаться.</li>
+<li>Каждый из них развернем в вектор.</li>
+<li>Каждый вектор и каждый </li>
+<li>Положим то, что получилось, в новый параллелепипед.</li>
+<li>Посчитаем для кажой ячейки какую-нибудь нелинейность.</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="images/conv1.png" alt="conv1"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Можно добавить ещё такую вариацию:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Паддинг</strong>. Padding — это когда мы добавляем фиктивные граничные ячейки, которые заполняем нулями</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Страйды</strong>. Stride — это насколько нужно сдвигать квадратики.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="images/conv2.png" alt="conv1"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#1055;&#1091;&#1083;&#1080;&#1085;&#1075;">&#1055;&#1091;&#1083;&#1080;&#1085;&#1075;<a class="anchor-link" href="#&#1055;&#1091;&#1083;&#1080;&#1085;&#1075;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Суть такая же, только в качестве ядра берется просто максимум, а между фильтрами (каналами) взаимодействия нет. Какая у этого интерпретация? Каждая ячейка хранит в себе некоторую оценку уверенности, что объект тут находится.</p>
+<p>Увернность на следующем слое можно представить как</p>
+<p>MaxPooling используется для downsampling-а.</p>
+<p>Пулинг это агрессивный даунсемплинг — он теряет информацию. Его критикуют, но он работает.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Вообще, свёртки есть не только для изображений. Иногда их применяют для анализа текстов или всяких геномов (одномерная свёртка) или 3д-изображений (всякие КТ, МРТ и прочие рентгены). Работают они примерно так же.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Тут можно много о чем подумать: сколько параметров будет в ядре, какая будет форма выходных данных, сколько оно будет считаться. Фреймворки классные, фреймворки делают это за нас.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#1055;&#1086;&#1095;&#1077;&#1084;&#1091;-&#1101;&#1090;&#1086;-&#1088;&#1072;&#1073;&#1086;&#1090;&#1072;&#1077;&#1090;">&#1055;&#1086;&#1095;&#1077;&#1084;&#1091; &#1101;&#1090;&#1086; &#1088;&#1072;&#1073;&#1086;&#1090;&#1072;&#1077;&#1090;<a class="anchor-link" href="#&#1055;&#1086;&#1095;&#1077;&#1084;&#1091;-&#1101;&#1090;&#1086;-&#1088;&#1072;&#1073;&#1086;&#1090;&#1072;&#1077;&#1090;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Если определенным образом визуализировать те пиксели, которые больше всего триггерят конкретные нейроны, то можно понять, что они учат какие-то все более и более абстратные фичи.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Весов получается <strong>мало</strong>, так как они будут пошарены. Параметров меньше, каждый отвечает не только за конкретный пиксель — сети сложнее переобучиться.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="images/cat.png" alt="cat pic"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#1057;&#1074;&#1105;&#1088;&#1090;&#1082;&#1080;">&#1057;&#1074;&#1105;&#1088;&#1090;&#1082;&#1080;<a class="anchor-link" href="#&#1057;&#1074;&#1105;&#1088;&#1090;&#1082;&#1080;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Фундаментальное отличие свёрточного слоя от полносвязного в том, что свёртки учат локальные паттерны в данных.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">keras</span>
+<span class="kn">from</span> <span class="nn">keras.models</span> <span class="k">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="k">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Dropout</span><span class="p">,</span> <span class="n">Flatten</span>
+<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="k">import</span> <span class="n">Conv2D</span><span class="p">,</span> <span class="n">MaxPooling2D</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Здесь нам уже не надо их разворачивать в один вектор, так как нам важна пространственная информация.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras.datasets</span> <span class="k">import</span> <span class="n">mnist</span>
+
+<span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">_</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">/=</span> <span class="mi">255</span>
+
+<span class="c1"># Сейчас X.shape это (60000, 28, 28)</span>
+<span class="c1"># Формат Keras требует для сверток четырехмерный тензор, последним измерением которого идет канал</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">([</span>
+    <span class="c1"># channels  kernel_size</span>
+    <span class="n">Conv2D</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
+    <span class="n">Conv2D</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span> 
+    <span class="n">MaxPooling2D</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span>
+    <span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">),</span>
+    <span class="n">Flatten</span><span class="p">(),</span> <span class="c1"># разглаживает в один большой вектор</span>
+    <span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span> <span class="c1"># Обычно такой добавляют в самый конец</span>
+    <span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d_13 (Conv2D)           (None, 26, 26, 8)         80        
+_________________________________________________________________
+conv2d_14 (Conv2D)           (None, 24, 24, 16)        1168      
+_________________________________________________________________
+max_pooling2d_7 (MaxPooling2 (None, 12, 12, 16)        0         
+_________________________________________________________________
+dropout_12 (Dropout)         (None, 12, 12, 16)        0         
+_________________________________________________________________
+flatten_6 (Flatten)          (None, 2304)              0         
+_________________________________________________________________
+dense_10 (Dense)             (None, 128)               295040    
+_________________________________________________________________
+dropout_13 (Dropout)         (None, 128)               0         
+_________________________________________________________________
+dense_11 (Dense)             (None, 10)                1290      
+=================================================================
+Total params: 297,578
+Trainable params: 297,578
+Non-trainable params: 0
+_________________________________________________________________
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span>
+              <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span>
+              <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Train on 54000 samples, validate on 6000 samples
+Epoch 1/1
+54000/54000 [==============================] - 64s - loss: 0.1032 - acc: 0.9694 - val_loss: 0.0461 - val_acc: 0.9867
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[0]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7ff9254feac8&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Вот тут есть инструкция, как получить 99.5%, если прикрутить и зафайнтюнить все свистоперделки: <a href="https://www.kaggle.com/adityaecdrid/mnist-with-keras-for-beginners-99457">https://www.kaggle.com/adityaecdrid/mnist-with-keras-for-beginners-99457</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#1057;&#1080;&#1085;&#1090;&#1077;&#1079;&#1080;&#1088;&#1091;&#1077;&#1084;-&#1076;&#1072;&#1085;&#1085;&#1099;&#1077;">&#1057;&#1080;&#1085;&#1090;&#1077;&#1079;&#1080;&#1088;&#1091;&#1077;&#1084; &#1076;&#1072;&#1085;&#1085;&#1099;&#1077;<a class="anchor-link" href="#&#1057;&#1080;&#1085;&#1090;&#1077;&#1079;&#1080;&#1088;&#1091;&#1077;&#1084;-&#1076;&#1072;&#1085;&#1085;&#1099;&#1077;">&#182;</a></h1><p><strong>Аугментацией</strong> называется процесс получения новых данных из имеющихся. Это часто (особенно в компьютерном зрении) позволяет улучшить качество модели, не используя дополнительных данных.</p>
+<p>Можно попробовать добавить следующие преобразования, которые с какой-то вероятностью будут использоваться во время обучения:</p>
 <ul>
-<li><a href="http://sereja.me/a/segtree">Дерево отрезков</a>: на указателях, динамическое, пересистентное.</li>
-<li><a href="http://sereja.me/a/treap">Декартово дерево</a>: явное, неявное, персистентое.</li>
-<li><a href="http://sereja.me/a/hashing">Полиномиальное хэширование</a> в задачах на строки</li>
-<li><a href="http://sereja.me/a/centroid">Центроидная декомпозиция</a></li>
-<li><a href="http://sereja.me/a/matroid">Матроиды</a>: алгоритм Радо-Эдмондса, расписания, паросочетания, линейная независимость</li>
-<li><a href="http://sereja.me/a/pollard">Ро-алгоритм Полларда</a></li>
-<li><a href="http://sereja.me/a/sparse-table">Sparse table</a></li>
-<li><a href="http://sereja.me/a/mincost-maxflow">Поток минимальной стоимости</a>: критерий оптимальности, потенциалы Джонсона, реализация за $O(mU)$</li>
-<li><a href="http://sereja.me/a/bitset">Битовое сжатие</a>: битсет, нахождение цикла длины 3, перемножение матриц, метод Гаусса</li>
-<li><a href="http://sereja.me/a/lca">Наименьший общий предок</a>: свойства tin и tout, двоичные подъемы, сведение к RMQ, алгоритм Фараха-Колтона и Бендера</li>
-<li><a href="http://sereja.me/a/bayans">Классные задачки</a>: пока что без решений</li>
+<li>Поворот на малый угол.</li>
+<li>Добавление шума.</li>
+<li>Обрезание границ и последующее растяжение до исходного размера.</li>
+<li>Горизонтальное отражение (но в нашем случае оно вредно).</li>
+<li>Смещение на небольшое расстояние.</li>
 </ul>
-<p>Не очень готово:</p>
-<ul>
-<li><a href="http://sereja.me/a/strings">Поиск строки в строке</a>: префикс-функция, z-функция</li>
-<li><a href="http://sereja.me/a/geometry">Геометрия</a>: скалярное и векторное произведение, пересечение прямых, классы в C++</li>
-<li><a href="http://sereja.me/a/dp_optimizations">Оптимизации ДП</a>: Кнут, разделяй-и-властвуй, Convex Hull Trick</li>
-<li><a href="http://sereja.me/a/fenwick">Дерево Фенвика</a>: устройство, многомерное дерево, бинпоиск по дереву</li>
-<li><a href="http://sereja.me/a/mst">Остовные деревья</a>: алгоритм Прима и Крускала</li>
-<li><a href="http://sereja.me/a/reciprocal">Обратное по модулю</a></li>
-<li><a href="http://sereja.me/a/annealing">Метод отжига</a></li>
-<li><a href="http://sereja.me/a/stress-test">Стресс-тестирование</a></li>
-<li>Подсчёт числа путей в дереве: метод переливаний, центроидная декомпозиция</li>
-</ul>
-<p>Вообще не готово:</p>
-<ul>
-<li><a href="http://sereja.me/a/true">Бор</a>: бор на указателях, суффиксные ссылки, алгоритм Ахо-Корасик</li>
-<li><a href="http://sereja.me/a/linalg">Линейная алгебра</a>: линейные операторы, матрицы, применения к динамике, метод Гаусса</li>
-<li><a href="http://sereja.me/a/probability">Теорвер</a>: </li>
-<li>Выпуклые оболочки</li>
-<li>Разделяй-и-властвуй</li>
-<li>Теория информации</li>
-</ul>
-<p>Спасибо Косте Амеличеву, Глебу Лобанову, Ване Клигунову, Диме Дубровину, Маше Тряпицыной, Саше Мамаеву, Андрею Гаркавому, Тёме Рябову, Андрею Чулкову, Максу Деб Натху и много кому ещё за фидбэк и указания на ошибки и неточности.</p>
+<p>Понятно, что лейбл эти преобразования изменить не должны.</p>
+<p>Почти во всех фреймворках есть какой-то декларативный интерфейс для аугментации.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="images/dog.jpeg" alt="dog"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras.preprocessing.image</span> <span class="k">import</span> <span class="n">ImageDataGenerator</span>
+
+<span class="n">gen</span> <span class="o">=</span> <span class="n">ImageDataGenerator</span><span class="p">(</span>
+    <span class="n">rotation_range</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">width_shift_range</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+    <span class="n">height_shift_range</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+    <span class="n">shear_range</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+    <span class="n">zoom_range</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+    <span class="n">fill_mode</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
+
+<span class="n">gen</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/home/sergey/.local/lib/python3.5/site-packages/keras/preprocessing/image.py:648: UserWarning: Expected input to be images (as Numpy array) following the data format convention &#34;channels_last&#34; (channels on axis 3), i.e. expected either 1, 3 or 4 channels on axis 3. However, it was passed an array with shape (60000, 28, 28, 1) (1 channels).
+  &#39; (&#39; + str(x.shape[self.channel_axis]) + &#39; channels).&#39;)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit_generator</span><span class="p">(</span><span class="n">gen</span><span class="o">.</span><span class="n">flow</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">),</span>
+                    <span class="n">epochs</span> <span class="o">=</span> <span class="n">epochs</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#1050;&#1072;&#1082;-&#1088;&#1072;&#1073;&#1086;&#1090;&#1072;&#1090;&#1100;-&#1089;-&#1074;&#1085;&#1077;&#1096;&#1085;&#1080;&#1084;&#1080;-&#1082;&#1072;&#1088;&#1090;&#1080;&#1085;&#1082;&#1072;&#1084;&#1080;">&#1050;&#1072;&#1082; &#1088;&#1072;&#1073;&#1086;&#1090;&#1072;&#1090;&#1100; &#1089; &#1074;&#1085;&#1077;&#1096;&#1085;&#1080;&#1084;&#1080; &#1082;&#1072;&#1088;&#1090;&#1080;&#1085;&#1082;&#1072;&#1084;&#1080;<a class="anchor-link" href="#&#1050;&#1072;&#1082;-&#1088;&#1072;&#1073;&#1086;&#1090;&#1072;&#1090;&#1100;-&#1089;-&#1074;&#1085;&#1077;&#1096;&#1085;&#1080;&#1084;&#1080;-&#1082;&#1072;&#1088;&#1090;&#1080;&#1085;&#1082;&#1072;&#1084;&#1080;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras.preprocessing.image</span> <span class="k">import</span> <span class="n">load_img</span><span class="p">,</span> <span class="n">img_to_array</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="k">import</span> <span class="err">?</span><span class="o">??</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Transfer-Learning">Transfer Learning<a class="anchor-link" href="#Transfer-Learning">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Суть в том, чтобы использовать претрейненые слои с других нейросетей, обучавшихся очень долго на очень дорогом оборудовании.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Соревнования по CV выигрываются именно так.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="images/transfer.png" alt="transfer"></p>
 
 </div>
 </div>

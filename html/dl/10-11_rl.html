@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>index</title>
+<title>10-11_rl</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13116,46 +13116,710 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;">&#182;</a></h1><p>Стараюсь писать только про то, чего нет в интернете в нормальном виде. Либо про то, что мне очень сложно давалось, когда я был в школе.</p>
-<p>Более-менее готово:</p>
-<ul>
-<li><a href="http://sereja.me/a/segtree">Дерево отрезков</a>: на указателях, динамическое, пересистентное.</li>
-<li><a href="http://sereja.me/a/treap">Декартово дерево</a>: явное, неявное, персистентое.</li>
-<li><a href="http://sereja.me/a/hashing">Полиномиальное хэширование</a> в задачах на строки</li>
-<li><a href="http://sereja.me/a/centroid">Центроидная декомпозиция</a></li>
-<li><a href="http://sereja.me/a/matroid">Матроиды</a>: алгоритм Радо-Эдмондса, расписания, паросочетания, линейная независимость</li>
-<li><a href="http://sereja.me/a/pollard">Ро-алгоритм Полларда</a></li>
-<li><a href="http://sereja.me/a/sparse-table">Sparse table</a></li>
-<li><a href="http://sereja.me/a/mincost-maxflow">Поток минимальной стоимости</a>: критерий оптимальности, потенциалы Джонсона, реализация за $O(mU)$</li>
-<li><a href="http://sereja.me/a/bitset">Битовое сжатие</a>: битсет, нахождение цикла длины 3, перемножение матриц, метод Гаусса</li>
-<li><a href="http://sereja.me/a/lca">Наименьший общий предок</a>: свойства tin и tout, двоичные подъемы, сведение к RMQ, алгоритм Фараха-Колтона и Бендера</li>
-<li><a href="http://sereja.me/a/bayans">Классные задачки</a>: пока что без решений</li>
-</ul>
-<p>Не очень готово:</p>
-<ul>
-<li><a href="http://sereja.me/a/strings">Поиск строки в строке</a>: префикс-функция, z-функция</li>
-<li><a href="http://sereja.me/a/geometry">Геометрия</a>: скалярное и векторное произведение, пересечение прямых, классы в C++</li>
-<li><a href="http://sereja.me/a/dp_optimizations">Оптимизации ДП</a>: Кнут, разделяй-и-властвуй, Convex Hull Trick</li>
-<li><a href="http://sereja.me/a/fenwick">Дерево Фенвика</a>: устройство, многомерное дерево, бинпоиск по дереву</li>
-<li><a href="http://sereja.me/a/mst">Остовные деревья</a>: алгоритм Прима и Крускала</li>
-<li><a href="http://sereja.me/a/reciprocal">Обратное по модулю</a></li>
-<li><a href="http://sereja.me/a/annealing">Метод отжига</a></li>
-<li><a href="http://sereja.me/a/stress-test">Стресс-тестирование</a></li>
-<li>Подсчёт числа путей в дереве: метод переливаний, центроидная декомпозиция</li>
-</ul>
-<p>Вообще не готово:</p>
-<ul>
-<li><a href="http://sereja.me/a/true">Бор</a>: бор на указателях, суффиксные ссылки, алгоритм Ахо-Корасик</li>
-<li><a href="http://sereja.me/a/linalg">Линейная алгебра</a>: линейные операторы, матрицы, применения к динамике, метод Гаусса</li>
-<li><a href="http://sereja.me/a/probability">Теорвер</a>: </li>
-<li>Выпуклые оболочки</li>
-<li>Разделяй-и-властвуй</li>
-<li>Теория информации</li>
-</ul>
-<p>Спасибо Косте Амеличеву, Глебу Лобанову, Ване Клигунову, Диме Дубровину, Маше Тряпицыной, Саше Мамаеву, Андрею Гаркавому, Тёме Рябову, Андрею Чулкову, Максу Деб Натху и много кому ещё за фидбэк и указания на ошибки и неточности.</p>
+<h1 id="&#1057;&#1090;&#1086;&#1093;&#1072;&#1089;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1080;&#1077;-&#1080;-&#1076;&#1077;&#1090;&#1077;&#1088;&#1084;&#1080;&#1085;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1085;&#1099;&#1077;-&#1087;&#1088;&#1086;&#1094;&#1077;&#1089;&#1089;&#1099;">&#1057;&#1090;&#1086;&#1093;&#1072;&#1089;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1080;&#1077; &#1080; &#1076;&#1077;&#1090;&#1077;&#1088;&#1084;&#1080;&#1085;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1085;&#1099;&#1077; &#1087;&#1088;&#1086;&#1094;&#1077;&#1089;&#1089;&#1099;<a class="anchor-link" href="#&#1057;&#1090;&#1086;&#1093;&#1072;&#1089;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1080;&#1077;-&#1080;-&#1076;&#1077;&#1090;&#1077;&#1088;&#1084;&#1080;&#1085;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1085;&#1099;&#1077;-&#1087;&#1088;&#1086;&#1094;&#1077;&#1089;&#1089;&#1099;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Почти все алгоритмы в RL описываются так:</p>
+<ol>
+<li>Сгенерировать данные / сделать наблюдение / сыграть в игру.</li>
+<li>Подобрать параметры модели так, чтобы с большей вероятностью происходили те варанты, которые привели к лучшим исходам.</li>
+</ol>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Black-box-optimization">Black box optimization<a class="anchor-link" href="#Black-box-optimization">&#182;</a></h1><p>Вообще, RL не связан с DL напрямую. Почти все алгоритмы формулируются относительно абстрактных «policy», у которых есть какие-то параметры, которые нужно оптимизировать, и тут нет никаких слов про нейросети.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Crossentropy-method">Crossentropy method<a class="anchor-link" href="#Crossentropy-method">&#182;</a></h1><p>This notebook will teach you to solve reinforcement learning problems with crossentropy method. We'll follow-up by scaling everything up and using neural network policy.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#XVFB will be launched if you run on a server</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;DISPLAY&quot;</span><span class="p">))</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">str</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;DISPLAY&quot;</span><span class="p">))</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+    <span class="o">!</span>bash ../xvfb start
+    <span class="o">%</span><span class="k">env</span> DISPLAY=:1
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">gym</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">env</span> <span class="o">=</span> <span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="s2">&quot;Taxi-v2&quot;</span><span class="p">)</span>
+<span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<span class="n">env</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>[2018-07-03 02:32:06,868] Making new env: Taxi-v2
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>+---------+
+|<span class="ansi-magenta-fg">R</span>: | : :G|
+| : : : :<span class="ansi-yellow-bg"> </span>|
+| : : : : |
+| | : | : |
+|Y| : |<span class="ansi-blue-intense-fg ansi-bold">B</span>: |
++---------+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n_states</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">observation_space</span><span class="o">.</span><span class="n">n</span>
+<span class="n">n_actions</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">action_space</span><span class="o">.</span><span class="n">n</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;n_states=</span><span class="si">%i</span><span class="s2">, n_actions=</span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n_states</span><span class="p">,</span><span class="n">n_actions</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>n_states=500, n_actions=6
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Create-stochastic-policy">Create stochastic policy<a class="anchor-link" href="#Create-stochastic-policy">&#182;</a></h1><p>This time our policy should be a probability distribution.</p>
+<p><code>policy[s,a] = P(take action a | in state s)</code></p>
+<p>Since we still use integer state and action representations, you can use a 2-dimensional array to represent the policy.</p>
+<p>Please initialize policy <strong>uniformly</strong>, that is, probabililities of all actions should be equal.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">policy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">policy</span><span class="p">)</span> <span class="ow">in</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">policy</span><span class="p">,</span><span class="mf">1.</span><span class="o">/</span><span class="n">n_actions</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">policy</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Play-the-game">Play the game<a class="anchor-link" href="#Play-the-game">&#182;</a></h1><p>Just like before, but we also record all states and actions we took.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">generate_session</span><span class="p">(</span><span class="n">policy</span><span class="p">,</span><span class="n">t_max</span><span class="o">=</span><span class="mi">10</span><span class="o">**</span><span class="mi">4</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Play game until end or for t_max ticks.</span>
+<span class="sd">    :param policy: an array of shape [n_states,n_actions] with action probabilities</span>
+<span class="sd">    :returns: list of states, list of actions and sum of rewards</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">states</span><span class="p">,</span><span class="n">actions</span> <span class="o">=</span> <span class="p">[],[]</span>
+    <span class="n">total_reward</span> <span class="o">=</span> <span class="mf">0.</span>
+    
+    <span class="n">s</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+    
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">t_max</span><span class="p">):</span>
+        
+        <span class="n">a</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">sample</span> <span class="n">action</span> <span class="kn">from</span> <span class="nn">policy</span> <span class="p">(</span><span class="n">hint</span><span class="p">:</span> <span class="n">use</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">)</span><span class="o">&gt;</span>
+        
+        <span class="n">new_s</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">done</span><span class="p">,</span><span class="n">info</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        
+        <span class="c1">#Record state, action and add up reward to states,actions and total_reward accordingly. </span>
+        <span class="n">states</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">actions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">total_reward</span><span class="o">+=</span><span class="n">r</span>
+        
+        <span class="n">s</span> <span class="o">=</span> <span class="n">new_s</span>
+        <span class="k">if</span> <span class="n">done</span><span class="p">:</span>
+            <span class="k">break</span>
+    <span class="k">return</span> <span class="n">states</span><span class="p">,</span><span class="n">actions</span><span class="p">,</span><span class="n">total_reward</span>
+        
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">r</span> <span class="o">=</span> <span class="n">generate_session</span><span class="p">(</span><span class="n">policy</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">float</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#let&#39;s see the initial reward distribution</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="n">sample_rewards</span> <span class="o">=</span> <span class="p">[</span><span class="n">generate_session</span><span class="p">(</span><span class="n">policy</span><span class="p">,</span><span class="n">t_max</span><span class="o">=</span><span class="mi">1000</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">200</span><span class="p">)]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">sample_rewards</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">sample_rewards</span><span class="p">,</span><span class="mi">50</span><span class="p">)],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">100</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;50&#39;th percentile&quot;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">sample_rewards</span><span class="p">,</span><span class="mi">90</span><span class="p">)],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">100</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;90&#39;th percentile&quot;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Crossentropy-method-steps-(2pts)">Crossentropy method steps (2pts)<a class="anchor-link" href="#Crossentropy-method-steps-(2pts)">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">select_elites</span><span class="p">(</span><span class="n">states_batch</span><span class="p">,</span><span class="n">actions_batch</span><span class="p">,</span><span class="n">rewards_batch</span><span class="p">,</span><span class="n">percentile</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Select states and actions from games that have rewards &gt;= percentile</span>
+<span class="sd">    :param states_batch: list of lists of states, states_batch[session_i][t]</span>
+<span class="sd">    :param actions_batch: list of lists of actions, actions_batch[session_i][t]</span>
+<span class="sd">    :param rewards_batch: list of rewards, rewards_batch[session_i][t]</span>
+<span class="sd">    </span>
+<span class="sd">    :returns: elite_states,elite_actions, both 1D lists of states and respective actions from elite sessions</span>
+<span class="sd">    </span>
+<span class="sd">    Please return elite states and actions in their original order </span>
+<span class="sd">    [i.e. sorted by session number and timestep within session]</span>
+<span class="sd">    </span>
+<span class="sd">    If you&#39;re confused, see examples below. Please don&#39;t assume that states are integers (they&#39;ll get different later).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">reward_threshold</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">Compute</span> <span class="n">minimum</span> <span class="n">reward</span> <span class="k">for</span> <span class="n">elite</span> <span class="n">sessions</span><span class="o">.</span> <span class="n">Hint</span><span class="p">:</span> <span class="n">use</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="o">&gt;</span>
+    
+    
+    <span class="n">elite_states</span>  <span class="o">=</span> <span class="o">&lt;</span><span class="n">your</span> <span class="n">code</span> <span class="n">here</span><span class="o">&gt;</span>
+    <span class="n">elite_actions</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">your</span> <span class="n">code</span> <span class="n">here</span><span class="o">&gt;</span>
+    
+    <span class="k">return</span> <span class="n">elite_states</span><span class="p">,</span><span class="n">elite_actions</span>
+    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">states_batch</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>   <span class="c1">#game1</span>
+    <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="c1">#game2</span>
+    <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>      <span class="c1">#game3</span>
+<span class="p">]</span>
+
+<span class="n">actions_batch</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span>   <span class="c1">#game1</span>
+    <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="c1">#game2</span>
+    <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>      <span class="c1">#game3</span>
+<span class="p">]</span>
+<span class="n">rewards_batch</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mi">3</span><span class="p">,</span>         <span class="c1">#game1</span>
+    <span class="mi">4</span><span class="p">,</span>         <span class="c1">#game2</span>
+    <span class="mi">5</span><span class="p">,</span>         <span class="c1">#game3</span>
+<span class="p">]</span>
+
+<span class="n">test_result_0</span> <span class="o">=</span> <span class="n">select_elites</span><span class="p">(</span><span class="n">states_batch</span><span class="p">,</span><span class="n">actions_batch</span><span class="p">,</span><span class="n">rewards_batch</span><span class="p">,</span><span class="n">percentile</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">test_result_40</span> <span class="o">=</span> <span class="n">select_elites</span><span class="p">(</span><span class="n">states_batch</span><span class="p">,</span><span class="n">actions_batch</span><span class="p">,</span><span class="n">rewards_batch</span><span class="p">,</span><span class="n">percentile</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">test_result_90</span> <span class="o">=</span> <span class="n">select_elites</span><span class="p">(</span><span class="n">states_batch</span><span class="p">,</span><span class="n">actions_batch</span><span class="p">,</span><span class="n">rewards_batch</span><span class="p">,</span><span class="n">percentile</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">test_result_100</span> <span class="o">=</span> <span class="n">select_elites</span><span class="p">(</span><span class="n">states_batch</span><span class="p">,</span><span class="n">actions_batch</span><span class="p">,</span><span class="n">rewards_batch</span><span class="p">,</span><span class="n">percentile</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">test_result_0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>  \
+   <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">test_result_0</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]),</span>\
+        <span class="s2">&quot;For percentile 0 you should return all states and actions in chronological order&quot;</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">test_result_40</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="ow">and</span> \
+        <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">test_result_40</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]),</span>\
+        <span class="s2">&quot;For percentile 30 you should only select states/actions from two first&quot;</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">test_result_90</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span> <span class="ow">and</span> \
+        <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">test_result_90</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]),</span>\
+        <span class="s2">&quot;For percentile 90 you should only select states/actions from one game&quot;</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">test_result_100</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span> <span class="ow">and</span>\
+       <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">test_result_100</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]),</span>\
+        <span class="s2">&quot;Please make sure you use &gt;=, not &gt;. Also double-check how you compute percentile.&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ok!&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">update_policy</span><span class="p">(</span><span class="n">elite_states</span><span class="p">,</span><span class="n">elite_actions</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Given old policy and a list of elite states/actions from select_elites,</span>
+<span class="sd">    return new updated policy where each action probability is proportional to</span>
+<span class="sd">    </span>
+<span class="sd">    policy[s_i,a_i] ~ #[occurences of si and ai in elite states/actions]</span>
+<span class="sd">    </span>
+<span class="sd">    Don&#39;t forget to normalize policy to get valid probabilities and handle 0/0 case.</span>
+<span class="sd">    In case you never visited a state, set probabilities for all actions to 1./n_actions</span>
+<span class="sd">    </span>
+<span class="sd">    :param elite_states: 1D list of states from elite sessions</span>
+<span class="sd">    :param elite_actions: 1D list of actions from elite sessions</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">new_policy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">n_states</span><span class="p">,</span><span class="n">n_actions</span><span class="p">])</span>
+    
+    <span class="o">&lt;</span><span class="n">Your</span> <span class="n">code</span> <span class="n">here</span><span class="p">:</span> <span class="n">update</span> <span class="n">probabilities</span> <span class="k">for</span> <span class="n">actions</span> <span class="n">given</span> <span class="n">elite</span> <span class="n">states</span> <span class="o">&amp;</span> <span class="n">actions</span><span class="o">&gt;</span>
+    <span class="c1">#Don&#39;t forget to set 1/n_actions for all actions in unvisited states.</span>
+    
+    
+    <span class="k">return</span> <span class="n">new_policy</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">elite_states</span><span class="p">,</span> <span class="n">elite_actions</span> <span class="o">=</span> <span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+
+<span class="n">new_policy</span> <span class="o">=</span> <span class="n">update_policy</span><span class="p">(</span><span class="n">elite_states</span><span class="p">,</span><span class="n">elite_actions</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">new_policy</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="s2">&quot;Your new policy contains NaNs or +-inf. Make sure you don&#39;t divide by zero.&quot;</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">new_policy</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">),</span> <span class="s2">&quot;Your new policy can&#39;t have negative action probabilities&quot;</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">new_policy</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;Your new policy should be a valid probability distribution over actions&quot;</span>
+<span class="n">reference_answer</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+       <span class="p">[</span> <span class="mf">1.</span>        <span class="p">,</span>  <span class="mf">0.</span>        <span class="p">,</span>  <span class="mf">0.</span>        <span class="p">,</span>  <span class="mf">0.</span>        <span class="p">,</span>  <span class="mf">0.</span>        <span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.5</span>       <span class="p">,</span>  <span class="mf">0.</span>        <span class="p">,</span>  <span class="mf">0.</span>        <span class="p">,</span>  <span class="mf">0.5</span>       <span class="p">,</span>  <span class="mf">0.</span>        <span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.</span>        <span class="p">,</span>  <span class="mf">0.33333333</span><span class="p">,</span>  <span class="mf">0.66666667</span><span class="p">,</span>  <span class="mf">0.</span>        <span class="p">,</span>  <span class="mf">0.</span>        <span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.</span>        <span class="p">,</span>  <span class="mf">0.</span>        <span class="p">,</span>  <span class="mf">0.</span>        <span class="p">,</span>  <span class="mf">0.5</span>       <span class="p">,</span>  <span class="mf">0.5</span>       <span class="p">]])</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">new_policy</span><span class="p">[:</span><span class="mi">4</span><span class="p">,:</span><span class="mi">5</span><span class="p">],</span><span class="n">reference_answer</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ok!&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Training-loop">Training loop<a class="anchor-link" href="#Training-loop">&#182;</a></h1><p>Generate sessions, select N best and fit to those.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">clear_output</span>
+
+<span class="k">def</span> <span class="nf">show_progress</span><span class="p">(</span><span class="n">rewards_batch</span><span class="p">,</span><span class="n">log</span><span class="p">,</span> <span class="n">reward_range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">990</span><span class="p">,</span><span class="o">+</span><span class="mi">10</span><span class="p">]):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A convenience function that displays training progress. </span>
+<span class="sd">    No cool math here, just charts.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">mean_reward</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">rewards_batch</span><span class="p">)</span>
+    <span class="n">threshold</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">rewards_batch</span><span class="p">,</span><span class="n">percentile</span><span class="p">)</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">mean_reward</span><span class="p">,</span><span class="n">threshold</span><span class="p">])</span>
+
+    <span class="n">clear_output</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mean reward = </span><span class="si">%.3f</span><span class="s2">, threshold=</span><span class="si">%.3f</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">mean_reward</span><span class="p">,</span><span class="n">threshold</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">log</span><span class="p">))[</span><span class="mi">0</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Mean rewards&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">log</span><span class="p">))[</span><span class="mi">1</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Reward thresholds&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rewards_batch</span><span class="p">,</span><span class="nb">range</span><span class="o">=</span><span class="n">reward_range</span><span class="p">);</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">rewards_batch</span><span class="p">,</span><span class="n">percentile</span><span class="p">)],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">100</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;percentile&quot;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#reset policy just in case</span>
+<span class="n">policy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="n">n_states</span><span class="p">,</span><span class="n">n_actions</span><span class="p">])</span><span class="o">/</span><span class="n">n_actions</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n_sessions</span> <span class="o">=</span> <span class="mi">250</span>  <span class="c1">#sample this many sessions</span>
+<span class="n">percentile</span> <span class="o">=</span> <span class="mi">50</span>  <span class="c1">#take this percent of session with highest rewards</span>
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1">#add this thing to all counts for stability</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    
+    <span class="o">%</span><span class="k">time</span> sessions = [&lt;generate a list of n_sessions new sessions&gt;]
+    
+    <span class="n">states_batch</span><span class="p">,</span><span class="n">actions_batch</span><span class="p">,</span><span class="n">rewards_batch</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">sessions</span><span class="p">)</span>
+
+    <span class="n">elite_states</span><span class="p">,</span> <span class="n">elite_actions</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">select</span> <span class="n">elite</span> <span class="n">states</span><span class="o">/</span><span class="n">actions</span><span class="o">&gt;</span>
+    
+    <span class="n">new_policy</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">compute</span> <span class="n">new</span> <span class="n">policy</span><span class="o">&gt;</span>
+    
+    <span class="n">policy</span> <span class="o">=</span> <span class="n">learning_rate</span><span class="o">*</span><span class="n">new_policy</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">learning_rate</span><span class="p">)</span><span class="o">*</span><span class="n">policy</span>
+    
+    <span class="c1">#display results on chart</span>
+    <span class="n">show_progress</span><span class="p">(</span><span class="n">rewards_batch</span><span class="p">,</span><span class="n">log</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#1042;&#1089;&#1087;&#1086;&#1084;&#1080;&#1085;&#1072;&#1077;&#1084;-&#1085;&#1072;&#1079;&#1074;&#1072;&#1085;&#1080;&#1077;-&#1082;&#1091;&#1088;&#1089;&#1072;:-&#1072;&#1087;&#1087;&#1088;&#1086;&#1082;&#1089;&#1080;&#1084;&#1080;&#1088;&#1091;&#1077;&#1084;-&#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1077;-&#1085;&#1077;&#1081;&#1088;&#1086;&#1089;&#1077;&#1090;&#1103;&#1084;&#1080;">&#1042;&#1089;&#1087;&#1086;&#1084;&#1080;&#1085;&#1072;&#1077;&#1084; &#1085;&#1072;&#1079;&#1074;&#1072;&#1085;&#1080;&#1077; &#1082;&#1091;&#1088;&#1089;&#1072;: &#1072;&#1087;&#1087;&#1088;&#1086;&#1082;&#1089;&#1080;&#1084;&#1080;&#1088;&#1091;&#1077;&#1084; &#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1077; &#1085;&#1077;&#1081;&#1088;&#1086;&#1089;&#1077;&#1090;&#1103;&#1084;&#1080;<a class="anchor-link" href="#&#1042;&#1089;&#1087;&#1086;&#1084;&#1080;&#1085;&#1072;&#1077;&#1084;-&#1085;&#1072;&#1079;&#1074;&#1072;&#1085;&#1080;&#1077;-&#1082;&#1091;&#1088;&#1089;&#1072;:-&#1072;&#1087;&#1087;&#1088;&#1086;&#1082;&#1089;&#1080;&#1084;&#1080;&#1088;&#1091;&#1077;&#1084;-&#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1077;-&#1085;&#1077;&#1081;&#1088;&#1086;&#1089;&#1077;&#1090;&#1103;&#1084;&#1080;">&#182;</a></h1><p>Что делать, если пространство действий — континуум?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">env</span> <span class="o">=</span> <span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="s2">&quot;CartPole-v0&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">env</span>
+
+<span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<span class="n">n_actions</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">action_space</span><span class="o">.</span><span class="n">n</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;rgb_array&quot;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>[2018-07-03 02:36:14,551] Making new env: CartPole-v0
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-9-a1744c85af8d&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> n_actions <span class="ansi-blue-fg">=</span> env<span class="ansi-blue-fg">.</span>action_space<span class="ansi-blue-fg">.</span>n
+<span class="ansi-green-intense-fg ansi-bold">      5</span> 
+<span class="ansi-green-fg">----&gt; 6</span><span class="ansi-red-fg"> </span>plt<span class="ansi-blue-fg">.</span>imshow<span class="ansi-blue-fg">(</span>env<span class="ansi-blue-fg">.</span>render<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;rgb_array&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;plt&#39; is not defined</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#create agent</span>
+<span class="kn">from</span> <span class="nn">sklearn.neural_network</span> <span class="k">import</span> <span class="n">MLPClassifier</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span>
+                      <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;tanh&#39;</span><span class="p">,</span>
+                      <span class="n">warm_start</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1">#keep progress between .fit(...) calls</span>
+                      <span class="n">max_iter</span><span class="o">=</span><span class="mi">1</span> <span class="c1">#make only 1 iteration on each .fit(...)</span>
+                     <span class="p">)</span>
+<span class="c1">#initialize agent to the dimension of state an amount of actions</span>
+<span class="n">agent</span><span class="o">.</span><span class="n">fit</span><span class="p">([</span><span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()]</span><span class="o">*</span><span class="n">n_actions</span><span class="p">,</span><span class="nb">range</span><span class="p">(</span><span class="n">n_actions</span><span class="p">));</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">generate_session</span><span class="p">(</span><span class="n">t_max</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+    
+    <span class="n">states</span><span class="p">,</span><span class="n">actions</span> <span class="o">=</span> <span class="p">[],[]</span>
+    <span class="n">total_reward</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="n">s</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+    
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">t_max</span><span class="p">):</span>
+        
+        <span class="c1">#predict array of action probabilities</span>
+        <span class="n">probs</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">([</span><span class="n">s</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span> 
+        
+        <span class="n">a</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">sample</span> <span class="n">action</span> <span class="k">with</span> <span class="n">such</span> <span class="n">probabilities</span><span class="o">&gt;</span>
+        
+        <span class="n">new_s</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">done</span><span class="p">,</span><span class="n">info</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        
+        <span class="c1">#record sessions like you did before</span>
+        <span class="n">states</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">actions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">total_reward</span><span class="o">+=</span><span class="n">r</span>
+        
+        <span class="n">s</span> <span class="o">=</span> <span class="n">new_s</span>
+        <span class="k">if</span> <span class="n">done</span><span class="p">:</span> <span class="k">break</span>
+    <span class="k">return</span> <span class="n">states</span><span class="p">,</span><span class="n">actions</span><span class="p">,</span><span class="n">total_reward</span>
+        
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n_sessions</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">percentile</span> <span class="o">=</span> <span class="mi">70</span>
+<span class="n">log</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="c1">#generate new sessions</span>
+    <span class="n">sessions</span> <span class="o">=</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">generate</span> <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">n_sessions</span> <span class="n">new</span> <span class="n">sessions</span><span class="o">&gt;</span><span class="p">]</span>
+
+    <span class="n">states_batch</span><span class="p">,</span><span class="n">actions_batch</span><span class="p">,</span><span class="n">rewards_batch</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">sessions</span><span class="p">))</span>
+
+    <span class="n">elite_states</span><span class="p">,</span> <span class="n">elite_actions</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">select</span> <span class="n">elite</span> <span class="n">actions</span> <span class="n">just</span> <span class="n">like</span> <span class="n">before</span><span class="o">&gt;</span>
+    
+    <span class="o">&lt;</span><span class="n">fit</span> <span class="n">agent</span> <span class="n">to</span> <span class="n">predict</span> <span class="n">elite_actions</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">elite_states</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">&gt;</span>
+
+    <span class="n">show_progress</span><span class="p">(</span><span class="n">rewards_batch</span><span class="p">,</span><span class="n">log</span><span class="p">,</span><span class="n">reward_range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">rewards_batch</span><span class="p">)])</span>
+    
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">rewards_batch</span><span class="p">)</span><span class="o">&gt;</span> <span class="mi">190</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You Win! You may stop training now via KeyboardInterrupt.&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Results">Results<a class="anchor-link" href="#Results">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#record sessions</span>
+<span class="kn">import</span> <span class="nn">gym.wrappers</span>
+<span class="n">env</span> <span class="o">=</span> <span class="n">gym</span><span class="o">.</span><span class="n">wrappers</span><span class="o">.</span><span class="n">Monitor</span><span class="p">(</span><span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="s2">&quot;CartPole-v0&quot;</span><span class="p">),</span><span class="n">directory</span><span class="o">=</span><span class="s2">&quot;videos&quot;</span><span class="p">,</span><span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sessions</span> <span class="o">=</span> <span class="p">[</span><span class="n">generate_session</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)]</span>
+<span class="n">env</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="c1">#upload to gym</span>
+<span class="c1">#gym.upload(&quot;./videos/&quot;,api_key=&quot;&lt;your_api_key&gt;&quot;) #you&#39;ll need me later</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#show video</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">video_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span><span class="n">s</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.mp4&quot;</span><span class="p">),</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;./videos/&quot;</span><span class="p">)))</span>
+
+<span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;video width=&quot;640&quot; height=&quot;480&quot; controls&gt;</span>
+<span class="s2">  &lt;source src=&quot;</span><span class="si">{}</span><span class="s2">&quot; type=&quot;video/mp4&quot;&gt;</span>
+<span class="s2">&lt;/video&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;./videos/&quot;</span><span class="o">+</span><span class="n">video_names</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span> <span class="c1">#this may or may not be _last_ video. Try other indices</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
 </div>
     </div>
   </div>

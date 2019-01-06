@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>index</title>
+<title>5_cycle_gans</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13116,43 +13116,57 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;">&#182;</a></h1><p>Стараюсь писать только про то, чего нет в интернете в нормальном виде. Либо про то, что мне очень сложно давалось, когда я был в школе.</p>
-<p>Более-менее готово:</p>
+<h1 id="Unsupervised-Translation">Unsupervised Translation<a class="anchor-link" href="#Unsupervised-Translation">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Сегодня мы пойдём дальше в ганах и научимся делать выравнивание распределений, а также пообсуждаем более продвинутые методики для обучения ганов.</p>
+<p>[гифка с зебрами]</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>[картинка с Путиным]</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#1042;&#1072;&#1089;&#1089;&#1077;&#1088;&#1096;&#1090;&#1077;&#1081;&#1085;&#1086;&#1074;&#1086;-&#1088;&#1072;&#1089;&#1089;&#1090;&#1086;&#1103;&#1085;&#1080;&#1077;-&#1080;-&#1101;&#1074;&#1088;&#1080;&#1089;&#1090;&#1080;&#1082;&#1080;">&#1042;&#1072;&#1089;&#1089;&#1077;&#1088;&#1096;&#1090;&#1077;&#1081;&#1085;&#1086;&#1074;&#1086; &#1088;&#1072;&#1089;&#1089;&#1090;&#1086;&#1103;&#1085;&#1080;&#1077; &#1080; &#1101;&#1074;&#1088;&#1080;&#1089;&#1090;&#1080;&#1082;&#1080;<a class="anchor-link" href="#&#1042;&#1072;&#1089;&#1089;&#1077;&#1088;&#1096;&#1090;&#1077;&#1081;&#1085;&#1086;&#1074;&#1086;-&#1088;&#1072;&#1089;&#1089;&#1090;&#1086;&#1103;&#1085;&#1080;&#1077;-&#1080;-&#1101;&#1074;&#1088;&#1080;&#1089;&#1090;&#1080;&#1082;&#1080;">&#182;</a></h1><p>Обучение GAN-ов не на игрушечных данных <strong>очень</strong> нестабильно. Придумали множество костылей, чтомы его улучшить:</p>
 <ul>
-<li><a href="http://sereja.me/a/segtree">Дерево отрезков</a>: на указателях, динамическое, пересистентное.</li>
-<li><a href="http://sereja.me/a/treap">Декартово дерево</a>: явное, неявное, персистентое.</li>
-<li><a href="http://sereja.me/a/hashing">Полиномиальное хэширование</a> в задачах на строки</li>
-<li><a href="http://sereja.me/a/centroid">Центроидная декомпозиция</a></li>
-<li><a href="http://sereja.me/a/matroid">Матроиды</a>: алгоритм Радо-Эдмондса, расписания, паросочетания, линейная независимость</li>
-<li><a href="http://sereja.me/a/pollard">Ро-алгоритм Полларда</a></li>
-<li><a href="http://sereja.me/a/sparse-table">Sparse table</a></li>
-<li><a href="http://sereja.me/a/mincost-maxflow">Поток минимальной стоимости</a>: критерий оптимальности, потенциалы Джонсона, реализация за $O(mU)$</li>
-<li><a href="http://sereja.me/a/bitset">Битовое сжатие</a>: битсет, нахождение цикла длины 3, перемножение матриц, метод Гаусса</li>
-<li><a href="http://sereja.me/a/lca">Наименьший общий предок</a>: свойства tin и tout, двоичные подъемы, сведение к RMQ, алгоритм Фараха-Колтона и Бендера</li>
-<li><a href="http://sereja.me/a/bayans">Классные задачки</a>: пока что без решений</li>
+<li>Делать лэйблы не 0 и 1, а 0.1 и 0.9 или что-то близкое.</li>
+<li>Выкинуть нафиг эту KL-дивергенцию. Оказывается, она не сходится и может вызывать взрывающие / затухающие градиенты. Вместо неё можно использовать Earth Moving.</li>
+<li>Напрямую делать penalty на слишком большой или слишком маленький градиент.</li>
+<li>На каждую итерацию итератора несколько итераций дискриминатора.</li>
 </ul>
-<p>Не очень готово:</p>
-<ul>
-<li><a href="http://sereja.me/a/strings">Поиск строки в строке</a>: префикс-функция, z-функция</li>
-<li><a href="http://sereja.me/a/geometry">Геометрия</a>: скалярное и векторное произведение, пересечение прямых, классы в C++</li>
-<li><a href="http://sereja.me/a/dp_optimizations">Оптимизации ДП</a>: Кнут, разделяй-и-властвуй, Convex Hull Trick</li>
-<li><a href="http://sereja.me/a/fenwick">Дерево Фенвика</a>: устройство, многомерное дерево, бинпоиск по дереву</li>
-<li><a href="http://sereja.me/a/mst">Остовные деревья</a>: алгоритм Прима и Крускала</li>
-<li><a href="http://sereja.me/a/reciprocal">Обратное по модулю</a></li>
-<li><a href="http://sereja.me/a/annealing">Метод отжига</a></li>
-<li><a href="http://sereja.me/a/stress-test">Стресс-тестирование</a></li>
-<li>Подсчёт числа путей в дереве: метод переливаний, центроидная декомпозиция</li>
-</ul>
-<p>Вообще не готово:</p>
-<ul>
-<li><a href="http://sereja.me/a/true">Бор</a>: бор на указателях, суффиксные ссылки, алгоритм Ахо-Корасик</li>
-<li><a href="http://sereja.me/a/linalg">Линейная алгебра</a>: линейные операторы, матрицы, применения к динамике, метод Гаусса</li>
-<li><a href="http://sereja.me/a/probability">Теорвер</a>: </li>
-<li>Выпуклые оболочки</li>
-<li>Разделяй-и-властвуй</li>
-<li>Теория информации</li>
-</ul>
-<p>Спасибо Косте Амеличеву, Глебу Лобанову, Ване Клигунову, Диме Дубровину, Маше Тряпицыной, Саше Мамаеву, Андрею Гаркавому, Тёме Рябову, Андрею Чулкову, Максу Деб Натху и много кому ещё за фидбэк и указания на ошибки и неточности.</p>
 
 </div>
 </div>

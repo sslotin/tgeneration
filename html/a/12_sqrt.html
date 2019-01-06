@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>index</title>
+<title>12_sqrt</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13116,43 +13116,321 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;">&#182;</a></h1><p>Стараюсь писать только про то, чего нет в интернете в нормальном виде. Либо про то, что мне очень сложно давалось, когда я был в школе.</p>
-<p>Более-менее готово:</p>
-<ul>
-<li><a href="http://sereja.me/a/segtree">Дерево отрезков</a>: на указателях, динамическое, пересистентное.</li>
-<li><a href="http://sereja.me/a/treap">Декартово дерево</a>: явное, неявное, персистентое.</li>
-<li><a href="http://sereja.me/a/hashing">Полиномиальное хэширование</a> в задачах на строки</li>
-<li><a href="http://sereja.me/a/centroid">Центроидная декомпозиция</a></li>
-<li><a href="http://sereja.me/a/matroid">Матроиды</a>: алгоритм Радо-Эдмондса, расписания, паросочетания, линейная независимость</li>
-<li><a href="http://sereja.me/a/pollard">Ро-алгоритм Полларда</a></li>
-<li><a href="http://sereja.me/a/sparse-table">Sparse table</a></li>
-<li><a href="http://sereja.me/a/mincost-maxflow">Поток минимальной стоимости</a>: критерий оптимальности, потенциалы Джонсона, реализация за $O(mU)$</li>
-<li><a href="http://sereja.me/a/bitset">Битовое сжатие</a>: битсет, нахождение цикла длины 3, перемножение матриц, метод Гаусса</li>
-<li><a href="http://sereja.me/a/lca">Наименьший общий предок</a>: свойства tin и tout, двоичные подъемы, сведение к RMQ, алгоритм Фараха-Колтона и Бендера</li>
-<li><a href="http://sereja.me/a/bayans">Классные задачки</a>: пока что без решений</li>
-</ul>
-<p>Не очень готово:</p>
-<ul>
-<li><a href="http://sereja.me/a/strings">Поиск строки в строке</a>: префикс-функция, z-функция</li>
-<li><a href="http://sereja.me/a/geometry">Геометрия</a>: скалярное и векторное произведение, пересечение прямых, классы в C++</li>
-<li><a href="http://sereja.me/a/dp_optimizations">Оптимизации ДП</a>: Кнут, разделяй-и-властвуй, Convex Hull Trick</li>
-<li><a href="http://sereja.me/a/fenwick">Дерево Фенвика</a>: устройство, многомерное дерево, бинпоиск по дереву</li>
-<li><a href="http://sereja.me/a/mst">Остовные деревья</a>: алгоритм Прима и Крускала</li>
-<li><a href="http://sereja.me/a/reciprocal">Обратное по модулю</a></li>
-<li><a href="http://sereja.me/a/annealing">Метод отжига</a></li>
-<li><a href="http://sereja.me/a/stress-test">Стресс-тестирование</a></li>
-<li>Подсчёт числа путей в дереве: метод переливаний, центроидная декомпозиция</li>
-</ul>
-<p>Вообще не готово:</p>
-<ul>
-<li><a href="http://sereja.me/a/true">Бор</a>: бор на указателях, суффиксные ссылки, алгоритм Ахо-Корасик</li>
-<li><a href="http://sereja.me/a/linalg">Линейная алгебра</a>: линейные операторы, матрицы, применения к динамике, метод Гаусса</li>
-<li><a href="http://sereja.me/a/probability">Теорвер</a>: </li>
-<li>Выпуклые оболочки</li>
-<li>Разделяй-и-властвуй</li>
-<li>Теория информации</li>
-</ul>
-<p>Спасибо Косте Амеличеву, Глебу Лобанову, Ване Клигунову, Диме Дубровину, Маше Тряпицыной, Саше Мамаеву, Андрею Гаркавому, Тёме Рябову, Андрею Чулкову, Максу Деб Натху и много кому ещё за фидбэк и указания на ошибки и неточности.</p>
+<h1 id="&#1050;&#1086;&#1088;&#1085;&#1077;&#1074;&#1099;&#1077;-&#1101;&#1074;&#1088;&#1080;&#1089;&#1090;&#1080;&#1082;&#1080;">&#1050;&#1086;&#1088;&#1085;&#1077;&#1074;&#1099;&#1077; &#1101;&#1074;&#1088;&#1080;&#1089;&#1090;&#1080;&#1082;&#1080;<a class="anchor-link" href="#&#1050;&#1086;&#1088;&#1085;&#1077;&#1074;&#1099;&#1077;-&#1101;&#1074;&#1088;&#1080;&#1089;&#1090;&#1080;&#1082;&#1080;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Для начала вспомним, что такое структура:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">struct</span> <span class="n">pair</span><span class="p">{</span>
+    <span class="nb">int</span> <span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">;</span>
+<span class="p">};</span>
+  
+<span class="n">pair</span> <span class="n">a</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="o">.</span><span class="n">first</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="o">.</span><span class="n">second</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1050;&#1086;&#1088;&#1085;&#1077;&#1074;&#1072;&#1103;-&#1085;&#1072;-&#1084;&#1072;&#1089;&#1089;&#1080;&#1074;&#1077;">&#1050;&#1086;&#1088;&#1085;&#1077;&#1074;&#1072;&#1103; &#1085;&#1072; &#1084;&#1072;&#1089;&#1089;&#1080;&#1074;&#1077;<a class="anchor-link" href="#&#1050;&#1086;&#1088;&#1085;&#1077;&#1074;&#1072;&#1103;-&#1085;&#1072;-&#1084;&#1072;&#1089;&#1089;&#1080;&#1074;&#1077;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1095;&#1072;-RSQ">&#1047;&#1072;&#1076;&#1072;&#1095;&#1072; RSQ<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1095;&#1072;-RSQ">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Напомним вам данную задачу: дан массив $a$ длины $N$, также дано $M$ запросов одного из двух типов:</p>
+<p>1) Находить сумму на отрезке с $l$ по $r$.</p>
+<p>2) Увеличивать все элементы на отрезке с $l$ по $r$ на $x$.</p>
+<p>Вы наверняка все умеете решать данную задачу с помощью дерева отрезков, давайте теперь научимся ее решать при помощи корневой декомпозиции.</p>
+<p>Давайте разделим весь массив на блоки по $\sqrt{N}$ и посчитаем сумму на каждом блоке. Так как блоков не больше $\frac{N}{\sqrt{N}} = \sqrt{N}$, то суммарно это работает за $\sqrt{N} ^2 = N$.</p>
+<p>Теперь поймем, как отвечать на запросы:</p>
+<p>1) Если блок целиком лежит в запросе, то просто возьмем сумму на нем, иначе все его элементы, которые лежат в запросе прибавим к полученному ответу.</p>
+<p>2) Для блоков, целиком лежащих в запросе, просто прибавим к блоку $x * \sqrt{N}$  и запомним, что все элементы увеличины на $x$. Для оставшихся же элементов явно прибавим к ним и к ответу для их блока $x$.</p>
+<p>Так как корень - функция вещественная, а также разделить ровно на $\sqrt{N}$ блоков может быть нельзя, то давайте брать число, близкое к корню, например при $N$ = 100000, как размер блока можно взять 320, так как 320 * 320 &gt;= 100000</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">struct</span> <span class="n">block</span> <span class="p">{</span>
+    <span class="nb">int</span> <span class="nb">sum</span><span class="p">,</span> <span class="n">add</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="nb">int</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">320</span><span class="p">;</span>
+<span class="n">block</span> <span class="n">dec</span><span class="p">[</span><span class="n">s</span><span class="p">];</span>
+<span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">dec</span><span class="p">[</span><span class="n">i</span> <span class="o">/</span> <span class="n">s</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span> <span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="k">while</span><span class="p">(</span><span class="n">l</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">l</span> <span class="o">%</span> <span class="n">s</span> <span class="o">||</span> <span class="n">l</span> <span class="o">+</span> <span class="n">s</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&gt;=</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">ans</span> <span class="o">+=</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">+</span> <span class="n">dec</span><span class="p">[</span><span class="n">l</span> <span class="o">/</span> <span class="n">s</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">);</span>
+        <span class="n">l</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span><span class="p">{</span>
+        <span class="n">ans</span> <span class="o">+=</span> <span class="n">dec</span><span class="p">[</span><span class="n">l</span> <span class="o">/</span> <span class="n">s</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">;</span>
+        <span class="n">l</span> <span class="o">+=</span> <span class="n">s</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Оценим асимптотику этого алгоритма. Так как массив состоит из не более, чем $\sqrt{N}$ блоков и могут быть максимум два блока, не входящих в запрос полностью(слева и справа), то алгоритм работает за $O(M * \sqrt{N})$, где $M$ - число запросов, а $N$ - длина массива.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#1050;&#1086;&#1088;&#1085;&#1077;&#1074;&#1072;&#1103;-&#1085;&#1072;-&#1079;&#1072;&#1087;&#1088;&#1086;&#1089;&#1072;&#1093;">&#1050;&#1086;&#1088;&#1085;&#1077;&#1074;&#1072;&#1103; &#1085;&#1072; &#1079;&#1072;&#1087;&#1088;&#1086;&#1089;&#1072;&#1093;<a class="anchor-link" href="#&#1050;&#1086;&#1088;&#1085;&#1077;&#1074;&#1072;&#1103;-&#1085;&#1072;-&#1079;&#1072;&#1087;&#1088;&#1086;&#1089;&#1072;&#1093;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Давайте теперь разбивать на сам массив, а запросы к нему. Например, у нас есть такая структура, как префиксные суммы, которая позволяет находить сумму на отрезке за $O(1)$ без запросов обновления, мы можем честно пересчитывать ее каждый $\sqrt{M}$ запросов.</p>
+<p>Теперь поговорим о самих запросах:</p>
+<p>Так как мы пересчитываем префиксные суммы каждые $\sqrt{M}$ запросов, то мы не рассмотрели все запросы, лежащие после предыдущего обновления, таких запросов не может быть больше $\sqrt{M}$, то есть мы можем явно хранить список еще не обработанных запросов.</p>
+<p>Тогда если мы встречаем запрос обновления, то просто добавим его в список, требующий обновления.</p>
+<p>В случае запроса суммы просто возьмем ответ с помощью префиксных сумм и прибавим ответы на запросы.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">struct</span> <span class="n">q</span> <span class="p">{</span>
+    <span class="nb">int</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">x</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="nb">int</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">320</span><span class="p">;</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="n">q</span><span class="o">&gt;</span> <span class="n">was</span><span class="p">;</span>
+<span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="n">s</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">//</span><span class="n">пересчитываем</span> <span class="n">префиксную</span> <span class="n">сумму</span>
+        <span class="n">was</span><span class="o">.</span><span class="n">clear</span><span class="p">();</span>
+    <span class="p">}</span>
+		<span class="nb">int</span> <span class="n">t</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">x</span><span class="p">;</span>
+		<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">t</span> <span class="o">&gt;&gt;</span> <span class="n">l</span> <span class="o">&gt;&gt;</span> <span class="n">r</span><span class="p">;</span>
+		<span class="k">if</span><span class="p">(</span><span class="n">t</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span> <span class="o">//</span><span class="n">запрос</span> <span class="n">суммы</span>
+        <span class="nb">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="n">pi</span><span class="p">[</span><span class="n">r</span><span class="p">]</span> <span class="o">-</span> <span class="n">pi</span><span class="p">[</span><span class="n">l</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+        <span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">was</span><span class="o">.</span><span class="n">size</span><span class="p">();</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">ans</span> <span class="o">+=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">was</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="o">-</span> <span class="nb">max</span><span class="p">(</span><span class="n">was</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">l</span><span class="p">,</span> <span class="n">l</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">was</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">x</span><span class="p">;</span>
+        <span class="p">}</span>
+		<span class="p">}</span>
+		<span class="k">else</span> <span class="p">{</span> <span class="o">//</span><span class="n">запрос</span> <span class="n">обновления</span>
+         <span class="n">was</span><span class="o">.</span><span class="n">push_back</span><span class="p">({</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">x</span><span class="p">});</span>
+		<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Так как в один запрос он может быть не более $\sqrt{M}$ неотвеченных запросов и каждые $\sqrt{M}$ мы пересчитываем наши префиксные суммы, то алгоритм работает за $O(N * \sqrt{M} + M * \sqrt{M})$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;-&#1052;&#1086;">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084; &#1052;&#1086;<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;-&#1052;&#1086;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Теперь обсудим еще одно решение этой же задачи. Допустим, что все запросы даны нам заранее и запросов обновления нет. Для каждого запроса закинем его в блок, где лежит его левая граница:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s_dec</span><span class="p">[</span><span class="n">l</span> <span class="o">/</span> <span class="n">s</span><span class="p">]</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">push_back</span><span class="p">({</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">});</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Затем внутри каждого блока отсортируем запросы по правой границе. Теперь давайте пройдемся по каждому блоку, поддерживая текущий отрезок, на который мы знаем ответ. И если текущий отрезок равен отрезку из запроса запоминать его, как ответ.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">struct</span> <span class="n">q</span> <span class="p">{</span>
+    <span class="nb">int</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">index</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">struct</span> <span class="n">block</span> <span class="p">{</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">q</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">q</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">s_dec</span><span class="p">[</span><span class="n">l</span> <span class="o">/</span> <span class="n">s</span><span class="p">]</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">push_back</span><span class="p">({</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">i</span><span class="p">});</span>
+<span class="p">}</span>
+
+<span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">sort</span><span class="p">(</span><span class="nb">all</span><span class="p">(</span><span class="n">s_dec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">a</span><span class="p">),</span> <span class="n">comp</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">int</span> <span class="n">l</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">s</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">s</span><span class="p">;</span>
+    <span class="nb">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">s_dec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">size</span><span class="p">();</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">int</span> <span class="n">tl</span> <span class="o">=</span> <span class="n">s_dec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">l</span><span class="p">,</span> <span class="n">tr</span> <span class="o">=</span> <span class="n">s_dec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">r</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">r</span> <span class="o">&gt;</span> <span class="n">tr</span><span class="p">){</span>
+            <span class="n">r</span><span class="err">—</span><span class="p">;</span>
+            <span class="n">ans</span> <span class="o">-=</span> <span class="n">a</span><span class="p">[</span><span class="n">r</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">r</span> <span class="o">&lt;</span> <span class="n">tr</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">ans</span> <span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">r</span><span class="p">];</span>
+            <span class="n">r</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">l</span> <span class="o">&gt;</span> <span class="n">tl</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">l</span><span class="o">--</span><span class="p">;</span>
+            <span class="n">ans</span> <span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">l</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">l</span> <span class="o">&lt;</span> <span class="n">tl</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">ans</span> <span class="o">-=</span> <span class="n">a</span><span class="p">[</span><span class="n">l</span><span class="p">];</span>
+            <span class="n">l</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">answ</span><span class="p">[</span><span class="n">s_dec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">ans</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Подумаем над асимптотикой данного алгоритма, для каждого запроса левая граница пройдет не более, чем длину блока, но при этом правая граница идет только вперед, а следовательно для одного блока пройдет не более, чем длину массива, то есть суммарно алгоритм работает за $O(N*\sqrt(M) + M*\sqrt(N))$.</p>
+<p>Но зачем для такой легкой задачи использовать такой сложный алгоритм? Алгоритм Мо может помочь нам в ответе на гораздо более сложные вопросы - k-ая статистика на отрезке, медиана отрезка, наиболее встречающийся элемент на отрезке и так далее.</p>
+<h3 id="&#1055;&#1088;&#1072;&#1082;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077;-&#1079;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1055;&#1088;&#1072;&#1082;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077; &#1079;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1055;&#1088;&#1072;&#1082;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077;-&#1079;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p><a href="https://codeforces.com/problemset/problem/840/D?locale=ru">https://codeforces.com/problemset/problem/840/D?locale=ru</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#1044;&#1077;&#1083;&#1077;&#1085;&#1080;&#1077;-&#1085;&#1072;-&#1090;&#1103;&#1078;&#1077;&#1083;&#1099;&#1077;-&#1080;-&#1083;&#1077;&#1075;&#1082;&#1080;&#1077;-&#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1099;">&#1044;&#1077;&#1083;&#1077;&#1085;&#1080;&#1077; &#1085;&#1072; &#1090;&#1103;&#1078;&#1077;&#1083;&#1099;&#1077; &#1080; &#1083;&#1077;&#1075;&#1082;&#1080;&#1077; &#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1099;<a class="anchor-link" href="#&#1044;&#1077;&#1083;&#1077;&#1085;&#1080;&#1077;-&#1085;&#1072;-&#1090;&#1103;&#1078;&#1077;&#1083;&#1099;&#1077;-&#1080;-&#1083;&#1077;&#1075;&#1082;&#1080;&#1077;-&#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1099;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>В математике очень часто встречается идея рассмотреть все объекты с каким-то свойством &lt; $\sqrt{N}$ и больше.</p>
+<p>Например всем известный алгоритм проверки на простоту чисел(рассмотрим делители &lt; $\sqrt{N}$ и больше, но так как для любого делителя больше корня можно найти делитель меньше корня =&gt; нам надо честно рассмотреть только первые) или например факт, что если суммарная длина строк = $N$, то различных длин строк будет не более $\sqrt{N}$ или если вы увидели ограничение $A * B &lt;= N$, то одно из чисел &lt; $\sqrt{N}$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1055;&#1088;&#1072;&#1082;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077;-&#1079;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1055;&#1088;&#1072;&#1082;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077; &#1079;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1055;&#1088;&#1072;&#1082;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077;-&#1079;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p><a href="https://codeforces.com/group/5xexwZ9WG5/contest/792/problem/E">https://codeforces.com/group/5xexwZ9WG5/contest/792/problem/E</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#1055;&#1086;&#1076;&#1073;&#1086;&#1088;-&#1082;&#1086;&#1085;&#1089;&#1090;&#1072;&#1085;&#1090;&#1099;">&#1055;&#1086;&#1076;&#1073;&#1086;&#1088; &#1082;&#1086;&#1085;&#1089;&#1090;&#1072;&#1085;&#1090;&#1099;<a class="anchor-link" href="#&#1055;&#1086;&#1076;&#1073;&#1086;&#1088;-&#1082;&#1086;&#1085;&#1089;&#1090;&#1072;&#1085;&#1090;&#1099;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>В корневой декомпозиции очень важен размер блока. Обычно брать s = $\sqrt{N}$ или близкое к ней число(желательно, чтобы делилось на максимально возможную степень двойки) оптимально, но сейчас мы поговорим об особых случаях. Пусть s - размер блока и мы знаем, что алгоритм работает за $O(N * s + \frac{N ^ 2 * \log(N)}{ s})$, тогда если взять s = $\sqrt{N} * 4$, то алгоритм будет работать быстрее, чем при s = $\sqrt{N}$, то есть при определении размера блока первым делом надо смотреть на асимптотику.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1050;&#1086;&#1085;&#1090;&#1077;&#1089;&#1090;">&#1050;&#1086;&#1085;&#1090;&#1077;&#1089;&#1090;<a class="anchor-link" href="#&#1050;&#1086;&#1085;&#1090;&#1077;&#1089;&#1090;">&#182;</a></h3><p><a href="https://informatics.msk.ru/moodle/mod/statements/view.php?id=33473#1">https://informatics.msk.ru/moodle/mod/statements/view.php?id=33473#1</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1050;&#1086;&#1088;&#1079;&#1080;&#1085;&#1099;">&#1050;&#1086;&#1088;&#1079;&#1080;&#1085;&#1099;<a class="anchor-link" href="#&#1050;&#1086;&#1088;&#1079;&#1080;&#1085;&#1099;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Оптимизация заключается в объеденении двух подходов. Теперь мы не просто делим массив на блоки, но еще и каждый корень запросов, пересчитываем блоки, это может быть полезно, если вы нам нужно вставлять/удалять из произвольного места в массиве и вычислять что-то на отрезках.</p>
 
 </div>
 </div>

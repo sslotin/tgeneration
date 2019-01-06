@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>index</title>
+<title>7_rnns</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13116,46 +13116,704 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;">&#182;</a></h1><p>Стараюсь писать только про то, чего нет в интернете в нормальном виде. Либо про то, что мне очень сложно давалось, когда я был в школе.</p>
-<p>Более-менее готово:</p>
-<ul>
-<li><a href="http://sereja.me/a/segtree">Дерево отрезков</a>: на указателях, динамическое, пересистентное.</li>
-<li><a href="http://sereja.me/a/treap">Декартово дерево</a>: явное, неявное, персистентое.</li>
-<li><a href="http://sereja.me/a/hashing">Полиномиальное хэширование</a> в задачах на строки</li>
-<li><a href="http://sereja.me/a/centroid">Центроидная декомпозиция</a></li>
-<li><a href="http://sereja.me/a/matroid">Матроиды</a>: алгоритм Радо-Эдмондса, расписания, паросочетания, линейная независимость</li>
-<li><a href="http://sereja.me/a/pollard">Ро-алгоритм Полларда</a></li>
-<li><a href="http://sereja.me/a/sparse-table">Sparse table</a></li>
-<li><a href="http://sereja.me/a/mincost-maxflow">Поток минимальной стоимости</a>: критерий оптимальности, потенциалы Джонсона, реализация за $O(mU)$</li>
-<li><a href="http://sereja.me/a/bitset">Битовое сжатие</a>: битсет, нахождение цикла длины 3, перемножение матриц, метод Гаусса</li>
-<li><a href="http://sereja.me/a/lca">Наименьший общий предок</a>: свойства tin и tout, двоичные подъемы, сведение к RMQ, алгоритм Фараха-Колтона и Бендера</li>
-<li><a href="http://sereja.me/a/bayans">Классные задачки</a>: пока что без решений</li>
-</ul>
-<p>Не очень готово:</p>
-<ul>
-<li><a href="http://sereja.me/a/strings">Поиск строки в строке</a>: префикс-функция, z-функция</li>
-<li><a href="http://sereja.me/a/geometry">Геометрия</a>: скалярное и векторное произведение, пересечение прямых, классы в C++</li>
-<li><a href="http://sereja.me/a/dp_optimizations">Оптимизации ДП</a>: Кнут, разделяй-и-властвуй, Convex Hull Trick</li>
-<li><a href="http://sereja.me/a/fenwick">Дерево Фенвика</a>: устройство, многомерное дерево, бинпоиск по дереву</li>
-<li><a href="http://sereja.me/a/mst">Остовные деревья</a>: алгоритм Прима и Крускала</li>
-<li><a href="http://sereja.me/a/reciprocal">Обратное по модулю</a></li>
-<li><a href="http://sereja.me/a/annealing">Метод отжига</a></li>
-<li><a href="http://sereja.me/a/stress-test">Стресс-тестирование</a></li>
-<li>Подсчёт числа путей в дереве: метод переливаний, центроидная декомпозиция</li>
-</ul>
-<p>Вообще не готово:</p>
-<ul>
-<li><a href="http://sereja.me/a/true">Бор</a>: бор на указателях, суффиксные ссылки, алгоритм Ахо-Корасик</li>
-<li><a href="http://sereja.me/a/linalg">Линейная алгебра</a>: линейные операторы, матрицы, применения к динамике, метод Гаусса</li>
-<li><a href="http://sereja.me/a/probability">Теорвер</a>: </li>
-<li>Выпуклые оболочки</li>
-<li>Разделяй-и-властвуй</li>
-<li>Теория информации</li>
-</ul>
-<p>Спасибо Косте Амеличеву, Глебу Лобанову, Ване Клигунову, Диме Дубровину, Маше Тряпицыной, Саше Мамаеву, Андрею Гаркавому, Тёме Рябову, Андрею Чулкову, Максу Деб Натху и много кому ещё за фидбэк и указания на ошибки и неточности.</p>
+<h1 id="&#1055;&#1086;&#1089;&#1083;&#1077;&#1076;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1077;-&#1076;&#1072;&#1085;&#1085;&#1099;&#1077;">&#1055;&#1086;&#1089;&#1083;&#1077;&#1076;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1077; &#1076;&#1072;&#1085;&#1085;&#1099;&#1077;<a class="anchor-link" href="#&#1055;&#1086;&#1089;&#1083;&#1077;&#1076;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1077;-&#1076;&#1072;&#1085;&#1085;&#1099;&#1077;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Для анализа последовательных данных — звука, музыки, текста, температуры в Мюнхене, изменения цены биткоина, спортивной статистики, шахматных ходов, состояний игры в Доте — используются свои архитектуры, использующие «память» для обработки данных произвольной длины.</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1056;&#1077;&#1082;&#1091;&#1088;&#1088;&#1077;&#1085;&#1090;&#1085;&#1099;&#1077;-&#1089;&#1077;&#1090;&#1080;">&#1056;&#1077;&#1082;&#1091;&#1088;&#1088;&#1077;&#1085;&#1090;&#1085;&#1099;&#1077; &#1089;&#1077;&#1090;&#1080;<a class="anchor-link" href="#&#1056;&#1077;&#1082;&#1091;&#1088;&#1088;&#1077;&#1085;&#1090;&#1085;&#1099;&#1077;-&#1089;&#1077;&#1090;&#1080;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Пусть у нас есть какая-нибудь функция от двух векторных аргументов $f(x, h)$ (нейросеть с trainable параметрами — тоже как бы функция) и какая-нибудь последовательость входных данных $\{x_1, x_2, \ldots, x_n\}$.</p>
+<p>Получим последовательность $\{h_1, h_2, \ldots, h_n\}$ по следующему правилу: $ h_t = f(x_i, h_{t-1}) $ ($h_0$ предполагаем чем-нибудь изначально инициализированным). Все осталньые $h_i$ будут потом использоваться для чего-то полезного.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Когда мы это всё развернем, на самом деле получится обычный статический вычислительный граф, выходом которого будет $n$ скрытых состояний.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://i.stack.imgur.com/hzZ4m.png" alt="RNN"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Подобные архитектуры и называют рекуррентными сетями.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#171;&#1047;&#1072;&#1090;&#1091;&#1093;&#1072;&#1102;&#1097;&#1080;&#1081;-&#1075;&#1088;&#1072;&#1076;&#1080;&#1077;&#1085;&#1090;&#187;">&#171;&#1047;&#1072;&#1090;&#1091;&#1093;&#1072;&#1102;&#1097;&#1080;&#1081; &#1075;&#1088;&#1072;&#1076;&#1080;&#1077;&#1085;&#1090;&#187;<a class="anchor-link" href="#&#171;&#1047;&#1072;&#1090;&#1091;&#1093;&#1072;&#1102;&#1097;&#1080;&#1081;-&#1075;&#1088;&#1072;&#1076;&#1080;&#1077;&#1085;&#1090;&#187;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>В чём проблема</strong>. Мы знаем, что глубокие сети очень трудно обучать. Рекуррентная сеть по сути не отличается от очень глубокой статичной сети, данные которой вставляются в разные уровни глубины. С такой архитектурой будет очень трудно уловить связь, например, между данными на начале последовательности и целевой функцией.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>LSTM</strong>. Чтобы с этим побороться, придумали различные механизмы памяти.</p>
+<p>Представьте конвейерную ленту, которая движется вдоль наших последовательных данных. Информация с данных может запрыгивать на ленту, проезжать вперед и спрыгивать оттуда, когда она понадобится. LSTM (long-short term memory) — это тот блок, который решает, какой информации нужно запрыгнуть. Он позволяет сохранять информацию для более позднего времени, когда она понадобится.</p>
+<p>Он состоит из нескольких «гейтов», каждый из которых представляет собой trainable матрицу, которые решают, что можно забыть, что можно добавить, и что сейчас в данный момент важно от входных данных. Эти гейты считают маски — вектора после softmax — на которые домножаются входные данные.</p>
+<p><img src="images/lstm.png" alt="lstm"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Эту LSTM-ячейку мы просто будем использовать в качестве $f$. Суть не изменилась: граф также разворачивается в статический, только более сложный.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*S0Y1A3KXYO7_eSug_KsK-Q.png" alt="LSTM"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#1069;&#1084;&#1073;&#1077;&#1076;&#1076;&#1080;&#1085;&#1075;&#1080;">&#1069;&#1084;&#1073;&#1077;&#1076;&#1076;&#1080;&#1085;&#1075;&#1080;<a class="anchor-link" href="#&#1069;&#1084;&#1073;&#1077;&#1076;&#1076;&#1080;&#1085;&#1075;&#1080;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Рассмотрим задачу классификации текстов по их темам (тематическое моделирование).</p>
+<p>Нейросети не берут на вход сырые текстовые данные, а работают с векторами. Как правило, текст разделяют (<em>токенизируют</em>) на мелкие куски (буквы, слова, отдельные слоги), а дальше каждый токен заменяется на one-hot вектор размерности словаря.</p>
+<p>Но что будет, если помножить one-hot вектор на матрицу? Получится просто какая-то строка матрицы. Вместо этой операции можно сразу вставить строку, соответствующую единичке. Эта концепция называется embedding — теперь каждому токену ассоциирован его вектор.</p>
+<p><strong>Word2vec</strong>. У этих векторов есть смысл и много применений. В них даже работает всякая алгебра типа «король - мужчина + женщина = королева». Синонимы должны иметь очень близкие вектора.</p>
+<p><img src="images/word2vec.png" alt="word2vec"></p>
+<p>Впрочем, геометрическая интерпретация пока не нашла особых применений.</p>
+<p>Зацените ещё эту игру: <a href="https://research.google.com/semantris">https://research.google.com/semantris</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>word2vec, glove, fasttext — это все эмбеддинги, только посчитанные разными алгоритмами на разных задачах.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#1055;&#1080;&#1096;&#1077;&#1084;-&#1082;&#1086;&#1076;">&#1055;&#1080;&#1096;&#1077;&#1084; &#1082;&#1086;&#1076;<a class="anchor-link" href="#&#1055;&#1080;&#1096;&#1077;&#1084;-&#1082;&#1086;&#1076;">&#182;</a></h1><p>Типичный пайплайн в NLP такой:</p>
+<ul>
+<li>Токенизировать данные</li>
+<li>Сконвертировать в вектора</li>
+<li>Написать модель и зафитить</li>
+<li>Сконвертировать обратно (если мы генерируем тоже текст)</li>
+</ul>
+<p>Только третий пункт относится к DL, остальное тоже нужно сделать, но не сейчас. В примере данные уже будут токенизированы за нас.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Есть такой сайт, как IMDB — пиндосский кинопоиск. На нём есть отзывы к фильмам, которые бывают положительные и отрицательные. Мы хотим научиться из классифицировать на эти два класса, не зная лейбл, а только сам текст отзыва.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras.preprocessing</span> <span class="k">import</span> <span class="n">sequence</span>
+<span class="kn">from</span> <span class="nn">keras.datasets</span> <span class="k">import</span> <span class="n">imdb</span>
+
+<span class="c1"># нужно как-то ограничить число токенов</span>
+<span class="c1"># редкие токены будут объединены в один токен &lt;unk&gt;</span>
+<span class="n">vocab_size</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">embedding_dim</span> <span class="o">=</span> <span class="mi">50</span> <span class="c1"># вектор этого размера будет ассоциирован с каждым </span>
+
+<span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">_</span> <span class="o">=</span> <span class="n">imdb</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">num_words</span><span class="o">=</span><span class="n">vocab_size</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Камень в сторону фреймворков, строящих статический вычислительный граф (Keras относится к ним): оно на практике реализовано так, как на первой картинке: просто все разворачивается в один длинный граф с расшаренными весами. Это дает такое ограничение: внутри батча все данные должны быть одной длины. Даже если у нас есть очень короткие предложения, их нужно дополнить специальными токенами до некоторой константы maxlen. Многие операции будут считаться впустую, но ничего с этим нам пока не поделать.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Подберем правильный maxlen:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+
+<span class="n">lens</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">]</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">lens</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">lens</span><span class="p">,</span> <span class="mi">90</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>467.0
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Можем выбрать в качестве этого параметра что-то около 500. Это покроет более 90% примеров, и это хороший trade-off между потерей информации и скоростью работы.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">maxlen</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">sequence</span><span class="o">.</span><span class="n">pad_sequences</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">maxlen</span><span class="o">=</span><span class="n">maxlen</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras.layers</span> <span class="k">import</span> <span class="n">LSTM</span><span class="p">,</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Embedding</span>
+<span class="kn">from</span> <span class="nn">keras.models</span> <span class="k">import</span> <span class="n">Sequential</span>
+
+<span class="n">RNN</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">Embedding</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">embedding_dim</span><span class="p">),</span> <span class="c1"># эта шняга тупо переводит int-ы соответствующие вектора</span>
+    <span class="n">LSTM</span><span class="p">(</span><span class="n">embedding_dim</span><span class="p">),</span> <span class="c1"># lstm, примененный к векторизованной последовательности</span>
+    <span class="c1"># вернет свое итоговое состояние</span>
+    <span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">RNN</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+embedding_1 (Embedding)      (None, None, 50)          500000    
+_________________________________________________________________
+lstm_2 (LSTM)                (None, 50)                20200     
+_________________________________________________________________
+dense_2 (Dense)              (None, 1)                 51        
+=================================================================
+Total params: 520,251
+Trainable params: 520,251
+Non-trainable params: 0
+_________________________________________________________________
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">RNN</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">])</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">RNN</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Train on 22500 samples, validate on 2500 samples
+Epoch 1/5
+22500/22500 [==============================] - 1585s - loss: 0.4982 - acc: 0.7549 - val_loss: 0.3985 - val_acc: 0.8244
+Epoch 2/5
+22500/22500 [==============================] - 1713s - loss: 0.2828 - acc: 0.8903 - val_loss: 0.3320 - val_acc: 0.8768
+Epoch 3/5
+22500/22500 [==============================] - 286s - loss: 0.2364 - acc: 0.9079 - val_loss: 0.3665 - val_acc: 0.8424
+Epoch 4/5
+22500/22500 [==============================] - 327s - loss: 0.2279 - acc: 0.9088 - val_loss: 0.4192 - val_acc: 0.8672
+Epoch 5/5
+22500/22500 [==============================] - 368s - loss: 0.1400 - acc: 0.9511 - val_loss: 0.4796 - val_acc: 0.7960
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Transfer-Learning">Transfer Learning<a class="anchor-link" href="#Transfer-Learning">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Если вы поизучали то, что вернул .summary(), то могли заметить, что большинство параметров — сами embedding-и, и в основном на их обучение уходит время.</p>
+<p>Так же как и с CNN, где мы «крали» веса с начальных слоев, здесь мы можем сделать то же самое, украв embedding-и у более основательно подошедших к этому людей.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Обычно эти шняги распространяют в формате «слово в unicode и 300 флоатов через пробел».</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;glove.vec&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="n">word</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">l</span><span class="p">[</span><span class="mi">1</span><span class="p">:]])</span>
+        <span class="n">embeddings</span> <span class="o">+=</span> <span class="p">[</span><span class="n">vec</span><span class="p">]</span>
+<span class="n">embeddings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">embeddings</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Теперь можно указать для слоя Embedding, откуда брать веса, через <code>weights=[embeddings]</code> и зафризить через trainable=False. Весь Transfer Learning делается примерно так. Правда, иногда не размораживают после какой-то эпохи.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#1057;&#1074;&#1105;&#1088;&#1090;&#1086;&#1095;&#1085;&#1099;&#1077;-&#1089;&#1077;&#1090;&#1080;-&#1076;&#1083;&#1103;-&#1087;&#1086;&#1089;&#1083;&#1077;&#1076;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086;&#1089;&#1090;&#1077;&#1081;">&#1057;&#1074;&#1105;&#1088;&#1090;&#1086;&#1095;&#1085;&#1099;&#1077; &#1089;&#1077;&#1090;&#1080; &#1076;&#1083;&#1103; &#1087;&#1086;&#1089;&#1083;&#1077;&#1076;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086;&#1089;&#1090;&#1077;&#1081;<a class="anchor-link" href="#&#1057;&#1074;&#1105;&#1088;&#1090;&#1086;&#1095;&#1085;&#1099;&#1077;-&#1089;&#1077;&#1090;&#1080;-&#1076;&#1083;&#1103;-&#1087;&#1086;&#1089;&#1083;&#1077;&#1076;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086;&#1089;&#1090;&#1077;&#1081;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Как бы мы обрабатываем последовательности произвольной длины, но и как бы нет. Можно фиксировать длину предложения и попробовать уже известные архитектуры.</p>
+<p>Для некоторых задач — например, распознования речи, — свёрточные сети могут быть даже лучше. Загуглите WaveNet.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras.layers</span> <span class="k">import</span> <span class="n">Conv1D</span><span class="p">,</span> <span class="n">MaxPooling1D</span><span class="p">,</span> <span class="n">GlobalMaxPooling1D</span><span class="p">,</span> <span class="n">Dropout</span>
+
+<span class="n">TextCNN</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">Embedding</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">embedding_dim</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="p">[</span><span class="n">embeddings</span><span class="p">],</span> <span class="n">input_length</span><span class="o">=</span><span class="n">maxlen</span><span class="p">,</span> <span class="n">trainable</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+    <span class="n">Conv1D</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">),</span>
+    <span class="n">MaxPooling1D</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+    <span class="n">Conv1D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">),</span>
+    <span class="n">GlobalMaxPooling1D</span><span class="p">(),</span>
+    <span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+    <span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">),</span>
+<span class="p">])</span>
+
+<span class="n">TextCNN</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+embedding_2 (Embedding)      (None, 500, 50)           500000    
+_________________________________________________________________
+conv1d_1 (Conv1D)            (None, 500, 32)           11232     
+_________________________________________________________________
+max_pooling1d_1 (MaxPooling1 (None, 250, 32)           0         
+_________________________________________________________________
+conv1d_2 (Conv1D)            (None, 250, 64)           14400     
+_________________________________________________________________
+global_max_pooling1d_1 (Glob (None, 64)                0         
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 64)                0         
+_________________________________________________________________
+dense_3 (Dense)              (None, 32)                2080      
+_________________________________________________________________
+dense_4 (Dense)              (None, 1)                 33        
+=================================================================
+Total params: 527,745
+Trainable params: 27,745
+Non-trainable params: 500,000
+_________________________________________________________________
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#1050;&#1072;&#1082;-&#1087;&#1088;&#1072;&#1074;&#1080;&#1083;&#1100;&#1085;&#1086;-&#1076;&#1077;&#1083;&#1072;&#1090;&#1100;-&#1090;&#1086;&#1082;&#1077;&#1085;&#1080;&#1079;&#1072;&#1094;&#1080;&#1102;">&#1050;&#1072;&#1082; &#1087;&#1088;&#1072;&#1074;&#1080;&#1083;&#1100;&#1085;&#1086; &#1076;&#1077;&#1083;&#1072;&#1090;&#1100; &#1090;&#1086;&#1082;&#1077;&#1085;&#1080;&#1079;&#1072;&#1094;&#1080;&#1102;<a class="anchor-link" href="#&#1050;&#1072;&#1082;-&#1087;&#1088;&#1072;&#1074;&#1080;&#1083;&#1100;&#1085;&#1086;-&#1076;&#1077;&#1083;&#1072;&#1090;&#1100;-&#1090;&#1086;&#1082;&#1077;&#1085;&#1080;&#1079;&#1072;&#1094;&#1080;&#1102;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Токенизация — это всегда головная боль. Её кодить не сложно, но муторно, и поэтому было написано дофига библиотек, которые это делают. В частности, какие-то токенизаторы есть и в Keras.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras.preprocessing.text</span> <span class="k">import</span> <span class="n">Tokenizer</span>
+
+<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="n">num_words</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">tokenizer</span><span class="o">.</span><span class="n">fit_on_texts</span><span class="p">(</span><span class="s1">&#39;гыгыгы&#39;</span><span class="p">)</span>
+<span class="n">tokenized</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">texts_to_sequences</span><span class="p">(</span><span class="s1">&#39;азаза&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
 </div>
     </div>
   </div>

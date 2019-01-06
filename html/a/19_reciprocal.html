@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>index</title>
+<title>19_reciprocal</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13116,43 +13116,187 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;">&#182;</a></h1><p>Стараюсь писать только про то, чего нет в интернете в нормальном виде. Либо про то, что мне очень сложно давалось, когда я был в школе.</p>
-<p>Более-менее готово:</p>
+<h1 id="&#1054;&#1073;&#1088;&#1072;&#1090;&#1085;&#1099;&#1081;-&#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090;-&#1087;&#1086;-&#1084;&#1086;&#1076;&#1091;&#1083;&#1102;">&#1054;&#1073;&#1088;&#1072;&#1090;&#1085;&#1099;&#1081; &#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090; &#1087;&#1086; &#1084;&#1086;&#1076;&#1091;&#1083;&#1102;<a class="anchor-link" href="#&#1054;&#1073;&#1088;&#1072;&#1090;&#1085;&#1099;&#1081;-&#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090;-&#1087;&#1086;-&#1084;&#1086;&#1076;&#1091;&#1083;&#1102;">&#182;</a></h1><p>Часто в задачах требуется посчитать что-то по простому модулю (чаще всего $10^9 + 7$). Это делают для того, чтобы участникам не приходилось использовать длинную арифметику, и они могли сосредоточиться на самой задаче.</p>
+<p>Обычные арифметические операции выполняются не сильно сложнее — просто нужно брать модули и заботиться о переполнении. Например:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">%</span> <span class="n">mod</span><span class="p">;</span>
+<span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="n">mod</span> <span class="o">+</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">%</span> <span class="n">mod</span><span class="p">;</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">%</span> <span class="n">mod</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Но вот с делением возникают проблемы — мы не можем просто взять и поделить. Пример: $\frac{8}{2} = 4$, но $\frac{8 \% 5 = 3}{2 \% 5 = 2} \neq 4$.</p>
+<p>Нужно найти некоторый элемент, который будет себя вести как $\frac{1}{a} = a^{-1}$, и вместо «деления» домножать на него. Назовем такой элемент обратным.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1057;&#1087;&#1086;&#1089;&#1086;&#1073;-1:-&#1073;&#1080;&#1085;&#1072;&#1088;&#1085;&#1086;&#1077;-&#1074;&#1086;&#1079;&#1074;&#1077;&#1076;&#1077;&#1085;&#1080;&#1077;-&#1074;-&#1089;&#1090;&#1077;&#1087;&#1077;&#1085;&#1100;">&#1057;&#1087;&#1086;&#1089;&#1086;&#1073; 1: &#1073;&#1080;&#1085;&#1072;&#1088;&#1085;&#1086;&#1077; &#1074;&#1086;&#1079;&#1074;&#1077;&#1076;&#1077;&#1085;&#1080;&#1077; &#1074; &#1089;&#1090;&#1077;&#1087;&#1077;&#1085;&#1100;<a class="anchor-link" href="#&#1057;&#1087;&#1086;&#1089;&#1086;&#1073;-1:-&#1073;&#1080;&#1085;&#1072;&#1088;&#1085;&#1086;&#1077;-&#1074;&#1086;&#1079;&#1074;&#1077;&#1076;&#1077;&#1085;&#1080;&#1077;-&#1074;-&#1089;&#1090;&#1077;&#1087;&#1077;&#1085;&#1100;">&#182;</a></h2><p>Если модуль $p$ простой, то решением будет $a^{-1} \equiv a^{p-2}$. Это следует из малой теоремы Ферма:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Теорема.</strong> $a^p \equiv a \pmod p$ для всех $a$, не делящихся на $p$.</p>
+<p><strong>Доказательство</strong>. (для понимания несущественно, можно пропустить)</p>
+$$
+\begin{align}
+a^p &amp;= (\underbrace{1+1+\ldots+1+1}_\text{$a$ раз})^p
+\\  &amp;= \sum_{x_1+x_2+\ldots+x_a = p} P(x_1, x_2, \ldots, x_a) &amp; \text{(раскладываем по определению)}
+\\  &amp;= \sum_{x_1+x_2+\ldots+x_a = p} \frac{p!}{x_1! x_2! \ldots x_a!} &amp; \text{(какие слагаемые не делятся на $p$?)}
+\\  &amp;\equiv P(p, 0, \ldots, 0) + \ldots + P(0, 0, \ldots, p) &amp; \text{(все остальные не убьют $p$ в знаменателе)}
+\\  &amp;= a
+\end{align}
+$$<p>Здесь $P(x_1, x_2, \ldots, x_n) = \frac{k}{\prod (x_i!)}$ это мультиномиальный коеффициент — количество раз, которое элемент $a_1^{x_1} a_2^{x_2} \ldots a_n^{x_n}$ появится при раскрытии скобки $(a_1 + a_2 + \ldots + a_n)^k$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Теперь два раза «поделим» наш результат на $a$.</p>
+$$ a^p \equiv a \implies a^{p-1} \equiv 1 \implies a^{p-2} \equiv a^{-1} $$<p>Получается, что $a^{p-2}$ ведет себя как $a^{-1}$, что нам по сути и нужно.
+Посчитать $a^{p-2}$ можно за $O(\log p)$ бинарным возведением в степень.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Приведем код, который позволяет считает $C_n^k$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">int</span> <span class="n">t</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span> <span class="o">//</span> <span class="n">факториалы</span><span class="p">,</span> <span class="n">можно</span> <span class="n">предподситать</span> <span class="n">простым</span> <span class="n">циклом</span>
+
+<span class="o">//</span> <span class="n">бинарное</span> <span class="n">возведение</span> <span class="n">в</span> <span class="n">степень</span>
+<span class="nb">int</span> <span class="n">bp</span> <span class="p">(</span><span class="nb">int</span> <span class="n">a</span><span class="p">,</span> <span class="nb">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">int</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">)</span> <span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">*</span> <span class="n">a</span> <span class="o">%</span> <span class="n">mod</span><span class="p">;</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">a</span> <span class="o">%</span> <span class="n">mod</span><span class="p">;</span>
+        <span class="n">n</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">находит</span> <span class="n">обратный</span> <span class="n">элемент</span> <span class="n">как</span> <span class="n">a</span><span class="o">^</span><span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">int</span> <span class="n">inv</span> <span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">bp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mod</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nb">int</span> <span class="n">c</span> <span class="p">(</span><span class="nb">int</span> <span class="n">n</span><span class="p">,</span> <span class="nb">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">t</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">*</span> <span class="n">inv</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="o">%</span> <span class="n">mod</span> <span class="o">*</span> <span class="n">inv</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">])</span> <span class="o">%</span> <span class="n">mod</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1057;&#1087;&#1086;&#1089;&#1086;&#1073;-2:-&#1076;&#1080;&#1086;&#1092;&#1072;&#1085;&#1090;&#1086;&#1074;&#1086;-&#1091;&#1088;&#1072;&#1074;&#1085;&#1077;&#1085;&#1080;&#1077;">&#1057;&#1087;&#1086;&#1089;&#1086;&#1073; 2: &#1076;&#1080;&#1086;&#1092;&#1072;&#1085;&#1090;&#1086;&#1074;&#1086; &#1091;&#1088;&#1072;&#1074;&#1085;&#1077;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1057;&#1087;&#1086;&#1089;&#1086;&#1073;-2:-&#1076;&#1080;&#1086;&#1092;&#1072;&#1085;&#1090;&#1086;&#1074;&#1086;-&#1091;&#1088;&#1072;&#1074;&#1085;&#1077;&#1085;&#1080;&#1077;">&#182;</a></h2><p>Диофантовыми уравнениями называют такие штуки:</p>
+$$ ax + by = 1 $$<p>Требуется решить их в целых числах, то есть $a$ и $b$ известны, и нужно найти такие целые (возможно, отрицательные) $x$ и $y$, чтобы равенство выполнялось. Решают такие вещи расширенным алгоритмом Евклида. TODO: описать, как он работает.</p>
+<p>Подставим в качестве $a$ и $b$ соответственно $a$ и $m$</p>
+$$ ax + my = 1 $$<p>Одним из решений уравнения и будет $a^{-1}$, потому что если взять уравнение по модулю $m$, то получим</p>
+$$ ax + by = 1 \iff ax \equiv 1 \iff x \equiv a^{-1} \pmod m $$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Преимущества этого метода над возведением в степень:</p>
 <ul>
-<li><a href="http://sereja.me/a/segtree">Дерево отрезков</a>: на указателях, динамическое, пересистентное.</li>
-<li><a href="http://sereja.me/a/treap">Декартово дерево</a>: явное, неявное, персистентое.</li>
-<li><a href="http://sereja.me/a/hashing">Полиномиальное хэширование</a> в задачах на строки</li>
-<li><a href="http://sereja.me/a/centroid">Центроидная декомпозиция</a></li>
-<li><a href="http://sereja.me/a/matroid">Матроиды</a>: алгоритм Радо-Эдмондса, расписания, паросочетания, линейная независимость</li>
-<li><a href="http://sereja.me/a/pollard">Ро-алгоритм Полларда</a></li>
-<li><a href="http://sereja.me/a/sparse-table">Sparse table</a></li>
-<li><a href="http://sereja.me/a/mincost-maxflow">Поток минимальной стоимости</a>: критерий оптимальности, потенциалы Джонсона, реализация за $O(mU)$</li>
-<li><a href="http://sereja.me/a/bitset">Битовое сжатие</a>: битсет, нахождение цикла длины 3, перемножение матриц, метод Гаусса</li>
-<li><a href="http://sereja.me/a/lca">Наименьший общий предок</a>: свойства tin и tout, двоичные подъемы, сведение к RMQ, алгоритм Фараха-Колтона и Бендера</li>
-<li><a href="http://sereja.me/a/bayans">Классные задачки</a>: пока что без решений</li>
+<li>Если обратное существует, то оно найдется даже если модуль не простой. Способ с бинарным возведением тоже можно заставить работать с произвольным модулем, но это будет намного труднее. </li>
+<li>Алгоритм проще выполнять руками.</li>
 </ul>
-<p>Не очень готово:</p>
-<ul>
-<li><a href="http://sereja.me/a/strings">Поиск строки в строке</a>: префикс-функция, z-функция</li>
-<li><a href="http://sereja.me/a/geometry">Геометрия</a>: скалярное и векторное произведение, пересечение прямых, классы в C++</li>
-<li><a href="http://sereja.me/a/dp_optimizations">Оптимизации ДП</a>: Кнут, разделяй-и-властвуй, Convex Hull Trick</li>
-<li><a href="http://sereja.me/a/fenwick">Дерево Фенвика</a>: устройство, многомерное дерево, бинпоиск по дереву</li>
-<li><a href="http://sereja.me/a/mst">Остовные деревья</a>: алгоритм Прима и Крускала</li>
-<li><a href="http://sereja.me/a/reciprocal">Обратное по модулю</a></li>
-<li><a href="http://sereja.me/a/annealing">Метод отжига</a></li>
-<li><a href="http://sereja.me/a/stress-test">Стресс-тестирование</a></li>
-<li>Подсчёт числа путей в дереве: метод переливаний, центроидная декомпозиция</li>
-</ul>
-<p>Вообще не готово:</p>
-<ul>
-<li><a href="http://sereja.me/a/true">Бор</a>: бор на указателях, суффиксные ссылки, алгоритм Ахо-Корасик</li>
-<li><a href="http://sereja.me/a/linalg">Линейная алгебра</a>: линейные операторы, матрицы, применения к динамике, метод Гаусса</li>
-<li><a href="http://sereja.me/a/probability">Теорвер</a>: </li>
-<li>Выпуклые оболочки</li>
-<li>Разделяй-и-властвуй</li>
-<li>Теория информации</li>
-</ul>
-<p>Спасибо Косте Амеличеву, Глебу Лобанову, Ване Клигунову, Диме Дубровину, Маше Тряпицыной, Саше Мамаеву, Андрею Гаркавому, Тёме Рябову, Андрею Чулкову, Максу Деб Натху и много кому ещё за фидбэк и указания на ошибки и неточности.</p>
+<p>Сам автор почти всегда использует возведение в степень.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1055;&#1086;&#1095;&#1077;&#1084;&#1091;-$10^9+7$?">&#1055;&#1086;&#1095;&#1077;&#1084;&#1091; $10^9+7$?<a class="anchor-link" href="#&#1055;&#1086;&#1095;&#1077;&#1084;&#1091;-$10^9+7$?">&#182;</a></h2><ol>
+<li>Это выражение довольно легко вбивать (<code>1e9+7</code>).</li>
+<li>Простое число.</li>
+<li>Достаточно большое.</li>
+<li><code>int</code> не переполняется при сложении.</li>
+<li><code>long long</code> не переполняется при умножении.</li>
+</ol>
+<p>Кстати, $10^9 + 9$ обладает теми же свойствами. Иногда используют и его.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1055;&#1088;&#1077;&#1076;&#1087;&#1086;&#1076;&#1089;&#1095;&#1105;&#1090;-&#1086;&#1073;&#1088;&#1072;&#1090;&#1085;&#1099;&#1093;-&#1092;&#1072;&#1082;&#1090;&#1086;&#1088;&#1080;&#1072;&#1083;&#1086;&#1074;-&#1079;&#1072;-&#1083;&#1080;&#1085;&#1077;&#1081;&#1085;&#1086;&#1077;-&#1074;&#1088;&#1077;&#1084;&#1103;">&#1055;&#1088;&#1077;&#1076;&#1087;&#1086;&#1076;&#1089;&#1095;&#1105;&#1090; &#1086;&#1073;&#1088;&#1072;&#1090;&#1085;&#1099;&#1093; &#1092;&#1072;&#1082;&#1090;&#1086;&#1088;&#1080;&#1072;&#1083;&#1086;&#1074; &#1079;&#1072; &#1083;&#1080;&#1085;&#1077;&#1081;&#1085;&#1086;&#1077; &#1074;&#1088;&#1077;&#1084;&#1103;<a class="anchor-link" href="#&#1055;&#1088;&#1077;&#1076;&#1087;&#1086;&#1076;&#1089;&#1095;&#1105;&#1090;-&#1086;&#1073;&#1088;&#1072;&#1090;&#1085;&#1099;&#1093;-&#1092;&#1072;&#1082;&#1090;&#1086;&#1088;&#1080;&#1072;&#1083;&#1086;&#1074;-&#1079;&#1072;-&#1083;&#1080;&#1085;&#1077;&#1081;&#1085;&#1086;&#1077;-&#1074;&#1088;&#1077;&#1084;&#1103;">&#182;</a></h2><p>Пусть нам нужно зачем-то посчитать все те же $C_n^k$, но для больших $n$ и $k$, поэтому асимптотика $O(n \log m)$ нас не устроит. Оказывается, мы можем сразу предподсчитать все обратные ко всем факториалам.</p>
+<p>Если у нас уже написан <code>inv</code>, то нам не жалко потратить $O(\log m)$ операций, посчитав $m!^{-1}$.</p>
+<p>После этого мы будем считать $(m-1)!^{-1}$ как $m!^{-1} m = \frac{1}{1 \cdot 2 \cdot \ldots \cdot (m-1)}$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">int</span> <span class="n">f</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
+<span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">maxn</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">*</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">%</span> <span class="n">mod</span><span class="p">;</span>
+
+<span class="nb">int</span> <span class="n">r</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
+<span class="n">r</span><span class="p">[</span><span class="n">maxn</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">maxn</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">maxn</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span>
+    <span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">i</span> <span class="o">%</span> <span class="n">mod</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>TODO: техника с сайта емакса.</p>
 
 </div>
 </div>

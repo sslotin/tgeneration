@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>index</title>
+<title>4_stl</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13116,43 +13116,1008 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;">&#182;</a></h1><p>Стараюсь писать только про то, чего нет в интернете в нормальном виде. Либо про то, что мне очень сложно давалось, когда я был в школе.</p>
-<p>Более-менее готово:</p>
+<h1 id="C++-&#1080;-Standard-Template-Library-(STL)">C++ &#1080; Standard Template Library (STL)<a class="anchor-link" href="#C++-&#1080;-Standard-Template-Library-(STL)">&#182;</a></h1><p>Первый плюс плюсов - STL, она содержит в себе множество алгоритмов и структур, чтобы ее использовать вам нужно писать</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">//</span> <span class="n">либо</span> <span class="n">один</span> <span class="n">раз</span> <span class="n">такую</span> <span class="n">строчку</span>
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="o">//</span> <span class="n">либо</span> <span class="n">каждый</span> <span class="n">раз</span> <span class="n">писать</span> <span class="n">перед</span> <span class="n">каждой</span> <span class="n">функцией</span> <span class="n">и</span> <span class="n">структурой</span> <span class="n">из</span> <span class="n">STL</span> <span class="n">std</span><span class="p">::</span>
+<span class="n">std</span><span class="p">::</span><span class="n">vector</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-1-3fdc4c3a8d74&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-red-fg">    (/, либо, один, раз, такую, строчку)</span>
+     ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://en.cppreference.com/w">https://en.cppreference.com/w</a> &mdash; это сайт с документацией по языку C++. Там вы можете найти много полезной информации как о самом языке, так и о его стандартных библиотеках. Здесь же вы сможете найдите краткое изложение самого полезного из STL.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1055;&#1086;&#1075;&#1086;&#1074;&#1086;&#1088;&#1080;&#1084;-&#1086;&#1073;-&#1086;&#1073;&#1099;&#1095;&#1085;&#1099;&#1093;-&#1089;&#1080;&#1096;&#1085;&#1099;&#1093;-&#1084;&#1072;&#1089;&#1089;&#1080;&#1074;&#1072;&#1093;">&#1055;&#1086;&#1075;&#1086;&#1074;&#1086;&#1088;&#1080;&#1084; &#1086;&#1073; &#1086;&#1073;&#1099;&#1095;&#1085;&#1099;&#1093; &#1089;&#1080;&#1096;&#1085;&#1099;&#1093; &#1084;&#1072;&#1089;&#1089;&#1080;&#1074;&#1072;&#1093;<a class="anchor-link" href="#&#1055;&#1086;&#1075;&#1086;&#1074;&#1086;&#1088;&#1080;&#1084;-&#1086;&#1073;-&#1086;&#1073;&#1099;&#1095;&#1085;&#1099;&#1093;-&#1089;&#1080;&#1096;&#1085;&#1099;&#1093;-&#1084;&#1072;&#1089;&#1089;&#1080;&#1074;&#1072;&#1093;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span> <span class="n">a</span><span class="p">[</span><span class="n">x</span><span class="p">];</span> <span class="o">//</span> <span class="n">инициализация</span> <span class="n">массива</span> <span class="n">a</span> <span class="n">типа</span> <span class="n">T</span> <span class="n">размера</span> <span class="n">x</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Если вы пишите так, прекращайте, у этого метода много проблем, давайте напишем правильную реализацию и обговорим плюсы и минусы.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">array</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">x</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">;</span>
+<span class="n">a</span><span class="o">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">a</span><span class="o">.</span><span class="n">end</span><span class="p">()</span> <span class="o">//</span> <span class="n">указатели</span> <span class="p">(</span><span class="n">итераторы</span><span class="p">)</span> <span class="n">на</span> <span class="n">начало</span> <span class="n">и</span> <span class="n">конец</span> <span class="n">массива</span> <span class="n">соответственно</span> <span class="p">(</span><span class="n">конец</span> <span class="n">массива</span> <span class="o">=</span> <span class="n">после</span> <span class="n">последнего</span> <span class="n">элемента</span><span class="p">)</span>
+<span class="n">a</span><span class="o">.</span><span class="n">front</span><span class="p">(),</span> <span class="n">a</span><span class="o">.</span><span class="n">back</span><span class="p">()</span> <span class="o">//</span> <span class="n">возвращает</span> <span class="n">ссылку</span> <span class="n">на</span> <span class="n">первый</span> <span class="n">и</span> <span class="n">последний</span> <span class="n">элемент</span> <span class="n">соответственно</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span> <span class="o">//</span> <span class="n">метод</span> <span class="n">at</span> <span class="n">позволяет</span> <span class="n">узнать</span> <span class="n">не</span> <span class="n">вышли</span> <span class="n">ли</span> <span class="n">мы</span> <span class="n">за</span> <span class="n">границы</span> <span class="n">массива</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Плюсы :</p>
+<p>1) Указатели (итераторы) на начало и конец - прекрасная вещь, которую мы обсудим позже</p>
+<p>2) Сишные массивы уже сейчас противоречат шаблону, в будущем их хотят вообще убрать, так что лучше от них отказаться сейчас</p>
+<p>3) Быстрый переход от массива к вектору</p>
+<p>Минусы :</p>
+<p>1) Тяжело отвыкнуть от старого массива.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="vector">vector<a class="anchor-link" href="#vector">&#182;</a></h2><p><code>vector</code> &mdash; это <em>динамический массив</em>. Это означает, что его размер может меняться во время исполнения программы, вы можете добавлять элементы в конец и так далее. Чтобы объявить пустой <code>vector</code>, способный содержать в себе целые числа типа <code>T</code>, необходимо воспользоваться следующей конструкцией:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">vector_name</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Здесь <code>T</code> &mdash; это тип элементов, которые будут содержаться в <code>vector</code>, а <code>vector_name</code> &mdash; имя самого <code>vector</code>. Как и другие контейнеры C++, <code>vector</code> не может содержать элементы разных типов!</p>
+<p>Чтобы добавить элемент в конец вектора, необходимо воспользоваться функцией <code>push_back</code>. Эта функция работает в среднем за $O(1)$ .</p>
+<p>Существуют два способа обращения к 'vector'. Оба мы уже обсудили в массивах.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Кроме этого вам также могут потребоваться следующие методы :</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">;</span>
+<span class="n">a</span><span class="o">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="o">//</span> <span class="n">вставляет</span> <span class="n">x</span> <span class="n">в</span> <span class="n">конец</span> <span class="n">a</span>
+<span class="n">a</span><span class="o">.</span><span class="n">size</span><span class="p">();</span> <span class="o">//</span> <span class="n">возращает</span> <span class="n">размер</span> <span class="n">вектора</span> <span class="n">а</span>
+<span class="n">a</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">//</span> <span class="n">сделать</span> <span class="n">размер</span> <span class="n">вектора</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">либо</span> <span class="n">удаляются</span> <span class="n">последние</span> <span class="n">элементы</span><span class="p">,</span> <span class="n">либо</span> <span class="n">добавляются</span> <span class="n">нули</span>
+<span class="n">a</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">//</span> <span class="n">сделать</span> <span class="n">размер</span> <span class="n">вектора</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">добавляются</span> <span class="n">y</span>
+<span class="o">//</span> <span class="n">Также</span> <span class="n">можно</span> <span class="n">изначально</span> <span class="n">задать</span> <span class="n">размер</span> <span class="n">и</span> <span class="n">элементы</span> <span class="n">массива</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="o">//</span> <span class="n">Размер</span> <span class="n">вектора</span> <span class="o">-</span> <span class="mi">10</span> <span class="n">элементов</span><span class="p">,</span> <span class="n">каждый</span> <span class="n">из</span> <span class="n">которых</span> <span class="n">равен</span> <span class="mi">0</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="n">b</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span> <span class="o">//</span> <span class="n">Размер</span> <span class="o">-</span> <span class="mi">5</span> <span class="n">элементов</span><span class="p">,</span> <span class="n">каждый</span> <span class="n">из</span> <span class="n">которых</span> <span class="n">равен</span> <span class="mi">123</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span> <span class="o">//</span> <span class="n">явная</span> <span class="n">инициализация</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1050;&#1072;&#1082;-&#1088;&#1072;&#1073;&#1086;&#1090;&#1072;&#1077;&#1090;-vector?">&#1050;&#1072;&#1082; &#1088;&#1072;&#1073;&#1086;&#1090;&#1072;&#1077;&#1090; vector?<a class="anchor-link" href="#&#1050;&#1072;&#1082;-&#1088;&#1072;&#1073;&#1086;&#1090;&#1072;&#1077;&#1090;-vector?">&#182;</a></h3><p>Как уже было сказано, добавление в конец вектора работает в среднем за $O(1)$. Это означает, что, если вы сделаете $n$ операций <code>push_back</code>, они будут в сумме работать за $O(n)$. (Но при этом некоторые из них могли работать и за линейное время!)</p>
+<p>У <code>vector</code> есть 2 важные величины: <code>size</code> и <code>capacity</code> &mdash; размер и вместимость. Размер &mdash; это то, сколько элементов сейчас находится в векторе. Вместимость &mdash; то, под сколько элементов памяти выделено. Когда <code>size</code> &lt; <code>capacity</code>, <code>push_back</code> просто добавляет новый элемент в первую свободную ячейку уже выделенной памяти, поэтому работает за $O(1)$. Когда <code>size</code> = <code>capacity</code>, так сделать не удастся. Поэтому, происходит следующее:</p>
+<ol>
+<li><code>capacity</code> увеличивается примерно в 2 раза.</li>
+<li>Выделяется область памяти, вмещающая <code>capacity</code> элементов.</li>
+<li>Элементы из старой области памяти копируются в новую.</li>
+<li>Старая область памяти освобождается.</li>
+</ol>
+<p>Поймём, почему амортизированное время работы <code>push_back</code> действительно равно $O(1)$. Пусть сейчас <code>capacity</code> = $n$. Тогда мы выделяли $n + \frac{n}{2} + \frac{n}{4} + \dots &lt; 2n$ памяти. На копирование также ушло не более $2n$ операций. Следовательно, так как операций <code>push_back</code> было хотя бы $\frac{n}{2}$, каждая операция в среднем работала за $O(1)$.</p>
+<p>Получить <code>capacity</code> у <code>vector</code> можно с помощью одноимённой функции. Рассмотрим пример того, как изменяется <code>capacity</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;Size: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;, capacity &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="o">.</span><span class="n">capacity</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">/*</span> <span class="n">Будет</span> <span class="n">выведено</span><span class="p">:</span>
+   <span class="n">Size</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">capacity</span> <span class="mi">1</span>
+   <span class="n">Size</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="n">capacity</span> <span class="mi">2</span>
+   <span class="n">Size</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="n">capacity</span> <span class="mi">4</span>
+   <span class="n">Size</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="n">capacity</span> <span class="mi">4</span>
+   <span class="n">Size</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="n">capacity</span> <span class="mi">8</span>
+   <span class="n">Size</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="n">capacity</span> <span class="mi">8</span>
+   <span class="n">Size</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="n">capacity</span> <span class="mi">8</span>
+   <span class="n">Size</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="n">capacity</span> <span class="mi">8</span>
+   <span class="n">Size</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="n">capacity</span> <span class="mi">16</span>
+   <span class="n">Size</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="n">capacity</span> <span class="mi">16</span>
+<span class="o">*/</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="pair">pair<a class="anchor-link" href="#pair">&#182;</a></h2><p><code>pair</code> &mdash; это тип, содержащий пару значений, притом значения могут быть разных типов. Объявление пары выглядит так:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pair</span><span class="o">&lt;</span><span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="o">&gt;</span> <span class="n">p</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Здесь <code>T1</code> и <code>T2</code> &mdash; это имена первого и второго типов, соответственно.</p>
+<p>Первый элемент пары &mdash; это <code>p.first</code>; второй &mdash; <code>p.second</code>.</p>
+<p><code>make_pair(a, b)</code> &mdash; функция, которая создаёт пару $(a, b)$.</p>
+<p>Рассмотрим пример работы с <code>pair</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pair</span><span class="o">&lt;</span><span class="nb">int</span><span class="p">,</span> <span class="n">double</span><span class="o">&gt;</span> <span class="n">p</span> <span class="o">=</span> <span class="n">make_pair</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">);</span>
+<span class="n">pair</span><span class="o">&lt;</span><span class="nb">int</span><span class="p">,</span> <span class="n">double</span><span class="o">&gt;</span> <span class="n">q</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">};</span> <span class="o">//</span> <span class="n">другой</span> <span class="n">способ</span> <span class="n">инициализировать</span> <span class="n">пару</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="o">.</span><span class="n">first</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="o">.</span><span class="n">second</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="queue">queue<a class="anchor-link" href="#queue">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>В c++ уже реализована такая структура, как очередь, она названа queue.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">queue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">q</span><span class="p">;</span> <span class="o">//</span><span class="n">очередь</span> <span class="n">типа</span> <span class="n">T</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Очередь - структура, реализующая принцип FIFO (первый пришел - первый вышел),  то есть для очереди существуют две основные функции : Вставить в конец и достать с начала.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span><span class="o">.</span><span class="n">front</span><span class="p">();</span> <span class="o">//</span> <span class="n">ссылка</span> <span class="n">на</span> <span class="n">первый</span> <span class="n">элемент</span>
+<span class="n">q</span><span class="o">.</span><span class="n">back</span><span class="p">();</span> <span class="o">//</span> <span class="n">ссылка</span> <span class="n">на</span> <span class="n">последний</span> <span class="n">элемент</span>
+<span class="n">q</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="o">//</span> <span class="n">добавить</span> <span class="n">в</span> <span class="n">конец</span>
+<span class="n">q</span><span class="o">.</span><span class="n">pop</span><span class="p">();</span> <span class="o">//</span><span class="n">удалить</span> <span class="n">с</span> <span class="n">начала</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="deque">deque<a class="anchor-link" href="#deque">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>deque - структура, позволяющая работать и с началом и концом одновременно, то есть вставка и удаление с двух сторон</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">deque</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">name</span><span class="p">;</span> <span class="o">//</span> <span class="n">дек</span> <span class="n">типа</span> <span class="n">T</span> <span class="n">с</span> <span class="n">названием</span> <span class="n">name</span>
+<span class="n">name</span><span class="o">.</span><span class="n">front</span><span class="p">(),</span> <span class="n">name</span><span class="o">.</span><span class="n">back</span><span class="p">();</span> <span class="o">//</span> <span class="n">первый</span> <span class="n">и</span> <span class="n">последний</span> <span class="n">элемент</span> <span class="n">соответственно</span>
+<span class="n">name</span><span class="o">.</span><span class="n">pop_front</span><span class="p">(),</span> <span class="n">name</span><span class="o">.</span><span class="n">pop_back</span><span class="p">();</span> <span class="o">//</span> <span class="n">удаление</span> <span class="n">первого</span> <span class="n">и</span> <span class="n">последнего</span> <span class="n">элемента</span>
+<span class="n">name</span><span class="o">.</span><span class="n">push_front</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">name</span><span class="o">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="o">//</span> <span class="n">вставка</span> <span class="n">x</span> <span class="n">в</span> <span class="n">начало</span><span class="o">/</span><span class="n">конец</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Очередь и дек будут более подробно рассмотрены на одном из следующих занятий.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1048;&#1090;&#1077;&#1088;&#1072;&#1090;&#1086;&#1088;&#1099;">&#1048;&#1090;&#1077;&#1088;&#1072;&#1090;&#1086;&#1088;&#1099;<a class="anchor-link" href="#&#1048;&#1090;&#1077;&#1088;&#1072;&#1090;&#1086;&#1088;&#1099;">&#182;</a></h2><p>Итератор &mdash; это объект, указывающий на элемент контейнера. Чтобы получить элемент, на который указывает итератор <code>it</code>, необходимо воспользоваться оператором разыменования: <code>*it</code>. Также если вам нужно перейти к следующему элементу надо использовать инкремент: <code>++it</code>.</p>
+<p>Есть несколько категорий итераторов:</p>
 <ul>
-<li><a href="http://sereja.me/a/segtree">Дерево отрезков</a>: на указателях, динамическое, пересистентное.</li>
-<li><a href="http://sereja.me/a/treap">Декартово дерево</a>: явное, неявное, персистентое.</li>
-<li><a href="http://sereja.me/a/hashing">Полиномиальное хэширование</a> в задачах на строки</li>
-<li><a href="http://sereja.me/a/centroid">Центроидная декомпозиция</a></li>
-<li><a href="http://sereja.me/a/matroid">Матроиды</a>: алгоритм Радо-Эдмондса, расписания, паросочетания, линейная независимость</li>
-<li><a href="http://sereja.me/a/pollard">Ро-алгоритм Полларда</a></li>
-<li><a href="http://sereja.me/a/sparse-table">Sparse table</a></li>
-<li><a href="http://sereja.me/a/mincost-maxflow">Поток минимальной стоимости</a>: критерий оптимальности, потенциалы Джонсона, реализация за $O(mU)$</li>
-<li><a href="http://sereja.me/a/bitset">Битовое сжатие</a>: битсет, нахождение цикла длины 3, перемножение матриц, метод Гаусса</li>
-<li><a href="http://sereja.me/a/lca">Наименьший общий предок</a>: свойства tin и tout, двоичные подъемы, сведение к RMQ, алгоритм Фараха-Колтона и Бендера</li>
-<li><a href="http://sereja.me/a/bayans">Классные задачки</a>: пока что без решений</li>
+<li><code>InputIterator</code>. Он поддерживает только операции разыменования и инкремента, притом после того, как был произведён инкремент, все копии его предыдущего значения могут стать невалидными.</li>
+<li><code>ForwardIterator</code>. Поддерживает то же, что и <code>InputIterator</code>, но итератор, указывающий на какой-то конкретный элемент, можно инкрементировать сколько угодно раз.</li>
+<li><code>BidirectionalIterator</code>. Поддерживает то же, что и <code>ForwardIterator</code>, но также есть возможность производить декремент (<code>it--</code>) &mdash; переходить к предыдущему элементу коллекции.</li>
+<li><code>RandomAccessIterator</code>. Поддерживает то же, что и <code>BidirectionalIterator</code>, но также есть возможность переходить к элементу коллекции, который находится от данного на каком-то расстоянии $k$. Так, например, для итератора <code>it</code> возможны следующии операции: <code>it + k</code>, <code>it - k</code>, <code>it += k</code>, <code>it -= k</code>. Также можно находить расстояние между двумя позициями, на которые указывают итератора. Так, например, выражение <code>a - b</code> будет означать расстояние между двумя элементами коллекции, на которые указывают итераторы <code>a</code> и <code>b</code>.</li>
 </ul>
-<p>Не очень готово:</p>
+<p>Рассмотрим использование итераторов на примере <code>vector</code>. Для вектора <code>a</code> итератор на его первый элемент можно получить так: <code>a.begin()</code>. Также есть функция, которая возвращает итератор на фиктивный элемент, следующий за последним элементом вектора: <code>a.end()</code>. Таким образом, весь <code>a</code> задаётся <em>полуинтервалом</em> <code>[a.begin(); a.end())</code> (левый конец включается, правый &mdash; нет).</p>
+<p>Итераторы у <code>vector</code> относятся к категории <code>RandomAccessIterator</code>, то есть например мы можем узнать размер <code>vector</code> $a$, просто взяв <code>a.begin()</code> - <code>a.end()</code>. При этом у <code>vector</code> типа <code>vector&lt;T&gt;</code> итератор будет иметь тип <code>vector&lt;T&gt;::iterator</code>.</p>
+<p>Рассмотрим пример работы с итераторами у <code>vector</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">100</span><span class="p">};</span>
+
+<span class="n">vector</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span><span class="p">::</span><span class="n">iterator</span> <span class="n">first_element</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">begin</span><span class="p">();</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">first_element</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">выведет</span> <span class="mi">1</span>
+<span class="n">first_element</span><span class="o">++</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">first_element</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">выведет</span> <span class="o">-</span><span class="mi">2</span>
+<span class="n">first_element</span><span class="o">--</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">first_element</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">выведет</span> <span class="mi">1</span>
+<span class="n">auto</span> <span class="n">third_element</span> <span class="o">=</span> <span class="n">first_element</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span> <span class="o">//</span> <span class="n">пользуемся</span> <span class="n">типом</span> <span class="n">auto</span><span class="p">,</span> <span class="n">чтобы</span> <span class="n">не</span> <span class="n">писать</span> <span class="n">длинное</span> <span class="n">имя</span> <span class="n">типа</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">third_element</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">выведет</span> <span class="mi">3</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">third_element</span> <span class="o">-</span> <span class="n">first_element</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">выведет</span> <span class="mi">2</span>
+
+<span class="o">//</span> <span class="n">вывод</span> <span class="n">всех</span> <span class="n">элементов</span> <span class="n">вектора</span> <span class="n">с</span> <span class="n">использованием</span> <span class="n">итераторов</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">a</span><span class="o">.</span><span class="n">end</span><span class="p">();</span> <span class="n">it</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot; &quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">но</span> <span class="n">для</span> <span class="n">таких</span> <span class="n">целей</span> <span class="n">лучше</span> <span class="n">использовать</span> <span class="nb">range</span><span class="o">-</span><span class="n">based</span> <span class="k">for</span> <span class="n">loop</span><span class="p">:</span>
+  
+<span class="k">for</span> <span class="p">(</span><span class="n">auto</span><span class="o">&amp;</span> <span class="n">it</span> <span class="p">:</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot; &quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="list">list<a class="anchor-link" href="#list">&#182;</a></h2><p>list - структура, которая поддерживает быструю вставку и удаление элементов из любой позиции в контейнере. Быстрый произвольный доступ, к сожалению, не поддерживается (то есть мы не можем быстро взять $i$-й элемент). Он реализован в виде двусвязного списка</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">name</span><span class="p">;</span> <span class="o">//</span> <span class="n">создание</span> <span class="n">листа</span> <span class="n">типа</span> <span class="n">Т</span> <span class="n">с</span> <span class="n">именем</span> <span class="n">name</span>
+<span class="n">name</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">it</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span> <span class="o">//</span> <span class="n">вставка</span> <span class="n">после</span> <span class="n">итератора</span> <span class="n">it</span> <span class="n">переменной</span> <span class="n">x</span>
+<span class="n">name</span><span class="o">.</span><span class="n">erase</span><span class="p">(</span><span class="n">it</span><span class="p">);</span> <span class="o">//</span> <span class="n">удаляет</span> <span class="n">элемент</span><span class="p">,</span> <span class="n">на</span> <span class="n">который</span> <span class="n">указывает</span> <span class="n">итератор</span>
+<span class="n">name</span><span class="o">.</span><span class="n">front</span><span class="p">(),</span> <span class="n">name</span><span class="o">.</span><span class="n">back</span><span class="p">();</span> <span class="o">//</span> <span class="n">начало</span> <span class="n">и</span> <span class="n">конец</span> <span class="n">name</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="set">set<a class="anchor-link" href="#set">&#182;</a></h2><p><code>set</code> &mdash; это коллекция, которая содержит <strong>множество</strong> уникальных упорядоченных элементов.</p>
+<p>Чтобы добавить элемент в <code>set</code>, есть функция <code>insert</code>. В случае, если элемент уже был в множестве, ничего не происходит.<br>
+Чтобы удалить элемент из <code>set</code>, есть функция <code>erase</code>(в нее можно передать либо итератор на элемент, либо просто элемент). В случае, если элемента не было в множестве, ничего не происходит.<br>
+Чтобы посмотреть, если ли элемент в <code>set</code>, есть функция <code>count</code>. Она вернёт $0$, если элемента нет в множестве, и $1$, если он есть.  Также есть метод <code>find</code>,  который возвращает итератор на элемент или <code>end</code>, если элемента нет.</p>
+<p>Все операции с элементами <code>set</code> (добавление, удаление, поиск) работают за $O(\log n$), где $n$ &mdash; количество элементов в нём, так как он реализован с помощью сбалансированного двоичного дерева поиска.</p>
+<p>Итераторы <code>set</code> относятся к категории <code>BidirectionalIterator</code> и имеют тип <code>set&lt;T&gt;::iterator</code>. Начало <code>set</code> можно получить с помощью функции <code>begin</code>, конец &mdash; с помощью функции <code>end</code>. Как и в случае с вектором, <code>end</code> указывает на конец полуинтервала. Инкремент и декремент итераторов <code>set</code> также работают за логарифмическое время.</p>
+<p>Стоит отметить, что, так как элементы в <code>set</code> упорядочены, с помощью <code>begin</code> и <code>end</code> можно искать наименьший/наибольший элемент в <code>set</code>.
+Чтобы найти наименьший элемент, больший или равный заданному, есть функция <code>lower_bound</code>.<br>
+Чтобы найти наименьший элемент, строго больший заданному, есть функция <code>upper_bound</code>.<br>
+Каждая из этих функций возвращает итератор на искомый элемент или <code>end()</code>, если такого элемента не существует.</p>
+<p><code>set</code> может содержать только элементы тех типов, для которых определён оператор <code>&lt;</code>, поскольку ему важен порядок элементов.</p>
+<p>Рассмотрим пример простейших операций с <code>set</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">set</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">;</span>
+
+<span class="n">s</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="o">//</span> <span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">}</span>
+<span class="n">s</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span> <span class="o">//</span> <span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">выведет</span> <span class="mi">2</span>
+
+<span class="n">s</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="o">//</span> <span class="mi">3</span> <span class="n">не</span> <span class="n">будет</span> <span class="n">добавлено</span> <span class="n">ещё</span> <span class="n">раз</span><span class="p">,</span> <span class="n">так</span> <span class="n">как</span> <span class="n">уже</span> <span class="n">присутствует</span> <span class="n">в</span> <span class="n">множестве</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">выведет</span> <span class="mi">2</span>
+
+<span class="n">s</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span> <span class="o">//</span> <span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">выведет</span> <span class="mi">1</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">выведет</span> <span class="mi">0</span>
+
+<span class="n">s</span><span class="o">.</span><span class="n">erase</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="o">//</span> <span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
+<span class="n">s</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span> <span class="o">//</span> <span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">}</span>
+
+<span class="nb">set</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span><span class="p">::</span><span class="n">iterator</span> <span class="n">it1</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="n">it1</span><span class="o">++</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it1</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">выведет</span> <span class="mi">6</span>
+
+<span class="n">auto</span> <span class="n">it2</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">lower_bound</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it2</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">выведет</span> <span class="mi">2</span><span class="p">,</span> <span class="n">так</span> <span class="n">как</span> <span class="n">это</span> <span class="n">первый</span> <span class="n">элемент</span> <span class="o">&gt;=</span> <span class="mi">1</span>
+
+<span class="n">auto</span> <span class="n">it3</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">upper_bound</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it3</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">выведет</span> <span class="mi">5</span><span class="p">,</span> <span class="n">так</span> <span class="n">как</span> <span class="n">это</span> <span class="n">первый</span> <span class="n">элемент</span> <span class="o">&gt;</span> <span class="mf">2.</span>
+
+<span class="n">auto</span> <span class="n">it4</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">upper_bound</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">it4</span> <span class="o">==</span> <span class="n">s</span><span class="o">.</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;No element &gt; 10</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">аккуратно</span><span class="p">,</span> <span class="n">если</span> <span class="n">разыменуете</span> <span class="n">it4</span><span class="p">,</span> <span class="n">получите</span> <span class="n">undefined</span> <span class="n">behaviour</span><span class="err">!</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">вывод</span> <span class="n">всех</span> <span class="n">элементов</span> <span class="n">сета</span> <span class="n">с</span> <span class="n">использованием</span> <span class="n">итераторов</span><span class="p">;</span> <span class="n">элементы</span> <span class="n">следуют</span> <span class="n">в</span> <span class="n">порядке</span> <span class="n">возрастания</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">s</span><span class="o">.</span><span class="n">end</span><span class="p">();</span> <span class="n">it</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot; &quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">но</span> <span class="n">для</span> <span class="n">таких</span> <span class="n">целей</span> <span class="n">лучше</span> <span class="n">использовать</span> <span class="nb">range</span><span class="o">-</span><span class="n">based</span> <span class="k">for</span> <span class="n">loop</span><span class="err">!</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="multiset">multiset<a class="anchor-link" href="#multiset">&#182;</a></h3><p><code>multiset</code> &mdash; то же, что и <code>set</code>, но может содержать повторяющиеся олимпиады.</p>
+<p><code>count</code> работает за $O(\log n + c)$, где $c$ &mdash; количество искомых элементов. Поэтому, чтобы проверить наличие элемента $el$ в <code>multiset</code> <code>s</code>, надо воспользоваться: <code>s.find(el) != s.end()</code>.</p>
+<p><code>erase</code> удаляет все элементы с таким значением. Чтобы удалить один надо делать так: `s.erase(s.find(el)).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1055;&#1088;&#1080;&#1084;&#1077;&#1088;&#1099;-&#1087;&#1088;&#1080;&#1084;&#1077;&#1085;&#1077;&#1085;&#1080;&#1103;-&#1089;&#1077;&#1090;&#1072;-&#1076;&#1083;&#1103;-&#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1103;-&#1079;&#1072;&#1076;&#1072;&#1095;">&#1055;&#1088;&#1080;&#1084;&#1077;&#1088;&#1099; &#1087;&#1088;&#1080;&#1084;&#1077;&#1085;&#1077;&#1085;&#1080;&#1103; &#1089;&#1077;&#1090;&#1072; &#1076;&#1083;&#1103; &#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1103; &#1079;&#1072;&#1076;&#1072;&#1095;<a class="anchor-link" href="#&#1055;&#1088;&#1080;&#1084;&#1077;&#1088;&#1099;-&#1087;&#1088;&#1080;&#1084;&#1077;&#1085;&#1077;&#1085;&#1080;&#1103;-&#1089;&#1077;&#1090;&#1072;-&#1076;&#1083;&#1103;-&#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1103;-&#1079;&#1072;&#1076;&#1072;&#1095;">&#182;</a></h3><p>Очень часто использование сета позволяет решить задачу, которая решается и абсолютно другим способом. Иногда более сложным, а иногда и более простым. Чаще всего сет используется, если нужно сделать что-то, связанное с <strong>количеством разных элементов</strong> или с <strong>минимумом или максимум какого-то множества</strong>.</p>
+<h4 id="1)-&#1047;&#1072;&#1076;&#1072;&#1095;&#1072;-&#1044;&#1077;&#1074;&#1096;&#1091;&#1082;&#1072;-&#1080;&#1083;&#1080;-&#1070;&#1085;&#1086;&#1096;&#1072;">1) &#1047;&#1072;&#1076;&#1072;&#1095;&#1072; &#1044;&#1077;&#1074;&#1096;&#1091;&#1082;&#1072; &#1080;&#1083;&#1080; &#1070;&#1085;&#1086;&#1096;&#1072;<a class="anchor-link" href="#1)-&#1047;&#1072;&#1076;&#1072;&#1095;&#1072;-&#1044;&#1077;&#1074;&#1096;&#1091;&#1082;&#1072;-&#1080;&#1083;&#1080;-&#1070;&#1085;&#1086;&#1096;&#1072;">&#182;</a></h4><p><strong>Условие:</strong> <a href="http://codeforces.com/contest/236/problem/A">http://codeforces.com/contest/236/problem/A</a></p>
+<p><strong>Условие вкратце:</strong> Найти чётность числа различных символов в строке.</p>
+<p><strong>Решение:</strong> вставим все символы в сет и проверим четность размера сета.</p>
+<p>Заметим, что эту задачу можно легко решить и подсчетом (как в сортировке подсчетом), так как символов бывает очень мало.</p>
+<h4 id="2)-A-&#1080;-B-&#1080;-&#1086;&#1096;&#1080;&#1073;&#1082;&#1080;-&#1082;&#1086;&#1084;&#1087;&#1080;&#1083;&#1103;&#1094;&#1080;&#1080;">2) A &#1080; B &#1080; &#1086;&#1096;&#1080;&#1073;&#1082;&#1080; &#1082;&#1086;&#1084;&#1087;&#1080;&#1083;&#1103;&#1094;&#1080;&#1080;<a class="anchor-link" href="#2)-A-&#1080;-B-&#1080;-&#1086;&#1096;&#1080;&#1073;&#1082;&#1080;-&#1082;&#1086;&#1084;&#1087;&#1080;&#1083;&#1103;&#1094;&#1080;&#1080;">&#182;</a></h4><p><strong>Условие:</strong> <a href="http://codeforces.com/contest/519/problem/B">http://codeforces.com/contest/519/problem/B</a></p>
+<p><strong>Условие вкратце:</strong> Из массива убрали ровно одно число и перемешали элементы. Затем сделали так еще раз. Найдите, какие два элемента исчезли.</p>
+<p><strong>Решение:</strong> Добавим все числа в 3 различных мультисета, затем просто пройдемся по ним и найдем первый элемент, которого во втором меньше, чем в первои, но есть в первом. Мы нашли первую ошибку, вторая находится точно также.</p>
+<p>Заметим, что эту задачу можно было бы легко решить и просто отсортировав все числа, что асимптотически тоже $O(N log N)$.</p>
+<h4 id="3)-&#1052;&#1080;&#1085;&#1080;&#1084;&#1091;&#1084;-&#1085;&#1072;-&#1086;&#1090;&#1088;&#1077;&#1079;&#1082;&#1077;">3) &#1052;&#1080;&#1085;&#1080;&#1084;&#1091;&#1084; &#1085;&#1072; &#1086;&#1090;&#1088;&#1077;&#1079;&#1082;&#1077;<a class="anchor-link" href="#3)-&#1052;&#1080;&#1085;&#1080;&#1084;&#1091;&#1084;-&#1085;&#1072;-&#1086;&#1090;&#1088;&#1077;&#1079;&#1082;&#1077;">&#182;</a></h4><p><strong>Условие:</strong> <a href="https://informatics.msk.ru/mod/statements/view3.php?chapterid=756">https://informatics.msk.ru/mod/statements/view3.php?chapterid=756</a></p>
+<p><strong>Условие вкратце:</strong> Найти минимум на каждом отрезке длины $K$ в массиве.</p>
+<p><strong>Решение:</strong> Давайте положим в мультисет первые $K$ элементов. Далее мы будем двигать это "окно": добавлять новый элемент справа и убирать самый левый элемент. Каждый раз будем выводить минимум в сете, который лежит в <code>s.begin()</code>.</p>
+<p>Также эта задача решается такими структурами данных как</p>
+<p>1) Очередь с минимумом (за $O(N)$!)</p>
+<p>2) Дерево отрезков</p>
+<p>3) Sparse Table</p>
+<p>4) Куча</p>
+<p>Но решить задачу сетом гораздо проще.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="map">map<a class="anchor-link" href="#map">&#182;</a></h2><p><code>map</code> &mdash; это ассоциативный контейнер: он содержит пары <em>ключ-значение</em>, при этом все ключи уникальны. Внутри контейнера все ключи упорядочены по возрастанию. Так же, как и в <code>set</code>, операции работают за логарифмическое время.</p>
+<p>Объявление <code>map</code> выглядит так: <code>map&lt;T1, T2&gt; map_name</code>, где <code>T1</code> &mdash; тип ключа, <code>T2</code> &mdash; тип значения.</p>
+<p>Доступ к элементам <code>map</code> осуществляется с помощью оператора <code>[]</code>. <code>map</code>, аналогично <code>set</code>, поддерживает поиск по ключу с помощью <code>find</code>, <code>lower_bound</code>, <code>upper_bound</code>. При разыменовании итератора получается пара, первый элемент которой &mdash; ключ, второй &mdash; значение.</p>
+<p>При обращении к несуществующему элементу <code>map</code> с помощью <code>[]</code>, значение инициализируется значением по умолчанию для данного типа.</p>
+<p>Рассмотрим работу <code>map</code> на примере:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">map</span><span class="o">&lt;</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">;</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">выведет</span> <span class="mi">7</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">выведет</span> <span class="mi">8</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+
+<span class="o">/*</span> <span class="n">Этот</span> <span class="n">цикл</span> <span class="n">выведет</span> <span class="mi">3</span> <span class="n">строки</span><span class="p">:</span>
+   <span class="mi">2</span> <span class="mi">8</span>
+   <span class="mi">13</span> <span class="mi">5</span>
+   <span class="mi">100</span> <span class="mi">42</span>
+
+   <span class="n">Обратите</span> <span class="n">внимание</span><span class="p">,</span> <span class="n">что</span> <span class="n">ключи</span> <span class="n">упорядочены</span><span class="o">.</span>
+<span class="o">*/</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">auto</span> <span class="n">el</span> <span class="p">:</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">el</span><span class="o">.</span><span class="n">first</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">el</span><span class="o">.</span><span class="n">second</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="nb">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="nb">int</span><span class="o">&gt;</span> <span class="n">b</span><span class="p">;</span>
+<span class="n">b</span><span class="p">[</span><span class="s2">&quot;Bob&quot;</span><span class="p">]</span><span class="o">--</span><span class="p">;</span>
+<span class="n">b</span><span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">b</span><span class="p">[</span><span class="s2">&quot;Dan&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
+
+<span class="o">/*</span> <span class="n">Этот</span> <span class="n">цикл</span> <span class="n">выведет</span> <span class="mi">2</span> <span class="n">строки</span><span class="p">:</span>
+   <span class="n">Alice</span> <span class="mi">2</span>
+   <span class="n">Bob</span> <span class="o">-</span><span class="mi">1</span>
+   <span class="n">Dan</span> <span class="mi">123</span>
+<span class="o">*/</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">auto</span> <span class="n">el</span> <span class="p">:</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">el</span><span class="o">.</span><span class="n">first</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">el</span><span class="o">.</span><span class="n">second</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nb">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;&gt;</span> <span class="n">c</span><span class="p">;</span>
+<span class="n">c</span><span class="p">[</span><span class="s2">&quot;wow&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">c</span><span class="p">[</span><span class="s2">&quot;abc&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">17</span><span class="p">};</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">c</span><span class="p">[</span><span class="s2">&quot;abc&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">выведет</span> <span class="mi">3</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Unordered-&#1089;&#1090;&#1088;&#1091;&#1082;&#1090;&#1091;&#1088;&#1099;-&#1076;&#1072;&#1085;&#1085;&#1099;&#1093;">Unordered &#1089;&#1090;&#1088;&#1091;&#1082;&#1090;&#1091;&#1088;&#1099; &#1076;&#1072;&#1085;&#1085;&#1099;&#1093;<a class="anchor-link" href="#Unordered-&#1089;&#1090;&#1088;&#1091;&#1082;&#1090;&#1091;&#1088;&#1099;-&#1076;&#1072;&#1085;&#1085;&#1099;&#1093;">&#182;</a></h2><p>Единственная проблема set и map - то что они работают за $\log(n)$, что в некоторых задачах долго. Тогда возникает идея построить их не на двоичном дереве, а например на хештаблице (о ней вы узнаете на втором курсе), тогда unordered_set поддерживает вставку и удаление за $O(1)$, единственная проблема - он содержит элементы в неотсортированном порядке, то есть мы уже не сможем искать минимум, максимум.</p>
+<p>На питоне встроенные set и dict - это именно аналоги unordered_set  и unordered_map. Упорядоченного сета и мэпа на питоне нет.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">unordered_set</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">;</span>
+<span class="n">a</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="n">a</span><span class="o">.</span><span class="n">erase</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1055;&#1086;&#1083;&#1077;&#1079;&#1085;&#1099;&#1077;-&#1092;&#1091;&#1085;&#1082;&#1094;&#1080;&#1080;-&#1080;&#1079;-algorithm">&#1055;&#1086;&#1083;&#1077;&#1079;&#1085;&#1099;&#1077; &#1092;&#1091;&#1085;&#1082;&#1094;&#1080;&#1080; &#1080;&#1079; algorithm<a class="anchor-link" href="#&#1055;&#1086;&#1083;&#1077;&#1079;&#1085;&#1099;&#1077;-&#1092;&#1091;&#1085;&#1082;&#1094;&#1080;&#1080;-&#1080;&#1079;-algorithm">&#182;</a></h2><h3 id="swap">swap<a class="anchor-link" href="#swap">&#182;</a></h3><p><code>swap(a, b)</code> &mdash; обменивает значения переменных <code>a</code> и <code>b</code> местами.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">выведет</span> <span class="mi">5</span> <span class="mi">3</span>
+<span class="n">swap</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">выведет</span> <span class="mi">3</span> <span class="mi">5</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="min_element-&#1080;-max_element">min_element &#1080; max_element<a class="anchor-link" href="#min_element-&#1080;-max_element">&#182;</a></h3><p><code>min_element(first, last)</code> &mdash; возвращает итератор на минимум на полуинтервале <code>[first; last)</code>.<br>
+<code>max_element(first, last)</code> &mdash; возвращает итератор на максимум на полуинтервале <code>[first; last)</code>.</p>
+<p>Если минимумов/максимумов несколько, то возвращается первое вхождение.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">};</span>
+<span class="n">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">min_element</span><span class="p">(</span><span class="n">numbers</span><span class="o">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">numbers</span><span class="o">.</span><span class="n">end</span><span class="p">());</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">it</span> <span class="o">-</span> <span class="n">numbers</span><span class="o">.</span><span class="n">begin</span><span class="p">())</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">выведет</span> <span class="mi">1</span> <span class="mi">2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="reverse">reverse<a class="anchor-link" href="#reverse">&#182;</a></h3><p><code>reverse(first, last)</code> &mdash; переворачивает полуинтервал <code>[first; last)</code> (элементы идут в обратном порядке).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">17</span><span class="p">};</span>
+<span class="n">reverse</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">a</span><span class="o">.</span><span class="n">begin</span><span class="p">()</span> <span class="o">+</span> <span class="mi">3</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">x</span> <span class="p">:</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot; &quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>В этом примере будет выведено <code>3 2 5 10 17</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="sort,-unique-&#1080;-&#1082;&#1086;&#1084;&#1087;&#1072;&#1088;&#1072;&#1090;&#1086;&#1088;&#1099;">sort, unique &#1080; &#1082;&#1086;&#1084;&#1087;&#1072;&#1088;&#1072;&#1090;&#1086;&#1088;&#1099;<a class="anchor-link" href="#sort,-unique-&#1080;-&#1082;&#1086;&#1084;&#1087;&#1072;&#1088;&#1072;&#1090;&#1086;&#1088;&#1099;">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>sort(first, last)</code> &mdash; сортирует полуинтервал <code>[first; last)</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+<span class="n">sort</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">a</span><span class="o">.</span><span class="n">end</span><span class="p">());</span> <span class="o">//</span> <span class="n">сортируем</span> <span class="n">весь</span> <span class="n">вектор</span>
+<span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">x</span> <span class="p">:</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot; &quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>В этом примере будет выведено <code>2 2 3 5 10 11</code>.</p>
+<p>Функция <code>sort</code> может принимать третий параметр &mdash; <em>компаратор</em>. Компаратор &mdash; это функция, которая принимает два объекта и возвращает <code>true</code>, если первый <em>строго меньше</em> второго, и <code>false</code> иначе.</p>
+<p>Допустим, нам хотелось бы отсортировать числа по возрастанию их последней цифры, а при совпадении &mdash; по самому значению. Тогда мы могли бы написать следующий код:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">bool</span> <span class="nb">cmp</span><span class="p">(</span><span class="nb">int</span> <span class="n">a</span><span class="p">,</span> <span class="nb">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">make_pair</span><span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="mi">10</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">make_pair</span><span class="p">(</span><span class="n">b</span> <span class="o">%</span> <span class="mi">10</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">это</span> <span class="n">внутри</span> <span class="n">main</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">30</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">15</span><span class="p">};</span>
+<span class="n">sort</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">a</span><span class="o">.</span><span class="n">end</span><span class="p">(),</span> <span class="nb">cmp</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">x</span> <span class="p">:</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot; &quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>В данном примере, как мы и хотели, будет выведено <code>30 12 32 15 7</code>.</p>
+<p><code>unique(first, last)</code> &mdash; принимает полуинтервал и удаляет все последовательные повторения элементов в нём. Функция возвращает итератор на конец полуинтервала, соответствующему уникализированным элементам. Значения элементов, которые следуют после этого полуинтервала, становятся неопределёнными. Поэтому рекомендуется использовать функцию <code>unique</code>, например, вместе с функцией <code>resize</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">};</span>
+<span class="n">a</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">unique</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">a</span><span class="o">.</span><span class="n">end</span><span class="p">())</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="n">begin</span><span class="p">());</span>
+<span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">x</span> <span class="p">:</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot; &quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>В данном примере будет выведено <code>5 1 5 4 7 1</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Часто требуется сначала отсортировать элементы, а потом убрать все повторения. Это делается следующей комбинацией:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sort</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">a</span><span class="o">.</span><span class="n">end</span><span class="p">());</span>
+<span class="n">a</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">unique</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">a</span><span class="o">.</span><span class="n">end</span><span class="p">())</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="n">begin</span><span class="p">());</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="nth_element">nth_element<a class="anchor-link" href="#nth_element">&#182;</a></h3><p>Функция ставит на переданную позицию элемент, который был бы на этом месте после сортировки массива(работает за линию).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nth_element</span><span class="p">(</span><span class="n">begin</span><span class="p">,</span> <span class="n">need</span><span class="p">,</span> <span class="n">end</span><span class="p">);</span> <span class="o">//</span> <span class="n">need</span> <span class="o">-</span> <span class="n">позиция</span> <span class="n">отсортированного</span> <span class="n">массива</span><span class="p">,</span> 
+<span class="o">//</span><span class="n">begin</span><span class="p">,</span> <span class="n">end</span> <span class="o">-</span> <span class="n">итераторы</span> <span class="n">на</span> <span class="n">начало</span> <span class="n">и</span> <span class="n">конец</span> <span class="n">места</span><span class="p">,</span> <span class="n">которое</span> <span class="n">надо</span> <span class="n">сортировать</span><span class="o">.</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="next_permutation,-prev_permutation">next_permutation, prev_permutation<a class="anchor-link" href="#next_permutation,-prev_permutation">&#182;</a></h3><p>Генерирует следующую и предыдущую перестановку массива на отрезке с l по r;</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">next_permutation</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">);</span><span class="o">//</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span> <span class="o">-</span> <span class="n">итераторы</span>
+<span class="n">prev_permutation</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">a</span><span class="o">.</span><span class="n">end</span><span class="p">());</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="merge">merge<a class="anchor-link" href="#merge">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">merge</span><span class="p">(</span><span class="n">начало</span> <span class="n">первой</span> <span class="n">последовательности</span><span class="p">,</span> <span class="n">конец</span> <span class="n">первой</span> <span class="n">последовательности</span><span class="p">,</span> <span class="n">начало</span> 
+<span class="n">второй</span> <span class="n">последовательности</span><span class="p">,</span> <span class="n">конец</span> <span class="n">второй</span> <span class="n">последовательности</span><span class="p">,</span> <span class="n">куда</span> <span class="n">вставлять</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Слияние двух массивов, которое используется в сортировке слиянием.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="lower_bound,-upper_bound,-binary_search">lower_bound, upper_bound, binary_search<a class="anchor-link" href="#lower_bound,-upper_bound,-binary_search">&#182;</a></h3><p>Все эти функции принимают полуинтервал <code>[first; last)</code> и значение <code>value</code>. Полуинтервал должен быть упорядочен по отношению <code>element &lt; value</code> (сначала те элементы, которые удовлетворяют этому, потом остальные).</p>
+<p><code>lower_bound</code> &mdash; возвращает первый элемент, больший или равный <code>value</code>.<br>
+<code>upper_bound</code> &mdash; возвращает первый элемент, строго больший <code>value</code>.<br>
+<code>binary_search</code> &mdash; возвращает, присутствует ли <code>value</code> на этом полуинтервале.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">};</span>
+
+<span class="n">auto</span> <span class="n">it1</span> <span class="o">=</span> <span class="n">lower_bound</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">a</span><span class="o">.</span><span class="n">end</span><span class="p">(),</span> <span class="mi">5</span><span class="p">);</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">it1</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="n">begin</span><span class="p">())</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">выведет</span> <span class="mi">1</span>
+
+<span class="n">auto</span> <span class="n">it2</span> <span class="o">=</span> <span class="n">upper_bound</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">a</span><span class="o">.</span><span class="n">end</span><span class="p">(),</span> <span class="mi">5</span><span class="p">);</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it2</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">выведет</span> <span class="mi">6</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">binary_search</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">a</span><span class="o">.</span><span class="n">end</span><span class="p">(),</span> <span class="mi">7</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;There is an element = 7</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">это</span> <span class="n">будет</span> <span class="n">выведено</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="&#1042;&#1085;&#1080;&#1084;&#1072;&#1085;&#1080;&#1077;!">&#1042;&#1085;&#1080;&#1084;&#1072;&#1085;&#1080;&#1077;!<a class="anchor-link" href="#&#1042;&#1085;&#1080;&#1084;&#1072;&#1085;&#1080;&#1077;!">&#182;</a></h4><p>Не используйте <code>lower_bound</code>, <code>upper_bound</code>, <code>binary_search</code> вместе с <code>set</code>/<code>map</code>! Они будут работать за линейное время. Используйте их собственные функции: <code>set::lower_bound</code> (вызывается через <code>.</code>) и так далее.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1059;&#1089;&#1082;&#1086;&#1088;&#1077;&#1085;&#1080;&#1077;-&#1074;&#1074;&#1086;&#1076;&#1072;-&#1080;-&#1074;&#1099;&#1074;&#1086;&#1076;&#1072;">&#1059;&#1089;&#1082;&#1086;&#1088;&#1077;&#1085;&#1080;&#1077; &#1074;&#1074;&#1086;&#1076;&#1072; &#1080; &#1074;&#1099;&#1074;&#1086;&#1076;&#1072;<a class="anchor-link" href="#&#1059;&#1089;&#1082;&#1086;&#1088;&#1077;&#1085;&#1080;&#1077;-&#1074;&#1074;&#1086;&#1076;&#1072;-&#1080;-&#1074;&#1099;&#1074;&#1086;&#1076;&#1072;">&#182;</a></h2><p>Стандартные <code>cin</code> и <code>cout</code> работают <em>очень</em> медленно. Чтобы исправить это, в начале вашей функции <code>main</code> пишите следующее:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ios</span><span class="p">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">cin</span><span class="o">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">cout</span><span class="o">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Это позволяет ускорить ввод и вывод в разы!</p>
+<p>Также крайне не рекомендуется использовать <code>endl</code> (кроме интерактивных задач). Используйте <code>"\n"</code>. Они отличаются тем, что <code>endl</code> делает <code>flush</code> вывода, то есть сразу же выводит то, что вы хотите. Если вы будете использовать <code>"\n"</code>, вывод будет накапливаться, а потом единожды выводиться, что гораздо быстрее.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h2><p>Это просто олимпиадные задачи, но почти в любой задаче можно использовать STL, чтобы упростить себе жизнь.</p>
 <ul>
-<li><a href="http://sereja.me/a/strings">Поиск строки в строке</a>: префикс-функция, z-функция</li>
-<li><a href="http://sereja.me/a/geometry">Геометрия</a>: скалярное и векторное произведение, пересечение прямых, классы в C++</li>
-<li><a href="http://sereja.me/a/dp_optimizations">Оптимизации ДП</a>: Кнут, разделяй-и-властвуй, Convex Hull Trick</li>
-<li><a href="http://sereja.me/a/fenwick">Дерево Фенвика</a>: устройство, многомерное дерево, бинпоиск по дереву</li>
-<li><a href="http://sereja.me/a/mst">Остовные деревья</a>: алгоритм Прима и Крускала</li>
-<li><a href="http://sereja.me/a/reciprocal">Обратное по модулю</a></li>
-<li><a href="http://sereja.me/a/annealing">Метод отжига</a></li>
-<li><a href="http://sereja.me/a/stress-test">Стресс-тестирование</a></li>
-<li>Подсчёт числа путей в дереве: метод переливаний, центроидная декомпозиция</li>
+<li>Решите как можно больше задач в контесте на информатиксе: <a href="https://informatics.msk.ru/mod/statements/view3.php?id=34778&amp;chapterid=756#1">https://informatics.msk.ru/mod/statements/view3.php?id=34778&amp;chapterid=756#1</a></li>
+<li>Решите как можно больше задач в контесте на codeforces: 
+<a href="http://codeforces.com/group/g92L0id9Yb/contest/229989">http://codeforces.com/group/g92L0id9Yb/contest/229989</a></li>
 </ul>
-<p>Вообще не готово:</p>
-<ul>
-<li><a href="http://sereja.me/a/true">Бор</a>: бор на указателях, суффиксные ссылки, алгоритм Ахо-Корасик</li>
-<li><a href="http://sereja.me/a/linalg">Линейная алгебра</a>: линейные операторы, матрицы, применения к динамике, метод Гаусса</li>
-<li><a href="http://sereja.me/a/probability">Теорвер</a>: </li>
-<li>Выпуклые оболочки</li>
-<li>Разделяй-и-властвуй</li>
-<li>Теория информации</li>
-</ul>
-<p>Спасибо Косте Амеличеву, Глебу Лобанову, Ване Клигунову, Диме Дубровину, Маше Тряпицыной, Саше Мамаеву, Андрею Гаркавому, Тёме Рябову, Андрею Чулкову, Максу Деб Натху и много кому ещё за фидбэк и указания на ошибки и неточности.</p>
 
 </div>
 </div>

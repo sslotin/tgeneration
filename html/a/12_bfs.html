@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>index</title>
+<title>12_bfs</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13116,43 +13116,336 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;">&#182;</a></h1><p>Стараюсь писать только про то, чего нет в интернете в нормальном виде. Либо про то, что мне очень сложно давалось, когда я был в школе.</p>
-<p>Более-менее готово:</p>
+<h1 id="&#1050;&#1088;&#1072;&#1090;&#1095;&#1072;&#1081;&#1096;&#1080;&#1077;-&#1087;&#1091;&#1090;&#1080;-&#1074;-&#1075;&#1088;&#1072;&#1092;&#1072;&#1093;.-BFS.-Dijkstra.">&#1050;&#1088;&#1072;&#1090;&#1095;&#1072;&#1081;&#1096;&#1080;&#1077; &#1087;&#1091;&#1090;&#1080; &#1074; &#1075;&#1088;&#1072;&#1092;&#1072;&#1093;. BFS. Dijkstra.<a class="anchor-link" href="#&#1050;&#1088;&#1072;&#1090;&#1095;&#1072;&#1081;&#1096;&#1080;&#1077;-&#1087;&#1091;&#1090;&#1080;-&#1074;-&#1075;&#1088;&#1072;&#1092;&#1072;&#1093;.-BFS.-Dijkstra.">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1047;&#1072;&#1076;&#1072;&#1095;&#1072;">&#1047;&#1072;&#1076;&#1072;&#1095;&#1072;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1095;&#1072;">&#182;</a></h2><blockquote><p>Дан ориентированный граф $G = (V, E)$, а также вершина $s$.<br>
+Найти длину кратчайшего пути от $s$ до <strong>каждой</strong> из вершин графа. Длина пути &mdash; количество рёбер в нём.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="BFS">BFS<a class="anchor-link" href="#BFS">&#182;</a></h2><p>BFS &mdash; breadth-first search, или же поиск в ширину.</p>
+<p>Этот алгоритм позволяет решать следующую задачу.</p>
+<p>Алгоритм работает следующим образом.</p>
+<ol>
+<li>Создадим массив $dist$ расстояний. Изначально $dist[s] = 0$ (поскольку расстояний от вершины до самой себя равно $0$) и $dist[v] = \infty$ для $v \neq s$.</li>
+<li>Создадим очередь $q$. Изначально в $q$ добавим вершину $s$.</li>
+<li>Пока очередь $q$ непуста, делаем следующее:<ol>
+<li>Извлекаем вершину $v$ из очереди.</li>
+<li>Рассматриваем все рёбра $(v, u) \in E$. Для каждого такого ребра пытаемся сделать <em>релаксацию</em>: если $dist[v] + 1 &lt; dist[u]$, то мы делаем присвоение $dist[u] = dist[v] + 1$ и добавляем вершину $u$ в очередь.</li>
+</ol>
+</li>
+</ol>
+<p>Визуализации:</p>
 <ul>
-<li><a href="http://sereja.me/a/segtree">Дерево отрезков</a>: на указателях, динамическое, пересистентное.</li>
-<li><a href="http://sereja.me/a/treap">Декартово дерево</a>: явное, неявное, персистентое.</li>
-<li><a href="http://sereja.me/a/hashing">Полиномиальное хэширование</a> в задачах на строки</li>
-<li><a href="http://sereja.me/a/centroid">Центроидная декомпозиция</a></li>
-<li><a href="http://sereja.me/a/matroid">Матроиды</a>: алгоритм Радо-Эдмондса, расписания, паросочетания, линейная независимость</li>
-<li><a href="http://sereja.me/a/pollard">Ро-алгоритм Полларда</a></li>
-<li><a href="http://sereja.me/a/sparse-table">Sparse table</a></li>
-<li><a href="http://sereja.me/a/mincost-maxflow">Поток минимальной стоимости</a>: критерий оптимальности, потенциалы Джонсона, реализация за $O(mU)$</li>
-<li><a href="http://sereja.me/a/bitset">Битовое сжатие</a>: битсет, нахождение цикла длины 3, перемножение матриц, метод Гаусса</li>
-<li><a href="http://sereja.me/a/lca">Наименьший общий предок</a>: свойства tin и tout, двоичные подъемы, сведение к RMQ, алгоритм Фараха-Колтона и Бендера</li>
-<li><a href="http://sereja.me/a/bayans">Классные задачки</a>: пока что без решений</li>
+<li><p><a href="https://visualgo.net/mn/dfsbfs">https://visualgo.net/mn/dfsbfs</a></p>
+</li>
+<li><p><a href="https://www.hackerearth.com/practice/algorithms/graphs/breadth-first-search/visualize/">https://www.hackerearth.com/practice/algorithms/graphs/breadth-first-search/visualize/</a></p>
+</li>
 </ul>
-<p>Не очень готово:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1048;&#1085;&#1090;&#1091;&#1080;&#1090;&#1080;&#1074;&#1085;&#1086;&#1077;-&#1087;&#1086;&#1085;&#1080;&#1084;&#1072;&#1085;&#1080;&#1077;-&#1072;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1072;">&#1048;&#1085;&#1090;&#1091;&#1080;&#1090;&#1080;&#1074;&#1085;&#1086;&#1077; &#1087;&#1086;&#1085;&#1080;&#1084;&#1072;&#1085;&#1080;&#1077; &#1072;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1072;<a class="anchor-link" href="#&#1048;&#1085;&#1090;&#1091;&#1080;&#1090;&#1080;&#1074;&#1085;&#1086;&#1077;-&#1087;&#1086;&#1085;&#1080;&#1084;&#1072;&#1085;&#1080;&#1077;-&#1072;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1072;">&#182;</a></h2><p>Можно представить, что мы поджигаем вершину $s$. Каждый шаг алгоритма &mdash; это распространение огня на соседние вершины. Понятно, что огонь доберётся до вершины по кратчайшему пути.</p>
+<p>Заметьте, что этот алгоритм очень похож на DFS &mdash; достаточно заменить очередь на стек и поиск в ширину станет поиском в глубину. Действительно, оба алгоритма при обработке вершины просто записывают всех непосещенных соседей, в которые из неё есть ребро, в структуру данных, и после этого выбирает следующую вершину для обработки в структуре данных. В DFS это стек (благодаря рекурсии), поэтому мы сначала записываем соседа, идем в обрабатываем его полностью, а потом начинаем обрабатывать следующего соседа. В BFS это очередь, поэтому мы кидаем сразу всех соседей, а потом начинаем обрабатывать вообще другую вершину - ту непосещенную, которую мы положили в очередь раньше всего.</p>
+<p>Оба алгоритма позволяют обойти граф целиком - посетить каждую вершину ровно один раз. Поэтому они оба подходят для таких задач как:</p>
 <ul>
-<li><a href="http://sereja.me/a/strings">Поиск строки в строке</a>: префикс-функция, z-функция</li>
-<li><a href="http://sereja.me/a/geometry">Геометрия</a>: скалярное и векторное произведение, пересечение прямых, классы в C++</li>
-<li><a href="http://sereja.me/a/dp_optimizations">Оптимизации ДП</a>: Кнут, разделяй-и-властвуй, Convex Hull Trick</li>
-<li><a href="http://sereja.me/a/fenwick">Дерево Фенвика</a>: устройство, многомерное дерево, бинпоиск по дереву</li>
-<li><a href="http://sereja.me/a/mst">Остовные деревья</a>: алгоритм Прима и Крускала</li>
-<li><a href="http://sereja.me/a/reciprocal">Обратное по модулю</a></li>
-<li><a href="http://sereja.me/a/annealing">Метод отжига</a></li>
-<li><a href="http://sereja.me/a/stress-test">Стресс-тестирование</a></li>
-<li>Подсчёт числа путей в дереве: метод переливаний, центроидная декомпозиция</li>
+<li>поиск компонент связности</li>
+<li>проверка графа на двудольность</li>
+<li>построение остова</li>
 </ul>
-<p>Вообще не готово:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1056;&#1077;&#1072;&#1083;&#1080;&#1079;&#1072;&#1094;&#1080;&#1103;-&#1085;&#1072;-C++">&#1056;&#1077;&#1072;&#1083;&#1080;&#1079;&#1072;&#1094;&#1080;&#1103; &#1085;&#1072; C++<a class="anchor-link" href="#&#1056;&#1077;&#1072;&#1083;&#1080;&#1079;&#1072;&#1094;&#1080;&#1103;-&#1085;&#1072;-C++">&#182;</a></h2><p><code>n</code> &mdash; количество вершин в графе; <code>adj</code> &mdash; список смежности</p>
+<div class="highlight"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">bfs</span><span class="p">(</span><span class="kt">int</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// длина любого кратчайшего пути не превосходит n - 1,</span>
+    <span class="c1">// поэтому n - достаточное значение для &quot;бесконечности&quot;;</span>
+    <span class="c1">// после работы алгоритма dist[v] = n, если v недостижима из s</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dist</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+    <span class="n">dist</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">q</span><span class="p">;</span>
+    <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">q</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+        <span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">u</span> <span class="p">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">v</span><span class="p">])</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+                <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">dist</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1057;&#1074;&#1086;&#1081;&#1089;&#1090;&#1074;&#1072;-&#1082;&#1088;&#1072;&#1090;&#1095;&#1072;&#1081;&#1096;&#1080;&#1093;-&#1087;&#1091;&#1090;&#1077;&#1081;">&#1057;&#1074;&#1086;&#1081;&#1089;&#1090;&#1074;&#1072; &#1082;&#1088;&#1072;&#1090;&#1095;&#1072;&#1081;&#1096;&#1080;&#1093; &#1087;&#1091;&#1090;&#1077;&#1081;<a class="anchor-link" href="#&#1057;&#1074;&#1086;&#1081;&#1089;&#1090;&#1074;&#1072;-&#1082;&#1088;&#1072;&#1090;&#1095;&#1072;&#1081;&#1096;&#1080;&#1093;-&#1087;&#1091;&#1090;&#1077;&#1081;">&#182;</a></h2><p><strong>Обозначение</strong>: $d(v)$ &mdash; длина кратчайшего пути от $s$ до $v$.</p>
+<p><strong>Лемма 1</strong>.</p>
+<blockquote><p>Пусть $(u, v) \in E$, тогда $d(v) \leq d(u) + 1$.</p>
+</blockquote>
+<p>Действительно, существует путь из $s$ в $u$ длины $d(u)$, а также есть ребро $(u, v)$, следовательно, существует путь из $s$ в $v$ длины $d(u) + 1$. А значит кратчайший путь из $s$ в $v$ имеет длину не более $d(u) + 1$,</p>
+<p><strong>Лемма 2</strong>.</p>
+<blockquote><p>Рассмотрим кратчайший путь от $s$ до $v$. Обозначим его как $u_1, u_2, \dots u_k$ ($u_1 = s$ и $u_k = v$, а также $k = d(v) + 1$).<br>
+Тогда $\forall (i &lt; k): d(u_i) + 1 = d(u_{i + 1})$.</p>
+</blockquote>
+<p>Действительно, пусть для какого-то $i &lt; k$ это не так. Тогда, используя лемму 1, имеем: $d(u_i) + 1 &gt; d(u_{i + 1})$. Тогда мы можем заменить первые $i + 1$ вершин пути на вершины из кратчайшего пути из $s$ в $u_{i + 1}$. Полученный путь стал короче, но мы рассматривали кратчайший путь &mdash; противоречие.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;">&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;<a class="anchor-link" href="#&#1050;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1100;">&#182;</a></h2><p><strong>Утверждение</strong>.</p>
+<blockquote><ol>
+<li>Расстояния до тех вершин, которые были добавлены в очередь, посчитаны корректно.</li>
+<li>Вершины лежат в очереди в порядке неубывания расстояния, притом разность между кратчайшими расстояними до вершин в очереди не превосходит $1$.</li>
+</ol>
+</blockquote>
+<p>Докажем это по индукции по количеству итераций алгоритма (итерация &mdash; извлечение вершины из очереди и дальнейшая релаксация).</p>
+<p><strong>База</strong> очевидна.<br>
+<strong>Переход</strong>. Сначала докажем первую часть. Предположим, что $dist[v] + 1 &lt; dist[u]$, но $dist[v] + 1$ &mdash; некорректное расстояние до вершины $u$, то есть $dist[v] + 1 \neq d(u)$.  Тогда по лемме 1: $d(u) &lt; dist[v] + 1$. Рассмотрим предпоследнюю вершину $w$ на кратчайшем пути от $s$ до $u$. Тогда по лемме 2: $d(w) + 1 = d(u)$. Следовательно, $d(w) + 1 &lt; dist[v] + 1$ и $d(w) &lt; dist[v]$. Но тогда по предположению индукции $w$ была извлечена раньше $v$, следовательно, при релаксации из неё в очередь должна была быть добавлена вершина $u$ с уже корректным расстоянием. Противоречие.<br>
+Теперь докажем вторую часть. По предположению индукции в очереди лежали некоторые вершины $u_1, u_2, \dots u_k$, для которых выполнялось следующее: $dist[u_1] \leq dist[u_2] \leq \dots \leq dist[u_k]$ и $dist[u_k] - dist[u_1] \leq 1$. Мы извлекли вершину $v = u_1$ и могли добавить в конец очереди какие-то вершины с расстоянием $dist[v] + 1$. Если $k = 1$, то утверждение очевидно. В противном случае имеем $dist[u_k] - dist[u_1] \leq 1 \leftrightarrow dist[u_k] - dist[v] \leq 1  \leftrightarrow dist[u_k] \leq dist[v] + 1$, то есть упорядоченность сохранилась. Осталось показать, что $(dist[v] + 1) - dist[u_2] \leq 1$, но это равносильно $dist[v] \leq dist[u_2]$, что, как мы знаем, верно.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1042;&#1088;&#1077;&#1084;&#1103;-&#1088;&#1072;&#1073;&#1086;&#1090;&#1099;">&#1042;&#1088;&#1077;&#1084;&#1103; &#1088;&#1072;&#1073;&#1086;&#1090;&#1099;<a class="anchor-link" href="#&#1042;&#1088;&#1077;&#1084;&#1103;-&#1088;&#1072;&#1073;&#1086;&#1090;&#1099;">&#182;</a></h2><p>Из доказанного следует, что каждая достижимая из $s$ вершина будет добавлена в очередь ровно $1$ раз, недостижимые вершины добавлены не будут. Каждое ребро, соединяющее достижимые вершины, будет рассмотрено ровно $2$ раза. Таким образом, алгоритм работает за $O(V+ E)$ времени, при условии, что граф хранится в виде списка смежности.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1053;&#1077;&#1086;&#1088;&#1080;&#1077;&#1085;&#1090;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1085;&#1099;&#1077;-&#1075;&#1088;&#1072;&#1092;&#1099;">&#1053;&#1077;&#1086;&#1088;&#1080;&#1077;&#1085;&#1090;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1085;&#1099;&#1077; &#1075;&#1088;&#1072;&#1092;&#1099;<a class="anchor-link" href="#&#1053;&#1077;&#1086;&#1088;&#1080;&#1077;&#1085;&#1090;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1085;&#1099;&#1077;-&#1075;&#1088;&#1072;&#1092;&#1099;">&#182;</a></h2><p>Если дан неориентированный граф, его можно рассматривать как ориентированный граф с двумя обратными друг другу ориентированными рёбрами.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1042;&#1086;&#1089;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077;-&#1087;&#1091;&#1090;&#1080;">&#1042;&#1086;&#1089;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077; &#1087;&#1091;&#1090;&#1080;<a class="anchor-link" href="#&#1042;&#1086;&#1089;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077;-&#1087;&#1091;&#1090;&#1080;">&#182;</a></h2><p>Пусть теперь заданы 2 вершины $s$ и $t$, и необходимо не только найти длину кратчайшего пути из $s$ в $t$, но и восстановить какой-нибудь из кратчайших путей между ними. Всё ещё можно воспользоваться алгоритмом BFS, но необходимо ещё и поддерживать <em>массив предков</em> $p$, в котором для каждой вершины будет храниться предыдущая вершина на кратчайшем пути.</p>
+<p>Поддерживать этот массив просто: при релаксации нужно просто запоминать, из какой вершины мы прорелаксировали в данную. Также будем считать, что $p[s] = -1$: у стартовой вершины предок &mdash; некоторая несуществующая вершина.</p>
+<p>Восстановление пути делается с конца. Мы знаем последнюю вершину пути &mdash; это $t$. Далее, мы сводим задачу к меньшей, переходя к нахождению пути из $s$ в $p[t]$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1056;&#1077;&#1072;&#1083;&#1080;&#1079;&#1072;&#1094;&#1080;&#1103;-BFS-&#1089;-&#1074;&#1086;&#1089;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077;&#1084;-&#1087;&#1091;&#1090;&#1080;">&#1056;&#1077;&#1072;&#1083;&#1080;&#1079;&#1072;&#1094;&#1080;&#1103; BFS &#1089; &#1074;&#1086;&#1089;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077;&#1084; &#1087;&#1091;&#1090;&#1080;<a class="anchor-link" href="#&#1056;&#1077;&#1072;&#1083;&#1080;&#1079;&#1072;&#1094;&#1080;&#1103;-BFS-&#1089;-&#1074;&#1086;&#1089;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077;&#1084;-&#1087;&#1091;&#1090;&#1080;">&#182;</a></h2><div class="highlight"><pre><span></span><span class="c1">// теперь bfs принимает 2 вершины, между которыми ищется пути</span>
+<span class="c1">// bfs возвращает кратчайший путь из s в t, или же пустой vector, если пути нет</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">bfs</span><span class="p">(</span><span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dist</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+    <span class="n">dist</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">q</span><span class="p">;</span>
+    <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">q</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+        <span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">u</span> <span class="p">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">v</span><span class="p">])</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">p</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
+                <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+                <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// если пути не существует, возвращаем пустой vector</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">dist</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{};</span>
+    <span class="p">}</span>
+
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">path</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">t</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">path</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="n">t</span><span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="c1">// путь был рассмотрен в обратном порядке, поэтому его нужно перевернуть</span>
+    <span class="n">reverse</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">path</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+    <span class="k">return</span> <span class="n">path</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1055;&#1088;&#1086;&#1074;&#1077;&#1088;&#1082;&#1072;-&#1087;&#1088;&#1080;&#1085;&#1072;&#1076;&#1083;&#1077;&#1078;&#1085;&#1086;&#1089;&#1090;&#1080;-&#1074;&#1077;&#1088;&#1096;&#1080;&#1085;&#1099;-&#1082;&#1088;&#1072;&#1090;&#1095;&#1072;&#1081;&#1096;&#1077;&#1084;&#1091;-&#1087;&#1091;&#1090;&#1080;">&#1055;&#1088;&#1086;&#1074;&#1077;&#1088;&#1082;&#1072; &#1087;&#1088;&#1080;&#1085;&#1072;&#1076;&#1083;&#1077;&#1078;&#1085;&#1086;&#1089;&#1090;&#1080; &#1074;&#1077;&#1088;&#1096;&#1080;&#1085;&#1099; &#1082;&#1088;&#1072;&#1090;&#1095;&#1072;&#1081;&#1096;&#1077;&#1084;&#1091; &#1087;&#1091;&#1090;&#1080;<a class="anchor-link" href="#&#1055;&#1088;&#1086;&#1074;&#1077;&#1088;&#1082;&#1072;-&#1087;&#1088;&#1080;&#1085;&#1072;&#1076;&#1083;&#1077;&#1078;&#1085;&#1086;&#1089;&#1090;&#1080;-&#1074;&#1077;&#1088;&#1096;&#1080;&#1085;&#1099;-&#1082;&#1088;&#1072;&#1090;&#1095;&#1072;&#1081;&#1096;&#1077;&#1084;&#1091;-&#1087;&#1091;&#1090;&#1080;">&#182;</a></h2><blockquote><p>Дан ориентированный граф $G$, найти все вершины, которые принадлежат хотя бы одному кратчайшему пути из $s$ в $t$.</p>
+</blockquote>
+<p>Запустим из вершины $s$ в графе $G$ BFS &mdash; найдём расстояния $d_1$. Построим транспонированный граф $G^T$ &mdash; граф, в котором каждое ребро заменено на противоположное. Запустим из вершины $t$ в графе $G^T$ BFS &mdash; найдём расстояния $d_2$.</p>
+<p>Теперь очевидно, что $v$ принадлежит хотя бы одному кратчайшему пути из $s$ в $t$ тогда и только тогда, когда $d_1(v) + d_2(v) = d_1(t)$ &mdash; это значит, что есть путь из $s$ в $v$ длины $d_1(v)$, а затем есть путь из $v$ в $t$ длины $d_2(v)$, и их суммарная длина совпадает с длиной кратчайшего пути из $s$ в $t$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1050;&#1088;&#1072;&#1090;&#1095;&#1072;&#1081;&#1096;&#1080;&#1081;-&#1094;&#1080;&#1082;&#1083;-&#1074;-&#1086;&#1088;&#1080;&#1077;&#1085;&#1090;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1085;&#1086;&#1084;-&#1075;&#1088;&#1072;&#1092;&#1077;">&#1050;&#1088;&#1072;&#1090;&#1095;&#1072;&#1081;&#1096;&#1080;&#1081; &#1094;&#1080;&#1082;&#1083; &#1074; &#1086;&#1088;&#1080;&#1077;&#1085;&#1090;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1085;&#1086;&#1084; &#1075;&#1088;&#1072;&#1092;&#1077;<a class="anchor-link" href="#&#1050;&#1088;&#1072;&#1090;&#1095;&#1072;&#1081;&#1096;&#1080;&#1081;-&#1094;&#1080;&#1082;&#1083;-&#1074;-&#1086;&#1088;&#1080;&#1077;&#1085;&#1090;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1085;&#1086;&#1084;-&#1075;&#1088;&#1072;&#1092;&#1077;">&#182;</a></h2><blockquote><p>Найти цикл минимальной длины в ориентированном графе.</p>
+</blockquote>
+<p>Попытаемся из каждой вершины найти кратчайший цикл, проходящий через неё, с помощью BFS. Это делается аналогично обычному BFS: мы должны найти расстояний от вершины до самой себя, при этом не считая, что оно равно $0$.</p>
+<p>Итого, у нас $|V|$ запусков BFS, и каждый запуск работает за $O(|V| + |E|)$. Тогда общее время работы составляет $O(|V|^2 + |V| |E|)$. Если инициализировать массив $dist$ единожды, а после каждого запуска BFS возвращать исходные значения только для достижимых вершин, решение будет работать за $O(|V||E|)$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1047;&#1072;&#1076;&#1072;&#1095;&#1072;">&#1047;&#1072;&#1076;&#1072;&#1095;&#1072;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1095;&#1072;">&#182;</a></h2><blockquote><p>Дан взвешенный ориентированный граф $G = (V, E)$, а также вершина $s$. Длина ребра $(u, v)$ равна $w(u, v)$. Длины всех рёбер <strong>неотрицательные</strong>.<br>
+Найти длину кратчайшего пути от $s$ до каждой из вершин графа. Длина пути &mdash; сумма длин рёбер в нём.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;-&#1044;&#1077;&#1081;&#1082;&#1089;&#1090;&#1088;&#1099;">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084; &#1044;&#1077;&#1081;&#1082;&#1089;&#1090;&#1088;&#1099;<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;-&#1044;&#1077;&#1081;&#1082;&#1089;&#1090;&#1088;&#1099;">&#182;</a></h2><p>Алгоритм Дейкстры решает приведённую выше задачу. Он работает следующим образом.</p>
+<ol>
+<li>Создать массив $dist$ расстояний. Изначально $dist[s] = 0$ и $dist[v] = \infty$ для $v \neq s$.</li>
+<li>Создать булёв массив $used$, $used[v] = 0$ для всех вершин $v$ &mdash; в нём мы будем отмечать, совершалась ли релаксация из вершины.</li>
+<li>Пока существует вершина $v$ такая, что $used[v] = 0$ и $dist[v] \neq \infty$, притом, если таких вершин несколько, то $v$ &mdash; вершина с минимальным $dist[v]$, делать следующее:<ol>
+<li>Пометить, что мы совершали релаксацию из вершины $v$, то есть присвоить $used[v] = 1$.</li>
+<li>Рассматриваем все рёбра $(v, u) \in E$. Для каждого ребра пытаемся сделать релаксацию: если $dist[v] + w(v, u) &lt; dist[u]$, присвоить $dist[u] = dist[v] + w(v, u)$.</li>
+</ol>
+</li>
+</ol>
+<p>Иными словами, алгоритм на каждом шаге находит вершину, до которой расстояние сейчас минимально и из которой ещё не была произведена релаксация, и делает её.</p>
+<p>Посчитаем, за сколько работает алгоритм. Мы $V$ раз ищем вершину  минимальным $dist$, поиск минимума у нас линейный за $O(V)$, отсюда $O(V^2)$. Обработка ребер у нас происходит <strong>суммарно</strong> за $O(E)$, потому что на каждое ребро мы тратим $O(1)$ действий. Так мы находим финальную асимптотику: $O(V^2 + E)$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1056;&#1077;&#1072;&#1083;&#1080;&#1079;&#1072;&#1094;&#1080;&#1103;-&#1085;&#1072;-C++">&#1056;&#1077;&#1072;&#1083;&#1080;&#1079;&#1072;&#1094;&#1080;&#1103; &#1085;&#1072; C++<a class="anchor-link" href="#&#1056;&#1077;&#1072;&#1083;&#1080;&#1079;&#1072;&#1094;&#1080;&#1103;-&#1085;&#1072;-C++">&#182;</a></h2><p>Рёбра будем хранить как <code>pair&lt;int, int&gt;</code>, где первое число пары &mdash; куда оно ведёт; а второе &mdash; длина ребра.</p>
+<div class="highlight"><pre><span></span><span class="c1">// INF - infinity - бесконечность</span>
+<span class="k">const</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">INF</span> <span class="o">=</span> <span class="p">(</span><span class="kt">long</span> <span class="kt">long</span><span class="p">)</span> <span class="mf">1e18</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">long</span> <span class="kt">long</span><span class="o">&gt;</span> <span class="n">dijkstra</span><span class="p">(</span><span class="kt">int</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">long</span> <span class="kt">long</span><span class="o">&gt;</span> <span class="n">dist</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">INF</span><span class="p">);</span>
+    <span class="n">dist</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">used</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// находим вершину, из которой будем релаксировать</span>
+        <span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">used</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">v</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">||</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">]))</span> <span class="p">{</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// если не нашли подходящую вершину, прекращаем работу алгоритма</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">v</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="o">&amp;</span><span class="nl">e</span> <span class="p">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">v</span><span class="p">])</span> <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">u</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="n">first</span><span class="p">;</span>
+            <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="n">second</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="n">len</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="n">len</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">dist</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1042;&#1086;&#1089;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077;-&#1087;&#1091;&#1090;&#1080;">&#1042;&#1086;&#1089;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077; &#1087;&#1091;&#1090;&#1080;<a class="anchor-link" href="#&#1042;&#1086;&#1089;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077;-&#1087;&#1091;&#1090;&#1080;">&#182;</a></h2><p>Восстановление пути в алгоритме Дейкстры делается аналогично восстановлению пути в BFS (и любой динамике).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1044;&#1077;&#1081;&#1082;&#1089;&#1090;&#1088;&#1072;-&#1085;&#1072;-&#1089;&#1077;&#1090;&#1077;">&#1044;&#1077;&#1081;&#1082;&#1089;&#1090;&#1088;&#1072; &#1085;&#1072; &#1089;&#1077;&#1090;&#1077;<a class="anchor-link" href="#&#1044;&#1077;&#1081;&#1082;&#1089;&#1090;&#1088;&#1072;-&#1085;&#1072;-&#1089;&#1077;&#1090;&#1077;">&#182;</a></h2><p>Искать вершину с минимальным $dist$ можно гораздо быстрее, используя такую структуру данных как очередь с приоритетом. Нам нужно хранить пары $(dist, index)$ и уметь делать такие операции:</p>
 <ul>
-<li><a href="http://sereja.me/a/true">Бор</a>: бор на указателях, суффиксные ссылки, алгоритм Ахо-Корасик</li>
-<li><a href="http://sereja.me/a/linalg">Линейная алгебра</a>: линейные операторы, матрицы, применения к динамике, метод Гаусса</li>
-<li><a href="http://sereja.me/a/probability">Теорвер</a>: </li>
-<li>Выпуклые оболочки</li>
-<li>Разделяй-и-властвуй</li>
-<li>Теория информации</li>
+<li>Извлечь минимум (чтобы обработать новую вершину)</li>
+<li>Удалить вершину по индексу (чтобы уменьшить $dist$ до какого-то соседа)</li>
+<li>Добавить новую вершину (чтобы уменьшить $dist$ до какого-то соседа)</li>
 </ul>
-<p>Спасибо Косте Амеличеву, Глебу Лобанову, Ване Клигунову, Диме Дубровину, Маше Тряпицыной, Саше Мамаеву, Андрею Гаркавому, Тёме Рябову, Андрею Чулкову, Максу Деб Натху и много кому ещё за фидбэк и указания на ошибки и неточности.</p>
+<p>Для этого используют, например, кучу или <strong>сет</strong>. Удобно помимо сета хранить сам массив <strong>dist</strong>, который его дублирует, но хранит элементы по порядку. Тогда, чтобы заменить значение $(dist_1, u)$ на $(dist_2, u)$, нужно удалить из сета значение $(dist[u], u)$, сделать $dist[u] = dist_2;$ и добавить в сет $(dist[u], u)$.</p>
+<p>Данный алгоритм будет работать за $V O(log V)$ извлечений минимума и $O(E log V)$ операций уменьшения расстояния до вершины (может быть сделано после каждого ребра). Поэтому алгоритм работает за $O(E log V)$.</p>
+<p>Заметьте, что этот алгоритм не лучше и не хуже, чем без сета, который работает за $O(V^2 + E)$. Ведь если $E = O(V^2)$ (граф почти полный), то Дейкстра без сета работает быстрее, а если, наример, $E = O(V)$, то Дейкстра на сете работает быстрее. Учитывайте это, когда выбираете алгоритм.</p>
 
 </div>
 </div>

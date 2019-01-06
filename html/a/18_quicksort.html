@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>index</title>
+<title>18_quicksort</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13116,43 +13116,279 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;">&#182;</a></h1><p>Стараюсь писать только про то, чего нет в интернете в нормальном виде. Либо про то, что мне очень сложно давалось, когда я был в школе.</p>
-<p>Более-менее готово:</p>
+<h1 id="&#1050;&#1091;&#1095;&#1072;">&#1050;&#1091;&#1095;&#1072;<a class="anchor-link" href="#&#1050;&#1091;&#1095;&#1072;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Подвешенное дерево - дерево, у которого есть корень. Двоичная Куча - такое подвешенное дерево, для которого выполнены три условия:</p>
+<p>1) Значение в любой вершине не меньше, чем значения её потомков.</p>
+<p>2) У любой вершины не более двух сыновей.</p>
+<p>3) Слои заполняются последовательно слева направо сверху вниз.</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Max-Heap.svg/240px-Max-Heap.svg.png" alt="Правильная куча"></p>
+<p>Давайте h - высота кучи.</p>
+<p>Куча также умеет 3 основные операции :</p>
+<p>1) найти минимум за $O(1)$</p>
+<p>2) удалить минимум за $O(h)$</p>
+<p>3) добавление нового ключа в кучу за $O(h)$</p>
+<p>Так как куча всегда состоит из нескольких слоев заполненых полностью и одного частично и каждый слой содержит в два раза больше вершин, чем предыдуший, то можно понять, что высота дерева будет не больше $O(log(N))$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Теперь давайте поговорим о том, как же реализовать такую структуру.</p>
+<p>Хранить кучу мы будем в виде массива, где у корня индекс - $1$ и у вершины $n$ индексы ее потомков - $2 n$  и $2 n + 1$.
+Если значение измененного элемента уменьшается, то свойства кучи восстанавливаются функцией Up.</p>
+<p>Запускаемся из элемента $i$. Если элемент больше своего отца, то больше ничего делать не нужно. Иначе, мы меняем местами его с отцом и запускаемся от отца. В результате такой функции мы исправим случаи, когда 1 условие кучи не соблюдается. Так как каждый раз мы только поднимаемся, то работать функция будет за количество предков вершины, а оно максимум равно высоте дерева.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">void</span> <span class="n">Up</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span><span class="p">){</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span> <span class="o">/</span> <span class="mi">2</span><span class="p">]){</span>    <span class="o">//</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="err">—</span> <span class="n">корень</span>
+        <span class="n">swap</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span> <span class="o">/</span> <span class="mi">2</span><span class="p">]);</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Если значение измененного элемента увеличивается, то свойства кучи восстанавливаются функцией Down. Запускаемя от элемента $i$, если $i$-й элемент меньше, чем его сыновья, всё поддерево уже является кучей, и делать ничего не надо. В противном случае меняем местами $i$-й элемент с наименьшим из его сыновей, после чего выполняем Down для этого сына. Так как каждый раз мы спускаемся только в одного сына, то работать функция будет за высоту дерева.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">void</span> <span class="n">Down</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span><span class="p">){</span>
+    <span class="k">while</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">){</span>    <span class="o">//</span> <span class="n">size</span> <span class="err">—</span> <span class="n">количество</span> <span class="n">элементов</span> <span class="n">в</span> <span class="n">куче</span>
+        <span class="n">left</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">;</span>             <span class="o">//</span> <span class="n">left</span> <span class="err">—</span> <span class="n">левый</span> <span class="n">сын</span>
+        <span class="n">right</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>            <span class="o">//</span> <span class="n">right</span> <span class="err">—</span> <span class="n">правый</span> <span class="n">сын</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">left</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">right</span> <span class="o">&lt;</span> <span class="n">size</span> <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">a</span><span class="p">[</span><span class="n">left</span><span class="p">]){</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="n">right</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]){</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">swap</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://visualgo.net/en/heap">https://visualgo.net/en/heap</a></p>
+<p>1 операцию мы умеем выполнять, просто спросив про корень.</p>
+<p>Для 2 операции мы меняем последний элемент кучи и корень, а затем уменьшаем размер кучи и вызываем Down для корня.</p>
+<p>3 операция - просто добавление элемента конец в кучи, а затем вызываем для него Up.</p>
+<h3 id="&#1058;&#1077;&#1086;&#1088;&#1077;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077;-&#1079;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1058;&#1077;&#1086;&#1088;&#1077;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077; &#1079;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1058;&#1077;&#1086;&#1088;&#1077;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077;-&#1079;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Дана куча из рисунка сверху, вам даны 3 запроса, нарисуйте как выглядит куча после каждого запроса:</p>
 <ul>
-<li><a href="http://sereja.me/a/segtree">Дерево отрезков</a>: на указателях, динамическое, пересистентное.</li>
-<li><a href="http://sereja.me/a/treap">Декартово дерево</a>: явное, неявное, персистентое.</li>
-<li><a href="http://sereja.me/a/hashing">Полиномиальное хэширование</a> в задачах на строки</li>
-<li><a href="http://sereja.me/a/centroid">Центроидная декомпозиция</a></li>
-<li><a href="http://sereja.me/a/matroid">Матроиды</a>: алгоритм Радо-Эдмондса, расписания, паросочетания, линейная независимость</li>
-<li><a href="http://sereja.me/a/pollard">Ро-алгоритм Полларда</a></li>
-<li><a href="http://sereja.me/a/sparse-table">Sparse table</a></li>
-<li><a href="http://sereja.me/a/mincost-maxflow">Поток минимальной стоимости</a>: критерий оптимальности, потенциалы Джонсона, реализация за $O(mU)$</li>
-<li><a href="http://sereja.me/a/bitset">Битовое сжатие</a>: битсет, нахождение цикла длины 3, перемножение матриц, метод Гаусса</li>
-<li><a href="http://sereja.me/a/lca">Наименьший общий предок</a>: свойства tin и tout, двоичные подъемы, сведение к RMQ, алгоритм Фараха-Колтона и Бендера</li>
-<li><a href="http://sereja.me/a/bayans">Классные задачки</a>: пока что без решений</li>
+<li>добавить число 125</li>
+<li>удалить максимальное</li>
+<li>вывести максимальное</li>
 </ul>
-<p>Не очень готово:</p>
-<ul>
-<li><a href="http://sereja.me/a/strings">Поиск строки в строке</a>: префикс-функция, z-функция</li>
-<li><a href="http://sereja.me/a/geometry">Геометрия</a>: скалярное и векторное произведение, пересечение прямых, классы в C++</li>
-<li><a href="http://sereja.me/a/dp_optimizations">Оптимизации ДП</a>: Кнут, разделяй-и-властвуй, Convex Hull Trick</li>
-<li><a href="http://sereja.me/a/fenwick">Дерево Фенвика</a>: устройство, многомерное дерево, бинпоиск по дереву</li>
-<li><a href="http://sereja.me/a/mst">Остовные деревья</a>: алгоритм Прима и Крускала</li>
-<li><a href="http://sereja.me/a/reciprocal">Обратное по модулю</a></li>
-<li><a href="http://sereja.me/a/annealing">Метод отжига</a></li>
-<li><a href="http://sereja.me/a/stress-test">Стресс-тестирование</a></li>
-<li>Подсчёт числа путей в дереве: метод переливаний, центроидная декомпозиция</li>
-</ul>
-<p>Вообще не готово:</p>
-<ul>
-<li><a href="http://sereja.me/a/true">Бор</a>: бор на указателях, суффиксные ссылки, алгоритм Ахо-Корасик</li>
-<li><a href="http://sereja.me/a/linalg">Линейная алгебра</a>: линейные операторы, матрицы, применения к динамике, метод Гаусса</li>
-<li><a href="http://sereja.me/a/probability">Теорвер</a>: </li>
-<li>Выпуклые оболочки</li>
-<li>Разделяй-и-властвуй</li>
-<li>Теория информации</li>
-</ul>
-<p>Спасибо Косте Амеличеву, Глебу Лобанову, Ване Клигунову, Диме Дубровину, Маше Тряпицыной, Саше Мамаеву, Андрею Гаркавому, Тёме Рябову, Андрею Чулкову, Максу Деб Натху и много кому ещё за фидбэк и указания на ошибки и неточности.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>В с++ куча реализована в STL в библиотеке &lt;queue&gt; :</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">priority_queue</span><span class="o">&lt;</span><span class="nb">type</span><span class="o">&gt;</span> <span class="n">Q</span><span class="p">;</span>
+<span class="n">Q</span><span class="o">.</span><span class="n">pop</span><span class="p">();</span>
+<span class="n">Q</span><span class="o">.</span><span class="n">push</span><span class="p">();</span>
+<span class="n">Q</span><span class="o">.</span><span class="n">top</span><span class="p">();</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1055;&#1088;&#1072;&#1082;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077;-&#1079;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1055;&#1088;&#1072;&#1082;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077; &#1079;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1055;&#1088;&#1072;&#1082;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077;-&#1079;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>В контесте на эту тему первые 5 задач.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#1057;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1072;">&#1057;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1072;<a class="anchor-link" href="#&#1057;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1072;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>На первом занятии вы ознакомились с квадратичными алгоритмами сортировки и сортировкой слияниями, а сейчас я вам расскажу гораздо более интересные сортировки.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#1057;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1072;-&#1082;&#1091;&#1095;&#1077;&#1081;">&#1057;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1072; &#1082;&#1091;&#1095;&#1077;&#1081;<a class="anchor-link" href="#&#1057;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1072;-&#1082;&#1091;&#1095;&#1077;&#1081;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Только что мы с вами познакомились с кучей. Благодаря ей можно отсортировать числа по возрастанию: просто вставить все числа в кучу, а затем $N$ раз достать минимум. Работает это за $O(NlogN)$ (так как мы $N$ раз вставляем и удаляем элемент, а обе эти операции работают за логарифм).</p>
+<h3 id="&#1055;&#1088;&#1072;&#1082;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077;-&#1079;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1055;&#1088;&#1072;&#1082;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077; &#1079;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1055;&#1088;&#1072;&#1082;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077;-&#1079;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>(6 задача)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#1041;&#1099;&#1089;&#1090;&#1088;&#1072;&#1103;-&#1089;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1072;">&#1041;&#1099;&#1089;&#1090;&#1088;&#1072;&#1103; &#1089;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1072;<a class="anchor-link" href="#&#1041;&#1099;&#1089;&#1090;&#1088;&#1072;&#1103;-&#1089;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1072;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Быстрая сортировка заключается в том, что на каждом шаге мы находим опорный элемент, все элементы, которые меньше его кидаем в левую часть, остальные в правую, а затем рекурсивно спускаемся в обе части.</p>
+<p><a href="https://visualgo.net/en/sorting">https://visualgo.net/en/sorting</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">void</span> <span class="n">quicksort</span><span class="p">(</span><span class="nb">int</span> <span class="n">l</span><span class="p">,</span> <span class="nb">int</span> <span class="n">r</span><span class="p">){</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">){</span>
+        <span class="nb">int</span> <span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="n">l</span> <span class="o">+</span> <span class="n">r</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="o">/*</span> <span class="n">index</span> <span class="o">-</span> <span class="n">индекс</span> <span class="n">опорного</span> <span class="n">элемента</span> <span class="n">для</span> 
+        <span class="n">начала</span> <span class="n">сделаем</span> <span class="n">его</span> <span class="n">равным</span> <span class="n">середине</span> <span class="n">отрезка</span><span class="o">*/</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">divide</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">index</span><span class="p">);</span> <span class="o">/*</span> <span class="n">divide</span> <span class="o">-</span> <span class="n">функция</span> <span class="n">разбивающие</span> <span class="n">элементы</span> 
+        <span class="n">на</span> <span class="n">меньшие</span> <span class="n">и</span> <span class="n">больше</span><span class="o">/</span><span class="n">равные</span> <span class="n">a</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> 
+        <span class="n">при</span> <span class="n">этом</span> <span class="n">функция</span> <span class="n">возвращает</span> <span class="n">границу</span> <span class="n">разбиения</span><span class="o">*/</span>
+        <span class="n">quicksort</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">index</span><span class="p">);</span>
+        <span class="n">quicksort</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Давайте оценим асимптотику данной сортировки. На случайных данных она работает за $O(NlogN)$ , так как каждый раз мы будем делить массив на две примерно равные части, то есть суммарно размер рекурсии будет около логарифма и при этом на каждом этапе рекурсии мы просмотрим не более, чем размер массива. 
+Однако можно легко найти две проблемы, одна - одинаковые числа, а вторая - если вдруг середина - минимум или максимум.</p>
+<p>Существуют несколько выходов из этой ситуации :</p>
+<p>1) Давайте если быстрая сортировка работает долго, то запустим любую другую сортировку за $NlogN$.</p>
+<p>2) Давайте делить массив не на две, а на три части(меньше, равны, больше).</p>
+<p>3) Чтобы избавиться от проблемы с максимумом/минимумом в середине, давайте брать случайный элемент.</p>
+<h3 id="&#1058;&#1077;&#1086;&#1088;&#1077;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077;-&#1079;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1058;&#1077;&#1086;&#1088;&#1077;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077; &#1079;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1058;&#1077;&#1086;&#1088;&#1077;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077;-&#1079;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Вывести оптимальные числа (при которых алгоритм работает быстрее всего) на всех этапах массива (8, 3, 2, 5, 4, 6, 7, 1).</p>
+<h3 id="&#1055;&#1088;&#1072;&#1082;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077;-&#1079;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1055;&#1088;&#1072;&#1082;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077; &#1079;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1055;&#1088;&#1072;&#1082;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077;-&#1079;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>(7 задача принимается только быстрой сортировкой)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#1055;&#1086;&#1080;&#1089;&#1082;-$k$-&#1086;&#1081;-&#1087;&#1086;&#1088;&#1103;&#1076;&#1082;&#1086;&#1074;&#1086;&#1081;-&#1089;&#1090;&#1072;&#1090;&#1080;&#1089;&#1090;&#1080;&#1082;&#1080;-&#1079;&#1072;-$O(N)$">&#1055;&#1086;&#1080;&#1089;&#1082; $k$-&#1086;&#1081; &#1087;&#1086;&#1088;&#1103;&#1076;&#1082;&#1086;&#1074;&#1086;&#1081; &#1089;&#1090;&#1072;&#1090;&#1080;&#1089;&#1090;&#1080;&#1082;&#1080; &#1079;&#1072; $O(N)$<a class="anchor-link" href="#&#1055;&#1086;&#1080;&#1089;&#1082;-$k$-&#1086;&#1081;-&#1087;&#1086;&#1088;&#1103;&#1076;&#1082;&#1086;&#1074;&#1086;&#1081;-&#1089;&#1090;&#1072;&#1090;&#1080;&#1089;&#1090;&#1080;&#1082;&#1080;-&#1079;&#1072;-$O(N)$">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Пусть дан массив $A$ длиной $N$ и пусть дано число $K$. Задача заключается в том, чтобы найти в этом массиве $K$-ое по величине число, т.е. $K$-ую порядковую статистику.</p>
+<p>Давайте поймем, что в быстрой сортировке мы можем узнать, сколько элементов меньше данного, тогда рассмотрим три случая</p>
+<p>1) количество чисел, меньше данного = $k - 1$, тогда наше число - ответ.</p>
+<p>2) количество чисел, меньше данного &gt;= $k$, тогда спускаемся рекурсивно в левую часть и ищем там ответ.</p>
+<p>3) количество чисел, меньше данного &lt; $k$, спускаемся в правую ищем ($k$ - левая - 1) - ое число.</p>
+<p>За сколько же это работает, из быстрой сортировки мы имеем, что размер убывает приблизительно в 2 раза, то есть мы имеем сумму $\sum_{k=1}^n {2 ^ k} = {2^{k+1}-1}$ что в нашем случае это максимум равно $2 * N - 1$, то есть $O(N)$.</p>
+<p>Также в с++ эта функция уже реализована :</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nth_element</span><span class="p">(</span><span class="n">указатель</span> <span class="n">на</span> <span class="n">начало</span><span class="p">,</span> <span class="n">указатель</span> <span class="n">на</span> <span class="n">нужный</span> <span class="n">элемент</span><span class="p">,</span> <span class="n">указатель</span> <span class="n">на</span> <span class="n">конец</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1058;&#1077;&#1086;&#1088;&#1077;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077;-&#1079;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1058;&#1077;&#1086;&#1088;&#1077;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077; &#1079;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1058;&#1077;&#1086;&#1088;&#1077;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077;-&#1079;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Рассказать, как работает алгоритм при k = 5 и массиве - (1, 8, 4, 6, 7, 5, 3, 2), опорный элемент - середина</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#1057;&#1089;&#1099;&#1083;&#1082;&#1072;-&#1085;&#1072;-&#1082;&#1086;&#1085;&#1090;&#1077;&#1089;&#1090;">&#1057;&#1089;&#1099;&#1083;&#1082;&#1072; &#1085;&#1072; &#1082;&#1086;&#1085;&#1090;&#1077;&#1089;&#1090;<a class="anchor-link" href="#&#1057;&#1089;&#1099;&#1083;&#1082;&#1072;-&#1085;&#1072;-&#1082;&#1086;&#1085;&#1090;&#1077;&#1089;&#1090;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://informatics.msk.ru/mod/statements/view.php?id=33379#1">https://informatics.msk.ru/mod/statements/view.php?id=33379#1</a></p>
 
 </div>
 </div>

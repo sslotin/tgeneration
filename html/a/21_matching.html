@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>index</title>
+<title>21_matching</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13116,43 +13116,179 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;">&#182;</a></h1><p>Стараюсь писать только про то, чего нет в интернете в нормальном виде. Либо про то, что мне очень сложно давалось, когда я был в школе.</p>
-<p>Более-менее готово:</p>
+<h1 id="&#1055;&#1072;&#1088;&#1086;&#1089;&#1086;&#1095;&#1077;&#1090;&#1072;&#1085;&#1080;&#1103;">&#1055;&#1072;&#1088;&#1086;&#1089;&#1086;&#1095;&#1077;&#1090;&#1072;&#1085;&#1080;&#1103;<a class="anchor-link" href="#&#1055;&#1072;&#1088;&#1086;&#1089;&#1086;&#1095;&#1077;&#1090;&#1072;&#1085;&#1080;&#1103;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Пусть есть $n$ мальчиков и $m$ девочек. Про каждого мальчика и про каждую девочку известно, с кем они не против танцевать. Нужно составить как можно больше пар.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Паросочетанием $M$ называется набор попарно несмежных рёбер графа (иными словами, любой вершине графа должно быть инцидентно не более одного ребра из множества M). Мощностью паросочетания назовём количество рёбер в нём. Наибольшим (или максимальным) паросочетанием назовём паросочетание, мощность которого максимальна среди всех возможных паросочетаний в данном графе. Все те вершины, у которых есть смежное ребро из паросочетания (т.е. которые имеют степень ровно один в подграфе, образованном M), назовём насыщенными этим паросочетанием.</p>
+<p><strong>Цепью</strong> длины $k$ назовём некоторый простой путь (т.е. не содержащий повторяющихся вершин или рёбер), содержащий k рёбер.</p>
+<p><strong>Чередующейся цепью</strong> относительно некоторого паросочетания назовём простой путь длины $k$ в которой рёбра поочередно принадлежат/не принадлежат паросочетанию.</p>
+<p><strong>Увеличивающей цепью</strong> относительно некоторого паросочетания назовём чередующуюся цепь, у которой начальная и конечная вершины не принадлежат паросочетанию.</p>
+<p>Зачем нужны увеличивающие цепи? Оказывается, можно с их помощью увеличивать паросочетание на единичку. Можно увеличивающую цепь и провести <strong>чередование</strong> — выкинуть и добавить поочетедно рёбра. Всего в увеличивающей цепи нечетное число рёбер, а первое и последнее были не в паросочетании. Значит, мощность паросочетания увеличилась ровно на единицу.</p>
+<p>Как их искать? Можно просто запустить поиск пути из произвольной незаматченной вершины из левой доли в правую. В реализации для краткости сделан немного нестандартный dfs, но в принципе это можно делать как угодно.</p>
+<p>Для алгоритма недостаточно факта, что увеличивающие цепи. Оказывается, верен ещё и следующий факт, подтверждающий корректность алгоритма:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Теорема (Бержа)</strong>. Паросочетание без увеличивающих цепей является максимальным.</p>
+<p><strong>Доказательство</strong> проведём от противного. Пусть есть два паросочетания вершин $|A| \leq |B|$. Раскрасим ребра из паросочетания, соответствующего $A$ в красный цвет, $B$ — в синий, а ребра из обоих паросочетаний — в пурпурный. Рассмотрим граф из красных и синих ребер. Любая компонента связности в нём представляет собой либо путь, либо цикл, состоящий из чередующихся красных и синих ребер. В любом цикле будет равное число красных и синих ребер, а так как всего синих ребер больше, то должен существовать путь, начинающийся и оканчивающийся синим ребром  — он и будет увеличивающей цепью для $A$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">const</span> <span class="nb">int</span> <span class="n">maxn</span><span class="p">;</span>
+
+<span class="n">vector</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="n">g</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
+<span class="nb">int</span> <span class="n">mt</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
+<span class="nb">bool</span> <span class="n">used</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
+
+<span class="nb">bool</span> <span class="n">kuhn</span> <span class="p">(</span><span class="nb">int</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">used</span><span class="p">[</span><span class="n">v</span><span class="p">])</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">used</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">u</span> <span class="p">:</span> <span class="n">g</span><span class="p">[</span><span class="n">v</span><span class="p">])</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">mt</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">||</span> <span class="n">kuhn</span><span class="p">(</span><span class="n">mt</span><span class="p">[</span><span class="n">u</span><span class="p">]))</span> <span class="p">{</span>
+            <span class="n">mt</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
+            <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">где</span><span class="o">-</span><span class="n">то</span> <span class="n">в</span> <span class="n">main</span><span class="p">:</span>
+
+<span class="n">memset</span><span class="p">(</span><span class="n">mt</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">mt</span><span class="p">));</span>
+<span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">memset</span><span class="p">(</span><span class="n">used</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">mt</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">kuhn</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="n">cnt</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1057;&#1082;&#1086;&#1088;&#1086;&#1089;&#1090;&#1100;-&#1088;&#1072;&#1073;&#1086;&#1090;&#1099;">&#1057;&#1082;&#1086;&#1088;&#1086;&#1089;&#1090;&#1100; &#1088;&#1072;&#1073;&#1086;&#1090;&#1099;<a class="anchor-link" href="#&#1057;&#1082;&#1086;&#1088;&#1086;&#1089;&#1090;&#1100;-&#1088;&#1072;&#1073;&#1086;&#1090;&#1099;">&#182;</a></h2><p>Такой алгоритм ровно $n$ раз ищет увеличивающий путь, каждый раз просматривая не более $m$ рёбер, значит, работает за $O(nm)$.</p>
+<p>Что примечательно, его можно не бояться запускать на ограничениях и побольше ($n, m \approx 10^4$), потому что есть неасимптотические оптимизации:</p>
+<p>Можно жадно проинициализировать.</p>
+<p>Иногда графы какого-то специального вида, и это работает лучше.</p>
+<p>Можно не пересоздавать массив used, и использовать следующий трюк: хранить версию последнего изменения. В каком-то смысле это позволяет эмулировать очищение массива за константу.</p>
+<p>Очень часто граф приходит из какой-то другой задачи, природа которой накладывает на него ограничения, так что он работает даже быстрее. Наверное, антитест в таком случае тоже можно сгенерировать, но авторы задач редко так заморачиваются.</p>
+<p>Вообще говоря, паросочетание — частный случай потоков. Существует и более асимптотически быстрый алгоритм — если применить алгоритм Диница (тот, который про потоки) к двудольным графам с единичной пропускной способностью, то работать он будет за $O(n \sqrt m)$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1055;&#1088;&#1080;&#1084;&#1077;&#1088;&#1099;-&#1079;&#1072;&#1076;&#1072;&#1095;">&#1055;&#1088;&#1080;&#1084;&#1077;&#1088;&#1099; &#1079;&#1072;&#1076;&#1072;&#1095;<a class="anchor-link" href="#&#1055;&#1088;&#1080;&#1084;&#1077;&#1088;&#1099;-&#1079;&#1072;&#1076;&#1072;&#1095;">&#182;</a></h2><blockquote><p>123</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1052;&#1086;&#1097;&#1085;&#1086;&#1077;-&#1086;&#1073;&#1086;&#1073;&#1097;&#1077;&#1085;&#1080;&#1077;:-&#1084;&#1072;&#1090;&#1088;&#1086;&#1080;&#1076;&#1099;">&#1052;&#1086;&#1097;&#1085;&#1086;&#1077; &#1086;&#1073;&#1086;&#1073;&#1097;&#1077;&#1085;&#1080;&#1077;: &#1084;&#1072;&#1090;&#1088;&#1086;&#1080;&#1076;&#1099;<a class="anchor-link" href="#&#1052;&#1086;&#1097;&#1085;&#1086;&#1077;-&#1086;&#1073;&#1086;&#1073;&#1097;&#1077;&#1085;&#1080;&#1077;:-&#1084;&#1072;&#1090;&#1088;&#1086;&#1080;&#1076;&#1099;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Матроидом</strong> называется пара $(X, I)$, где $X$ — множество элементов, называемое <strong>носителем матроида</strong>, а $I$ — некоторое множество подмножеств $X$, называемое <strong>семейством независимых множеств</strong>. В матроиде должны выполняться следующие свойства:</p>
 <ul>
-<li><a href="http://sereja.me/a/segtree">Дерево отрезков</a>: на указателях, динамическое, пересистентное.</li>
-<li><a href="http://sereja.me/a/treap">Декартово дерево</a>: явное, неявное, персистентое.</li>
-<li><a href="http://sereja.me/a/hashing">Полиномиальное хэширование</a> в задачах на строки</li>
-<li><a href="http://sereja.me/a/centroid">Центроидная декомпозиция</a></li>
-<li><a href="http://sereja.me/a/matroid">Матроиды</a>: алгоритм Радо-Эдмондса, расписания, паросочетания, линейная независимость</li>
-<li><a href="http://sereja.me/a/pollard">Ро-алгоритм Полларда</a></li>
-<li><a href="http://sereja.me/a/sparse-table">Sparse table</a></li>
-<li><a href="http://sereja.me/a/mincost-maxflow">Поток минимальной стоимости</a>: критерий оптимальности, потенциалы Джонсона, реализация за $O(mU)$</li>
-<li><a href="http://sereja.me/a/bitset">Битовое сжатие</a>: битсет, нахождение цикла длины 3, перемножение матриц, метод Гаусса</li>
-<li><a href="http://sereja.me/a/lca">Наименьший общий предок</a>: свойства tin и tout, двоичные подъемы, сведение к RMQ, алгоритм Фараха-Колтона и Бендера</li>
-<li><a href="http://sereja.me/a/bayans">Классные задачки</a>: пока что без решений</li>
+<li><p>Пустое множество является независимым: $\varnothing \in I$</p>
+</li>
+<li><p>Любое подмножество независимого множества тоже независимо: 
+$$A \subset B, B \in I \implies A \in I$$</p>
+</li>
+<li><p>Если в независимом множестве $A$ меньше элементов, чем в независимом множестве $B$, то будет существовать элемент из $B$, дополняющий $A$ до независимого множества размера $|A|+1$:
+$$A, B \in I, |A| &lt; |B| \implies \exists x \in B \setminus A: A \cup \{x\} \in I$$</p>
+</li>
 </ul>
-<p>Не очень готово:</p>
+<p>Матроид называется <strong>взвешенным</strong>, если на нем существует аддитивная весовая функция: $w(A) = \sum w(a_i)$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>На самом деле паросочетания — это тоже как бы матроид. Давайте пройдемся по пунктам в определении:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Рассмотрим двудольный граф $G = (L, R, E)$. Пусть $I$ — множество наборов вершин левой доли, которых можно покрыть каким-нибудь паросочетанием. Тогда $M = (L, I)$ является матроидом:</p>
 <ul>
-<li><a href="http://sereja.me/a/strings">Поиск строки в строке</a>: префикс-функция, z-функция</li>
-<li><a href="http://sereja.me/a/geometry">Геометрия</a>: скалярное и векторное произведение, пересечение прямых, классы в C++</li>
-<li><a href="http://sereja.me/a/dp_optimizations">Оптимизации ДП</a>: Кнут, разделяй-и-властвуй, Convex Hull Trick</li>
-<li><a href="http://sereja.me/a/fenwick">Дерево Фенвика</a>: устройство, многомерное дерево, бинпоиск по дереву</li>
-<li><a href="http://sereja.me/a/mst">Остовные деревья</a>: алгоритм Прима и Крускала</li>
-<li><a href="http://sereja.me/a/reciprocal">Обратное по модулю</a></li>
-<li><a href="http://sereja.me/a/annealing">Метод отжига</a></li>
-<li><a href="http://sereja.me/a/stress-test">Стресс-тестирование</a></li>
-<li>Подсчёт числа путей в дереве: метод переливаний, центроидная декомпозиция</li>
+<li>Любое паросочетание покрывает пустое множество вершин.</li>
+<li>Исходное паросочетание покрывает также и любое подмножество исходных вершин.</li>
+<li>Доказательство теоремы Бержа.</li>
 </ul>
-<p>Вообще не готово:</p>
-<ul>
-<li><a href="http://sereja.me/a/true">Бор</a>: бор на указателях, суффиксные ссылки, алгоритм Ахо-Корасик</li>
-<li><a href="http://sereja.me/a/linalg">Линейная алгебра</a>: линейные операторы, матрицы, применения к динамике, метод Гаусса</li>
-<li><a href="http://sereja.me/a/probability">Теорвер</a>: </li>
-<li>Выпуклые оболочки</li>
-<li>Разделяй-и-властвуй</li>
-<li>Теория информации</li>
-</ul>
-<p>Спасибо Косте Амеличеву, Глебу Лобанову, Ване Клигунову, Диме Дубровину, Маше Тряпицыной, Саше Мамаеву, Андрею Гаркавому, Тёме Рябову, Андрею Чулкову, Максу Деб Натху и много кому ещё за фидбэк и указания на ошибки и неточности.</p>
+<p>Пусть у вершин левой доли есть веса, и нам нужно найти максимальное паросочетание минимального веса. Согласно теореме, мы можем отсортировать вершины левой доли по их весам, а затем пытаться добавлять их в паросочетание. Сделать это можно стандартным алгоритмом Куна.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1051;&#1077;&#1084;&#1084;&#1072;-&#1061;&#1086;&#1083;&#1083;&#1072;">&#1051;&#1077;&#1084;&#1084;&#1072; &#1061;&#1086;&#1083;&#1083;&#1072;<a class="anchor-link" href="#&#1051;&#1077;&#1084;&#1084;&#1072;-&#1061;&#1086;&#1083;&#1083;&#1072;">&#182;</a></h2><blockquote><p>Полное паросочетание существует тогда и только тогда, когда любая группа вершин левой доли соединена с не меньшим количеством вершин левой доли.</p>
+</blockquote>
+<p>Доказательство немного муторное по мнению автора. Сами <a href="https://www.mccme.ru/s43/math/uroki/2009_2010/9mat_0910/spec/59_hall_lect.pdf">почитаете</a>, если захотите — у нас не маткружок.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1058;&#1077;&#1086;&#1088;&#1077;&#1084;&#1072;-&#1056;&#1072;&#1076;&#1086;-&#1069;&#1076;&#1084;&#1086;&#1085;&#1076;&#1089;&#1072;">&#1058;&#1077;&#1086;&#1088;&#1077;&#1084;&#1072; &#1056;&#1072;&#1076;&#1086;-&#1069;&#1076;&#1084;&#1086;&#1085;&#1076;&#1089;&#1072;<a class="anchor-link" href="#&#1058;&#1077;&#1086;&#1088;&#1077;&#1084;&#1072;-&#1056;&#1072;&#1076;&#1086;-&#1069;&#1076;&#1084;&#1086;&#1085;&#1076;&#1089;&#1072;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Математика вообще занимается тем, чтобы обобщать всякие объекты и формулировать все теоремы очень абстрактно. Так, концепцию <em>хороших подмножеств</em> (паросочетаний) инкапсулирует понятие <a href="http://sereja.me/a/matroid">матроида</a>. Об этом тоже как-нибудь не сегодня.</p>
+<p>Практическое применение матроидов — жадный алгоритм Радо-Эдмондса. Пусть у вершин левой доли есть вес, и нам нужно набрать максимальное паросочетание минимального веса. Тогда можно просто отсортировать вершины левой доли по весу и пытаться в таком порядке добавлять их в паросочетание.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1042;-&#1085;&#1077;&#1076;&#1074;&#1091;&#1076;&#1086;&#1083;&#1100;&#1085;&#1099;&#1093;-&#1075;&#1088;&#1072;&#1092;&#1072;&#1093;">&#1042; &#1085;&#1077;&#1076;&#1074;&#1091;&#1076;&#1086;&#1083;&#1100;&#1085;&#1099;&#1093; &#1075;&#1088;&#1072;&#1092;&#1072;&#1093;<a class="anchor-link" href="#&#1042;-&#1085;&#1077;&#1076;&#1074;&#1091;&#1076;&#1086;&#1083;&#1100;&#1085;&#1099;&#1093;-&#1075;&#1088;&#1072;&#1092;&#1072;&#1093;">&#182;</a></h2><p>В недрудольных тоже можно искать максимальные паросочетания. Алгоритм работает за $O(n^3)$ и весьма противно кодится.</p>
 
 </div>
 </div>

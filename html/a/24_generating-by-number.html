@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>index</title>
+<title>24_generating-by-number</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13116,43 +13116,334 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;">&#182;</a></h1><p>Стараюсь писать только про то, чего нет в интернете в нормальном виде. Либо про то, что мне очень сложно давалось, когда я был в школе.</p>
-<p>Более-менее готово:</p>
-<ul>
-<li><a href="http://sereja.me/a/segtree">Дерево отрезков</a>: на указателях, динамическое, пересистентное.</li>
-<li><a href="http://sereja.me/a/treap">Декартово дерево</a>: явное, неявное, персистентое.</li>
-<li><a href="http://sereja.me/a/hashing">Полиномиальное хэширование</a> в задачах на строки</li>
-<li><a href="http://sereja.me/a/centroid">Центроидная декомпозиция</a></li>
-<li><a href="http://sereja.me/a/matroid">Матроиды</a>: алгоритм Радо-Эдмондса, расписания, паросочетания, линейная независимость</li>
-<li><a href="http://sereja.me/a/pollard">Ро-алгоритм Полларда</a></li>
-<li><a href="http://sereja.me/a/sparse-table">Sparse table</a></li>
-<li><a href="http://sereja.me/a/mincost-maxflow">Поток минимальной стоимости</a>: критерий оптимальности, потенциалы Джонсона, реализация за $O(mU)$</li>
-<li><a href="http://sereja.me/a/bitset">Битовое сжатие</a>: битсет, нахождение цикла длины 3, перемножение матриц, метод Гаусса</li>
-<li><a href="http://sereja.me/a/lca">Наименьший общий предок</a>: свойства tin и tout, двоичные подъемы, сведение к RMQ, алгоритм Фараха-Колтона и Бендера</li>
-<li><a href="http://sereja.me/a/bayans">Классные задачки</a>: пока что без решений</li>
+<h1 id="&#1050;&#1086;&#1084;&#1073;&#1080;&#1085;&#1072;&#1090;&#1086;&#1088;&#1080;&#1082;&#1072;-&#8212;-&#1075;&#1077;&#1085;&#1077;&#1088;&#1072;&#1094;&#1080;&#1103;-&#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1072;-&#1087;&#1086;-&#1085;&#1086;&#1084;&#1077;&#1088;&#1091;-&#1080;-&#1085;&#1072;&#1086;&#1073;&#1086;&#1088;&#1086;&#1090;">&#1050;&#1086;&#1084;&#1073;&#1080;&#1085;&#1072;&#1090;&#1086;&#1088;&#1080;&#1082;&#1072; &#8212; &#1075;&#1077;&#1085;&#1077;&#1088;&#1072;&#1094;&#1080;&#1103; &#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1072; &#1087;&#1086; &#1085;&#1086;&#1084;&#1077;&#1088;&#1091; &#1080; &#1085;&#1072;&#1086;&#1073;&#1086;&#1088;&#1086;&#1090;<a class="anchor-link" href="#&#1050;&#1086;&#1084;&#1073;&#1080;&#1085;&#1072;&#1090;&#1086;&#1088;&#1080;&#1082;&#1072;-&#8212;-&#1075;&#1077;&#1085;&#1077;&#1088;&#1072;&#1094;&#1080;&#1103;-&#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1072;-&#1087;&#1086;-&#1085;&#1086;&#1084;&#1077;&#1088;&#1091;-&#1080;-&#1085;&#1072;&#1086;&#1073;&#1086;&#1088;&#1086;&#1090;">&#182;</a></h1><ul>
+<li>Обзор комбинаторных объектов</li>
+<li>Генерация объекта по номеру</li>
+<li>Генерация номера по объекту</li>
+<li>Динамика по цифрам </li>
 </ul>
-<p>Не очень готово:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1054;&#1073;&#1079;&#1086;&#1088;-&#1082;&#1086;&#1084;&#1073;&#1080;&#1085;&#1072;&#1090;&#1086;&#1088;&#1085;&#1099;&#1093;-&#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1086;&#1074;">&#1054;&#1073;&#1079;&#1086;&#1088; &#1082;&#1086;&#1084;&#1073;&#1080;&#1085;&#1072;&#1090;&#1086;&#1088;&#1085;&#1099;&#1093; &#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1086;&#1074;<a class="anchor-link" href="#&#1054;&#1073;&#1079;&#1086;&#1088;-&#1082;&#1086;&#1084;&#1073;&#1080;&#1085;&#1072;&#1090;&#1086;&#1088;&#1085;&#1099;&#1093;-&#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1086;&#1074;">&#182;</a></h2><p>Вы уже должны уметь генерировать в лексикографическом порядке следующие комбинаторные объекты:</p>
 <ul>
-<li><a href="http://sereja.me/a/strings">Поиск строки в строке</a>: префикс-функция, z-функция</li>
-<li><a href="http://sereja.me/a/geometry">Геометрия</a>: скалярное и векторное произведение, пересечение прямых, классы в C++</li>
-<li><a href="http://sereja.me/a/dp_optimizations">Оптимизации ДП</a>: Кнут, разделяй-и-властвуй, Convex Hull Trick</li>
-<li><a href="http://sereja.me/a/fenwick">Дерево Фенвика</a>: устройство, многомерное дерево, бинпоиск по дереву</li>
-<li><a href="http://sereja.me/a/mst">Остовные деревья</a>: алгоритм Прима и Крускала</li>
-<li><a href="http://sereja.me/a/reciprocal">Обратное по модулю</a></li>
-<li><a href="http://sereja.me/a/annealing">Метод отжига</a></li>
-<li><a href="http://sereja.me/a/stress-test">Стресс-тестирование</a></li>
-<li>Подсчёт числа путей в дереве: метод переливаний, центроидная декомпозиция</li>
+<li>2-ичные числа размера N (то же самое, что все подмножства N-элементного множества)</li>
+<li>p-ичные числа размера N</li>
+<li>сочетания из N по K (то же самое, что все K-элементные подмножества N-элементного множества)</li>
+<li>перестановки размера N</li>
 </ul>
-<p>Вообще не готово:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Возможно, вы умеете работать и с более сложными (или просто непривычными) объектами:</p>
 <ul>
-<li><a href="http://sereja.me/a/true">Бор</a>: бор на указателях, суффиксные ссылки, алгоритм Ахо-Корасик</li>
-<li><a href="http://sereja.me/a/linalg">Линейная алгебра</a>: линейные операторы, матрицы, применения к динамике, метод Гаусса</li>
-<li><a href="http://sereja.me/a/probability">Теорвер</a>: </li>
-<li>Выпуклые оболочки</li>
-<li>Разделяй-и-властвуй</li>
-<li>Теория информации</li>
+<li>сочетания с повторениями из N по K</li>
+<li>размещения из N по K</li>
+<li>правильные скобочные последовательности размера 2N</li>
+<li>разбиения числа N на K слагаемых</li>
+<li>разбиения числа N на слагаемые</li>
 </ul>
-<p>Спасибо Косте Амеличеву, Глебу Лобанову, Ване Клигунову, Диме Дубровину, Маше Тряпицыной, Саше Мамаеву, Андрею Гаркавому, Тёме Рябову, Андрею Чулкову, Максу Деб Натху и много кому ещё за фидбэк и указания на ошибки и неточности.</p>
+<p>Рассмотрим более сложный пример со всеми упорядоченными разбиениями N на слагаемые.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">global_n</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span> <span class="nf">gen</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="k">global</span> <span class="n">global_n</span>
+    <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s1">&#39;{}: {}={}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">global_n</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">prefix</span><span class="p">]))</span>
+        <span class="n">global_n</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span>
+    <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">prefix</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">prefix</span> <span class="k">else</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">gen</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">prefix</span> <span class="o">+</span> <span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="n">gen</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0: 8=1+1+1+1+1+1+1+1
+1: 8=1+1+1+1+1+1+2
+2: 8=1+1+1+1+1+3
+3: 8=1+1+1+1+2+2
+4: 8=1+1+1+1+4
+5: 8=1+1+1+2+3
+6: 8=1+1+1+5
+7: 8=1+1+2+2+2
+8: 8=1+1+2+4
+9: 8=1+1+3+3
+10: 8=1+1+6
+11: 8=1+2+2+3
+12: 8=1+2+5
+13: 8=1+3+4
+14: 8=1+7
+15: 8=2+2+2+2
+16: 8=2+2+4
+17: 8=2+3+3
+18: 8=2+6
+19: 8=3+5
+20: 8=4+4
+21: 8=8
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#1043;&#1077;&#1085;&#1077;&#1088;&#1072;&#1094;&#1080;&#1103;-&#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1072;-&#1087;&#1086;-&#1085;&#1086;&#1084;&#1077;&#1088;&#1091;">&#1043;&#1077;&#1085;&#1077;&#1088;&#1072;&#1094;&#1080;&#1103; &#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1072; &#1087;&#1086; &#1085;&#1086;&#1084;&#1077;&#1088;&#1091;<a class="anchor-link" href="#&#1043;&#1077;&#1085;&#1077;&#1088;&#1072;&#1094;&#1080;&#1103;-&#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1072;-&#1087;&#1086;-&#1085;&#1086;&#1084;&#1077;&#1088;&#1091;">&#182;</a></h1><p>Генерировать все-все перестановки - это здорово. Еще и в лексикографическом порядке. Но давайте теперь решим более точечную задачу. А именно научимся <strong>находить K-ю перестановку размера N, не генерируя все предыдыщие</strong>. А именно, нам нужен алгоритм, который работает не за N!, и не за K (K может быть до N!) действий, а что-то типа O(N) действий.</p>
+<p>Давайте сначала сгенеририруем все перестановки длины 4, чтобы на них посмотреть.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">global_n</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span> <span class="nf">gen</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="k">global</span> <span class="n">global_n</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s1">&#39;{}: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">global_n</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">prefix</span><span class="p">]))</span>
+        <span class="n">global_n</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">prefix</span><span class="p">:</span>
+            <span class="n">gen</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">prefix</span> <span class="o">+</span> <span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="n">gen</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0: 1 2 3 4
+1: 1 2 4 3
+2: 1 3 2 4
+3: 1 3 4 2
+4: 1 4 2 3
+5: 1 4 3 2
+6: 2 1 3 4
+7: 2 1 4 3
+8: 2 3 1 4
+9: 2 3 4 1
+10: 2 4 1 3
+11: 2 4 3 1
+12: 3 1 2 4
+13: 3 1 4 2
+14: 3 2 1 4
+15: 3 2 4 1
+16: 3 4 1 2
+17: 3 4 2 1
+18: 4 1 2 3
+19: 4 1 3 2
+20: 4 2 1 3
+21: 4 2 3 1
+22: 4 3 1 2
+23: 4 3 2 1
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Давайте подумаем, как бы мы искали <strong>перестановку номер 16</strong>. Если ее номер - 16, это значит, что меньше нее ровно 16 перестановок (так как нумерацию мы начинаем с нуля).</p>
+<p>Давайте угадаем первую цифру. На 1 начинаются 3! = 6 перестановок - мало. На 2 начинаются еще 6 перестановок, суммарно 12, они все до 16-ой перестановки. А вот на 3 начинаются перестановки номер 13, 14, 15, 16, 17, 18, так что первая цифра - это <strong>3</strong>. На похожих рассуждениях весь алгоритм основываться и будет.</p>
+<p>Давайте угадаем вторую цифру. На "3 1" начинаются 2! = 2 перестановки - суммарно с предыдущими 12-ю это уже 14 - все еще мало. На "3 2" начинаются еще 2 перестановки, это как раз 16 перестановок. Значит, следующая после всех этих 16-ти перестановок как и идет искомая нами перестановка номер 16. Это значит, что вторая цифра - не 2, а 4. Заметьте, что мы пропустили 3, так как она уже была! Важно их пропускать, так как в перестановке числа не повторяются. Первые две цифры - это <strong>3 4</strong>.</p>
+<p>Давайте угадаем оставшиеся две цифры. Мы уже пропустили ровно 16 перестановок, поэтому видно, что это <strong>3 4 1 2</strong>.</p>
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Чтобы лучше осознать, как это работает, найдите ручками перестановку длины 8 под номером 14616. Не пишите пока алгоритм.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Когда вы уже решили задание и поняли суть алгоритма, давайте углубимся в детали и напишем код:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">factorial</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">):</span>
+    <span class="n">factorial</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">permutation_by_number</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n_permutation</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">n_permutation</span> <span class="o">==</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="n">prefix</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">prefix</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">factorial</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">n_permutation</span><span class="p">:</span>
+                <span class="n">n_permutation</span> <span class="o">-=</span> <span class="n">factorial</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">permutation_by_number</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n_permutation</span><span class="p">,</span> <span class="n">prefix</span> <span class="o">+</span> <span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="n">permutation_by_number</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">14616</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[3, 8, 2, 7, 1, 4, 5, 6]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Давайте подумаем, что изменится, если заменить простые перестановки на сложные упорядоченные разбиения на слагаемые.</p>
+<p>Во-первых, изменится формула "сколько объектов начинаются на такой то префикс". Раньше это был простой факториал от n - len(prefix) - 1, а теперь это непростая задача - узнать, сколько разбиений на слагаемые у числа n - sum(prefix) - i, таких, что все слагаемых не менее i. Формулы для такого числа не существует, поэтому <strong>придется посчитать отдельно двумерную динамику для этого</strong>.</p>
+<p>Во-вторых, изменится специфика: не нужен больше if, чтобы проверить, что новое число раньше не встречалось (это не перестановка), но нужно перебирать числа не с 1, а с предыдущего элемента(чтобы разбиение было упоряденным).</p>
+<p>Заметьте, что из-за подсчета динамики алгоритм стал не линейным, а квадратичным, что все еще лучше, чем экспоненциальное наивное решение с генерацией всех всех разбиений.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1043;&#1077;&#1085;&#1077;&#1088;&#1072;&#1094;&#1080;&#1103;-&#1085;&#1086;&#1084;&#1077;&#1088;&#1072;-&#1087;&#1086;-&#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1091;">&#1043;&#1077;&#1085;&#1077;&#1088;&#1072;&#1094;&#1080;&#1103; &#1085;&#1086;&#1084;&#1077;&#1088;&#1072; &#1087;&#1086; &#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1091;<a class="anchor-link" href="#&#1043;&#1077;&#1085;&#1077;&#1088;&#1072;&#1094;&#1080;&#1103;-&#1085;&#1086;&#1084;&#1077;&#1088;&#1072;-&#1087;&#1086;-&#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1091;">&#182;</a></h2><p>Зная прошлую идею, не очень сложно придумать как решать и обратную задачу.</p>
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Придумайте как и найдите ручками номер перестановки 2 3 4 1 5.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Решите первые три задачи в этом контесте:</p>
+<p><a href="https://informatics.msk.ru/moodle/mod/statements/view.php?id=33206#1">https://informatics.msk.ru/moodle/mod/statements/view.php?id=33206#1</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1044;&#1080;&#1085;&#1072;&#1084;&#1080;&#1082;&#1072;-&#1087;&#1086;-&#1094;&#1080;&#1092;&#1088;&#1072;&#1084;">&#1044;&#1080;&#1085;&#1072;&#1084;&#1080;&#1082;&#1072; &#1087;&#1086; &#1094;&#1080;&#1092;&#1088;&#1072;&#1084;<a class="anchor-link" href="#&#1044;&#1080;&#1085;&#1072;&#1084;&#1080;&#1082;&#1072;-&#1087;&#1086;-&#1094;&#1080;&#1092;&#1088;&#1072;&#1084;">&#182;</a></h2><p>Похожие идеи используются, чтобы работать с числами с какими-нибудь интересными цифровыми свойствами.</p>
+<p>Представим такую задачу: <strong>Интересным будем называть числа, у которых все цифры слева направо нестрого убывают. Найдите, сколько интересных чисел лежат от A до B.</strong></p>
+<p>Понятно, что любая задача "сколько интересных чисел от А до B" быстро сводится к задаче "сколько интересных чисел меньше равно X", потому что из ответов для двух префиксов с помощью разности можно найти ответ для отрезка.</p>
+<p>Нам нужно посчитать какую-нибудь динамику. Например такую:</p>
+<p>dp[n][last][is_prefix] - количество префиксов интересных чисел с такими свойствами</p>
+<ul>
+<li>префикс длины n</li>
+<li>последняя цифра префикса равна last</li>
+<li>префикс лексикографически меньше равен соответствующего префикса X</li>
+<li>если is_prefix == 1, то этот префикс ровно совпадает с префиксом числа X, иначе не совпадает</li>
+</ul>
+<p>Обдумайте это, вся динамика строится на понимании того, что конкретно лежит в dp.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Пусть для простоты X = 4300
+Заметим такие особенности:</p>
+<ul>
+<li>dp[1][0][0] = 1</li>
+<li>dp[1][1][0] = 1</li>
+<li>dp[1][2][0] = 1</li>
+<li>dp[1][3][0] = 1</li>
+<li>dp[1][4][1] = 1</li>
+<li>dp[1][last][is_prefix] дл остальных значений равен 0 (так как мы считаем числа, которые <strong>меньше равны X</strong>, и первая цифра больше 4 не может быть)</li>
+<li>вообще всегда dp[n][last][1] - это либо 0, либо 1 (раз is_prefix == 1, то это префикс фиксированного числа X, которого не больше одного).</li>
+<li>dp[2][0][0] = 5 (40, 30, 20, 10, 00)</li>
+<li>dp[2][1][0] = 4 (41, 31, 21, 11)</li>
+<li>dp[2][2][0] = 3 (42, 32, 22)</li>
+<li>dp[2][3][0] = 1 (33)</li>
+<li>dp[2][3][1] = 1 (43)</li>
+<li>тут можно заметить закономерность, подумать, и придумать формулу для динамики. Удобно использовать динамику вперед - то есть вот как только вы посчитали dp[n][last][0], вы тут же можете прибавить это число в еще не посчитанные dp[n+1][0][last][0], dp[n+1][1][last][0], ..., dp[n+1][last][0], так как следующая цифра в интересном числе может быть любой от 0 до last (главное чтобы нестрого убывал)</li>
+<li>если же вы посчитали значение dp[n][last][1], то следующей цифрой может быть не любая цифра от 0 до last, так как еще нужно соблюсти то, что все числа меньше, чем X, а значит надо перебирать до min(X[n], last):</li>
+<li>если last &lt; X[n]: надо обновить dp[n+1][0][0], dp[n+1][1][0], dp[n+1][2][0], ..., dp[n+1][last][0]</li>
+<li>если X[n] &lt;= last: надо обновить dp[n+1][0][0], dp[n+1][1][0], dp[n+1][2][0], ..., dp[n+1][X[n] - 1][0], dp[n+1][X[n]][<strong>1</strong>]</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Решите последние две задачи в этом контесте:</p>
+<p><a href="https://informatics.msk.ru/moodle/mod/statements/view3.php?id=33206&amp;chapterid=193#1">https://informatics.msk.ru/moodle/mod/statements/view3.php?id=33206&amp;chapterid=193#1</a></p>
 
 </div>
 </div>

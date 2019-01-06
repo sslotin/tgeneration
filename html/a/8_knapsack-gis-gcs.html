@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>index</title>
+<title>8_knapsack-gis-gcs</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13116,43 +13116,370 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;">&#182;</a></h1><p>Стараюсь писать только про то, чего нет в интернете в нормальном виде. Либо про то, что мне очень сложно давалось, когда я был в школе.</p>
-<p>Более-менее готово:</p>
+<h1 id="&#1044;&#1080;&#1085;&#1072;&#1084;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077;-&#1087;&#1088;&#1086;&#1075;&#1088;&#1072;&#1084;&#1084;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;-&#8212;-&#1088;&#1102;&#1082;&#1079;&#1072;&#1082;,-&#1053;&#1042;&#1055;,-&#1053;&#1054;&#1055;">&#1044;&#1080;&#1085;&#1072;&#1084;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077; &#1087;&#1088;&#1086;&#1075;&#1088;&#1072;&#1084;&#1084;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077; &#8212; &#1088;&#1102;&#1082;&#1079;&#1072;&#1082;, &#1053;&#1042;&#1055;, &#1053;&#1054;&#1055;<a class="anchor-link" href="#&#1044;&#1080;&#1085;&#1072;&#1084;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077;-&#1087;&#1088;&#1086;&#1075;&#1088;&#1072;&#1084;&#1084;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;-&#8212;-&#1088;&#1102;&#1082;&#1079;&#1072;&#1082;,-&#1053;&#1042;&#1055;,-&#1053;&#1054;&#1055;">&#182;</a></h1><p>Предполагается, что вы уже знакомы с базовыми понятиями динамического программирования и помните бинарный поиск.</p>
 <ul>
-<li><a href="http://sereja.me/a/segtree">Дерево отрезков</a>: на указателях, динамическое, пересистентное.</li>
-<li><a href="http://sereja.me/a/treap">Декартово дерево</a>: явное, неявное, персистентое.</li>
-<li><a href="http://sereja.me/a/hashing">Полиномиальное хэширование</a> в задачах на строки</li>
-<li><a href="http://sereja.me/a/centroid">Центроидная декомпозиция</a></li>
-<li><a href="http://sereja.me/a/matroid">Матроиды</a>: алгоритм Радо-Эдмондса, расписания, паросочетания, линейная независимость</li>
-<li><a href="http://sereja.me/a/pollard">Ро-алгоритм Полларда</a></li>
-<li><a href="http://sereja.me/a/sparse-table">Sparse table</a></li>
-<li><a href="http://sereja.me/a/mincost-maxflow">Поток минимальной стоимости</a>: критерий оптимальности, потенциалы Джонсона, реализация за $O(mU)$</li>
-<li><a href="http://sereja.me/a/bitset">Битовое сжатие</a>: битсет, нахождение цикла длины 3, перемножение матриц, метод Гаусса</li>
-<li><a href="http://sereja.me/a/lca">Наименьший общий предок</a>: свойства tin и tout, двоичные подъемы, сведение к RMQ, алгоритм Фараха-Колтона и Бендера</li>
-<li><a href="http://sereja.me/a/bayans">Классные задачки</a>: пока что без решений</li>
+<li>Задача о рюкзаке</li>
+<li>НВП</li>
+<li>НОП</li>
+<li>Динамика по префиксу и значению последнего элемента</li>
+<li>Ленивая динамика</li>
 </ul>
-<p>Не очень готово:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1047;&#1072;&#1076;&#1072;&#1095;&#1072;-&#1086;-&#1088;&#1102;&#1082;&#1079;&#1072;&#1082;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1095;&#1072; &#1086; &#1088;&#1102;&#1082;&#1079;&#1072;&#1082;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1095;&#1072;-&#1086;-&#1088;&#1102;&#1082;&#1079;&#1072;&#1082;&#1077;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="0-1-&#1056;&#1102;&#1082;&#1079;&#1072;&#1082;">0-1 &#1056;&#1102;&#1082;&#1079;&#1072;&#1082;<a class="anchor-link" href="#0-1-&#1056;&#1102;&#1082;&#1079;&#1072;&#1082;">&#182;</a></h3><p>В самой простой форме задача о рюкзаке формулируется так:</p>
+<blockquote><p>Даны $n$ предметов с весами $a_1,\ldots,a_n$. Определите, на какой максимальный вес можно набрать предметов в рюкзак вместимости $W$.</p>
+</blockquote>
+<p>Для решения этой задачи воспользуемся динамическим программированием. Обозначим за $dp[i][j]$ состояние, когда мы рассмотрели первые $i$ предметов и набрали ими $j$ веса. $dp[i][j]=True$, если такая ситуация возможна, иначе $dp[i][j]=False$.</p>
+<p>Для каждого состояния $dp[i][j]$, которое возможно получить, мы можем либо взять предмет номер $i$ и попробовать обновить ответ из состояния $dp[i-1][j-a[i]]$, либо не брать его и обновить ответ из $dp[i-1][j]$. Очевидно, что мы можем получить 0 веса, рассмотрев 0 предметов.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">W</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">j</span> <span class="ow">and</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]]:</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ответом будет максимальное $j$, такое что $dp[n][j]=True$. Таким образом, мы получили решение за $O(nW)$</p>
+<h3 id="0-1-&#1056;&#1102;&#1082;&#1079;&#1072;&#1082;-&#1089;&#1086;-&#1089;&#1090;&#1086;&#1080;&#1084;&#1086;&#1089;&#1090;&#1103;&#1084;&#1080;">0-1 &#1056;&#1102;&#1082;&#1079;&#1072;&#1082; &#1089;&#1086; &#1089;&#1090;&#1086;&#1080;&#1084;&#1086;&#1089;&#1090;&#1103;&#1084;&#1080;<a class="anchor-link" href="#0-1-&#1056;&#1102;&#1082;&#1079;&#1072;&#1082;-&#1089;&#1086;-&#1089;&#1090;&#1086;&#1080;&#1084;&#1086;&#1089;&#1090;&#1103;&#1084;&#1080;">&#182;</a></h3><p>Немного усложним задачу. Пусть, теперь предметы имеют не только веса, но и стоимости $c_1,\ldots,c_n$. Соответственно, надо набрать предметов с наибольшей суммарной стоимостью, но весом не превосходящим $W$. Теперь в $dp[i][j]$ будем хранить не просто возможно ли получить из первых $i$ предметов набор веса $j$, а максимальную суммарную стоимость такого набора. Если же такой набор получить невозможно, то по-прежнему $dp[i][j]=0$. Переходы такие же как и в прошлой задаче. Изначально $dp$ заполнено 0, так как для любого непустого набора мы пока не знаем, как его получить, а путой набор имеет стоимость 0.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">W</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">j</span><span class="p">:</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">+</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ответом на задачу будет максимальное $dp[n][j]$. Такое решение тоже работает за $O(nW)$.</p>
+<p>Если так получилось, что веса большие, а стоимости маленькие, можно поменять их местами и считать минимальный вес при данной набранной стоимости. Поменять местами значение динамики и параметр — довольно распространенный трюк в динамическом программировании.</p>
+<h3 id="&#1056;&#1102;&#1082;&#1079;&#1072;&#1082;-&#1089;-&#1086;&#1075;&#1088;&#1072;&#1085;&#1080;&#1095;&#1077;&#1085;&#1085;&#1099;&#1084;-&#1095;&#1080;&#1089;&#1083;&#1086;&#1084;-&#1087;&#1088;&#1077;&#1076;&#1084;&#1077;&#1090;&#1086;&#1074;">&#1056;&#1102;&#1082;&#1079;&#1072;&#1082; &#1089; &#1086;&#1075;&#1088;&#1072;&#1085;&#1080;&#1095;&#1077;&#1085;&#1085;&#1099;&#1084; &#1095;&#1080;&#1089;&#1083;&#1086;&#1084; &#1087;&#1088;&#1077;&#1076;&#1084;&#1077;&#1090;&#1086;&#1074;<a class="anchor-link" href="#&#1056;&#1102;&#1082;&#1079;&#1072;&#1082;-&#1089;-&#1086;&#1075;&#1088;&#1072;&#1085;&#1080;&#1095;&#1077;&#1085;&#1085;&#1099;&#1084;-&#1095;&#1080;&#1089;&#1083;&#1086;&#1084;-&#1087;&#1088;&#1077;&#1076;&#1084;&#1077;&#1090;&#1086;&#1074;">&#182;</a></h3><p>Пусть, теперь предметов каждого типа может быть несколько, то есть даны не только веса и стоимости, но и максимальные количества каждого из предметов $k_1,\ldots,k_n$. Тогда для каждого состояния $dp[i][j]$ переберем, сколько мы взяли предметов такого типа и сделаем переход из каждого соответствующего состояния. Понятно, что мы не сможем взять более, чем $\lfloor\frac{W}{a_i}\rfloor$ предметов каждого типа.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">W</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">cnt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">k</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">W</span> <span class="o">//</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">cnt</span> <span class="o">&lt;=</span> <span class="n">j</span><span class="p">:</span>
+                <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">cnt</span><span class="p">]</span> <span class="o">+</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">cnt</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Такое решение работает за $O(nW^2)$, так как $k_i$ могут быть очень большими, а $a_1=1$.</p>
+<p>Можете попробовать решить эту задачу за $O(nW\log K)$, где $K$ — максимальное из $k_i$.</p>
+<h3 id="&#1056;&#1102;&#1082;&#1079;&#1072;&#1082;-&#1089;-&#1085;&#1077;&#1086;&#1075;&#1088;&#1072;&#1085;&#1080;&#1095;&#1077;&#1085;&#1085;&#1099;&#1084;-&#1095;&#1080;&#1089;&#1083;&#1086;&#1084;-&#1087;&#1088;&#1077;&#1076;&#1084;&#1077;&#1090;&#1086;&#1074;">&#1056;&#1102;&#1082;&#1079;&#1072;&#1082; &#1089; &#1085;&#1077;&#1086;&#1075;&#1088;&#1072;&#1085;&#1080;&#1095;&#1077;&#1085;&#1085;&#1099;&#1084; &#1095;&#1080;&#1089;&#1083;&#1086;&#1084; &#1087;&#1088;&#1077;&#1076;&#1084;&#1077;&#1090;&#1086;&#1074;<a class="anchor-link" href="#&#1056;&#1102;&#1082;&#1079;&#1072;&#1082;-&#1089;-&#1085;&#1077;&#1086;&#1075;&#1088;&#1072;&#1085;&#1080;&#1095;&#1077;&#1085;&#1085;&#1099;&#1084;-&#1095;&#1080;&#1089;&#1083;&#1086;&#1084;-&#1087;&#1088;&#1077;&#1076;&#1084;&#1077;&#1090;&#1086;&#1074;">&#182;</a></h3><p>Пусть, теперь каждого предмета будет не $k_i$, а вообще бесконечно. Оказывается, задача стала только проще. Вернемся к обычному рюкзаку с весами и стоимостями. Единственное отличие будет в том, что теперь мы можем делать второй переход не из предыдущей строки, а прямо из текущей. При этом заметим, что для каждого состояния достаточно рассмотреть взятие только одного предмета данного типа, поскольку взятие двух и более будет рассмотрено одновременно.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">W</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">j</span><span class="p">:</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">+</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Такое решение работает за $O(nW)$.</p>
+<p>Если $W$ велико, а $a_i$ достаточно малы, можно построить решение за $O(n + A^3)$, где $A$ — максимальное из $a_i$. Заметим, что если $W$ достаточно большое, то большая часть рюкзака будет занята предметами одного и того же типа с максимальной удельной стоимостью. Можно доказать, что одним и тем же предметом будет занято не менее $W-A^2$ веса. Таким образом, можно за $O(n)$ выбрать предмет с максимальным удельным весом, а для оставшихся предметов запустить предыдущий алгоритм, который сработает за $O(A^3)$, так как имеет смысл рассматривать не более $A$ предметов, а максимальный вес $A^2$.</p>
+<h3 id="&#1042;&#1086;&#1089;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077;-&#1086;&#1090;&#1074;&#1077;&#1090;&#1072;">&#1042;&#1086;&#1089;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077; &#1086;&#1090;&#1074;&#1077;&#1090;&#1072;<a class="anchor-link" href="#&#1042;&#1086;&#1089;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077;-&#1086;&#1090;&#1074;&#1077;&#1090;&#1072;">&#182;</a></h3><p>Во всех рассмотренных задачах восстановление ответа делается стандартным образом: нужно из ответа пройтись обратно до начала.</p>
 <ul>
-<li><a href="http://sereja.me/a/strings">Поиск строки в строке</a>: префикс-функция, z-функция</li>
-<li><a href="http://sereja.me/a/geometry">Геометрия</a>: скалярное и векторное произведение, пересечение прямых, классы в C++</li>
-<li><a href="http://sereja.me/a/dp_optimizations">Оптимизации ДП</a>: Кнут, разделяй-и-властвуй, Convex Hull Trick</li>
-<li><a href="http://sereja.me/a/fenwick">Дерево Фенвика</a>: устройство, многомерное дерево, бинпоиск по дереву</li>
-<li><a href="http://sereja.me/a/mst">Остовные деревья</a>: алгоритм Прима и Крускала</li>
-<li><a href="http://sereja.me/a/reciprocal">Обратное по модулю</a></li>
-<li><a href="http://sereja.me/a/annealing">Метод отжига</a></li>
-<li><a href="http://sereja.me/a/stress-test">Стресс-тестирование</a></li>
-<li>Подсчёт числа путей в дереве: метод переливаний, центроидная декомпозиция</li>
+<li>первый способ - это построить массив prev, где для каждой ячейки $dp[i][j]$ хранить, берем мы предмет i, или не берем предмет $i$.</li>
+<li>второй способ - это определять это на ходу, смотря, какое из значений $dp[i - 1][j]$ или $dp[i - 1][j - a[i]] + c[i]$ больше.</li>
 </ul>
-<p>Вообще не готово:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1053;&#1072;&#1080;&#1073;&#1086;&#1083;&#1100;&#1096;&#1072;&#1103;-&#1074;&#1086;&#1079;&#1088;&#1072;&#1089;&#1090;&#1072;&#1102;&#1097;&#1072;&#1103;-&#1087;&#1086;&#1076;&#1087;&#1086;&#1089;&#1083;&#1077;&#1076;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086;&#1089;&#1090;&#1100;">&#1053;&#1072;&#1080;&#1073;&#1086;&#1083;&#1100;&#1096;&#1072;&#1103; &#1074;&#1086;&#1079;&#1088;&#1072;&#1089;&#1090;&#1072;&#1102;&#1097;&#1072;&#1103; &#1087;&#1086;&#1076;&#1087;&#1086;&#1089;&#1083;&#1077;&#1076;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086;&#1089;&#1090;&#1100;<a class="anchor-link" href="#&#1053;&#1072;&#1080;&#1073;&#1086;&#1083;&#1100;&#1096;&#1072;&#1103;-&#1074;&#1086;&#1079;&#1088;&#1072;&#1089;&#1090;&#1072;&#1102;&#1097;&#1072;&#1103;-&#1087;&#1086;&#1076;&#1087;&#1086;&#1089;&#1083;&#1077;&#1076;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086;&#1089;&#1090;&#1100;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Пусть, дана последовательность из $n$ чисел $a_1,\ldots,a_n$. Требуется найти длину ее наибольшей возрастающей подпоследовательности (НВП), то есть длину такой наибольшей последовательности индексов $i_1&lt;i_2&lt;\ldots&lt;i_k$, что $a[i_1]&lt;a[i_2]&lt;\ldots&lt;a[i_k]$.</p>
+<p>Пример: в последовательности $100, \underline{20}, \underline{75}, 0, -40, \underline{80}, -10, \underline{120}, 110$ наибольшей возрастающей подпоследовательность является $20, 75, 80, 120$: она имеет длину $4$. Возрастающих подпоследовательностей длины 5 здесь нет.</p>
+<h3 id="&#1053;&#1042;&#1055;-&#1079;&#1072;-$O(N^2)$">&#1053;&#1042;&#1055; &#1079;&#1072; $O(N^2)$<a class="anchor-link" href="#&#1053;&#1042;&#1055;-&#1079;&#1072;-$O(N^2)$">&#182;</a></h3><p>Давайте решать наивно через динамческое программирование - то есть хранить в $dp[i]$ ровно то, что нам надо найти - длину НВП для первых $i$ чисел.</p>
+<p>$dp[0] = 0$. Но как найти формулу, выражающую $dp[i]$ через предыдущин значения?</p>
+<p>Ну, есть два варианта:</p>
 <ul>
-<li><a href="http://sereja.me/a/true">Бор</a>: бор на указателях, суффиксные ссылки, алгоритм Ахо-Корасик</li>
-<li><a href="http://sereja.me/a/linalg">Линейная алгебра</a>: линейные операторы, матрицы, применения к динамике, метод Гаусса</li>
-<li><a href="http://sereja.me/a/probability">Теорвер</a>: </li>
-<li>Выпуклые оболочки</li>
-<li>Разделяй-и-властвуй</li>
-<li>Теория информации</li>
+<li>$i$-ое число не входит в НВП. Тогда $dp[i] = 1$</li>
+<li>$i$-ое число входит в НВП. Тогда $dp[i] = 1 + dp[k]$, где $k$ - индекс предыдущего числа в этой НВП. Так давайте просто его переберем. При этом надо учесть, что $a[k]$ должно быть меньше, чем $a[i]$!</li>
 </ul>
-<p>Спасибо Косте Амеличеву, Глебу Лобанову, Ване Клигунову, Диме Дубровину, Маше Тряпицыной, Саше Мамаеву, Андрею Гаркавому, Тёме Рябову, Андрею Чулкову, Максу Деб Натху и много кому ещё за фидбэк и указания на ошибки и неточности.</p>
+<p>Итогвоая формула получается такая:</p>
+$$dp[i] = \max(1, 1 + \max\limits_{k | a[k] &lt; a[i]}dp[k])$$<p>Этот алгоритм работает за $O(N^2)$: у нас $O(N)$ состояний динамики, и каждое из них мы считаем за $O(N)$ действий, пока ищем этот максимум.</p>
+<p>Ответ восстанавливается тем же способом: для каждого состояния нужно сохранить, где был этот максимум - там и есть предыдущее число в НВП.</p>
+<h3 id="&#1053;&#1042;&#1055;-&#1079;&#1072;-$O(N\log{N})$">&#1053;&#1042;&#1055; &#1079;&#1072; $O(N\log{N})$<a class="anchor-link" href="#&#1053;&#1042;&#1055;-&#1079;&#1072;-$O(N\log{N})$">&#182;</a></h3><p>Решим эту задачу чуть более нестандартным динамическим программированием, где $min\_end[i]$ будет обозначать минимальное число, на которое может заканчиваться НВП длины $i$. При этом мы будем постепенно обрабатывать числа слева направо, и в этом массиве будет храниться только информация про все НВП в уже обработанном начале последовательности.</p>
+<p>Изначально $min\_end[0]=-\infty, min\_end[i]=\infty$ для $i&gt;0$. В качестве $\infty$ надо выбрать число, которое заведомо больше любого из $a_i$, аналогично с $-\infty$.</p>
+<p>Рассматривая очередной элемент, попробуем продлить им каждую подпоследовательность:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="c1"># НВП: 1, 3, 4</span>
+<span class="n">inf</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">min_end</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">inf</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">inf</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">min_end</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">min_end</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+            <span class="n">min_end</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ответом будет максимальный такой индекс $j$, что $min\_end[j] \neq 0$. Это решение работает за $O(n^2)$.</p>
+<p>Его можно значительно ускорить, заметив два факта:</p>
+<ul>
+<li>На любом шаге $min\_end[i-1]\leq min\_end[i]$. Это легко доказать от противного.</li>
+<li>Из предыдущего факта следует, что любое $a[i]$ обновит максимум одно значение динамики, так как попадет максимум в один интервал.</li>
+</ul>
+<p>Значит, для поиска $j$, которое обновится можно воспользоваться бинарным поиском. Это решение уже работает за $O(n\log n)$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1053;&#1072;&#1080;&#1073;&#1086;&#1083;&#1100;&#1096;&#1072;&#1103;-&#1086;&#1073;&#1097;&#1072;&#1103;-&#1087;&#1086;&#1076;&#1087;&#1086;&#1089;&#1083;&#1077;&#1076;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086;&#1089;&#1090;&#1100;">&#1053;&#1072;&#1080;&#1073;&#1086;&#1083;&#1100;&#1096;&#1072;&#1103; &#1086;&#1073;&#1097;&#1072;&#1103; &#1087;&#1086;&#1076;&#1087;&#1086;&#1089;&#1083;&#1077;&#1076;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086;&#1089;&#1090;&#1100;<a class="anchor-link" href="#&#1053;&#1072;&#1080;&#1073;&#1086;&#1083;&#1100;&#1096;&#1072;&#1103;-&#1086;&#1073;&#1097;&#1072;&#1103;-&#1087;&#1086;&#1076;&#1087;&#1086;&#1089;&#1083;&#1077;&#1076;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086;&#1089;&#1090;&#1100;">&#182;</a></h2><p>Даны две последовательности $a_1,\ldots,a_n$ и $b_1,\ldots,b_m$. Требуется найти длину их наибольшей общей подпоследовательности (НОП), то есть длину наибольшей таких последовательностей $i_1&lt;\ldots&lt;i_k$ и $j_1&lt;\ldots&lt;j_k$, что $a[i_1]=b[j_1],\ldots,a[i_k]=b[j_k]$.</p>
+<p>Решим эту задачу с помощью динамического программирования, где $dp[i][j]$ будет обозначать длину НОП, если мы рассмотрели префиксы последовательностей длины $i$ и $j$.</p>
+<p>Тогда заметим, что есть две ситуации, когда мы считаем $dp[i][j]$:</p>
+<ul>
+<li>$a_i \neq b_j$, тогда хотя бы один из этиз символов не содержится в НОП, иначе она заканчивается на два разных символа. В этом случае $dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])$</li>
+<li>$a_i = b_j$, тогда несложно доказать, что точно есть максимальная НОП, в которую входят ОБА этих символа, а значит $dp[i][j] = 1 + dp[i - 1][j - 1]$.</li>
+</ul>
+<p>А на пустых префиксах ответ 0.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span> <span class="c1"># НОП: 1,2,3</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="n">dp</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">b</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[0, 0, 0, 1, 1, 1, 1]
+[0, 0, 0, 1, 1, 1, 1]
+[0, 0, 0, 1, 2, 2, 2]
+[0, 0, 0, 1, 2, 2, 2]
+[0, 0, 0, 1, 2, 3, 3]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ответом является максимальное число в массиве $dp$. Решение работает за $O(nm)$.</p>
+<p>Ответ при это восстанавливается классическим способом - с конца. Нам все еще нужно просто в каждой ячейке смотреть - если символы в ней равны, то нужно уменьшить $i$ и $j$, иначе только один из них - так, чтобы НОП был максимален.</p>
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Сведите задачу НВП к задаче НОП.</p>
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Найдите НОП двух <strong>перестановок</strong> длины $n$ за $O(n\log n)$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1044;&#1080;&#1085;&#1072;&#1084;&#1080;&#1082;&#1072;-&#1087;&#1086;-&#1087;&#1088;&#1077;&#1092;&#1080;&#1082;&#1089;&#1091;-&#1080;-&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1102;-&#1087;&#1086;&#1089;&#1083;&#1077;&#1076;&#1085;&#1077;&#1075;&#1086;-&#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090;&#1072;">&#1044;&#1080;&#1085;&#1072;&#1084;&#1080;&#1082;&#1072; &#1087;&#1086; &#1087;&#1088;&#1077;&#1092;&#1080;&#1082;&#1089;&#1091; &#1080; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1102; &#1087;&#1086;&#1089;&#1083;&#1077;&#1076;&#1085;&#1077;&#1075;&#1086; &#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090;&#1072;<a class="anchor-link" href="#&#1044;&#1080;&#1085;&#1072;&#1084;&#1080;&#1082;&#1072;-&#1087;&#1086;-&#1087;&#1088;&#1077;&#1092;&#1080;&#1082;&#1089;&#1091;-&#1080;-&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1102;-&#1087;&#1086;&#1089;&#1083;&#1077;&#1076;&#1085;&#1077;&#1075;&#1086;-&#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090;&#1072;">&#182;</a></h2><p>Пусть, дана последовательность $a_1,\ldots,a_n$, с максимальным значением $A$. Требуется найти длину наибольшей такой подпоследовательности, что ее элементы отличаются на более, чем на 1. Воспользуемся динамическим программированием, где $dp[j]$ будет обозначать ответ с последним взятым элементом, равным $j$. Будем обновлять и хранить актуалььным весь массив $dp$ целиком, проходясь по массиву $a$ слева направо.</p>
+<p>Соответственно для каждого $i$ переходы можно делать только из таких $j$, что $|a[i]-j|\leq 1$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">dp</span><span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">dp</span><span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="n">dp</span><span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">:</span>
+        <span class="n">dp</span><span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="n">dp</span><span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Это решение за $O(n + A)$.</p>
+<p>Заметим, что вот эти две идеи встречаются в задачах наиболее часто:</p>
+<ul>
+<li>хранить в $dp[i]$ ответ для $i$-ого префикса. Как в рюкзаке (где можно пользоваться $i$ первыми предметами), НВП(где ответ на префиксе длины $i$) и НОП (где ответ для префиксов длины $i$ и $j$).</li>
+<li>хранить в $dp[i]$ ответ для последовательностей, заканчивающихся на $i$.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1051;&#1077;&#1085;&#1080;&#1074;&#1072;&#1103;-&#1076;&#1080;&#1085;&#1072;&#1084;&#1080;&#1082;&#1072;">&#1051;&#1077;&#1085;&#1080;&#1074;&#1072;&#1103; &#1076;&#1080;&#1085;&#1072;&#1084;&#1080;&#1082;&#1072;<a class="anchor-link" href="#&#1051;&#1077;&#1085;&#1080;&#1074;&#1072;&#1103;-&#1076;&#1080;&#1085;&#1072;&#1084;&#1080;&#1082;&#1072;">&#182;</a></h2><p>Если сложно придумать порядок обхода таким образом, чтобы все предыдущие значения уже были посчитаны, то можно вместо циклов использовать рекурсивную функцию и запоминать посчитанный результат, чтобы не считать несколько раз одно и то же.</p>
+<p>Решим, например, обычную задачу о рюкзаке таким образом. Изначально все $dp[i][j]=-1$, это будет обозначать, что значение еще не посчитано, кроме $dp[0][j]=0$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">calc</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">calc</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">j</span><span class="p">:</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">calc</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span> <span class="o">-</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>         
+
+<span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">W</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">answer</span><span class="p">,</span> <span class="n">calc</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">j</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Время работы так же составит $O(nW)$, так как каждое значение мы считаем только один раз, но истинное время работы будет в несколько раз больше, потому что константа на вызовы функции значительно выше чем на простой цикл.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h2><p>Решите как можно больше задач из этих двух контестов:</p>
+<p><a href="https://informatics.msk.ru/mod/statements/view.php?id=35888">https://informatics.msk.ru/mod/statements/view.php?id=35888</a></p>
+<p><a href="https://informatics.msk.ru/mod/statements/view.php?id=33257">https://informatics.msk.ru/mod/statements/view.php?id=33257</a></p>
+<h3 id="&#1044;&#1086;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1072;&#1103;-&#1089;&#1083;&#1086;&#1078;&#1085;&#1072;&#1103;-&#1079;&#1072;&#1076;&#1072;&#1095;&#1072;">&#1044;&#1086;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1072;&#1103; &#1089;&#1083;&#1086;&#1078;&#1085;&#1072;&#1103; &#1079;&#1072;&#1076;&#1072;&#1095;&#1072;<a class="anchor-link" href="#&#1044;&#1086;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1072;&#1103;-&#1089;&#1083;&#1086;&#1078;&#1085;&#1072;&#1103;-&#1079;&#1072;&#1076;&#1072;&#1095;&#1072;">&#182;</a></h3><p><a href="https://csacademy.com/contest/round-61/task/strictly-increasing-array/statement/">https://csacademy.com/contest/round-61/task/strictly-increasing-array/statement/</a></p>
 
 </div>
 </div>

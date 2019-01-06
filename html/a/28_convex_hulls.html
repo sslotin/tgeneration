@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>index</title>
+<title>28_convex_hulls</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13116,43 +13116,252 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;">&#182;</a></h1><p>Стараюсь писать только про то, чего нет в интернете в нормальном виде. Либо про то, что мне очень сложно давалось, когда я был в школе.</p>
-<p>Более-менее готово:</p>
-<ul>
-<li><a href="http://sereja.me/a/segtree">Дерево отрезков</a>: на указателях, динамическое, пересистентное.</li>
-<li><a href="http://sereja.me/a/treap">Декартово дерево</a>: явное, неявное, персистентое.</li>
-<li><a href="http://sereja.me/a/hashing">Полиномиальное хэширование</a> в задачах на строки</li>
-<li><a href="http://sereja.me/a/centroid">Центроидная декомпозиция</a></li>
-<li><a href="http://sereja.me/a/matroid">Матроиды</a>: алгоритм Радо-Эдмондса, расписания, паросочетания, линейная независимость</li>
-<li><a href="http://sereja.me/a/pollard">Ро-алгоритм Полларда</a></li>
-<li><a href="http://sereja.me/a/sparse-table">Sparse table</a></li>
-<li><a href="http://sereja.me/a/mincost-maxflow">Поток минимальной стоимости</a>: критерий оптимальности, потенциалы Джонсона, реализация за $O(mU)$</li>
-<li><a href="http://sereja.me/a/bitset">Битовое сжатие</a>: битсет, нахождение цикла длины 3, перемножение матриц, метод Гаусса</li>
-<li><a href="http://sereja.me/a/lca">Наименьший общий предок</a>: свойства tin и tout, двоичные подъемы, сведение к RMQ, алгоритм Фараха-Колтона и Бендера</li>
-<li><a href="http://sereja.me/a/bayans">Классные задачки</a>: пока что без решений</li>
-</ul>
-<p>Не очень готово:</p>
-<ul>
-<li><a href="http://sereja.me/a/strings">Поиск строки в строке</a>: префикс-функция, z-функция</li>
-<li><a href="http://sereja.me/a/geometry">Геометрия</a>: скалярное и векторное произведение, пересечение прямых, классы в C++</li>
-<li><a href="http://sereja.me/a/dp_optimizations">Оптимизации ДП</a>: Кнут, разделяй-и-властвуй, Convex Hull Trick</li>
-<li><a href="http://sereja.me/a/fenwick">Дерево Фенвика</a>: устройство, многомерное дерево, бинпоиск по дереву</li>
-<li><a href="http://sereja.me/a/mst">Остовные деревья</a>: алгоритм Прима и Крускала</li>
-<li><a href="http://sereja.me/a/reciprocal">Обратное по модулю</a></li>
-<li><a href="http://sereja.me/a/annealing">Метод отжига</a></li>
-<li><a href="http://sereja.me/a/stress-test">Стресс-тестирование</a></li>
-<li>Подсчёт числа путей в дереве: метод переливаний, центроидная декомпозиция</li>
-</ul>
-<p>Вообще не готово:</p>
-<ul>
-<li><a href="http://sereja.me/a/true">Бор</a>: бор на указателях, суффиксные ссылки, алгоритм Ахо-Корасик</li>
-<li><a href="http://sereja.me/a/linalg">Линейная алгебра</a>: линейные операторы, матрицы, применения к динамике, метод Гаусса</li>
-<li><a href="http://sereja.me/a/probability">Теорвер</a>: </li>
-<li>Выпуклые оболочки</li>
-<li>Разделяй-и-властвуй</li>
-<li>Теория информации</li>
-</ul>
-<p>Спасибо Косте Амеличеву, Глебу Лобанову, Ване Клигунову, Диме Дубровину, Маше Тряпицыной, Саше Мамаеву, Андрею Гаркавому, Тёме Рябову, Андрею Чулкову, Максу Деб Натху и много кому ещё за фидбэк и указания на ошибки и неточности.</p>
+<h1 id="&#1042;&#1099;&#1087;&#1091;&#1082;&#1083;&#1099;&#1077;-&#1086;&#1073;&#1086;&#1083;&#1086;&#1095;&#1082;&#1080;">&#1042;&#1099;&#1087;&#1091;&#1082;&#1083;&#1099;&#1077; &#1086;&#1073;&#1086;&#1083;&#1086;&#1095;&#1082;&#1080;<a class="anchor-link" href="#&#1042;&#1099;&#1087;&#1091;&#1082;&#1083;&#1099;&#1077;-&#1086;&#1073;&#1086;&#1083;&#1086;&#1095;&#1082;&#1080;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Множество называется <strong>выпуклым</strong>, если, для любых двух точек, все точки, лежащие между ними, тоже принадлежат этому множеству.</p>
+<p><strong>Выпуклой оболочкой</strong> множества точек называется такое выпуклое множество, которое включает их всех, и при этом является минимальным по площади.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Зачем они нужны? На самом деле, с выпуклыми множествами очень легко работать. Например, нас могут спрашивать про какие-нибудь свойства наборов точек, например, искать</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Очень часто выпуклые оболочки возникают в задачах, казалось бы, совсем не связанных с геометрией.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Сейчас мы научимся её быстро строить, то есть получать из множества точек их выпуклую оболочку, как-то упорядоченную по обходу. Для упрощения будем считать, что никакие три точки не лежат на одной прямой.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1055;&#1086;&#1089;&#1090;&#1088;&#1086;&#1077;&#1085;&#1080;&#1077;-&#1079;&#1072;-$O(n^2)$">&#1055;&#1086;&#1089;&#1090;&#1088;&#1086;&#1077;&#1085;&#1080;&#1077; &#1079;&#1072; $O(n^2)$<a class="anchor-link" href="#&#1055;&#1086;&#1089;&#1090;&#1088;&#1086;&#1077;&#1085;&#1080;&#1077;-&#1079;&#1072;-$O(n^2)$">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Посмотрим на самую левую точку (а если таких много — то на самую нижнюю из них). Она точно будет в выпуклой оболочке. Теперь посмотрим на все остальные точки и мысленно отсортируем их по полярному углу относительно уже включенной. Последняя из сортированных точно будет лежать в оболочке, причем сразу после текущей. Возьмем её тоже, и будем идти так дальше, пока оболочка не построится.</p>
+<p>Такой алгоритм будет для каждой точки в итоговой выпуклой оболочке просматривать по $O(n)$ точек, что в худшем случае будет суммарно $O(n^2)$.</p>
+<p>Это называют алгоритмом Джарвиса. Кодить не будем, сразу перейдем к оптимизированной версии.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1055;&#1086;&#1089;&#1090;&#1088;&#1086;&#1077;&#1085;&#1080;&#1077;-&#1079;&#1072;-$O(n-\log-n)$">&#1055;&#1086;&#1089;&#1090;&#1088;&#1086;&#1077;&#1085;&#1080;&#1077; &#1079;&#1072; $O(n \log n)$<a class="anchor-link" href="#&#1055;&#1086;&#1089;&#1090;&#1088;&#1086;&#1077;&#1085;&#1080;&#1077;-&#1079;&#1072;-$O(n-\log-n)$">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Оптимизация этого алгоритма основывается на использовании информации об изначальной сортировке.</p>
+<p>На каждую вершину мы посмотрим максимум два раза — когда будем её добавлять, и, возможно, когда будем удалять. Получается, тут в асимптотике логарифм только из-за изначальной сортировки.</p>
+<p>Это называют алгоритмом Грэхэма.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://www.youtube.com/watch?v=BTgjXwhoMuI">https://www.youtube.com/watch?v=BTgjXwhoMuI</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Небольшой ликбез: в стандартную сортировку можно передать <em>компаратор</em> — специальную функцию, которая используется вместо стандартного <code>&lt;</code>. Она должна принимать два объекта нужного типа и возвращать <code>true</code>, если первый «меньше» второго.</p>
+<p>Ещё в C++ и вообще во многих языках есть концепция лямбда-функций: они объявляются.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="n">r</span><span class="o">&gt;</span> <span class="n">convex_hull</span> <span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="n">points</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">r</span> <span class="n">z</span> <span class="o">=</span> <span class="n">points</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">r</span> <span class="n">p</span> <span class="p">:</span> <span class="n">points</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">z</span><span class="o">.</span><span class="n">x</span> <span class="o">||</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="n">z</span><span class="o">.</span><span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">z</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
+            <span class="n">z</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+    <span class="n">sort</span><span class="p">(</span><span class="n">points</span><span class="o">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">points</span><span class="o">.</span><span class="n">end</span><span class="p">(),</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="n">r</span> <span class="n">a</span><span class="p">,</span> <span class="n">r</span> <span class="n">b</span><span class="p">){</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">z</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">z</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">})</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">r</span><span class="o">&gt;</span> <span class="n">hull</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">r</span> <span class="n">p</span> <span class="p">:</span> <span class="n">points</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">hull</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="n">hull</span><span class="p">[</span><span class="n">hull</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="n">hull</span><span class="o">.</span><span class="n">pop_back</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Иногда требуется поддерживать операции добавления. Тогда имеет смысл разделить оболочку на две части — верхнюю и нижнюю огибающую. Вообще, их кодить проще.</p>
+<p>Есть ещё всякие более сложные алгоритмы. Есть алгоритм Чена, который работает O(n \log h) и как бы объединяет лучшее из двух миров. Есть ещё алгоритм, позволяющий добавлять и удалять точки за $O(n \log^2 n)$ и занимает более 400 строк, и там есть один жуткий бинпоиск, в котором рассматривается 7 случаев, и вообще является одним из самых мерзких алгоритмов в мире. Ну да ладно, перейдем к задачам.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1060;&#1088;&#1080;&#1083;&#1072;&#1085;&#1089;">&#1060;&#1088;&#1080;&#1083;&#1072;&#1085;&#1089;<a class="anchor-link" href="#&#1060;&#1088;&#1080;&#1083;&#1072;&#1085;&#1089;">&#182;</a></h2><blockquote><p>У фрилансера Серёжи есть две мечты: стать опытным специалистом (получить $A$ опыта) и купить на квартиру в Москве (накопить $B$ рублей). У него есть $n \leq 10^5$ предложений о работе, $i$-е из которых приносит в час $a_i$ опыта и $b_i$ рублей. Работать над каждой задачей он может произвольное количество времени, не обязательно выражающееся целым количеством часов. Какое наименьшее время он может потратить, чтобы осуществить обе свои мечты?</p>
+</blockquote>
+<p>Имеет ли смысл брать работу?</p>
+<p>Все рассуждения, которые мы сделали — это идея выпуклой оболочки, если перевести в геометрию.</p>
+<p>Получается, всегда достаточно брать какую-то комбинацию из двух работ.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>На самом деле, часто нас просят на самом деле найти не выпуклую оболочку, а верхнюю или нижнюю огибающую, что уже проще.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Convex-Hull-Trick">Convex Hull Trick<a class="anchor-link" href="#Convex-Hull-Trick">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>CHT — довольно мощная оптимизация динамики. Обычно она заключается в том, чтобы внимательно посмотреть на рекурренту и внезапно увидеть там минимизацию какого-нибудь скалярного произведения, что сводится к нахождению касательной в выпуклой оболочке.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Рассмотрим конкретную задачу:</p>
+<blockquote><p>Даны  n  точек на прямой. Нужно найти  m  отрезков, покрывающих все точки, минимизировав при этом сумму квадратов их длин.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Как бы более-менее понятно, как должно выглядеть базовое решение — это должна быть следующая динамика: $f[i, j]$ — минимальная стоимость покрытия $i$ первых (самых левых) точек, используя не более $j$ отрезков (итоговый ответ будет записан в $f[n, m]$ — прим. К. О.).</p>
+<p>Переход — перебор всех возможных последних отрезков, то есть $f[i, j] = \min_{k &lt; i} \{f[k, j-1] + (x_{i-1}-x_k)^2 \}$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">//</span> <span class="n">x</span><span class="p">[]</span> <span class="err">—</span> <span class="n">отсортированный</span> <span class="n">массив</span> <span class="n">координат</span> <span class="n">точек</span><span class="p">,</span> <span class="n">нумерация</span> <span class="n">с</span> <span class="n">нуля</span>
+
+<span class="o">//</span> <span class="n">квадрат</span> <span class="n">длины</span> <span class="n">отрезка</span> <span class="n">от</span> <span class="n">i</span><span class="o">-</span><span class="n">той</span> <span class="n">до</span> <span class="n">j</span><span class="o">-</span><span class="n">той</span> <span class="n">точки</span>
+<span class="nb">int</span> <span class="n">cost</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span><span class="p">,</span> <span class="nb">int</span> <span class="n">j</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span> <span class="p">}</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="o">//</span> <span class="n">если</span> <span class="n">нам</span> <span class="n">не</span> <span class="n">нужно</span> <span class="n">ничего</span> <span class="n">покрывать</span><span class="p">,</span> <span class="n">то</span> <span class="n">всё</span> <span class="n">и</span> <span class="n">так</span> <span class="n">хорошо</span>
+<span class="o">//</span> <span class="n">все</span> <span class="n">остальные</span> <span class="n">f</span> <span class="n">предполагаем</span> <span class="n">равными</span> <span class="n">бесконечности</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">f</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">cost</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Теперь распишем выражение для $f[i, j]$:</p>
+$$
+f[i, j] = \min_{k &lt; i} \{f[k, j-1] + (x_{i-1}-x_k)^2 \} = \min_{k &lt; i} \{
+f[k, j-1] + x_{i-1}^2
+- 2x_{i-1} x_k
++ x_k^2
+\}
+$$<p>Посмотрим внимательнее на минимизируемое выражение. $x_{i-1}^2$ не зависит от $k$, значит его можно вынести. Под минимумом останется
+$
+\underbrace{f[k, j-1] + x_k^2}_{a_k}
+\underbrace{-2x_k}_{b_k} x_{i-1}
+$.</p>
+<p>Это теперь можно переписать как $
+\min_k
+(a_k, b_k)
+\cdot
+(1, X_{i-1})
+$ (имеется в виду скалярное произведение)</p>
+<p>Представим $(a_k, b_k)$ как точки на плоскости. Тогда мы можем построить их нижнюю огибающие и бинарным поиском находить оптимальную, с минимальным скалярным произведением.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">//</span> <span class="n">TODO</span><span class="p">:</span> <span class="n">написать</span> <span class="n">код</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>&lt;картинка со Скуби-Ду&gt;</p>
 
 </div>
 </div>

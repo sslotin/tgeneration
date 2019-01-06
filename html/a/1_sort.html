@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>index</title>
+<title>1_sort</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13116,43 +13116,705 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1080;&#1082;&#1072;">&#182;</a></h1><p>Стараюсь писать только про то, чего нет в интернете в нормальном виде. Либо про то, что мне очень сложно давалось, когда я был в школе.</p>
-<p>Более-менее готово:</p>
-<ul>
-<li><a href="http://sereja.me/a/segtree">Дерево отрезков</a>: на указателях, динамическое, пересистентное.</li>
-<li><a href="http://sereja.me/a/treap">Декартово дерево</a>: явное, неявное, персистентое.</li>
-<li><a href="http://sereja.me/a/hashing">Полиномиальное хэширование</a> в задачах на строки</li>
-<li><a href="http://sereja.me/a/centroid">Центроидная декомпозиция</a></li>
-<li><a href="http://sereja.me/a/matroid">Матроиды</a>: алгоритм Радо-Эдмондса, расписания, паросочетания, линейная независимость</li>
-<li><a href="http://sereja.me/a/pollard">Ро-алгоритм Полларда</a></li>
-<li><a href="http://sereja.me/a/sparse-table">Sparse table</a></li>
-<li><a href="http://sereja.me/a/mincost-maxflow">Поток минимальной стоимости</a>: критерий оптимальности, потенциалы Джонсона, реализация за $O(mU)$</li>
-<li><a href="http://sereja.me/a/bitset">Битовое сжатие</a>: битсет, нахождение цикла длины 3, перемножение матриц, метод Гаусса</li>
-<li><a href="http://sereja.me/a/lca">Наименьший общий предок</a>: свойства tin и tout, двоичные подъемы, сведение к RMQ, алгоритм Фараха-Колтона и Бендера</li>
-<li><a href="http://sereja.me/a/bayans">Классные задачки</a>: пока что без решений</li>
+<h1 id="&#1057;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1080;-&#8212;-&#1082;&#1074;&#1072;&#1076;&#1088;&#1072;&#1090;&#1080;&#1095;&#1085;&#1099;&#1077;-&#1080;-&#1089;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1072;-&#1089;&#1083;&#1080;&#1103;&#1085;&#1080;&#1077;&#1084;">&#1057;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1080; &#8212; &#1082;&#1074;&#1072;&#1076;&#1088;&#1072;&#1090;&#1080;&#1095;&#1085;&#1099;&#1077; &#1080; &#1089;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1072; &#1089;&#1083;&#1080;&#1103;&#1085;&#1080;&#1077;&#1084;<a class="anchor-link" href="#&#1057;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1080;-&#8212;-&#1082;&#1074;&#1072;&#1076;&#1088;&#1072;&#1090;&#1080;&#1095;&#1085;&#1099;&#1077;-&#1080;-&#1089;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1072;-&#1089;&#1083;&#1080;&#1103;&#1085;&#1080;&#1077;&#1084;">&#182;</a></h1><ul>
+<li>Квадратичные сортировки: пузырьком, выбором, вставками</li>
+<li>Сортировка подсчетом</li>
+<li>О-нотация</li>
+<li>Сортировка слиянием*</li>
+<li>Применение сортировки для решения задач</li>
 </ul>
-<p>Не очень готово:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Мы считаем, что вы уже знаете и умеете следующие вещи:</p>
 <ul>
-<li><a href="http://sereja.me/a/strings">Поиск строки в строке</a>: префикс-функция, z-функция</li>
-<li><a href="http://sereja.me/a/geometry">Геометрия</a>: скалярное и векторное произведение, пересечение прямых, классы в C++</li>
-<li><a href="http://sereja.me/a/dp_optimizations">Оптимизации ДП</a>: Кнут, разделяй-и-властвуй, Convex Hull Trick</li>
-<li><a href="http://sereja.me/a/fenwick">Дерево Фенвика</a>: устройство, многомерное дерево, бинпоиск по дереву</li>
-<li><a href="http://sereja.me/a/mst">Остовные деревья</a>: алгоритм Прима и Крускала</li>
-<li><a href="http://sereja.me/a/reciprocal">Обратное по модулю</a></li>
-<li><a href="http://sereja.me/a/annealing">Метод отжига</a></li>
-<li><a href="http://sereja.me/a/stress-test">Стресс-тестирование</a></li>
-<li>Подсчёт числа путей в дереве: метод переливаний, центроидная декомпозиция</li>
+<li>основы языков Python, C++ или Java (примеры в конспектах будут чаще всего на питоне)</li>
+<li>оператор if</li>
+<li>циклы for и while</li>
+<li>создание функций</li>
+<li>концепцию рекурсии</li>
+<li>поиск минимума в массиве</li>
 </ul>
-<p>Вообще не готово:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1050;&#1074;&#1072;&#1076;&#1088;&#1072;&#1090;&#1080;&#1095;&#1085;&#1099;&#1077;-&#1089;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1080;">&#1050;&#1074;&#1072;&#1076;&#1088;&#1072;&#1090;&#1080;&#1095;&#1085;&#1099;&#1077; &#1089;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1080;<a class="anchor-link" href="#&#1050;&#1074;&#1072;&#1076;&#1088;&#1072;&#1090;&#1080;&#1095;&#1085;&#1099;&#1077;-&#1089;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1080;">&#182;</a></h2><p>Задача <strong>сортировки</strong> массива заключается в том, чтобы расставить его элементы в определённом порядке (чаще всего - по неубыванию. Это означает, что каждый элемент должен быть больше или равен всех предыдущих).</p>
+<p>А именно мы хотим написать такую функцию <code>sort_array</code>, которая принимает массив в качестве аргумента и сортирует его элементы:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">sort_array</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+    <span class="c1"># надо придумать, что написать здесь</span>
+
+<span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="n">sort_array</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1, -3, 7, 88, 7]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Какие вы знаете алгоритмы сортировки?</p>
+<p>Если вы не знаете ни одного алгоритма, то придумайте какой-нибудь разумный алгоритм сами.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1057;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1072;-&#1087;&#1091;&#1079;&#1099;&#1088;&#1100;&#1082;&#1086;&#1084;">&#1057;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1072; &#1087;&#1091;&#1079;&#1099;&#1088;&#1100;&#1082;&#1086;&#1084;<a class="anchor-link" href="#&#1057;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1072;-&#1087;&#1091;&#1079;&#1099;&#1088;&#1100;&#1082;&#1086;&#1084;">&#182;</a></h3><p>Это самый популярный алгоритм сортировки, хоть он и не самый очевидный.</p>
+<p>Пусть $N$ - длина массива. Сортировка пузырьком заключается в том, что мы просто $N$ раз пройдемся по массиву и будем менять два соседних элемента, если первый больше второго.</p>
+<p>Ссылка на красивую визуализацию:
+<a href="https://visualgo.net/nl/sorting">https://visualgo.net/nl/sorting</a></p>
+<p>Заметьте, как каждую итерацию максимальный элемент "всплывает как пузырек" к концу массива.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="c1"># длина массива</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span> <span class="c1"># n раз выполняем цикл</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span> <span class="c1"># проходимся по всем элементам кроме последнего</span>
+            <span class="k">if</span> <span class="n">array</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">array</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span> <span class="c1"># сравниваем элемент по следующим</span>
+                <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="c1"># меняем местами, если следующий меньше</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="n">bubble_sort</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[-3, 1, 7, 7, 88]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Заметьте, что <strong>после $i$ шагов алгоритма сортировки пузырьком последние $i + 1$ чисел всегда отсортированы</strong>. Именно поэтому алгоритм и работает.</p>
+<p>И именно поэтому его можно немного ускорить.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Подумайте, какие лишние элементы мы перебираем. Как нужно изменить границы в двух циклах for, чтобы не делать никаких бесполезных действий?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1057;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1072;-&#1074;&#1099;&#1073;&#1086;&#1088;&#1086;&#1084;">&#1057;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1072; &#1074;&#1099;&#1073;&#1086;&#1088;&#1086;&#1084;<a class="anchor-link" href="#&#1057;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1072;-&#1074;&#1099;&#1073;&#1086;&#1088;&#1086;&#1084;">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Более понятным и придумываемым способом является <strong>сортировка выбором</strong> минимума (или максимума).</p>
+<p>Чтобы отсортировать массив, нужно просто $N$ раз выбрать минимум среди еще неотсортированных чисел. То есть на $i$-ом шаге ищется минимум на отрезке $[i, n - 1]$, и этот минимум меняется с $i$-ым элементом,  теперь отрезок $[0, i]$ отсортирован.</p>
+<p><a href="https://visualgo.net/nl/sorting">Красивая визуализация</a> (вкладка SEL).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1057;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1072;-&#1074;&#1089;&#1090;&#1072;&#1074;&#1082;&#1072;&#1084;&#1080;">&#1057;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1072; &#1074;&#1089;&#1090;&#1072;&#1074;&#1082;&#1072;&#1084;&#1080;<a class="anchor-link" href="#&#1057;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1072;-&#1074;&#1089;&#1090;&#1072;&#1074;&#1082;&#1072;&#1084;&#1080;">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Также существует <strong>сортировка вставками</strong>.</p>
+<p><strong>Префиксом</strong> длины $i$ будем называть первые $i$ элементов массива.</p>
+<p>Тогда пусть на $i$-ом шаге у нас уже будет отсортирован префикс до $i$-го элемента.  Чтобы этот префикс увеличить, нужно взять элемент, идущий после него, и менять с левым соседом, пока этот элемент наконец не окажется больше своего левого соседа. Если в конце он больше левого соседа, но меньше правого - это значит, что мы правильно вставили этот элемент в отсортированную часть массива.</p>
+<p><a href="https://visualgo.net/nl/sorting">Красивая визуализация</a> (вкладка INS).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Сдайте 4 первые задачи в <a href="https://informatics.msk.ru/mod/statements/view.php?id=33164">контесте</a>:</p>
+<ol>
+<li>Напишите сортировку пузырьком.</li>
+<li>Напишите сортировку выбором максимума.</li>
+<li>Напишите сортировку вставками.</li>
+<li>Выберите любой алгоритм и примените его для сортировки пар.</li>
+</ol>
+<p>При сдаче задач нельзя пользоваться встроенной сортировкой!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1057;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1072;-&#1087;&#1086;&#1076;&#1089;&#1095;&#1077;&#1090;&#1086;&#1084;">&#1057;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1072; &#1087;&#1086;&#1076;&#1089;&#1095;&#1077;&#1090;&#1086;&#1084;<a class="anchor-link" href="#&#1057;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1072;-&#1087;&#1086;&#1076;&#1089;&#1095;&#1077;&#1090;&#1086;&#1084;">&#182;</a></h3><p>Предыдущие три алгоритма работали с массивами, в которых лежат абсолютно любые объекты, которые можно сравнивать. Любые числа, строки, пары, другие массивы, почти все что угодно.</p>
+<p>Но в особых случаях, когда элементы принадлежат какому-то маленькому множеству, можно использовать другой алгоритм — <strong>сортировку подсчетом</strong>.</p>
+<p>Пусть, например, нам <strong>гарантируется, что все числа натуральные и лежат в промежутке от 1 до 100</strong>.</p>
+<p>Тогда есть такой простой алгоритм: создадим массив размера $100$, в котором будем хранить на $i$-ом месте, сколько раз число $i$ встретилось в этом массиве. Пройдемся по всем числам, и увеличим соответствующее значение массива на $1$. Таким образом мы подсчитали, сколько раз какое число встретилось. Теперь можно просто пройтись по этому массиву и вывести $1$ столько раз, сколько раз встретилась $1$, вывести $2$ столько раз, сколько встретилась $2$, и так далее.</p>
+<p><a href="https://visualgo.net/nl/sorting">Красивая визуализация</a> (вкладка COU).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Сдайте 5, 6 и 7 задачи в <a href="https://informatics.msk.ru/mod/statements/view.php?id=33164">контесте</a>:</p>
+<ol>
+<li>Напишите сортировку подсчетом.</li>
+<li>Придумайте, как преобразовать сортировку подсчетом, чтобы она работала быстро.</li>
+<li>Придумайте, как использовать идею сортировки подсчетом в этой задаче.</li>
+</ol>
+<p>При сдаче задач нельзя пользоваться встроенной сортировкой!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1054;-&#1085;&#1086;&#1090;&#1072;&#1094;&#1080;&#1103;">&#1054;-&#1085;&#1086;&#1090;&#1072;&#1094;&#1080;&#1103;<a class="anchor-link" href="#&#1054;-&#1085;&#1086;&#1090;&#1072;&#1094;&#1080;&#1103;">&#182;</a></h2><p>Очень часто требуется оценить, сколько времени работают эти алгоритмы. Но тут возникают проблемы:</p>
 <ul>
-<li><a href="http://sereja.me/a/true">Бор</a>: бор на указателях, суффиксные ссылки, алгоритм Ахо-Корасик</li>
-<li><a href="http://sereja.me/a/linalg">Линейная алгебра</a>: линейные операторы, матрицы, применения к динамике, метод Гаусса</li>
-<li><a href="http://sereja.me/a/probability">Теорвер</a>: </li>
-<li>Выпуклые оболочки</li>
-<li>Разделяй-и-властвуй</li>
-<li>Теория информации</li>
+<li>на разных компьютерах время работы всегда будет слегка отличаться;</li>
+<li>чтобы измерить время, придётся запустить сам алгоритм, но иногда приходится оценивать алгоритмы, требующие часы или даже дни работы. </li>
 </ul>
-<p>Спасибо Косте Амеличеву, Глебу Лобанову, Ване Клигунову, Диме Дубровину, Маше Тряпицыной, Саше Мамаеву, Андрею Гаркавому, Тёме Рябову, Андрею Чулкову, Максу Деб Натху и много кому ещё за фидбэк и указания на ошибки и неточности.</p>
+<p>Зачастую основной задачей программиста становится оптимизировать алгоритм, выполнение которого займёт тысячи лет, до какого-нибудь адекватного времени работы. Поэтому хотелось бы уметь предсказывать, сколько времени займёт выполнение алгоритма ещё до того, как мы его запустим.</p>
+<p>Для этого давайте для начала попробуем оценить <strong>число операций</strong> в алгоритме.</p>
+<p>Возникает вопрос: какие именно операции считать. Можно считать любые элементарные операции:</p>
+<ul>
+<li>арифметические операции с числами: <code>+, -, *, /</code></li>
+<li>сравнение чисел: <code>&lt;, &gt;, &lt;=, &gt;=, ==, !=</code></li>
+<li>присваивание: <code>a[0] = 3</code></li>
+</ul>
+<p>При этом надо учитывать, как реализованы некоторые отдельные вещи в самом языке. Например, в питоне срезы массива (<code>array[3:10]</code>) копируют этот массив, то есть этот срез работает за 7 элементарных действий. А <code>swap</code>, например, может работать за 3 присваивания.</p>
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Попробуйте посчитать точное число <strong>сравнений</strong> в сортировках пузырьком, выбором, вставками и подсчетом в худшем случае (это должна быть какая формула, зависящая от $N$ - длины массива). Для сортировки подсчетом давайте считать, что все числа целые и лежат в промежутке от 1 до $M$</p>
+<p>И также посчитайте точное число <strong>присваиваний</strong> в сортировках пузырьком, выбором, вставками и подсчетом в худшем случае. Давайте считать, что <code>swap</code> — это 3 присваивания.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ниже будут ответы</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>В худшем случае алгоритмы работают за столько сравнений:</p>
+<ul>
+<li>Сортировка пузырьком (без улучшения): $N(N-1)$</li>
+<li>Сортировка пузырьком (с улучшением): $(N-1) + (N-2) + \ldots + 1 = \frac{N(N-1)}{2}$</li>
+<li>Сортировка выбором: $(N-1) + (N-2) + \ldots + 1 = \frac{N(N-1)}{2}$</li>
+<li>Сортировка вставками: $1 + 2 + \ldots + (N-1) = \frac{N(N-1)}{2}$</li>
+<li>Сортировка подсчетом: нет сравнений</li>
+</ul>
+<p>И столько присваиваний:</p>
+<ul>
+<li>Сортировка пузырьком (без улучшения): $3\frac{N(N-1)}{2}$</li>
+<li>Сортировка пузырьком (с улучшением): $3\frac{N(N-1)}{2}$</li>
+<li>Сортировка выбором: $3(N-1) + \frac{N(N-1)}{2}$</li>
+<li>Сортировка вставками: $3\frac{N(N-1)}{2}$</li>
+<li>Сортировка подсчетом: $N + M$ ($M$ - это создание массива)</li>
+</ul>
+<p>Но чтобы учесть все элементарные операции, ещё надо посчитать, например, сколько раз прибавилась единичка внутри цикла <code>for</code>. А ещё, например, строчка <code>n = len(array)</code> - это тоже действие.</p>
+<p>Также не сразу очевидно, какой из этих алгоритмов работает быстрее. Сравнивать формулы сложно. Хочется придумать способ упростить эти формулы так, чтобы:</p>
+<ul>
+<li>не нужно было учитывать много информации, не очень сильно влияющей на итоговое время;</li>
+<li>легко было оценивать время работы разных алгоритмов для больших чисел;</li>
+<li>легко было сравнивать алгоритмы на предмет того, какой из них лучше подходит для тех или иных входных данных.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Для этого придумали <strong>$O$-нотацию</strong> -  асимптотическое время работы вместо точного (часто его ещё называют асимптотикой).</p>
+<p>Пусть $f(N)$ - это какая-то функция. Говорят, что алгоритм работает за $O(f(N))$, если существует число $C$, такое что алгоритм работает не более чем за $C \cdot f(N)$ операций.</p>
+<p>В таких обозначениях можно сказать, что</p>
+<ul>
+<li>Сортировка пузырьком работает за $O(N^2)$</li>
+<li>Сортировка выбором работает за $O(N^2)$</li>
+<li>Сортировка вставками работает за $O(N^2)$</li>
+<li>Сортировка подсчетом работает за $O(N + M)$</li>
+</ul>
+<p>Это обозначение удобно тем, что оно короткое и понятное, а также оно не зависит от умножения на константу или прибавления константы. Если алгоритм работает за $O(N^2)$, то это может значить, что он работает за $N^2$, за $N^2 + 3$, за $\frac{N(N-1)}{2}$ или даже за $1000 \cdot N^2 + 1$ действие. Главное, что функция ведет себя как $N^2$, то есть при увеличении $N$ (в данном случае это длина массива) он увеличивается как некоторая квадратичная функция. Например, если увеличить $N$ в 10 раз, время работы программы увеличится приблизительно в 100 раз.</p>
+<p>Поэтому все эти рассуждения про то, сколько операций в <code>swap</code> или считать ли отдельно присваивания, сравнения и циклы - отпадают. Как бы вы ни ответили на эти вопросы, они меняют ответ на константу, а значит асимптотическое время работы алгоритма никак не меняется.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Первые три сортировки именно поэтому называют <strong>квадратичными</strong> - они работают за $O(N^2)$. Сортировка подсчетом работает намного быстрее - она работает за $O(N + M)$ действий, то есть если в задаче $M &lt; N$, то это вообще линейная функция $O(N)$. Линейная функция растет гораздо медленнее, чем квадратичная, так что эта сортировка гораздо лучше, чем любая другая квадратичная. У нее есть лишь один недостаток - ее можно применять только если множество значений конечное и состоит из чисел от $1$ до $M$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Найдите асимптотику данных функций. Максимально упростите ответ (например, до $O(N)$, $O(N^2)$ и т. д.).</p>
+<ul>
+<li>$\frac{N}{3}$</li>
+<li>$\frac{N(N-1)(N-2)}{6}$</li>
+<li>$1 + 2 + 3 + \ldots + N$</li>
+<li>$1^2 + 2^2 + 3^2 + \ldots + N^2$</li>
+<li>$\log{N} + 3$</li>
+<li>$7$</li>
+<li>$10^{100}$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Найдите асимптотическое время работы данных функций:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">j</span>
+    <span class="k">return</span> <span class="n">s</span>
+
+<span class="n">f</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[0]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2025</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="n">i</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">s</span>
+
+<span class="n">g</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[0]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>330</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">h</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">h</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">n</span>
+
+<span class="n">h</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[0]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>3628800</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Найдите лучшее время работы алгоритмов, решающих данные задачи:</p>
+<ul>
+<li>Написать числа от $1$ до $N$</li>
+<li>Написать все тройки чисел от $1$ до $N$</li>
+<li>Найти разницу между максимумом и минимумом в массиве</li>
+<li>Найти число единиц в бинарной записи числа $N$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1057;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1072;-&#1089;&#1083;&#1080;&#1103;&#1085;&#1080;&#1077;&#1084;*-(&#1076;&#1083;&#1103;-&#1090;&#1077;&#1093;,-&#1082;&#1090;&#1086;-&#1074;&#1089;&#1105;-&#1091;&#1089;&#1087;&#1077;&#1074;&#1072;&#1077;&#1090;)">&#1057;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1072; &#1089;&#1083;&#1080;&#1103;&#1085;&#1080;&#1077;&#1084;* (&#1076;&#1083;&#1103; &#1090;&#1077;&#1093;, &#1082;&#1090;&#1086; &#1074;&#1089;&#1105; &#1091;&#1089;&#1087;&#1077;&#1074;&#1072;&#1077;&#1090;)<a class="anchor-link" href="#&#1057;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1072;-&#1089;&#1083;&#1080;&#1103;&#1085;&#1080;&#1077;&#1084;*-(&#1076;&#1083;&#1103;-&#1090;&#1077;&#1093;,-&#1082;&#1090;&#1086;-&#1074;&#1089;&#1105;-&#1091;&#1089;&#1087;&#1077;&#1074;&#1072;&#1077;&#1090;)">&#182;</a></h2><p>Возникает вопрос: а бывают ли сортировки, которые быстрее, чем квадратиные, и работают всегда?</p>
+<p>Ответ — да. Есть несколько известных сортировок, работающих за $O(N \log{N})$, и доказано, что асимптотически быстрее сортировок не бывает.</p>
+<p>Давайте подробнее рассмотрим <strong>сортировку слиянием</strong>, она же <strong>MergeSort</strong>.</p>
+<p>Ссылка на красивую визуализацию: <a href="https://visualgo.net/nl/sorting">https://visualgo.net/nl/sorting</a> (вкладка MER)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Для начала определим функцию <strong>слияния</strong> (<strong><code>merge</code></strong>) двух отсортированных массивов - она возвращает отсортированный массив, состоящий из элементов обоих массивов, и работает при этом за $O(N)$ (где $N$ - общее число элементов).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="c1"># надо придумать, что написать здесь</span>
+
+<span class="n">merge</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">18</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[0]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[1, 2, 3, 7, 7, 7, 7, 10, 11, 13, 18, 100]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>В сущности слить два массива просто - это делается с помощью двух указателей $i$ и $j$. Изначально они равны $0$ (то есть указывают на нулевые элементы массивов $a$ и $b$). После этого достаточно смотреть на элементы $a[i]$ и $b[j]$ и минимальный из них класть в результирующий массив, после чего соответствующий указатель надо двигать дальше. Дальше нужно повторять этот процесс заново, пока мы не дошли до конца обоих массивов.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Когда функция <code>merge</code> уже написана, сам <code>merge_sort</code> писать уже легко - надо воспользоваться рекурсией. Чтобы отсортировать массив, достаточно отдельно отсортировать его левую и правую половины рекурсивно, и после этого эти половины слить.</p>
+<p>Для удобства написания кода фунции можно сделать вот такими:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="c1"># функция сливает элементы массива array [a, b) и [b, c)</span>
+    <span class="c1"># надо придумать, что написать здесь</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="n">merge</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="n">merge</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1, 1, 7, 10, 100, 2, 6, 7, 13, 40, 78, 100]
+[1, 1, 2, 6, 7, 7, 10, 13, 40, 78, 100, 100]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">mergesort</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="c1"># функция сортирует элементы массива array [a, c)</span>
+    <span class="c1"># надо придумать, что написать здесь</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="n">mergesort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="n">mergesort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Разобраться, реализовать сортировку слиянием и сдать последнюю задачу в этом контесте:</p>
+<p><a href="https://informatics.msk.ru/mod/statements/view3.php?id=33164">https://informatics.msk.ru/mod/statements/view3.php?id=33164</a></p>
+<p>Чтобы сдать это задание, нужно писать красивый код - будет проведено ревью.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1055;&#1088;&#1080;&#1084;&#1077;&#1085;&#1077;&#1085;&#1080;&#1077;-&#1089;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1080;-&#1076;&#1083;&#1103;-&#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1103;-&#1079;&#1072;&#1076;&#1072;&#1095;">&#1055;&#1088;&#1080;&#1084;&#1077;&#1085;&#1077;&#1085;&#1080;&#1077; &#1089;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1080; &#1076;&#1083;&#1103; &#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1103; &#1079;&#1072;&#1076;&#1072;&#1095;<a class="anchor-link" href="#&#1055;&#1088;&#1080;&#1084;&#1077;&#1085;&#1077;&#1085;&#1080;&#1077;-&#1089;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1080;-&#1076;&#1083;&#1103;-&#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1103;-&#1079;&#1072;&#1076;&#1072;&#1095;">&#182;</a></h2><p>Также сортировка очень часто применяется как часть решения олимпиадных задач. В таких случаях обычно используют встроенную сортировку sort. Она на разных языках может быть реализована по-разному, но везде она работает за $O(N log N)$, и, обычно, неплохо оптимизирована.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># На питоне она пишется так</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[-4, 1, 5, 5, 10]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">//</span> <span class="n">на</span> <span class="n">C</span><span class="o">++</span><span class="mi">11</span> <span class="n">она</span> <span class="n">пишется</span> <span class="n">так</span>
+
+<span class="c1">#include &lt;vector&gt;</span>
+<span class="c1">#include &lt;algorithm&gt;</span>
+<span class="c1">#include &lt;iostream&gt;</span>
+
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">};</span>
+    <span class="n">sort</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">v</span><span class="o">.</span><span class="n">end</span><span class="p">());</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">auto</span> <span class="n">x</span> <span class="p">:</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot; &quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Решить как можно больше задач из этого контеста:</p>
+<p><a href="https://informatics.msk.ru/mod/statements/view.php?id=33855">https://informatics.msk.ru/mod/statements/view.php?id=33855</a></p>
+<p>В этом контесте можно и нужно использовать встроенную сортировку sort.</p>
 
 </div>
 </div>
