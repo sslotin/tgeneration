@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>index-checkpoint</title>
+<title>binary_search</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13116,17 +13116,12 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1099;">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1099;<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1099;">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#1055;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100;-&#1040;">&#1055;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100; &#1040;<a class="anchor-link" href="#&#1055;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100;-&#1040;">&#182;</a></h2><p>Преподаватели:</p>
-<ul>
-<li><a href="http://t.me/qoo2p5">Даниил Николенко</a></li>
-<li><a href="http://t.me/grphil">Филипп Грибов</a></li>
+<h1 id="&#1041;&#1080;&#1085;&#1072;&#1088;&#1085;&#1099;&#1081;-&#1087;&#1086;&#1080;&#1089;&#1082;">&#1041;&#1080;&#1085;&#1072;&#1088;&#1085;&#1099;&#1081; &#1087;&#1086;&#1080;&#1089;&#1082;<a class="anchor-link" href="#&#1041;&#1080;&#1085;&#1072;&#1088;&#1085;&#1099;&#1081;-&#1087;&#1086;&#1080;&#1089;&#1082;">&#182;</a></h1><ul>
+<li>Линейный поиск</li>
+<li>Бинарный поиск</li>
+<li>Бинарный поиск с вещественными числами</li>
+<li>Поиск максимума выпуклой функции: тернарный поиск, бинарный поиск</li>
+<li>Бинарный поиск по ответу</li>
 </ul>
 
 </div>
@@ -13135,27 +13130,356 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#1055;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100;-B">&#1055;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100; B<a class="anchor-link" href="#&#1055;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100;-B">&#182;</a></h2><p>Осень:</p>
+<h2 id="&#1051;&#1080;&#1085;&#1077;&#1081;&#1085;&#1099;&#1081;-&#1087;&#1086;&#1080;&#1089;&#1082;">&#1051;&#1080;&#1085;&#1077;&#1081;&#1085;&#1099;&#1081; &#1087;&#1086;&#1080;&#1089;&#1082;<a class="anchor-link" href="#&#1051;&#1080;&#1085;&#1077;&#1081;&#1085;&#1099;&#1081;-&#1087;&#1086;&#1080;&#1089;&#1082;">&#182;</a></h2><p>Мы считаем, что вы уже знаете линейный поиск, а именно умеете решать задачи такого типа:</p>
 <ul>
-<li><a href="segtree">Дерево отрезков</a></li>
-<li><a href="treap">Декартово дерево</a></li>
-<li><a href="hashing">Хэширование</a></li>
-<li><a href="strings">Префикс- и зет-функция</a></li>
-<li><a href="trie">Бор и Ахо-Корасик</a></li>
-<li><a href="mst">Минимальные остовы</a></li>
-<li><a href="lca">Наименьший общий предок</a></li>
-<li><a href="sqrt">Корневая декомпозиция</a></li>
+<li>Проверить, есть ли в массиве число X</li>
+<li>Найти максимум в массиве</li>
+<li>Найти сумму чисел в массиве</li>
+<li>Найти первое четное число в массиве</li>
 </ul>
-<p>Весна:</p>
-<ol>
-<li>???</li>
-</ol>
-<p>Преподаватели:</p>
+<p>Все такие задачи решаются с помощью одного прохода по массиву с помощью цикла for. Все такие алгоритмы работают за $O(n)$. И даже можно понять, что быстрее, чем $O(n)$ решить ни одну из этих задач не получится.</p>
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Убедитесь, что вы умеете решать эти задачи. Докажите, что быстрее, чем O(n) их решить в худшем случае нельзя.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1041;&#1080;&#1085;&#1072;&#1088;&#1085;&#1099;&#1081;-&#1087;&#1086;&#1080;&#1089;&#1082;">&#1041;&#1080;&#1085;&#1072;&#1088;&#1085;&#1099;&#1081; &#1087;&#1086;&#1080;&#1089;&#1082;<a class="anchor-link" href="#&#1041;&#1080;&#1085;&#1072;&#1088;&#1085;&#1099;&#1081;-&#1087;&#1086;&#1080;&#1089;&#1082;">&#182;</a></h2><p>Однако иногда найти число X в массиве можно и быстрее! Для этого надо добавить условие на то, что массив <strong>отсортирован</strong>. Но давайте начнем не с этого.</p>
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Я загадал число X от 1 до 100. Вы можете спрашивать, больше ли мое число чем число T, я отвечаю "да" или "нет". За сколько вопросов в худшем случае вы сможете найти число X? Как нужно действовать?</p>
+<p><strong>Решение</strong> и состоит в идее бинарного (двоичного) поиска - нужно первым вопросом спросить "число X больше, чем 50?". После этого, если ответ "нет", надо спросить "число X больше, чем 25"? И так далее, нужно уменьшать отрезок возможных значений в два раза каждый раз.</p>
+<p>Почему нужно делить обязательно пополам? Почему бы не спросить "число X больше, чем 80?" первым же вопросом? Но если вдруг ответ "нет", то мы останемся с 80 вариантами вместо 100. То есть деление отрезка ровно пополам гарантирует, что в худшем случае мы останемся не более чем с половиной вариантов.</p>
+<p>Чтобы понять, как быстро это работает, введём новую математическую функцию. Логарифмом по основанию $a$ от $b$ будем называть число $c$, такое что $a ^ c = b$. Обозначается как $\log_a b = c$. Чаще всего мы будем работать с двоичным логарифмом, то есть в какую степень $c$ нужно возвести двойку, чтобы получить $b$. Поэтому договоримся, что запись $\log n$ означает двочный логарифм $n$.</p>
+<p>Теперь вернёмся к нашей задаче. Можно понять, что такой алгоритм работает как раз за $O(\log n)$ вопросов (если число 100 на заменить абстрактную переменную $n$). Несложно убедиться, что именно логарифм раз нужно поделить число на два, чтобы получилось 1.</p>
+<h3 id="&#1054;&#1073;&#1097;&#1080;&#1081;-&#1087;&#1088;&#1080;&#1085;&#1094;&#1080;&#1087;">&#1054;&#1073;&#1097;&#1080;&#1081; &#1087;&#1088;&#1080;&#1085;&#1094;&#1080;&#1087;<a class="anchor-link" href="#&#1054;&#1073;&#1097;&#1080;&#1081;-&#1087;&#1088;&#1080;&#1085;&#1094;&#1080;&#1087;">&#182;</a></h3><p>А теперь представьте такую задачу: у вас есть массив, состоящий из некоторого количества подряд идущих нулей, за которыми следует какое-то количество подряд идущих единиц.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">n</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[0]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>14</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Вам дан массив, и вам нужно найти позицию первой единицы, то есть найти такое место, где заканчиваются нули, и начинаются единицы. Это можно сделать с помощью линейного поиска за один проход по массиву, но хочется сделать это быстрее.</p>
+<p>Давайте обратимся к идее <strong>бинарного поиска</strong>. Посмотрим на элемент посередине массива. Если это нуль, то первую единицу стоит искать в правой половину массива, а если единица - то в левой.</p>
+<p>Есть много способов писать бинарный поиск, и в его написании люди очень часто путаются. Очень удобно в данном случае воспользоваться <strong>инвариантом</strong> (это слово значит "постоянное свойство"):</p>
+<p><strong>Пусть переменная <code>left</code> всегда указывает на $0$ в массиве, а переменная <code>right</code> всегда указывает на $1$ в массиве</strong>.</p>
+<p>Дальше мы будем переменные <code>left</code> и <code>right</code> постепенно сдвигать друг к другу, и в какой-то момент они станут соседними числами. Это и будет означать, что мы нашли место, где заканчиваются нули и начинаются единицы.</p>
+<p>Чему равны <code>left</code> и <code>right</code> изначально, когда мы ничего про массив не знаем? Первая приходящая в голову идея - поставить их на $0$ и $n-1$ соответственно.  Увы, в общем случае это может быть неверно, потому что <code>a[0]</code> может быть единицей, а <code>a[n-1]</code> может быть нулём. Правильнее сделать вот так:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">left</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">right</span> <span class="o">=</span> <span class="n">n</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>То есть изначально <code>left</code> и <code>right</code> указывают на несуществующие индексы. Но это нормально - например в массиве <code>[1, 1, 1, 1]</code> в конце алгоритма как раз должно быть <code>left == -1</code>, <code>right == 0</code>.</p>
+<p>Осталось нам написать цикл <code>while</code>:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">while</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">middle</span> <span class="o">=</span> <span class="p">(</span><span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span> <span class="c1"># именно такая формула для среднего индекса между left и right</span>
+    <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="n">middle</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">right</span> <span class="o">=</span> <span class="n">middle</span> <span class="c1"># right всегда должна указывать на 1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">left</span> <span class="o">=</span> <span class="n">middle</span> <span class="c1"># left всегда должна указывать на 0</span>
+<span class="nb">print</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span>
+<span class="nb">print</span> <span class="n">a</span><span class="p">[</span><span class="n">left</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="n">right</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>8 9
+0 1
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Мы решили задачу для ноликов и единичек, но это легко обобщается на абсолютно любую задачу, где есть какое-то <strong>свойство, которое в начале массива не выполняется, а потом выполняется</strong>.</p>
+<p>Например, если мы хотим найти, есть ли число $X$ в отсортированном массиве, то мы просто представим, что $0$ - это числа, меньшие $X$, а $1$ - это числа, большие или равные $X$. Тогда достаточно найти первую "единицу" и проверить, равно ли это число $X$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">81</span><span class="p">]</span> <span class="c1"># отсортированный массив</span>
+<span class="k">def</span> <span class="nf">bin_search</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="n">n</span>
+    <span class="k">while</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">middle</span> <span class="o">=</span> <span class="p">(</span><span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="n">middle</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">x</span><span class="p">:</span> <span class="c1"># практически единственная строка, которая меняется от задачи к задаче</span>
+            <span class="n">right</span> <span class="o">=</span> <span class="n">middle</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">left</span> <span class="o">=</span> <span class="n">middle</span>
+    <span class="k">if</span> <span class="n">right</span> <span class="o">!=</span> <span class="n">n</span> <span class="ow">and</span> <span class="n">a</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">:</span> <span class="c1"># ответ лежит в right</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+<span class="nb">print</span> <span class="n">bin_search</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">bin_search</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">bin_search</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">bin_search</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">79</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">bin_search</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">bin_search</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">81</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>True
+True
+False
+False
+True
+True
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Придумайте, как с помощью бинарного поиска решить такие задачи:</p>
 <ul>
-<li><a href="http://t.me/bydlokoder">Сергей Слотин</a> — B1</li>
-<li><a href="http://t.me/DebNatkh">Максим Деб Натх</a> — B2</li>
-<li><a href="http://t.me/achulkov2">Андрей Чулков</a> — B2</li>
-<li><a href="http://t.me/tyomar">Артём Рябов</a> — B3</li>
+<li>Найти первое число, равное X в отсортированном массиве, или вывести, что таких чисел нет</li>
+<li>Найти последнее число, равное X в отсортированном массиве, или вывести, что таких чисел нет</li>
+<li>Посчитать, сколько раз встречается число X  в отсортированном массиве (в решении помогают два предыдущих пункта)</li>
+<li>Дан массив чисел, первая часть состоит из нечетных чисел, а вторая - из четных. Найти индекс, начиная с которого все числа четные.</li>
+</ul>
+<p>Все эти задачи решаются бинарным поиском за $O(\log{n})$. Правда нужно понимать, что в чистом виде такую задачу решать двоичным поиском бессмысленно - ведь чтобы создать массив размера $n$, уже необходимо потратить $O(n)$ операций.</p>
+<p>Поэтому зачастую такие задачи сформулированы таким образом:</p>
+<p><strong>Дан отсортированный массив размера $n$. Нужно ответить на $m$ запросов вида "встречается ли число $x_i$ в массиве n"?</strong></p>
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Найдите время работы, за которое решается эта задача?</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p><strong>Решение</strong>: Такая задача решается за $O(n + m\log{n})$ - нужно создать массив за $O(n)$ и $m$ раз запустить бинарный поиск.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Решите 3 первые задачи в этом контесте:</p>
+<p><a href="https://informatics.msk.ru/moodle/mod/statements/view.php?id=33216">https://informatics.msk.ru/moodle/mod/statements/view.php?id=33216</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1041;&#1080;&#1085;&#1072;&#1088;&#1085;&#1099;&#1081;-&#1087;&#1086;&#1080;&#1089;&#1082;-&#1089;-&#1074;&#1077;&#1097;&#1077;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1099;&#1084;&#1080;-&#1095;&#1080;&#1089;&#1083;&#1072;&#1084;&#1080;">&#1041;&#1080;&#1085;&#1072;&#1088;&#1085;&#1099;&#1081; &#1087;&#1086;&#1080;&#1089;&#1082; &#1089; &#1074;&#1077;&#1097;&#1077;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1099;&#1084;&#1080; &#1095;&#1080;&#1089;&#1083;&#1072;&#1084;&#1080;<a class="anchor-link" href="#&#1041;&#1080;&#1085;&#1072;&#1088;&#1085;&#1099;&#1081;-&#1087;&#1086;&#1080;&#1089;&#1082;-&#1089;-&#1074;&#1077;&#1097;&#1077;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1099;&#1084;&#1080;-&#1095;&#1080;&#1089;&#1083;&#1072;&#1084;&#1080;">&#182;</a></h3><p>У нас все еще есть функция f(x), которая сначала равна 0, а потом равна 1, и мы хотим найти это место, где она меняет значение. Но теперь аргумент функции - вещественное число. Например:</p>
+<ul>
+<li>$f(x) = 1$, если $x^2 &gt; 2$</li>
+<li>$f(x) = 0$, если $x^2 \leq 2$</li>
+</ul>
+<p>Понятно, что при $x = \sqrt 2$ $f(x) = 0$, а при любом даже немного большем значении $f(x) = 1$. Если мы научимся решать такую задачу, то мы научимся находить корень из двух!</p>
+<p>Увы, возникает проблема: <strong>действительные числа хранятся в компьютере неточно</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># известный пример</span>
+<span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[0]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.30000000000000004</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Тем более не сможем найти точное значение $\sqrt 2$, потому что это бесконечная непериодическая дробь. Так что давайте снова воспользуемся бинарным поиском, причем всегда $f(left) = 0$, $f(right) = 1$, и мы остановимся тогда, когда <code>left</code> и <code>right</code> будет очень-очень близко.</p>
+<p>И тут снова возникает проблема. Помимо того, что бесконечную дробь в принципе невозможно точно хранить в компьютере,  ещё и арифметические операции понижают эту точность. Поэтому, чтобы явно не использовать разность между правым и левым указателем, можно задать фиксированное число шагов, которое будет выполняться.</p>
+<p>Так как мы знаем, что <strong>двоичный</strong> поиск работает за <strong>двоичный</strong> логарифм, можно сказать, что на угадывание десятичного разряда числа потребуется примерно три шага бинпоиска (т. к. $\log 10 \approx 3 $). Значит, например, если нам нужно посчитать значение функции до шести знаков после запятой, то нам нужно ещё примерно 18 шагов уже после того, как расстояние между <code>left</code> и <code>right</code> достигло одного.</p>
+<p>Чтобы каждый раз об этом не думать, можно считать, что ста шагов бинпоиска хватит для почти любых разумных целей.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">left</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1"># 0^2 &lt; 2, а значит f(0) = 0</span>
+<span class="n">right</span> <span class="o">=</span> <span class="mf">10.0</span> <span class="c1"># 10^2 &gt; 2, а значит f(10) = 1</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">middle</span> <span class="o">=</span> <span class="p">(</span><span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="c1"># теперь деление не нацело, а вещественное</span>
+    <span class="k">if</span> <span class="n">middle</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">right</span> <span class="o">=</span> <span class="n">middle</span> <span class="c1"># right всегда должна указывать на 1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">left</span> <span class="o">=</span> <span class="n">middle</span> <span class="c1"># left всегда должна указывать на 0</span>
+<span class="nb">print</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span>
+<span class="nb">print</span> <span class="n">left</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="n">right</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1.41421356237 1.41421356237
+2.0 2.0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Вот мы и нашли корень из 2 с достаточно высокой точностью.</p>
+<p>На самом деле, <strong>так можно искать ноль любой непрерывной функции </strong>(мы сейчас искали ноль функции $x^2 - 2$)<strong>, у которой вы знаете значение меньше нуля и значение больше нуля</strong>.</p>
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Придумайте, как с помощью вещественного бинпоиска найти</p>
+<ul>
+<li>$\sqrt[\leftroot{-2}\uproot{2}17]{1000}$</li>
+<li>какой-нибудь корень уравнения $x^4 + 3x = 5$</li>
 </ul>
 
 </div>
@@ -13164,31 +13488,148 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#1055;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100;-C">&#1055;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100; C<a class="anchor-link" href="#&#1055;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100;-C">&#182;</a></h2><p>Осень:</p>
+<h2 id="&#1055;&#1086;&#1080;&#1089;&#1082;-&#1084;&#1072;&#1082;&#1089;&#1080;&#1084;&#1091;&#1084;&#1072;-&#1074;&#1099;&#1087;&#1091;&#1082;&#1083;&#1086;&#1081;-&#1092;&#1091;&#1085;&#1082;&#1094;&#1080;&#1080;:-&#1090;&#1077;&#1088;&#1085;&#1072;&#1088;&#1085;&#1099;&#1081;-&#1087;&#1086;&#1080;&#1089;&#1082;,-&#1073;&#1080;&#1085;&#1072;&#1088;&#1085;&#1099;&#1081;-&#1087;&#1086;&#1080;&#1089;&#1082;">&#1055;&#1086;&#1080;&#1089;&#1082; &#1084;&#1072;&#1082;&#1089;&#1080;&#1084;&#1091;&#1084;&#1072; &#1074;&#1099;&#1087;&#1091;&#1082;&#1083;&#1086;&#1081; &#1092;&#1091;&#1085;&#1082;&#1094;&#1080;&#1080;: &#1090;&#1077;&#1088;&#1085;&#1072;&#1088;&#1085;&#1099;&#1081; &#1087;&#1086;&#1080;&#1089;&#1082;, &#1073;&#1080;&#1085;&#1072;&#1088;&#1085;&#1099;&#1081; &#1087;&#1086;&#1080;&#1089;&#1082;<a class="anchor-link" href="#&#1055;&#1086;&#1080;&#1089;&#1082;-&#1084;&#1072;&#1082;&#1089;&#1080;&#1084;&#1091;&#1084;&#1072;-&#1074;&#1099;&#1087;&#1091;&#1082;&#1083;&#1086;&#1081;-&#1092;&#1091;&#1085;&#1082;&#1094;&#1080;&#1080;:-&#1090;&#1077;&#1088;&#1085;&#1072;&#1088;&#1085;&#1099;&#1081;-&#1087;&#1086;&#1080;&#1089;&#1082;,-&#1073;&#1080;&#1085;&#1072;&#1088;&#1085;&#1099;&#1081;-&#1087;&#1086;&#1080;&#1089;&#1082;">&#182;</a></h2><p>Так мы только что научились находить корень непрерывной функции, у которой мы знаем значение меньше и больше 0. Но можно ли найти с помощью бинарного поиска локальный максимум функции? Можно!</p>
+<p>Как известно, локальный максимум функции $f$ - это просто такое $x_0$, что для всех близких к нему $x$ значения $f(x) &lt; f(x_0)$. Для непрерывных функций выполняется более крутая вещь: слева от максимума функция возрастает, а справа от максимума функция убывает. Так это как раз отличное условие для нашего вещественного бинарного поиска!</p>
+<p>Если вы знаете $x_1$ такое, что в его окрестности f(x) возрастает, и $x_2$ такое, что в его окрестности f(x) убывает, то можно запустить между ними бинпоиск и найти точку $x_0$ такую, что слева от нее возрастает значение функции, а справа - убывает. Это и есть локальный максимум.</p>
+<p>А если функция выпуклая, то она вообще выглядит красиво: сначала возрастает, потом максимум, потом убывает.</p>
+<p>Проблема только в одном: как по точке понять, в ее окрестности значение функции убывает или возрастает? Достаточно тыкнуть две точки очень-очень рядом с ней и сравнить их значения!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Придумайте, как с помощью вещественного бинпоиска найти</p>
 <ul>
-<li><a href="sorting">Сортировки</a></li>
-<li><a href="binary_search">Бинарный поиск</a></li>
-<li><a href="number_theory">Теория чисел</a></li>
-<li><a href="stl">Стандартная библиотека шаблонов С++</a></li>
-<li><a href="greedy">Жадный алгоритм</a></li>
-<li><a href="dp_intro">Введение в динамическое программирование</a></li>
-<li><a href="">Рюкзак, НВП и НОП</a></li>
-<li><a href="scanline">Сканирующая прямая</a></li>
-<li><a href="data_structures">Структуры данных</a></li>
-<li><a href="dfs">Графы и поиск в глубину</a></li>
-<li><a href="bfs">Поиск в ширину и алгоритм Дейкстры</a></li>
+<li>максимум функции $x - e^x$ (она выпуклая, и максимум ровно один)</li>
+<li>какой-нибудь локальный максимум функции $31x+x^3-x^4$</li>
 </ul>
-<p>Весна:</p>
-<ol>
-<li>???</li>
-</ol>
-<p>Преподаватели:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1058;&#1077;&#1088;&#1085;&#1072;&#1088;&#1085;&#1099;&#1081;-&#1087;&#1086;&#1080;&#1089;&#1082;">&#1058;&#1077;&#1088;&#1085;&#1072;&#1088;&#1085;&#1099;&#1081; &#1087;&#1086;&#1080;&#1089;&#1082;<a class="anchor-link" href="#&#1058;&#1077;&#1088;&#1085;&#1072;&#1088;&#1085;&#1099;&#1081;-&#1087;&#1086;&#1080;&#1089;&#1082;">&#182;</a></h3><p>Другой способ искать максимум - это тернарный поиск. Пусть известно, что максимум находится между left и right. Поделим отрезок на <strong>три</strong> равные части:</p>
 <ul>
-<li><a href="http://t.me/andrewgark">Андрей Гаркавый</a> — C1</li>
-<li><a href="http://t.me/pntn13">Антон Алёшин</a> — C2</li>
-<li><a href="http://t.me/riskingh">Максим Гришкин</a> — C2</li>
-<li><a href="http://t.me/Glebodin">Глеб Лобанов</a> — C3</li>
+<li>middle_left = (2 * left + right) / 3</li>
+<li>middle_right = (left + 2 * right) / 3</li>
 </ul>
+<p>Тогда если f(middle_left) &lt; f(middle_right), то можно спокойно заменить left на middle_left (максимум точно не левее middle_left), а если f(middle_left) &gt; f(middle_right), то можно спокойно заменить right на middle_right. Он будет работать не за двоичный логарифм, а за логарифм по основанию полтора, что больше (но асимптотически то же самое, так как отличается в константу раз).</p>
+<p>Оба способа работают быстро, и обобщаются на дискретный случай (то, что было в начале - когда дан массив, значения в котором сначала возрастают, а потом убывают). Но проблема есть в том, что <strong>если функция нестрого возрастает и нестрого убывает, а именно если там есть отрезки постоянства, то алгоритм не работает</strong>. В случае, когда значения функции равны, никак нельзя понять, с какой стороны искать максимум - он может быть с любой стороны.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Решите 4 и 5 задачи в этом контесте:</p>
+<p><a href="https://informatics.msk.ru/moodle/mod/statements/view.php?id=33216">https://informatics.msk.ru/moodle/mod/statements/view.php?id=33216</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1041;&#1080;&#1085;&#1072;&#1088;&#1085;&#1099;&#1081;-&#1087;&#1086;&#1080;&#1089;&#1082;-&#1087;&#1086;-&#1085;&#1077;&#1086;&#1090;&#1089;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1085;&#1086;&#1084;&#1091;-&#1084;&#1072;&#1089;&#1089;&#1080;&#1074;&#1091;">&#1041;&#1080;&#1085;&#1072;&#1088;&#1085;&#1099;&#1081; &#1087;&#1086;&#1080;&#1089;&#1082; &#1087;&#1086; &#1085;&#1077;&#1086;&#1090;&#1089;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1085;&#1086;&#1084;&#1091; &#1084;&#1072;&#1089;&#1089;&#1080;&#1074;&#1091;<a class="anchor-link" href="#&#1041;&#1080;&#1085;&#1072;&#1088;&#1085;&#1099;&#1081;-&#1087;&#1086;&#1080;&#1089;&#1082;-&#1087;&#1086;-&#1085;&#1077;&#1086;&#1090;&#1089;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1085;&#1086;&#1084;&#1091;-&#1084;&#1072;&#1089;&#1089;&#1080;&#1074;&#1091;">&#182;</a></h3><p>Заметьте, что в первоначальной задаче условие на то, что сначала идут нули, а потом идут единицы несущественно. Главное, чтобы мы знали индекс, который показывает на 0, и индекс, который показывает на 1. После этого бинарным поиском мы таким же способом найдем пару соседних нуля и единицы в массиве.</p>
+<p>Поэтому бинарный поиск работает и не для возрастающих массивов / функций, если наша задача состоит именно в поиске двух соседних индексов, в которых условие выполняется и не выполняется.</p>
+<p>Например, если мы знаем, что $f(x_0) &lt; 0$ и $f(x_1) &gt; 0$, и функция непрерывная, то бинарным поиском можно найти ноль этой функции между $x_0$ и $x_1$, даже если функция не монотонная!</p>
+<p>Или, например, если нужно в массиве найти соседние четное и нечетное числа, и известно положение какого-то четного числа и какого-то нечетного числа, то это тоже можно легко сделать с помощью бинарного поиска.</p>
+<p>Полезно иметь это в виду, это применяется в нескольких задачах контестов.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1041;&#1080;&#1085;&#1072;&#1088;&#1085;&#1099;&#1081;-&#1087;&#1086;&#1080;&#1089;&#1082;-&#1087;&#1086;-&#1086;&#1090;&#1074;&#1077;&#1090;&#1091;">&#1041;&#1080;&#1085;&#1072;&#1088;&#1085;&#1099;&#1081; &#1087;&#1086;&#1080;&#1089;&#1082; &#1087;&#1086; &#1086;&#1090;&#1074;&#1077;&#1090;&#1091;<a class="anchor-link" href="#&#1041;&#1080;&#1085;&#1072;&#1088;&#1085;&#1099;&#1081;-&#1087;&#1086;&#1080;&#1089;&#1082;-&#1087;&#1086;-&#1086;&#1090;&#1074;&#1077;&#1090;&#1091;">&#182;</a></h2><p>Рассмотрим такую задачу:</p>
+<h3 id="&#1055;&#1088;&#1080;&#1084;&#1077;&#1088;:-&quot;&#1050;&#1086;&#1088;&#1086;&#1074;&#1072;-&#1074;-&#1089;&#1090;&#1086;&#1081;&#1083;&#1072;&quot;">&#1055;&#1088;&#1080;&#1084;&#1077;&#1088;: "&#1050;&#1086;&#1088;&#1086;&#1074;&#1072; &#1074; &#1089;&#1090;&#1086;&#1081;&#1083;&#1072;"<a class="anchor-link" href="#&#1055;&#1088;&#1080;&#1084;&#1077;&#1088;:-&quot;&#1050;&#1086;&#1088;&#1086;&#1074;&#1072;-&#1074;-&#1089;&#1090;&#1086;&#1081;&#1083;&#1072;&quot;">&#182;</a></h3><p><strong>Условие:</strong> На прямой расположены N стойл (даны их координаты на прямой), в которые необходимо расставить K коров так, чтобы минимальное расcтояние между коровами было как можно больше. Гарантируется, что $1 &lt; K &lt; N$.</p>
+<p><strong>Решение: </strong></p>
+<p>Если решать задачу в лоб, то вообще неясно что делать. Нужно решать <strong>обратную</strong> задачу: давайте предположим, что мы знаем это расстояние X, ближе которого коров ставить нельзя. Тогда сможем ли мы расставить самих коров?</p>
+<p>Ответ - да, можно ставить их довольно просто: самую первую ставим в самое левое стойло, это всегда выгодно. Следующие несколько стойл надо оставить пустыми, если они на расстоянии меньше X. В самое левое стойло из оставшихся надо поставить вторую корову и так далее. Даже ясно как это писать: надо идти слева направо по отсортированному массиву стойл, хранить координату последней коровы, и либо пропускать стойло, либо ставить в него новую корову.</p>
+<p>То есть если мы знаем расстояние X, то мы можем за O(n) проверить, можно ли расставить K коров на таком расстоянии. Ну так давайте запустим бинпоиск по X, ведь при слишком маленьком X коров точно можно расставить, а при слишком большом - нельзя, и как раз эту границу и просят найти в задаче ("как можно больше").</p>
+<p>Осталось точно определить границы, то есть изначальные значения <em>left</em> и <em>right</em>. Нам точно хватит расстояния 0, так как гарантируется, что коров меньше, чем стойл. И точно не хватит расстояния max_coord - min_coord + 1, так как по условию есть хотя бы 2 коровы.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">coords</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span> <span class="c1"># координаты стойл</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># число коров</span>
+
+<span class="k">def</span> <span class="nf">is_correct</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="c1"># проверяем, можно ли поставить K коров в стойла, если между коровами расстояние хотя бы x</span>
+    <span class="n">cows</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">last_cow</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">coords</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">c</span> <span class="o">-</span> <span class="n">last_cow</span> <span class="o">&gt;=</span> <span class="n">x</span><span class="p">:</span>
+            <span class="n">cows</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">last_cow</span> <span class="o">=</span> <span class="n">c</span>
+    <span class="k">return</span> <span class="n">cows</span> <span class="o">&gt;=</span> <span class="n">k</span>
+
+<span class="n">left</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># расставить коров на расстоянии хотя бы 0 можно всегда</span>
+<span class="n">right</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span> <span class="o">-</span> <span class="nb">min</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># при таком расстоянии даже 2 коровы поставить нельзя</span>
+<span class="k">while</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">middle</span> <span class="o">=</span> <span class="p">(</span><span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="k">if</span> <span class="n">is_correct</span><span class="p">(</span><span class="n">middle</span><span class="p">):</span> <span class="c1"># проверяем, можно ли поставить K коров в стойла, если между коровами расстояние хотя бы middle</span>
+        <span class="n">left</span> <span class="o">=</span> <span class="n">middle</span> <span class="c1"># left всегда должна указывать на ситуацию, когда можно поставить коров</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">right</span> <span class="o">=</span> <span class="n">middle</span> <span class="c1"># right всегда должна указывать на ситуацию, когда нельзя поставить коров</span>
+<span class="nb">print</span> <span class="n">left</span> <span class="c1"># left - максимальное расстояние, на котором можно расставить коров в стойла</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>9
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1054;&#1073;&#1097;&#1080;&#1081;-&#1087;&#1088;&#1080;&#1085;&#1094;&#1080;&#1087;">&#1054;&#1073;&#1097;&#1080;&#1081; &#1087;&#1088;&#1080;&#1085;&#1094;&#1080;&#1087;<a class="anchor-link" href="#&#1054;&#1073;&#1097;&#1080;&#1081;-&#1087;&#1088;&#1080;&#1085;&#1094;&#1080;&#1087;">&#182;</a></h3><p>Такой метод и называется <strong>бинпоиск по ответу</strong>. Он очень важный и очень распространен на олимпиадах, очень рекомендую решать на него задачи.</p>
+<p>По сути мы просто взяли задачу "найдите максимальное X, такое что какое-то свойство от X выполняется" и решили её бинпоиском. Самое сложное - увидеть такую формулировку в задаче. Поэтому рассмотрим еще один пример.</p>
+<h3 id="&#1055;&#1088;&#1080;&#1084;&#1077;&#1088;:-&quot;&#1054;&#1095;&#1077;&#1085;&#1100;-&#1051;&#1077;&#1075;&#1082;&#1072;&#1103;-&#1047;&#1072;&#1076;&#1072;&#1095;&#1072;&quot;">&#1055;&#1088;&#1080;&#1084;&#1077;&#1088;: "&#1054;&#1095;&#1077;&#1085;&#1100; &#1051;&#1077;&#1075;&#1082;&#1072;&#1103; &#1047;&#1072;&#1076;&#1072;&#1095;&#1072;"<a class="anchor-link" href="#&#1055;&#1088;&#1080;&#1084;&#1077;&#1088;:-&quot;&#1054;&#1095;&#1077;&#1085;&#1100;-&#1051;&#1077;&#1075;&#1082;&#1072;&#1103;-&#1047;&#1072;&#1076;&#1072;&#1095;&#1072;&quot;">&#182;</a></h3><p><strong>Условие:</strong> есть два принтера, один печатает лист раз в $x$ минут, другой раз в $y$ минут. За сколько минут они напечатают $N$ листов? $N &gt; 0$</p>
+<p><strong>Решение</strong>:
+Здесь, в отличие от предыдущей задачи, кажется, существует прямое решение с формулой. Но вместо того, чтобы о нем думать, можно просто свести задачу к обратной. Давайте подумаем, как по числу минут $T$ (ответу) понять, сколько листов напечатается за это время? Очень легко:
+$$\lfloor\frac{T}{x}\rfloor + \lfloor\frac{T}{y}\rfloor$$</p>
+<p>Ясно, что за $0$ минут $N$ листов распечатать нельзя, а за $xN$ минут один только первый принтер успеет напечатать $N$ листов. Поэтому $0$ и $xN$ - это подходящие первые границы для бинарного поиска.</p>
+<p><strong>Примечание:</strong> заметьте, что задача в контесте немного отличается! Прочитайте внимательно условие.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Решите как можно больше задач в практическом контесте:</p>
+<p><a href="https://informatics.msk.ru/mod/statements/view.php?id=34097">https://informatics.msk.ru/mod/statements/view.php?id=34097</a></p>
+<p>Там могут встречаться задачи как на бинпоиск по ответу, так и на тернарный поиск по ответу.</p>
 
 </div>
 </div>

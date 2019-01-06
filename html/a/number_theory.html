@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>index-checkpoint</title>
+<title>number_theory</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13116,17 +13116,17 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1099;">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1099;<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1099;">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#1055;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100;-&#1040;">&#1055;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100; &#1040;<a class="anchor-link" href="#&#1055;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100;-&#1040;">&#182;</a></h2><p>Преподаватели:</p>
-<ul>
-<li><a href="http://t.me/qoo2p5">Даниил Николенко</a></li>
-<li><a href="http://t.me/grphil">Филипп Грибов</a></li>
+<h1 id="&#1058;&#1077;&#1086;&#1088;&#1080;&#1103;-&#1095;&#1080;&#1089;&#1077;&#1083;">&#1058;&#1077;&#1086;&#1088;&#1080;&#1103; &#1095;&#1080;&#1089;&#1077;&#1083;<a class="anchor-link" href="#&#1058;&#1077;&#1086;&#1088;&#1080;&#1103;-&#1095;&#1080;&#1089;&#1077;&#1083;">&#182;</a></h1><ul>
+<li>Простые числа</li>
+<li>Разложение на простые множители</li>
+<li>Решето Эратосфена</li>
+<li>Линейное решето Эратосфена*</li>
+<li>НОД и НОК</li>
+<li>Алгоритм Евклида</li>
+<li>Расширенный алгоритм Евклида*</li>
+<li>Операции по модулю</li>
+<li>Быстрое возведение в степень</li>
+<li>Деление по простому модулю*</li>
 </ul>
 
 </div>
@@ -13135,27 +13135,251 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#1055;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100;-B">&#1055;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100; B<a class="anchor-link" href="#&#1055;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100;-B">&#182;</a></h2><p>Осень:</p>
+<h2 id="&#1055;&#1088;&#1086;&#1089;&#1090;&#1099;&#1077;-&#1095;&#1080;&#1089;&#1083;&#1072;">&#1055;&#1088;&#1086;&#1089;&#1090;&#1099;&#1077; &#1095;&#1080;&#1089;&#1083;&#1072;<a class="anchor-link" href="#&#1055;&#1088;&#1086;&#1089;&#1090;&#1099;&#1077;-&#1095;&#1080;&#1089;&#1083;&#1072;">&#182;</a></h2><p><strong>Простым</strong> называется натуральное число, которое делится только на единицу и на себя. Единица при этом простым числом не считается. <strong>Составным</strong> числом называют непростое число, которое еще и не единица.</p>
+<p>Примеры простых чисел: $2$, $3$, $5$, $179$, $10^9+7$, $10^9+9$.</p>
+<p>Примеры составных чисел: $4$, $15$, $2^{30}$.</p>
+<p>Еще одно определение простого числа: <strong>$N$ — простое, если у $N$ ровно два делителя.</strong> Эти делители при этом равны $1$ и $N$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1055;&#1088;&#1086;&#1074;&#1077;&#1088;&#1082;&#1072;-&#1085;&#1072;-&#1087;&#1088;&#1086;&#1089;&#1090;&#1086;&#1090;&#1091;-&#1079;&#1072;-&#1083;&#1080;&#1085;&#1080;&#1102;">&#1055;&#1088;&#1086;&#1074;&#1077;&#1088;&#1082;&#1072; &#1085;&#1072; &#1087;&#1088;&#1086;&#1089;&#1090;&#1086;&#1090;&#1091; &#1079;&#1072; &#1083;&#1080;&#1085;&#1080;&#1102;<a class="anchor-link" href="#&#1055;&#1088;&#1086;&#1074;&#1077;&#1088;&#1082;&#1072;-&#1085;&#1072;-&#1087;&#1088;&#1086;&#1089;&#1090;&#1086;&#1090;&#1091;-&#1079;&#1072;-&#1083;&#1080;&#1085;&#1080;&#1102;">&#182;</a></h3><p>С точки зрения программирования интересно научиться проверять, является ли число $N$ простым. Это очень легко сделать за $O(N)$ - нужно просто проверить, делится ли оно хотя бы на одно из чисел $2, 3, 4, \ldots, N-1$ . $N &gt; 1$ является простым только в случае, если оно не делится на на одно из этих чисел.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span> <span class="c1"># начинаем с 2, так как на 1 все делится; n не включается</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(1, False)
+(2, True)
+(3, True)
+(4, False)
+(5, True)
+(6, False)
+(7, True)
+(8, False)
+(9, False)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1055;&#1088;&#1086;&#1074;&#1077;&#1088;&#1082;&#1072;-&#1085;&#1072;-&#1087;&#1088;&#1086;&#1089;&#1090;&#1086;&#1090;&#1091;-&#1079;&#1072;-&#1082;&#1086;&#1088;&#1077;&#1085;&#1100;">&#1055;&#1088;&#1086;&#1074;&#1077;&#1088;&#1082;&#1072; &#1085;&#1072; &#1087;&#1088;&#1086;&#1089;&#1090;&#1086;&#1090;&#1091; &#1079;&#1072; &#1082;&#1086;&#1088;&#1077;&#1085;&#1100;<a class="anchor-link" href="#&#1055;&#1088;&#1086;&#1074;&#1077;&#1088;&#1082;&#1072;-&#1085;&#1072;-&#1087;&#1088;&#1086;&#1089;&#1090;&#1086;&#1090;&#1091;-&#1079;&#1072;-&#1082;&#1086;&#1088;&#1077;&#1085;&#1100;">&#182;</a></h3><p>Алгоритм можно ускорить с $O(N)$ до $O(\sqrt{N})$.</p>
+<p>Пусть $N = a \times b$, причем $a \leq b$. Тогда заметим, что $a \leq \sqrt N \leq b$.</p>
+<p>Почему? Потому что если $a \leq b &lt; \sqrt{N}$, то $ab \leq b^2 &lt; N$, но $ab = N$. А если $\sqrt{N} &lt; a \leq b$, то $N &lt; a^2 \leq ab$, но $ab = N$.</p>
+<p>Иными словами, если число $N$ равно произведению двух других, то одно из них не больше корня из $N$, а другое не меньше корня из $N$.</p>
+<p>Из этого следует, что если число $N$ не делится ни на одно из чисел $2, 3, 4, \ldots, \lfloor\sqrt{N}\rfloor$, то оно не делится и ни на одно из чисел $\lceil\sqrt{N}\rceil + 1,  \ldots, N-2, N-1$, так как если есть делитель больше корня (не равный $N$), то есть делитель и меньше корня (не равный 1). Поэтому в цикле for достаточно проверять числа не до $N$, а до корня.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="c1"># Удобно вместо for i in range(2, n ** 0.5) писать так:</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">*</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="o">**</span><span class="mi">9</span><span class="o">+</span><span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="o">**</span><span class="mi">9</span><span class="o">+</span><span class="mi">7</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(1, False)
+(2, True)
+(3, True)
+(10, False)
+(11, True)
+(12, False)
+(1000000006, False)
+(1000000007, True)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1056;&#1072;&#1079;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1077;-&#1085;&#1072;-&#1087;&#1088;&#1086;&#1089;&#1090;&#1099;&#1077;-&#1084;&#1085;&#1086;&#1078;&#1080;&#1090;&#1077;&#1083;&#1080;">&#1056;&#1072;&#1079;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1077; &#1085;&#1072; &#1087;&#1088;&#1086;&#1089;&#1090;&#1099;&#1077; &#1084;&#1085;&#1086;&#1078;&#1080;&#1090;&#1077;&#1083;&#1080;<a class="anchor-link" href="#&#1056;&#1072;&#1079;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1077;-&#1085;&#1072;-&#1087;&#1088;&#1086;&#1089;&#1090;&#1099;&#1077;-&#1084;&#1085;&#1086;&#1078;&#1080;&#1090;&#1077;&#1083;&#1080;">&#182;</a></h2><p>Любое натуральное число можно разложить на произведение простых, и с такой записью очень легко работать при решении задач. Разложение на простые множители еще называют <strong>факторизацией</strong>.</p>
+$$11 = 11 = 11^1$$$$100 = 2 \times 2 \times 5 \times 5 = 2^2 \times 5^2$$$$126 = 2 \times 3 \times 3 \times 7 = 2^1 \times 3^2 \times 7^1$$<p>Рассмотрим, например, такую задачу:</p>
+<p><strong>Условие:</strong> Нужно разбить $N$ людей на группы равного размера. Нам интересно, какие размеры это могут быть.</p>
+<p><strong>Решение:</strong> По сути нас просят найти число делителей $N$. Нужно посмотреть на разложение числа $N$ на простые множители, в общем виде оно выглядит так:</p>
+$$N= p_1^{a_1} \times p_2^{a_2} \times \ldots \times p_k^{a_k}$$<p>Теперь подумаем над этим выражением с точки зрения комбинаторики. Чтобы «сгенерировать» какой-нибудь делитель, нужно подставить в степень $i$-го простого число от 0 до $a_i$ (то есть $a_i+1$ различное значение), и так для каждого. То есть делитель $N$ выглядит ровно так:
+$$M= p_1^{b_1} \times p_2^{b_2} \times \ldots \times p_k^{b_k}, 0 \leq b_i \leq a_i$$
+Значит, ответом будет произведение $(a_1+1) \times (a_2+1) \times \ldots \times (a_k + 1)$.</p>
+<h3 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;-&#1088;&#1072;&#1079;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1103;-&#1085;&#1072;-&#1087;&#1088;&#1086;&#1089;&#1090;&#1099;&#1077;-&#1084;&#1085;&#1086;&#1078;&#1080;&#1090;&#1077;&#1083;&#1080;">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084; &#1088;&#1072;&#1079;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1103; &#1085;&#1072; &#1087;&#1088;&#1086;&#1089;&#1090;&#1099;&#1077; &#1084;&#1085;&#1086;&#1078;&#1080;&#1090;&#1077;&#1083;&#1080;<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;-&#1088;&#1072;&#1079;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1103;-&#1085;&#1072;-&#1087;&#1088;&#1086;&#1089;&#1090;&#1099;&#1077;-&#1084;&#1085;&#1086;&#1078;&#1080;&#1090;&#1077;&#1083;&#1080;">&#182;</a></h3><p>Применяя алгоритм проверки числа на простоту, мы умеем легко находить <strong>минимальный простой делитель числа N</strong>. Ясно, что как только мы нашли простой делитель числа $N$, мы можем число $N$ на него поделить и продолжить искать новый минимальный простой делитель.</p>
+<p>Будем перебирать простой делитель от $2$ до корня из $N$ (как и раньше), но в случае, если $N$ делится на этот делитель, будем просто на него делить. Причем, возможно, нам понадобится делить несколько раз ($N$ может делиться на большую степень этого простого делителя). Так мы будем набирать простые делители и остановимся в тот момент, когда $N$ стало либо $1$, либо простым (и мы остановились, так как дошли до корня из него). Во втором случае надо еще само $N$ добавить в ответ.</p>
+<p>Напишем алгоритм факторизации:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">factorize</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">factors</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">*</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span> <span class="c1"># перебираем простой делитель</span>
+        <span class="k">while</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># пока N на него делится</span>
+            <span class="n">n</span> <span class="o">//=</span> <span class="n">i</span> <span class="c1"># делим N на этот делитель</span>
+            <span class="n">factors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="c1"># возможно, в конце N стало большим простым числом,</span>
+    <span class="c1"># у которого мы дошли до корня и поняли, что оно простое</span>
+    <span class="c1"># его тоже нужно добавить в разложение</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">factors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">factors</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="o">**</span><span class="mi">9</span><span class="o">+</span><span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="o">**</span><span class="mi">9</span><span class="o">+</span><span class="mi">7</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="s1">&#39; x &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">factorize</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1 = 
+2 = 2
+3 = 3
+10 = 2 x 5
+11 = 11
+12 = 2 x 2 x 3
+1000000006 = 2 x 500000003
+1000000007 = 1000000007
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>За сколько работает этот алгоритм?</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<h3 id="&#1056;&#1077;&#1096;&#1077;&#1085;&#1080;&#1077;">&#1056;&#1077;&#1096;&#1077;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1056;&#1077;&#1096;&#1077;&#1085;&#1080;&#1077;">&#182;</a></h3><p>За те же самые $O(\sqrt{N})$. Итераций цикла while с перебором делителя будет не больше, чем $\sqrt{N}$. Причем ровно $\sqrt{N}$ операций будет только в том случае, если $N$ - простое.</p>
+<p>А итераций деления $N$ на делители будет столько, сколько всего простых чисел в факторизации числа $N$. Понятно, что это не больше, чем $O(\log{N})$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Докажите, что число $N$ имеет не больше, чем $O(\log{N})$ простых множителей в факторизации.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1056;&#1072;&#1079;&#1085;&#1099;&#1077;-&#1089;&#1074;&#1086;&#1081;&#1089;&#1090;&#1074;&#1072;-&#1087;&#1088;&#1086;&#1089;&#1090;&#1099;&#1093;-&#1095;&#1080;&#1089;&#1077;&#1083;*">&#1056;&#1072;&#1079;&#1085;&#1099;&#1077; &#1089;&#1074;&#1086;&#1081;&#1089;&#1090;&#1074;&#1072; &#1087;&#1088;&#1086;&#1089;&#1090;&#1099;&#1093; &#1095;&#1080;&#1089;&#1077;&#1083;*<a class="anchor-link" href="#&#1056;&#1072;&#1079;&#1085;&#1099;&#1077;-&#1089;&#1074;&#1086;&#1081;&#1089;&#1090;&#1074;&#1072;-&#1087;&#1088;&#1086;&#1089;&#1090;&#1099;&#1093;-&#1095;&#1080;&#1089;&#1077;&#1083;*">&#182;</a></h3><p>Вообще, про простые числа известно много свойств, но почти все из них очень трудно доказать. Вот еще некоторые из них:</p>
 <ul>
-<li><a href="segtree">Дерево отрезков</a></li>
-<li><a href="treap">Декартово дерево</a></li>
-<li><a href="hashing">Хэширование</a></li>
-<li><a href="strings">Префикс- и зет-функция</a></li>
-<li><a href="trie">Бор и Ахо-Корасик</a></li>
-<li><a href="mst">Минимальные остовы</a></li>
-<li><a href="lca">Наименьший общий предок</a></li>
-<li><a href="sqrt">Корневая декомпозиция</a></li>
+<li>Простых чисел, меньших $N$, примерно $\frac{N}{\ln N}$.</li>
+<li>N-ое простое число равно примерно $N\ln N$.</li>
+<li>Простые числа распределены более-менее равномерно. Например, если вам нужно найти какое-то простое число в промежутке, то можно их просто перебрать и проверить — через несколько сотен какое-нибудь найдется.</li>
+<li>Для любого $N \ge 2$ на интервале $(N, 2N)$ всегда найдется простое число (<a href="https://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D1%81%D1%82%D1%83%D0%BB%D0%B0%D1%82_%D0%91%D0%B5%D1%80%D1%82%D1%80%D0%B0%D0%BD%D0%B0">Постулат Бертрана</a>)</li>
+<li>Впрочем, существуют сколь угодно длинные отрезки, на которых простых чисел нет. Самый простой способ такой построить - это начать с $N! + 2$.</li>
+<li>Есть алгоритмы, проверяющие число на простоту намного быстрее, чем за корень.</li>
+<li><a href="https://ru.wikipedia.org/wiki/%D0%A4%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F_%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%B9">Максимальное число делителей</a> равно примерно $O(\sqrt[3]{n})$. Это не математический результат, а чисто эмпирический — не пишите его в асимптотиках.<ul>
+<li>Максимальное число делителей у числа на отрезке $[1, 10^5]$ — 128</li>
+<li>Максимальное число делителей у числа на отрекзке $[1, 10^9]$ — 1344</li>
+<li>Максимальное число делителей у числа на отрезке $[1, 10^{18}]$ — 103680</li>
 </ul>
-<p>Весна:</p>
-<ol>
-<li>???</li>
-</ol>
-<p>Преподаватели:</p>
-<ul>
-<li><a href="http://t.me/bydlokoder">Сергей Слотин</a> — B1</li>
-<li><a href="http://t.me/DebNatkh">Максим Деб Натх</a> — B2</li>
-<li><a href="http://t.me/achulkov2">Андрей Чулков</a> — B2</li>
-<li><a href="http://t.me/tyomar">Артём Рябов</a> — B3</li>
+</li>
+<li>Наука <a href="http://sereja.me/a/pollard">умеет</a> факторизовать числа за $O(\sqrt[4]{n})$, но об этом как-нибудь в другой раз.</li>
+<li>Любое число больше  трёх можно представить в виде суммы двух простых (<a href="https://ru.wikipedia.org/wiki/%D0%9F%D1%80%D0%BE%D0%B1%D0%BB%D0%B5%D0%BC%D0%B0_%D0%93%D0%BE%D0%BB%D1%8C%D0%B4%D0%B1%D0%B0%D1%85%D0%B0">гипотеза Гольдбаха</a>), но это не доказано.</li>
 </ul>
 
 </div>
@@ -13164,34 +13388,851 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#1055;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100;-C">&#1055;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100; C<a class="anchor-link" href="#&#1055;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100;-C">&#182;</a></h2><p>Осень:</p>
+<h2 id="&#1056;&#1077;&#1096;&#1077;&#1090;&#1086;-&#1069;&#1088;&#1072;&#1090;&#1086;&#1089;&#1092;&#1077;&#1085;&#1072;">&#1056;&#1077;&#1096;&#1077;&#1090;&#1086; &#1069;&#1088;&#1072;&#1090;&#1086;&#1089;&#1092;&#1077;&#1085;&#1072;<a class="anchor-link" href="#&#1056;&#1077;&#1096;&#1077;&#1090;&#1086;-&#1069;&#1088;&#1072;&#1090;&#1086;&#1089;&#1092;&#1077;&#1085;&#1072;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Часто нужно не проверять на простоту одно число, а найти <em>все</em> простые числа до $N$. В этом случае наивный алгоритм будет работать за $O(N\sqrt N)$, так как нужно проверить на простоту каждое число от 1 до $N$.</p>
+<p>Но древний грек Эратосфен предложил делать так:</p>
+<p>Запишем ряд чисел от 1 до $N$ и будем вычеркивать числа:</p>
 <ul>
-<li><a href="sorting">Сортировки</a></li>
-<li><a href="binary_search">Бинарный поиск</a></li>
-<li><a href="number_theory">Теория чисел</a></li>
-<li><a href="stl">Стандартная библиотека шаблонов С++</a></li>
-<li><a href="greedy">Жадный алгоритм</a></li>
-<li><a href="dp_intro">Введение в динамическое программирование</a></li>
-<li><a href="">Рюкзак, НВП и НОП</a></li>
-<li><a href="scanline">Сканирующая прямая</a></li>
-<li><a href="data_structures">Структуры данных</a></li>
-<li><a href="dfs">Графы и поиск в глубину</a></li>
-<li><a href="bfs">Поиск в ширину и алгоритм Дейкстры</a></li>
+<li>делящиеся на 2, кроме самого числа 2</li>
+<li>затем деляющиеся на 3, кроме самого числа 3</li>
+<li>затем на 5, затем на 7, и так далее и все остальные простые до n.
+Таким образом, все незачеркнутые числа будут простыми — «решето» оставит только их.</li>
 </ul>
-<p>Весна:</p>
-<ol>
-<li>???</li>
-</ol>
-<p>Преподаватели:</p>
+<p><a href="http://www.mahabal.io/eras">Красивая визуализация</a></p>
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Найдите этим способом на бумажке все простые числа до 50, потом проверьте с программой:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">prime</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">prime</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">prime</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span> <span class="c1"># можно и до sqrt(N)</span>
+    <span class="k">if</span> <span class="n">prime</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">,</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span> <span class="c1"># идем с шагом i, можно начиная с i * i</span>
+            <span class="n">prime</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">prime</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2
+3
+5
+7
+11
+13
+17
+19
+23
+29
+31
+37
+41
+43
+47
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>У этого алгоритма можно сразу заметить несколько ускорений.</p>
+<p>Во-первых, число $i$ имеет смысл перебирать только до корня из $N$, потому что при зачеркивании составных чисел, делящихся на простое $i &gt; \sqrt N$, мы ничего не зачеркнем. Почему? Пусть существует составное $M \leq N$, которое делится на %i%, и мы его не зачеркнули. Но тогда $i &gt; \sqrt N \geq \sqrt M$, а значит по ранее нами доказанному утверждению $M$ должно делиться и на простое число, которое меньше корня. Но это значит, что мы его уже вычеркнули.</p>
+<p>Во-вторых, по этой же самое причине $j$ имеет смысл перебирать только начиная с $i^2$. Зачем вычеркивать $2i$, $3i$, $4i$, ..., $(i-1)i$, если они все уже вычеркнуты, так как мы уже вычеркивали всё, что делится на $2$, $3$, $4$, ..., $(i-1)$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1040;&#1089;&#1080;&#1084;&#1087;&#1090;&#1086;&#1090;&#1080;&#1082;&#1072;">&#1040;&#1089;&#1080;&#1084;&#1087;&#1090;&#1086;&#1090;&#1080;&#1082;&#1072;<a class="anchor-link" href="#&#1040;&#1089;&#1080;&#1084;&#1087;&#1090;&#1086;&#1090;&#1080;&#1082;&#1072;">&#182;</a></h3><p>Такой код будет работать за $O(N \log \log N)$ по причинам, которые мы пока не хотим объяснять формально.</p>
+<h3 id="&#1043;&#1072;&#1088;&#1084;&#1086;&#1085;&#1080;&#1095;&#1077;&#1089;&#1082;&#1080;&#1081;-&#1088;&#1103;&#1076;">&#1043;&#1072;&#1088;&#1084;&#1086;&#1085;&#1080;&#1095;&#1077;&#1089;&#1082;&#1080;&#1081; &#1088;&#1103;&#1076;<a class="anchor-link" href="#&#1043;&#1072;&#1088;&#1084;&#1086;&#1085;&#1080;&#1095;&#1077;&#1089;&#1082;&#1080;&#1081;-&#1088;&#1103;&#1076;">&#182;</a></h3><p>Научимся оценивать асимптотику величины $1 + \frac{1}{2} + \ldots + \frac{1}{N}$, которая нередко встречается в задачах, где фигурирует делимость.</p>
+<p>Возьмем $N$ равное $2^i - 1$ и запишем нашу сумму следующим образом:
+$$\left(\frac{1}{1}\right) + \left(\frac{1}{2} + \frac{1}{3}\right) + \left(\frac{1}{4} + \ldots + \frac{1}{7}\right) + \ldots + \left(\frac{1}{2^{i - 1}} + \ldots + \frac{1}{2^i - 1}\right)$$</p>
+<p>Каждое из этих слагаемых имеет вид
+$$\frac{1}{2^j} + \ldots + \frac{1}{2^{j + 1} - 1} \le \frac{1}{2^j} + \ldots + \frac{1}{2^j} = 2^j \frac{1}{2^j} = 1$$</p>
+<p>Таким образом, наша сумма не превосходит $1 + 1 + \ldots + 1 = i \le 2\log_2(2^i - 1)$. Тем самым, взяв любое $N$ и дополнив до степени двойки, мы получили асимптотику $O(\log N)$.</p>
+<p>Оценку снизу можно получить аналогичным образом, оценив каждое такое слагаемое снизу значением $\frac{1}{2}$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1055;&#1086;&#1087;&#1099;&#1090;&#1082;&#1072;-&#1086;&#1073;&#1098;&#1103;&#1089;&#1085;&#1077;&#1085;&#1080;&#1103;-&#1072;&#1089;&#1080;&#1084;&#1087;&#1090;&#1086;&#1090;&#1080;&#1082;&#1080;**-(&#1076;&#1083;&#1103;-&#1089;&#1090;&#1072;&#1088;&#1096;&#1080;&#1093;-&#1082;&#1083;&#1072;&#1089;&#1089;&#1086;&#1074;)">&#1055;&#1086;&#1087;&#1099;&#1090;&#1082;&#1072; &#1086;&#1073;&#1098;&#1103;&#1089;&#1085;&#1077;&#1085;&#1080;&#1103; &#1072;&#1089;&#1080;&#1084;&#1087;&#1090;&#1086;&#1090;&#1080;&#1082;&#1080;** (&#1076;&#1083;&#1103; &#1089;&#1090;&#1072;&#1088;&#1096;&#1080;&#1093; &#1082;&#1083;&#1072;&#1089;&#1089;&#1086;&#1074;)<a class="anchor-link" href="#&#1055;&#1086;&#1087;&#1099;&#1090;&#1082;&#1072;-&#1086;&#1073;&#1098;&#1103;&#1089;&#1085;&#1077;&#1085;&#1080;&#1103;-&#1072;&#1089;&#1080;&#1084;&#1087;&#1090;&#1086;&#1090;&#1080;&#1082;&#1080;**-(&#1076;&#1083;&#1103;-&#1089;&#1090;&#1072;&#1088;&#1096;&#1080;&#1093;-&#1082;&#1083;&#1072;&#1089;&#1089;&#1086;&#1074;)">&#182;</a></h3><p>Мы знаем, что гармонический ряд $1 + \frac{1}{2} + \frac{1}{3} + \ldots + \frac{1}{N}$ это примерно $\log N$, а значит 
+$$N + \frac{N}{2} + \frac{N}{3} + \ldots + \frac{N}{N} \sim N \log N$$</p>
+<p>А что такое асимптотика решета Эратосфена? Мы как раз ровно $\frac{N}{p}$ раз зачеркиваем числа делящиеся на простое число $p$. Если бы все числа были простыми, то мы бы как раз получили $N \log N$ из формули выше. Но у нас будут не все слагаемые оттуда, только с простым $p$, поэтому посмотрим чуть более точно.</p>
+<p>Известно, что простых чисел до $N$ примерно $\frac{N}{\log N}$, а значит допустим, что k-ое простое число примерно равно $k ln k$. Тогда</p>
+$$\sum_{\substack{2 \leq p \leq N \\ \text{p is prime}}} \frac{N}{p} \sim \frac{1}{2} + \sum_{k = 2}^{\frac{N}{\ln N}} \frac{N}{k \ln k} \sim \int_{2}^{\frac{N}{\ln N}} \frac{N}{k \ln k} dk =N(\ln\ln\frac{N}{\ln N} - \ln\ln 2) \sim N(\ln\ln N - \ln\ln\ln N) \sim N \ln\ln N$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Но вообще-то решето можно сделать и линейным.</p>
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Решите 5 первых задач из этого контеста:</p>
+<p><a href="https://informatics.msk.ru/mod/statements/view.php?id=34271">https://informatics.msk.ru/mod/statements/view.php?id=34271</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1051;&#1080;&#1085;&#1077;&#1081;&#1085;&#1086;&#1077;-&#1088;&#1077;&#1096;&#1077;&#1090;&#1086;-&#1069;&#1088;&#1072;&#1090;&#1086;&#1089;&#1092;&#1077;&#1085;&#1072;*">&#1051;&#1080;&#1085;&#1077;&#1081;&#1085;&#1086;&#1077; &#1088;&#1077;&#1096;&#1077;&#1090;&#1086; &#1069;&#1088;&#1072;&#1090;&#1086;&#1089;&#1092;&#1077;&#1085;&#1072;*<a class="anchor-link" href="#&#1051;&#1080;&#1085;&#1077;&#1081;&#1085;&#1086;&#1077;-&#1088;&#1077;&#1096;&#1077;&#1090;&#1086;-&#1069;&#1088;&#1072;&#1090;&#1086;&#1089;&#1092;&#1077;&#1085;&#1072;*">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Наша цель — для каждого числа до $N$ посчитать его <strong>минимальный простой делитель</strong>. Будем хранить его в массиве <strong>min_d</strong>. Параллельно будем хранить и список всех найденных простых чисел <strong>primes</strong> - это ровно те числа $x$, у которых $min\_d[x] = x$.</p>
+<p>Основное утверждение такое:</p>
+<blockquote><p>Пусть у числа $M$ минимальный делитель равен $a$. Тогда, если $M$ составное, мы хотим вычеркнуть его ровно один раз при обработке числа $\frac{M}{a}$.</p>
+</blockquote>
+<p>Мы также перебираем число $i$ от $2$ до $N$. Если $min\_d[i]$ равно 0 (то есть мы не нашли ни один делитель у этого числа еще), значит оно простое - добавим в primes и сделаем $min\_d[i] = i$.</p>
+<p>Далее мы хотим вычеркнуть все числа $i \times k$ такие, что $k$ - это минимальный простой делитель этого числа. Из этого следует, что необходимо и достаточно перебрать $k$ в массиве primes, и только до тех пор, пока $k &lt; min\_d[i]$. Ну и перестать перебирать, если $i \times k &gt; N$.</p>
+<p>Алгоритм пометит все числа по одному разу, поэтому он корректен и работает за $O(N)$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">primes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">min_d</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">min_d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">min_d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="n">primes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">primes</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">p</span> <span class="o">&gt;</span> <span class="n">min_d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">*</span> <span class="n">p</span> <span class="o">&gt;</span> <span class="n">N</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">min_d</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">min_d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">min_d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">primes</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2 [0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+3 [0, 0, 2, 3, 2, 0, 2, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+4 [0, 0, 2, 3, 2, 0, 2, 0, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+5 [0, 0, 2, 3, 2, 5, 2, 0, 2, 3, 2, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0]
+6 [0, 0, 2, 3, 2, 5, 2, 0, 2, 3, 2, 0, 2, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0]
+7 [0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2, 0, 2, 0, 2, 3, 0, 0, 0, 0, 0, 3, 0, 0, 0, 5, 0, 0, 0, 0, 0]
+8 [0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2, 0, 2, 0, 2, 3, 2, 0, 0, 0, 0, 3, 0, 0, 0, 5, 0, 0, 0, 0, 0]
+9 [0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2, 0, 2, 0, 2, 3, 2, 0, 2, 0, 0, 3, 0, 0, 0, 5, 0, 3, 0, 0, 0]
+10 [0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2, 0, 2, 0, 2, 3, 2, 0, 2, 0, 2, 3, 0, 0, 0, 5, 0, 3, 0, 0, 0]
+11 [0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2, 11, 2, 0, 2, 3, 2, 0, 2, 0, 2, 3, 2, 0, 0, 5, 0, 3, 0, 0, 0]
+12 [0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2, 11, 2, 0, 2, 3, 2, 0, 2, 0, 2, 3, 2, 0, 2, 5, 0, 3, 0, 0, 0]
+13 [0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2, 11, 2, 13, 2, 3, 2, 0, 2, 0, 2, 3, 2, 0, 2, 5, 2, 3, 0, 0, 0]
+14 [0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2, 11, 2, 13, 2, 3, 2, 0, 2, 0, 2, 3, 2, 0, 2, 5, 2, 3, 2, 0, 0]
+15 [0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2, 11, 2, 13, 2, 3, 2, 0, 2, 0, 2, 3, 2, 0, 2, 5, 2, 3, 2, 0, 2]
+16 [0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2, 11, 2, 13, 2, 3, 2, 0, 2, 0, 2, 3, 2, 0, 2, 5, 2, 3, 2, 0, 2]
+17 [0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2, 11, 2, 13, 2, 3, 2, 17, 2, 0, 2, 3, 2, 0, 2, 5, 2, 3, 2, 0, 2]
+18 [0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2, 11, 2, 13, 2, 3, 2, 17, 2, 0, 2, 3, 2, 0, 2, 5, 2, 3, 2, 0, 2]
+19 [0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2, 11, 2, 13, 2, 3, 2, 17, 2, 19, 2, 3, 2, 0, 2, 5, 2, 3, 2, 0, 2]
+20 [0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2, 11, 2, 13, 2, 3, 2, 17, 2, 19, 2, 3, 2, 0, 2, 5, 2, 3, 2, 0, 2]
+21 [0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2, 11, 2, 13, 2, 3, 2, 17, 2, 19, 2, 3, 2, 0, 2, 5, 2, 3, 2, 0, 2]
+22 [0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2, 11, 2, 13, 2, 3, 2, 17, 2, 19, 2, 3, 2, 0, 2, 5, 2, 3, 2, 0, 2]
+23 [0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2, 11, 2, 13, 2, 3, 2, 17, 2, 19, 2, 3, 2, 23, 2, 5, 2, 3, 2, 0, 2]
+24 [0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2, 11, 2, 13, 2, 3, 2, 17, 2, 19, 2, 3, 2, 23, 2, 5, 2, 3, 2, 0, 2]
+25 [0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2, 11, 2, 13, 2, 3, 2, 17, 2, 19, 2, 3, 2, 23, 2, 5, 2, 3, 2, 0, 2]
+26 [0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2, 11, 2, 13, 2, 3, 2, 17, 2, 19, 2, 3, 2, 23, 2, 5, 2, 3, 2, 0, 2]
+27 [0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2, 11, 2, 13, 2, 3, 2, 17, 2, 19, 2, 3, 2, 23, 2, 5, 2, 3, 2, 0, 2]
+28 [0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2, 11, 2, 13, 2, 3, 2, 17, 2, 19, 2, 3, 2, 23, 2, 5, 2, 3, 2, 0, 2]
+29 [0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2, 11, 2, 13, 2, 3, 2, 17, 2, 19, 2, 3, 2, 23, 2, 5, 2, 3, 2, 29, 2]
+30 [0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2, 11, 2, 13, 2, 3, 2, 17, 2, 19, 2, 3, 2, 23, 2, 5, 2, 3, 2, 29, 2]
+[0, 0, 2, 3, 2, 5, 2, 7, 2, 3, 2, 11, 2, 13, 2, 3, 2, 17, 2, 19, 2, 3, 2, 23, 2, 5, 2, 3, 2, 29, 2]
+[2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Этот алгоритм работает асимптотически быстрее, чем обычное решето. Но на практике, если писать обычное решето Эратсфена с оптимизациями, то оно оказывается быстрее линейнего. Также линейное решето занимает гораздо больше памяти - ведь в обычном решете можно хранить просто $N$ бит, а здесь нам нужно $N$ чисел и еще массив primes.</p>
+<p>Зато один из «побочных эффектов» алгоритма — он неявно вычисляет факторизацию всех чисел от $1$ до $N$. Ведь зная минимальный простой делитель любого числа от $1$ до $N$ можно легко поделить на это число, посмотреть на новый минимальный простой делитель и так далее.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1053;&#1054;&#1044;-&#1080;-&#1053;&#1054;&#1050;">&#1053;&#1054;&#1044; &#1080; &#1053;&#1054;&#1050;<a class="anchor-link" href="#&#1053;&#1054;&#1044;-&#1080;-&#1053;&#1054;&#1050;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Введем два определения.</p>
+<p><strong>Наибольший общий делитель</strong> (НОД) чисел $a_1, a_2, \ldots, a_n$ — это максимальное такое число $x$, что все $a_i$ делятся на $x$.</p>
+<p><strong>Наименьшее общее кратное</strong> (НОК) чисел $a_1, a_2, \ldots, a_n$ — это минимальное такое число $x$, что $x$ делится на все $a_i$.</p>
+<p>Например,</p>
 <ul>
-<li><a href="http://t.me/andrewgark">Андрей Гаркавый</a> — C1</li>
-<li><a href="http://t.me/pntn13">Антон Алёшин</a> — C2</li>
-<li><a href="http://t.me/riskingh">Максим Гришкин</a> — C2</li>
-<li><a href="http://t.me/Glebodin">Глеб Лобанов</a> — C3</li>
+<li>НОД(18, 30) = 6</li>
+<li>НОД(60, 180, 315) = 15</li>
+<li>НОД(1, N) = 1</li>
+<li>НОК(12, 30) = 6</li>
+<li>НОК(1, 2, 3, 4) = 12</li>
+<li>НОК(1, $N$) = $N$</li>
+</ul>
+<p>Зачем они нужны? Например, они часто возникают в задачах.</p>
+<p><strong>Условие:</strong> Есть $N$ шестеренок, каждая $i$-ая зацеплена с $(i-1)$-ой. $i$-ая шестеренка имеет $a_i$ зубчиков. Сколько раз нужно повернуть полносьтю первую шестеренку, чтобы все остальные шестеренки тоже вернулись на изначальное место?</p>
+<p><strong>Решение:</strong> Когда одна шестеренка крутится на 1 зубчик, все остальные тоже крутятся на один зубчик. Нужно найти минимальное такое число зубчиков $x$, что при повороте на него все шестеренки вернутся в изначальное положение, то есть $x$ делится на все $a_i$, то есть это НОК($a_1, a_2, \ldots, a_N$). Ответом будет $\frac{x}{a_1}$.</p>
+<p>Еще пример задачи на применение НОД и НОК:</p>
+<p><strong>Условие:</strong>  Город — это прямоугольник $n$ на $m$, разделенный на квадраты единичного размера. Вертолет летит из нижнего левого угла в верхний правый по прямой. Вертолет будит людей в квартале, когда он пролетает строго над его внутренностью (границы не считаются). Сколько кварталов разбудит вертолёт?</p>
+<p><strong>Решение:</strong> Вертолет пересечет по вертикали $(m-1)$ границу. С этим ничего не поделать — каждое считается как новое посещение какого-то квартала. По горизонтали то же самое — $(n-1)$ переход в новую ячейку будет сделан.</p>
+<p>Однако еще есть случай, когда он пересекает одновременно обе границы (то есть пролетает над каким-нибудь углом) — ровно тот случай, когда нового посещения квартала не происходит. Сколько таких будет? Ровно столько, сколько есть целых решений уравнения $\frac{n}{m}  = \frac{x}{y}$. Мы как бы составили уравнение движения вертолёта и ищем, в скольки целых точках оно выполняется.</p>
+<p>Пусть $t = НОД(n, m)$, тогда $n = at, m = bt$.</p>
+<p>Тогда $\frac{n}{m} = \frac{a}{b} = \frac{x}{y}$. Любая дробь с натуральными числителем и знаменателем имеет ровно одно представление в виде несократимой дроби, так что $x$ должно делиться на $a$, а $y$ должно делиться на $b$. А значит, как ответ подходят $(a, b), (2a, 2b), (3a, 3b), \cdots, ((t-1)a, (t-1)b)$. Таких ответов ровно $t = НОД(n, m)$</p>
+<p>Значит, итоговый ответ: $(n-1) + (m-1) - (t-1)$.</p>
+<p>Кстати, когда $НОД(a, b) = 1$, говорят, что $a$ и $b$ взаимно просты.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;-&#1045;&#1074;&#1082;&#1083;&#1080;&#1076;&#1072;">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084; &#1045;&#1074;&#1082;&#1083;&#1080;&#1076;&#1072;<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;-&#1045;&#1074;&#1082;&#1083;&#1080;&#1076;&#1072;">&#182;</a></h2><p>Осталось придумать, как искать НОД и НОК. Понятно, что их можно искать перебором, но мы хотим хороший быстрый способ.</p>
+<p>Давайте для начала научимся искать $НОД(a, b)$.</p>
+<p>Мы можем воспользоваться следующим равенством: $$НОД(a, b) = НОД(a, b - a),  b &gt; a$$</p>
+<p>Оно доказывается очень просто: надо заметить, что множества общих делителей у пар $(a, b)$ и $(a, b - a)$ совпадают. Почему? Потому что если $a$ и $b$ делятся на $x$, то и $b-a$ делится на $x$. И наоборот, если $a$ и $b-a$ делятся на $x$, то и $b$ делится на $x$. Раз множства общих делитей совпадают, то и максимальный делитель совпадает.</p>
+<p>Из этого равенства сразу следует следующее равенство:
+$$НОД(a, b) = НОД(a, b \operatorname{\%} a),  b &gt; a$$</p>
+<p>(так как $НОД(a, b) = НОД(a, b - a) = НОД(a, b - 2a) = НОД(a, b - 3a) = \ldots = НОД(a, b \operatorname{\%} a)$)</p>
+<p>Это равенство дает идею следующего рекурсивного алгоритма:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$НОД(a, b) = НОД(b \operatorname{\%} a, a) = НОД(a \operatorname{\%} \, (b \operatorname{\%} a), b \operatorname{\%} a) = \ldots$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Например:
+$$НОД(93, 36) = $$
+$$= НОД(36, 93\space\operatorname{\%}36) = НОД(36, 21) = $$
+$$= НОД(21, 15) = $$
+$$= НОД(15, 6) = $$
+$$= НОД(6, 3) = $$
+$$= НОД(3, 0) = 3$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;:">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;:<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;:">&#182;</a></h3><p>Примените алгоритм Евклида и найдите НОД чисел:</p>
+<ul>
+<li>1 и 500000</li>
+<li>10, 20</li>
+<li>18, 60</li>
+<li>55, 34</li>
+<li>100, 250</li>
 </ul>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>По-английски <strong>наибольший общий делитель</strong> — <strong>greatest common divisor</strong>. Поэтому вместо <strong>НОД</strong> будем в коде писать <strong>gcd</strong>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span>
+    <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">gcd</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">500000</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gcd</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gcd</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">60</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gcd</span><span class="p">(</span><span class="mi">55</span><span class="p">,</span> <span class="mi">34</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gcd</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">250</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gcd</span><span class="p">(</span><span class="mi">2465473782</span><span class="p">,</span> <span class="mi">12542367456</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1
+10
+6
+1
+50
+6
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Вообще, в C++ такая функция уже есть в компиляторе <code>g++</code> — называется <code>__gcd</code>.  Если у вас не Visual Studio, то, скорее всего, у вас <code>g++</code>. Вообще, там <a href="?">много всего интересного</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>А за сколько оно вообще работает?</p>
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Докажите, что алгоритм Евклида для чисел $N$, $M$ работает за $O(\log(N+M))$.</p>
+<p>Кстати, интересный факт: самыми плохими входными данными для алгоритма Евклида являются числа Фибоначчи. Именно там и достигается логарифм.</p>
+<h3 id="&#1050;&#1072;&#1082;-&#1074;&#1099;&#1088;&#1072;&#1079;&#1080;&#1090;&#1100;-&#1053;&#1054;&#1050;-&#1095;&#1077;&#1088;&#1077;&#1079;-&#1053;&#1054;&#1044;">&#1050;&#1072;&#1082; &#1074;&#1099;&#1088;&#1072;&#1079;&#1080;&#1090;&#1100; &#1053;&#1054;&#1050; &#1095;&#1077;&#1088;&#1077;&#1079; &#1053;&#1054;&#1044;<a class="anchor-link" href="#&#1050;&#1072;&#1082;-&#1074;&#1099;&#1088;&#1072;&#1079;&#1080;&#1090;&#1100;-&#1053;&#1054;&#1050;-&#1095;&#1077;&#1088;&#1077;&#1079;-&#1053;&#1054;&#1044;">&#182;</a></h3><blockquote><p>$НОК(a, b) = \frac{ab}{НОД(a, b)}$</p>
+</blockquote>
+<p>По этой формуле можно легко найти НОК двух чисел через их произведение и НОД. Почему она верна?</p>
+<p>Посмотрим на разложения на простые множители чисел a, b, НОК(a, b), НОД(a, b).</p>
+$$ a = p_1^{a_1}\times p_2^{a_2}\times\ldots\times p_n^{a_n} $$$$ b = p_1^{b_1}\times p_2^{b_2}\times\ldots\times p_n^{b_n} $$$$ ab = p_1^{a_1+b_1}\times p_2^{a_2+b_2}\times\ldots\times p_n^{a_n+b_n} $$<p>Из определений НОД и НОК следует, что их факторизации выглядят так:
+$$ НОД(a, b) = p_1^{min(a_1, b_1)}\times p_2^{min(a_2, b_2)}\times\ldots\times p_n^{min(a_n, b_n)} $$
+$$ НОК(a, b) = p_1^{max(a_1, b_1)}\times p_2^{max(a_2, b_2)}\times\ldots\times p_n^{max(a_n, b_n)} $$</p>
+<p>Тогда посчитаем $НОД(a, b) \times НОК(a, b)$:
+$$ НОД(a, b)НОК(a, b) = p_1^{min(a_1, b_1)+max(a_1, b_1)}\times p_2^{min(a_2, b_2)+max(a_2, b_2)}\times\ldots\times p_n^{min(a_n, b_n)+max(a_n, b_n)} =$$
+$$ = p_1^{a_1+b_1}\times p_2^{a_2+b_2}\times\ldots\times p_n^{a_n+b_n} = ab$$</p>
+<p>Формула доказана.</p>
+<h3 id="&#1050;&#1072;&#1082;-&#1087;&#1086;&#1089;&#1095;&#1080;&#1090;&#1072;&#1090;&#1100;-&#1053;&#1054;&#1044;/&#1053;&#1054;&#1050;-&#1086;&#1090;-&#1073;&#1086;&#1083;&#1077;&#1077;-&#1095;&#1077;&#1084;-2-&#1095;&#1080;&#1089;&#1077;&#1083;">&#1050;&#1072;&#1082; &#1087;&#1086;&#1089;&#1095;&#1080;&#1090;&#1072;&#1090;&#1100; &#1053;&#1054;&#1044;/&#1053;&#1054;&#1050; &#1086;&#1090; &#1073;&#1086;&#1083;&#1077;&#1077; &#1095;&#1077;&#1084; 2 &#1095;&#1080;&#1089;&#1077;&#1083;<a class="anchor-link" href="#&#1050;&#1072;&#1082;-&#1087;&#1086;&#1089;&#1095;&#1080;&#1090;&#1072;&#1090;&#1100;-&#1053;&#1054;&#1044;/&#1053;&#1054;&#1050;-&#1086;&#1090;-&#1073;&#1086;&#1083;&#1077;&#1077;-&#1095;&#1077;&#1084;-2-&#1095;&#1080;&#1089;&#1077;&#1083;">&#182;</a></h3><p>Для того, чтобы искать НОД или НОК у более чем двух чисел, достаточно считать их по цепочке:</p>
+<blockquote><p>$НОД(a, b, c, d, \ldots) = НОД(НОД(a, b), c, d, \ldots)$</p>
+<p>$НОК(a, b, c, d, \ldots) = НОК(НОК(a, b), c, d, \ldots)$</p>
+</blockquote>
+<p>Почему это верно?</p>
+<p>Ну просто множество общих делителей $a$ и $b$ совпадает с множеством делителей $НОД(a, b)$. Из этого следует, что и множество общих делителей $a$, $b$ и еще каких-то чисел совпадает с множеством общих делителей $НОД(a, b)$ и этих же чисел. И раз совпадают множества общих делителей, то и наибольший из них совпадает.</p>
+<p>С НОК то же самое, только фразу "множество общих делителей" надо заменить на "множество общих кратных".</p>
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Решите задачи F, G, H, I из этого контеста:</p>
+<p><a href="https://informatics.msk.ru/mod/statements/view.php?id=34271">https://informatics.msk.ru/mod/statements/view.php?id=34271</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1056;&#1072;&#1089;&#1096;&#1080;&#1088;&#1077;&#1085;&#1085;&#1099;&#1081;-&#1072;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;-&#1045;&#1074;&#1082;&#1083;&#1080;&#1076;&#1072;*">&#1056;&#1072;&#1089;&#1096;&#1080;&#1088;&#1077;&#1085;&#1085;&#1099;&#1081; &#1072;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084; &#1045;&#1074;&#1082;&#1083;&#1080;&#1076;&#1072;*<a class="anchor-link" href="#&#1056;&#1072;&#1089;&#1096;&#1080;&#1088;&#1077;&#1085;&#1085;&#1099;&#1081;-&#1072;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;-&#1045;&#1074;&#1082;&#1083;&#1080;&#1076;&#1072;*">&#182;</a></h2><p>Очень важным для математики свойством наибольшего общего делителя является следующий факт:</p>
+<blockquote><p>Для любых целых $a, b$ найдутся такие целые $x, y$, что $ax + by = d$, где $d = \gcd(a, b)$.</p>
+</blockquote>
+<p>Из этого следует, что существует решение в целых числах, например, у таких уравнений:</p>
+<ul>
+<li>$8x + 6y = 2$</li>
+<li>$4x - 5y = 1$</li>
+<li>$116x + 44y = 4$</li>
+<li>$3x + 11y = -1$</li>
+</ul>
+<p>Мы сейчас не только докажем, что решения у таких уравнений существуют, но и приведем быстрый алгоритм нахождения этих решений. Здесь нам вновь пригодится алгоритм Евклида.</p>
+<p>Рассмотрим один шаг алгоритма Евклида, преобразующий пару $(a, b)$ в пару $(b, a \operatorname{\%} b)$. Обозначим $r = a \operatorname{\%} b$, то есть запишем деление с остатком в виде $a = bq + r$.</p>
+<p>Предположим, что у нас есть решение данного уравнения для чисел $b$ и $r$ (их наибольший общий делитель, как известно, тоже равен $d$): $$bx_0 + ry_0 = d$$</p>
+<p>Теперь сделаем в этом выражении замену $r = a - bq$:</p>
+$$bx_0 + ry_0 = bx_0 + (a - bq)y_0 = ay_0 + b(x_0 - qy_0)$$<p>Tаким образом, можно взять $x = y_0$, а $y = (x_0 - qy_0) = (x_0 - (a \operatorname{/} b)y_0)$ (здесь $/$ обозначает целочисленное деление).</p>
+<p>В конце алгоритма Евклида мы всегда получаем пару $(d, 0)$. Для нее решение требуемого уравнения легко подбирается — $d * 1 + 0 * 0 = d$. Теперь, используя вышесказанное, мы можем идти обратно, при вычислении заменяя пару $(x, y)$ (решение для чисел $b$ и $a \operatorname{\%} b$) на пару $(y, x - (a / b)y)$ (решение для чисел $a$ и $b$).</p>
+<p>Это удобно реализовывать рекурсивно:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">extended_gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span>
+    <span class="n">d</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">extended_gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">d</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">-</span> <span class="p">(</span><span class="n">a</span> <span class="o">//</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">y</span>
+
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">extended_gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{3}</span><span class="s2"> * </span><span class="si">{1}</span><span class="s2"> + </span><span class="si">{4}</span><span class="s2"> * </span><span class="si">{2}</span><span class="s2"> = </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>3 * 2 + 5 * -1 = 1
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Но также полезно и посмотреть, как будет работать расширенный алгоритм Евклида и на каком-нибудь конкретном примере. Пусть мы, например, хотим найти целочисленное решение такого уравнения:
+$$116x + 44y = 4$$
+$$(2\times44+28)x + 44y = 4$$
+$$44(2x+y) + 28x = 4$$
+$$44x_0 + 28y_0 = 4$$
+Следовательно, $$x = y_0, y = x_0 - 2y_0$$
+Будем повторять такой шаг несколько раз, получим такие уравнения:
+$$116x + 44y = 4$$
+$$44x_0 + 28y_0 = 4, x = y_0, y = x_0 - 2y_0$$
+$$28x_1 + 16y_1 = 4, x_0 = y_1, y_0 = x_1 - y_1$$
+$$16x_2 + 12y_2 = 4, x_1 = y_2, y_1 = x_2 - y_2$$
+$$12x_3 + 4y_3 = 4, x_2 = y_3, y_2 = x_3 - y_3$$
+$$4x_4 + 0y_4 = 4, x_3 = y_4, y_3 = x_4 - 3 y_4$$
+А теперь свернем обратно:
+$$x_4 = 1, y_4 = 0$$
+$$x_3 = 0, y_3 =1$$
+$$x_2 = 1, y_2 =-1$$
+$$x_1 = -1, y_1 =2$$
+$$x_0 = 2, y_0 =-3$$
+$$x = -3, y =8$$</p>
+<p>Действительно, $116\times(-3) + 44\times8 = 4$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Решите задачу J из этого контеста:</p>
+<p><a href="https://informatics.msk.ru/mod/statements/view.php?id=34273">https://informatics.msk.ru/mod/statements/view.php?id=34273</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1054;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1080;-&#1087;&#1086;-&#1084;&#1086;&#1076;&#1091;&#1083;&#1102;">&#1054;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1080; &#1087;&#1086; &#1084;&#1086;&#1076;&#1091;&#1083;&#1102;<a class="anchor-link" href="#&#1054;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1080;-&#1087;&#1086;-&#1084;&#1086;&#1076;&#1091;&#1083;&#1102;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Выражение $a \equiv b \pmod m$ означает, что остатки от деления $a$ на $m$ и $b$ на $m$ равны. Это выражение читается как «$a$ сравнимо $b$ по модулю $m$».</p>
+<p>Еще это можно опрделить так: $a$ сравнимо c $b$ по модулю $m$, если $(a - b)$ делится на $m$.</p>
+<p>Все целые числа можно разделить на <em>классы эквивалентности</em> — два числа лежат в одном классе, если они сравнимы по модулю $m$. Говорят, что мы работаем в «кольце остатков по модулю $m$», и в нем ровно $m$ элементов: $0, 1, 2, \cdots, m-1$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Сложение, вычитение и умножение по модулю определяются довольно интуитивно — нужно выполнить соответствующую операцию и взять остаток от деления.</p>
+<p>С делением намного сложнее — поделить и взять по модулю не работает. Об этом подробнее поговорим чуть дальше.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">mod</span> <span class="o">=</span> <span class="mi">71</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> + </span><span class="si">{}</span><span class="s1"> = </span><span class="si">{}</span><span class="s1"> (mod </span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">%</span> <span class="n">mod</span><span class="p">,</span> <span class="n">mod</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> - </span><span class="si">{}</span><span class="s1"> = </span><span class="si">{}</span><span class="s1"> (mod </span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">%</span> <span class="n">mod</span><span class="p">,</span> <span class="n">mod</span><span class="p">))</span> <span class="c1"># на C++ это может не работать, так как модуль от отрицательного числа берется странно</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> - </span><span class="si">{}</span><span class="s1"> = </span><span class="si">{}</span><span class="s1"> (mod </span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span> <span class="o">+</span> <span class="n">mod</span><span class="p">)</span> <span class="o">%</span> <span class="n">mod</span><span class="p">,</span> <span class="n">mod</span><span class="p">))</span> <span class="c1"># на C++ надо писать так, чтобы брать модулю от гарантированно неотрицательного числа</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> * </span><span class="si">{}</span><span class="s1"> = </span><span class="si">{}</span><span class="s1"> (mod </span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span> <span class="o">%</span> <span class="n">mod</span><span class="p">,</span> <span class="n">mod</span><span class="p">))</span>
+<span class="c1"># print((a / b) % mod) # а как писать это, пока неясно</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>30 + 50 = 9 (mod 71)
+30 - 50 = 51 (mod 71)
+30 - 50 = 51 (mod 71)
+30 * 50 = 9 (mod 71)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Посчитайте:</p>
+<ul>
+<li>$2 + 3 \pmod 5$</li>
+<li>$2 * 3 \pmod 5$</li>
+<li>$2 ^ 3 \pmod 5$</li>
+<li>$2 - 4 \pmod 5$</li>
+<li>$5 + 5 \pmod 6$</li>
+<li>$2 * 3 \pmod 6$</li>
+<li>$3 * 3 \pmod 6$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Для умножения (в C++) нужно ещё учитывать следующий факт: при переполнении типа всё ломается (разве что если вы используете в качестве модуля степень двойки).</p>
+<ul>
+<li><code>int</code> вмещает до $2^{31} - 1 \approx 2 \cdot 10^9$.</li>
+<li><code>long long</code> вмещает до $2^{63}  - 1 \approx 8 \cdot 10^{18}$.</li>
+<li><code>long long long</code> в плюсах нет, при попытке заиспользовать выдает ошибку <code>long long long is too long</code>.</li>
+<li>Под некоторыми компиляторами и архитектурами доступен <code>int128</code>, но не везде и не все функции его поддерживают (например, его нельзя вывести обычными методами).</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1047;&#1072;&#1095;&#1077;&#1084;-&#1085;&#1091;&#1078;&#1085;&#1086;-&#1089;&#1095;&#1080;&#1090;&#1072;&#1090;&#1100;-&#1086;&#1090;&#1074;&#1077;&#1090;-&#1087;&#1086;-&#1084;&#1086;&#1076;&#1091;&#1083;&#1102;">&#1047;&#1072;&#1095;&#1077;&#1084; &#1085;&#1091;&#1078;&#1085;&#1086; &#1089;&#1095;&#1080;&#1090;&#1072;&#1090;&#1100; &#1086;&#1090;&#1074;&#1077;&#1090; &#1087;&#1086; &#1084;&#1086;&#1076;&#1091;&#1083;&#1102;<a class="anchor-link" href="#&#1047;&#1072;&#1095;&#1077;&#1084;-&#1085;&#1091;&#1078;&#1085;&#1086;-&#1089;&#1095;&#1080;&#1090;&#1072;&#1090;&#1100;-&#1086;&#1090;&#1074;&#1077;&#1090;-&#1087;&#1086;-&#1084;&#1086;&#1076;&#1091;&#1083;&#1102;">&#182;</a></h3><p>Очень часто в задаче нужно научиться считать число, которое в худшем случае гораздо больше, чем $10^{18}$. Тогда, чтобы не заставлять вас писать длинную арифметику, автор задачи часто просит найти ответ по модулю большого числа, обычно $10^9 + 7$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Кстати, вместо того, чтобы писать $1000000007$ удобно просто написать $1e9 + 7$. $1e9$ означает $1 \times 10^9$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">int</span> <span class="n">mod</span> <span class="o">=</span> <span class="mf">1e9</span> <span class="o">+</span> <span class="mi">7</span><span class="p">;</span> <span class="c1"># В C++</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">mod</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1000000007
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mf">1e9</span> <span class="o">+</span> <span class="mi">7</span> <span class="c1"># В питоне такое число становится float</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1000000007.0
+1000000007
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1041;&#1099;&#1089;&#1090;&#1088;&#1086;&#1077;-&#1074;&#1086;&#1079;&#1074;&#1077;&#1076;&#1077;&#1085;&#1080;&#1077;-&#1074;-&#1089;&#1090;&#1077;&#1087;&#1077;&#1085;&#1100;">&#1041;&#1099;&#1089;&#1090;&#1088;&#1086;&#1077; &#1074;&#1086;&#1079;&#1074;&#1077;&#1076;&#1077;&#1085;&#1080;&#1077; &#1074; &#1089;&#1090;&#1077;&#1087;&#1077;&#1085;&#1100;<a class="anchor-link" href="#&#1041;&#1099;&#1089;&#1090;&#1088;&#1086;&#1077;-&#1074;&#1086;&#1079;&#1074;&#1077;&#1076;&#1077;&#1085;&#1080;&#1077;-&#1074;-&#1089;&#1090;&#1077;&#1087;&#1077;&#1085;&#1100;">&#182;</a></h2><p><strong>Задача:</strong></p>
+<blockquote><p>Даны натуральные числа $a, b, c &lt; 10^9$. Найдите $a^b$ (mod $c$).</p>
+</blockquote>
+<p>Мы хотим научиться возводить число в большую степень быстро, не просто умножая $a$ на себя $b$ раз. Требование на модуль здесь дано только для того, чтобы иметь возможность проверить правильность алгоритма для чисел, которые не влезают в int и long long.</p>
+<p>Сам алгоритм довольно простой и рекурсивный, постарайтесь его придумать, решая вот такие примеры (прямо решать необязательно, но можно придумать, как посчитать значение этих чисел очень быстро):</p>
+<ul>
+<li>$3^2$</li>
+<li>$3^4$</li>
+<li>$3^8$</li>
+<li>$3^{16}$</li>
+<li>$3^{32}$</li>
+<li>$3^{33}$</li>
+<li>$3^{66}$</li>
+<li>$3^{132}$</li>
+<li>$3^{133}$</li>
+<li>$3^{266}$</li>
+<li>$3^{532}$</li>
+<li>$3^{533}$</li>
+<li>$3^{1066}$</li>
+</ul>
+<p>Да, здесь специально приведена такая последовательность, в которой каждое следующее число легко считается через предыдущее: его либо нужно умножить на $a=3$, либо возвести в квадрат. Так и получается рекурсивный алгоритм:</p>
+<ul>
+<li>$a^0 = 1$</li>
+<li>$a^{2k}=(a^{k})^2$</li>
+<li>$a^{2k+1}=a^{2k}\times a$</li>
+</ul>
+<p>Нужно только после каждой операции делать mod:</p>
+<ul>
+<li>$a^0 \pmod c = 1$</li>
+<li>$a^{2k} \pmod c = (a^{k} \pmod c)^2 \pmod c$</li>
+<li>$a^{2k+1} \pmod c = ((a^{2k}\pmod c) \times a) \pmod c$</li>
+</ul>
+<p>Этот алгоритм называется <strong>быстрое возведение в степень</strong>. Он имеет много применений:</p>
+<ul>
+<li>в криптографии очень часто надо возводить число в большую степень по модулю</li>
+<li>используется для деления по простому модулю (см. далее)</li>
+<li>можно быстро перемножать не только числа, но еще и матрицы (используется для динамики, например)</li>
+</ul>
+<p>Асимптотика этого алгоритма, очевидно, $O(\log c)$ - за каждые две итерации число уменьшается хотя бы в 2 раза.</p>
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Решите задачу K из этого контеста:</p>
+<p><a href="https://informatics.msk.ru/mod/statements/view.php?id=34271">https://informatics.msk.ru/mod/statements/view.php?id=34271</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h2><p>Решите как можно больше задач из практического контеста:</p>
+<p><a href="https://informatics.msk.ru/mod/statements/view.php?id=34273">https://informatics.msk.ru/mod/statements/view.php?id=34273</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1044;&#1077;&#1083;&#1077;&#1085;&#1080;&#1077;-&#1087;&#1086;-&#1084;&#1086;&#1076;&#1091;&#1083;&#1102;*">&#1044;&#1077;&#1083;&#1077;&#1085;&#1080;&#1077; &#1087;&#1086; &#1084;&#1086;&#1076;&#1091;&#1083;&#1102;*<a class="anchor-link" href="#&#1044;&#1077;&#1083;&#1077;&#1085;&#1080;&#1077;-&#1087;&#1086;-&#1084;&#1086;&#1076;&#1091;&#1083;&#1102;*">&#182;</a></h2><p>Давайте все-таки научимся не только умножать, но и делить по простому модулю. Вот только что это значит?</p>
+<p>$a / b$ = $a \times b^{-1}$, где $b^{-1}$ - это обратный элемент к $b$.</p>
+<p><strong>Определение:</strong> $b^{-1}$ - это такое число, что $bb^{-1} = 1$</p>
+<p><strong>Утверждение:</strong> в кольце остатков по простому модулю $p$ у каждого остатка (кроме 0) существует ровно один обратный элемент.</p>
+<p>Например, обратный к $2$ по модулю $5$ это $3$ ($2 \times 3 = 1 \pmod 5$))</p>
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Найдите обратный элемент к:</p>
+<ul>
+<li>числу $3$ по модулю $5$</li>
+<li>числу $3$ по модулю $7$</li>
+<li>числу $1$ по модулю $7$</li>
+<li>числу $2$ по модулю $3$</li>
+<li>числу $9$ по модулю $31$</li>
+</ul>
+<p>Давайте докажем это утверждение: надо заметить, что если каждый ненулевой остаток $1, 2, \ldots, (p-1)$ умножить на ненулевой остаток $a$, то получатся числа $a, 2a, \ldots, (p-1)a$ - и они все разные! Они разные, потому что если $xa = ya$, то $(x-y)a = 0$, а значит $(x - y) a$ делится на $p$, $a$ - ненулевой остаток, а значит $x = y$, и это не разные числа. И из того, что все числа получились разными, это все ненулевые, и их столько же, следует, что это ровно тот же набор чисел, просто в другом порядке!</p>
+<p>Из этого следует, что среди этих чисел есть $1$, причем ровно один раз. А значит существует ровно один обратный элемент $a^{-1}$. Доказательство закончено.</p>
+<p>Это здорово, но этот обратный элемент еще хочется быстро находить. Быстрее, чем за $O(p)$.</p>
+<p>Есть несколько способов это сделать.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1063;&#1077;&#1088;&#1077;&#1079;-&#1084;&#1072;&#1083;&#1091;&#1102;-&#1090;&#1077;&#1086;&#1088;&#1077;&#1084;&#1091;-&#1060;&#1077;&#1088;&#1084;&#1072;">&#1063;&#1077;&#1088;&#1077;&#1079; &#1084;&#1072;&#1083;&#1091;&#1102; &#1090;&#1077;&#1086;&#1088;&#1077;&#1084;&#1091; &#1060;&#1077;&#1088;&#1084;&#1072;<a class="anchor-link" href="#&#1063;&#1077;&#1088;&#1077;&#1079;-&#1084;&#1072;&#1083;&#1091;&#1102;-&#1090;&#1077;&#1086;&#1088;&#1077;&#1084;&#1091;-&#1060;&#1077;&#1088;&#1084;&#1072;">&#182;</a></h3><p><strong>Малая теорема Ферма:</strong></p>
+<blockquote><p>$a^{p-1} = 1 \pmod p$, если $p$ - простое, $a \neq 0 \pmod p$).</p>
+</blockquote>
+<p><strong>Доказательство:</strong>
+В предыдущем пункте мы выяснили, что множества чисел $1, 2, \ldots, (p-1)$ и $a, 2a, \ldots, (p-1)a$ совпадают. Из этого следует, что их произведения тоже совпадают по модулю: $(p-1)! = a^{p-1} (p-1)! \pmod p$.</p>
+<p>$(p-1)!\neq 0 \pmod p$ а значит на него можно поделить (это мы кстати только в предыдущем пункте доказали, поделить на число - значит умножить на обратный к нему, который существует).</p>
+<p>А значит, $a^{p - 1} = 1 \pmod p$.</p>
+<p><strong>Как это применить</strong>
+Осталось заметить, что из малой теоремы Ферма сразу следует, что $a^{p-2}$ - это обратный элемент к $a$, а значит мы свели задачу к возведению $a$ в степень $p-2$, что благодаря быстрому возведению в степень мы умеем делать за $O(\log p)$.</p>
+<p><strong>Обобщение</strong>
+У малой теоремы Ферма есть обобщение для составных $p$:</p>
+<p><strong>Теорема Эйлера:</strong></p>
+<blockquote><p>$a^{\varphi(p)} = 1 \pmod p$, $a$ - взаимно просто с $p$, а $\varphi(p)$ - это функция Эйлера (количество чисел, меньших $p$ и взаимно простых с $p$).</p>
+</blockquote>
+<p>Доказывается теорема очень похоже, только вместо ненулевых остатков $1, 2, \ldots, p-1$ нужно брать остатки, взаимно простые с $p$. Их как раз не $p-1$, а $\varphi(p)$.</p>
+<p>Для нахождения обратного по этой теореме достаточно посчитать функцию Эйлера $\varphi(p)$ и найти $a^{-1} = a^{\varphi(p) - 1}$.</p>
+<p>Но с этим возникают большие проблемы: посчитать функцию Эйлера сложно. Более того, на предполагаемой невозможности быстро ее посчитать построены некоторые криптографические алгоритм типа RSA. <strong>Поэтому быстро делить по составному модулю этим способом не получится.</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1063;&#1077;&#1088;&#1077;&#1079;-&#1088;&#1072;&#1089;&#1096;&#1080;&#1088;&#1077;&#1085;&#1085;&#1099;&#1081;-&#1072;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;-&#1045;&#1074;&#1082;&#1083;&#1080;&#1076;&#1072;">&#1063;&#1077;&#1088;&#1077;&#1079; &#1088;&#1072;&#1089;&#1096;&#1080;&#1088;&#1077;&#1085;&#1085;&#1099;&#1081; &#1072;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084; &#1045;&#1074;&#1082;&#1083;&#1080;&#1076;&#1072;<a class="anchor-link" href="#&#1063;&#1077;&#1088;&#1077;&#1079;-&#1088;&#1072;&#1089;&#1096;&#1080;&#1088;&#1077;&#1085;&#1085;&#1099;&#1081;-&#1072;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;-&#1045;&#1074;&#1082;&#1083;&#1080;&#1076;&#1072;">&#182;</a></h3><p>Этим способом легко получится делить по любому модулю! Рекомендую.</p>
+<p>Пусть мы хотим найти $a^{-1} \pmod p$, $a$ и $p$ взаимно простые (а иначе обратного и не будет существовать).</p>
+<p>Давайте найдем корни уравнения</p>
+$$ax + py = 1$$<p>Они есть и находятся расширенным алгоритмом Евклида за $O(\log p)$, так как $НОД(a, p) = 1$, ведь они взаимно простые.</p>
+<p>Тогда если взять остаток по модулю $p$:</p>
+$$ax = 1 \pmod p$$<p>А значит, найденный $x$ и будет обратным элементом к $a$.</p>
+<p>То есть надо просто найти $x$ из решения того уравнения по модулю $p$. Можно брать по модулю прямо походу решения уравнения, чтобы случайно не переполниться.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
 </div>
     </div>
   </div>

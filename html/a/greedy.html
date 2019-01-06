@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>index-checkpoint</title>
+<title>greedy</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13116,18 +13116,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1099;">&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1099;<a class="anchor-link" href="#&#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1099;">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#1055;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100;-&#1040;">&#1055;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100; &#1040;<a class="anchor-link" href="#&#1055;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100;-&#1040;">&#182;</a></h2><p>Преподаватели:</p>
-<ul>
-<li><a href="http://t.me/qoo2p5">Даниил Николенко</a></li>
-<li><a href="http://t.me/grphil">Филипп Грибов</a></li>
-</ul>
+<h1 id="&#1046;&#1072;&#1076;&#1085;&#1099;&#1081;-&#1072;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;">&#1046;&#1072;&#1076;&#1085;&#1099;&#1081; &#1072;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;<a class="anchor-link" href="#&#1046;&#1072;&#1076;&#1085;&#1099;&#1081;-&#1072;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;">&#182;</a></h1><p>Это не какой-то алгоритм, а скорее простая идея о том, как решаются многие задачи.</p>
 
 </div>
 </div>
@@ -13135,28 +13124,122 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#1055;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100;-B">&#1055;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100; B<a class="anchor-link" href="#&#1055;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100;-B">&#182;</a></h2><p>Осень:</p>
-<ul>
-<li><a href="segtree">Дерево отрезков</a></li>
-<li><a href="treap">Декартово дерево</a></li>
-<li><a href="hashing">Хэширование</a></li>
-<li><a href="strings">Префикс- и зет-функция</a></li>
-<li><a href="trie">Бор и Ахо-Корасик</a></li>
-<li><a href="mst">Минимальные остовы</a></li>
-<li><a href="lca">Наименьший общий предок</a></li>
-<li><a href="sqrt">Корневая декомпозиция</a></li>
-</ul>
-<p>Весна:</p>
-<ol>
-<li>???</li>
-</ol>
-<p>Преподаватели:</p>
-<ul>
-<li><a href="http://t.me/bydlokoder">Сергей Слотин</a> — B1</li>
-<li><a href="http://t.me/DebNatkh">Максим Деб Натх</a> — B2</li>
-<li><a href="http://t.me/achulkov2">Андрей Чулков</a> — B2</li>
-<li><a href="http://t.me/tyomar">Артём Рябов</a> — B3</li>
-</ul>
+<h2 id="&#1055;&#1088;&#1080;&#1084;&#1077;&#1088;-&#1079;&#1072;&#1076;&#1072;&#1095;&#1080;:-&#1056;&#1072;&#1079;&#1084;&#1077;&#1085;-&#1084;&#1086;&#1085;&#1077;&#1090;">&#1055;&#1088;&#1080;&#1084;&#1077;&#1088; &#1079;&#1072;&#1076;&#1072;&#1095;&#1080;: &#1056;&#1072;&#1079;&#1084;&#1077;&#1085; &#1084;&#1086;&#1085;&#1077;&#1090;<a class="anchor-link" href="#&#1055;&#1088;&#1080;&#1084;&#1077;&#1088;-&#1079;&#1072;&#1076;&#1072;&#1095;&#1080;:-&#1056;&#1072;&#1079;&#1084;&#1077;&#1085;-&#1084;&#1086;&#1085;&#1077;&#1090;">&#182;</a></h2><h3 id="&#1059;&#1089;&#1083;&#1086;&#1074;&#1080;&#1077;">&#1059;&#1089;&#1083;&#1086;&#1074;&#1080;&#1077;<a class="anchor-link" href="#&#1059;&#1089;&#1083;&#1086;&#1074;&#1080;&#1077;">&#182;</a></h3><p>Есть купюры и монеты номиналами: $1, 5, 10, 50, 100, 1000, 5000$ рублей. В банкомате неограниченное количество купюр каждого номинала. Константин хочет снять со счёта $n$ рублей. Нужно определить минимальное суммарное количество купюр и монет, которое может выдать банкомат, чтобы сумма получилась ровно $n$.</p>
+<h3 id="&#1056;&#1077;&#1096;&#1077;&#1085;&#1080;&#1077;">&#1056;&#1077;&#1096;&#1077;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1056;&#1077;&#1096;&#1077;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Выпишем первые несколько ответов на задачу:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ans</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1"># 1</span>
+<span class="n">ans</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1"># 1 1</span>
+<span class="n">ans</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="c1"># 1 1 1</span>
+<span class="n">ans</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span> <span class="c1"># 1 1 1 1</span>
+<span class="n">ans</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1"># 5</span>
+<span class="n">ans</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1"># 5 1</span>
+<span class="n">ans</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="c1"># 5 1 1</span>
+<span class="n">ans</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span> <span class="c1"># 5 1 1 1</span>
+<span class="n">ans</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="c1"># 5 1 1 1 1</span>
+<span class="n">ans</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1"># 10</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Хочется сказать, что оптимальным алгоритмом будет следующее: взять максимум купюр номинала $1000$, из остатка взять максимум купюр номинала $500$ и т.д. Причем это будет верным решением! Такой подход в решении называются "жадностью". А алгоритмы, работающие таким образом, "жадными".</p>
+<h3 id="&#1054;&#1073;&#1097;&#1072;&#1103;-&#1080;&#1076;&#1077;&#1103;-&#1078;&#1072;&#1076;&#1085;&#1086;&#1075;&#1086;-&#1072;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1072;">&#1054;&#1073;&#1097;&#1072;&#1103; &#1080;&#1076;&#1077;&#1103; &#1078;&#1072;&#1076;&#1085;&#1086;&#1075;&#1086; &#1072;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1072;<a class="anchor-link" href="#&#1054;&#1073;&#1097;&#1072;&#1103;-&#1080;&#1076;&#1077;&#1103;-&#1078;&#1072;&#1076;&#1085;&#1086;&#1075;&#1086;-&#1072;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084;&#1072;">&#182;</a></h3><p>В общем смысле жадный алгоритм - это <strong>брать элементы в порядке уменьшения чего-нибудь</strong>, <strong>брать самый большой элемент первым</strong>. Эта одна простая идея объединяет множество разных задач.</p>
+<p>Чем-то это похоже на математический "принцип крайнего" - всегда будет полезно посмотреть на самый крайний (максимальный или минимальный элемент), очень часто решение начинается именно с него.</p>
+<h3 id="&#1044;&#1086;&#1082;&#1072;&#1079;&#1072;&#1090;&#1077;&#1083;&#1100;&#1089;&#1090;&#1074;&#1086;-&#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1103;">&#1044;&#1086;&#1082;&#1072;&#1079;&#1072;&#1090;&#1077;&#1083;&#1100;&#1089;&#1090;&#1074;&#1086; &#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1103;<a class="anchor-link" href="#&#1044;&#1086;&#1082;&#1072;&#1079;&#1072;&#1090;&#1077;&#1083;&#1100;&#1089;&#1090;&#1074;&#1086;-&#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1103;">&#182;</a></h3><p>Плохо просто предполагать, что в задаче жадный алгоритм работает, потому что часто бывает, что хоть жадность и кажется очевидным решением в задаче, то это оказывается неверным. Поэтому прежде, чем писать жадность, стоит её доказать.</p>
+<p>Вместо того, чтобы доказывать утверждение про жадность для конкретной задачи про числа $1, 5, 10, 50, 100, 1000, 5000$, давайте сформулируем и докажем более сильное:</p>
+<blockquote><p>Если каждый следующий номинал делится на предыдущий, то жадный алгоритм работает.</p>
+</blockquote>
+<h3 id="&#1044;&#1086;&#1082;&#1072;&#1079;&#1072;&#1090;&#1077;&#1083;&#1100;&#1089;&#1090;&#1074;&#1086;-&#1091;&#1090;&#1074;&#1077;&#1088;&#1078;&#1076;&#1077;&#1085;&#1080;&#1103;:">&#1044;&#1086;&#1082;&#1072;&#1079;&#1072;&#1090;&#1077;&#1083;&#1100;&#1089;&#1090;&#1074;&#1086; &#1091;&#1090;&#1074;&#1077;&#1088;&#1078;&#1076;&#1077;&#1085;&#1080;&#1103;:<a class="anchor-link" href="#&#1044;&#1086;&#1082;&#1072;&#1079;&#1072;&#1090;&#1077;&#1083;&#1100;&#1089;&#1090;&#1074;&#1086;-&#1091;&#1090;&#1074;&#1077;&#1088;&#1078;&#1076;&#1077;&#1085;&#1080;&#1103;:">&#182;</a></h3><p>Пусть купюры имели номинал $a_1, \ldots, a_k$. Пусть максимальная купюра имеет достоинство $a_k$ и $a_k &lt; n$, но в оптимальном ответе ее нет. Давайте рассмотрим такой оптимальный ответ и найдем противоречие.</p>
+<p>Пусть в оптимальном ответе купюра с номиналом $a_i$ встретилась $b_i$ раз. Если $b \geq \frac{a_{i+1}}{a_i}$ раз, то $\frac{a_{i+1}}{a_i}$ купюр можно легко заменить на одну купюру достоинства $a_{i+1}$, а значит это не оптимальный ответ. Следовательно, $b \leq \frac{a_{i+1}}{a_i} - 1$</p>
+<p>Давайте посчитаем, какого достоинства может быть сумма всех достоинств всех купюр в оптимальном ответе, если не считать максимальные купюры. Это будет $$a_1 b_1 + a_2 b_2 + \ldots + a_{k-1} b_{k-1} \leq a_1 (\frac{a_2}{a_1} - 1) + a_2 (\frac{a_3}{a_2} - 1) + \ldots + a_{k-1} (\frac{a_k}{a_{k-1}} - 1) 
+=$$
+$$= (a_2  - a_1) + (a_3 - a_2) + \ldots + (a_k - a_{k-1}) = a_k - a_1 &lt; a_k$$</p>
+<p>Из этого делаем вывод, что если $n \geq a_k$, то в оптимальный ответ всегда придется взять максмальную купюру размера $a_k$, потому что меньшие купюры просто не смогут оптимальном ответе давать так много. Отсюда и следует корректность жадного алгоритма.</p>
+<p>Теперь, когда жадность доказана, можно предъявить алгоритм:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="n">n</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">}</span>
+<span class="nb">int</span> <span class="n">sums</span><span class="p">,</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">sums</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">ans</span> <span class="o">+=</span> <span class="n">sums</span> <span class="o">/</span> <span class="n">n</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="n">sums</span> <span class="o">%=</span> <span class="n">n</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">sums</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1055;&#1088;&#1080;&#1084;&#1077;&#1088;-&#1079;&#1072;&#1076;&#1072;&#1095;&#1080;:-&#1047;&#1072;&#1076;&#1072;&#1095;&#1072;-&#1086;-&#1088;&#1102;&#1082;&#1079;&#1072;&#1082;&#1077;-&#1089;-&#1076;&#1077;&#1083;&#1080;&#1084;&#1099;&#1084;&#1080;-&#1087;&#1088;&#1077;&#1076;&#1084;&#1077;&#1090;&#1072;&#1084;&#1080;">&#1055;&#1088;&#1080;&#1084;&#1077;&#1088; &#1079;&#1072;&#1076;&#1072;&#1095;&#1080;: &#1047;&#1072;&#1076;&#1072;&#1095;&#1072; &#1086; &#1088;&#1102;&#1082;&#1079;&#1072;&#1082;&#1077; &#1089; &#1076;&#1077;&#1083;&#1080;&#1084;&#1099;&#1084;&#1080; &#1087;&#1088;&#1077;&#1076;&#1084;&#1077;&#1090;&#1072;&#1084;&#1080;<a class="anchor-link" href="#&#1055;&#1088;&#1080;&#1084;&#1077;&#1088;-&#1079;&#1072;&#1076;&#1072;&#1095;&#1080;:-&#1047;&#1072;&#1076;&#1072;&#1095;&#1072;-&#1086;-&#1088;&#1102;&#1082;&#1079;&#1072;&#1082;&#1077;-&#1089;-&#1076;&#1077;&#1083;&#1080;&#1084;&#1099;&#1084;&#1080;-&#1087;&#1088;&#1077;&#1076;&#1084;&#1077;&#1090;&#1072;&#1084;&#1080;">&#182;</a></h2><h3 id="&#1059;&#1089;&#1083;&#1086;&#1074;&#1080;&#1077;">&#1059;&#1089;&#1083;&#1086;&#1074;&#1080;&#1077;<a class="anchor-link" href="#&#1059;&#1089;&#1083;&#1086;&#1074;&#1080;&#1077;">&#182;</a></h3><p>Пусть есть рюкзак с вместимостью не более, чем $W$ грамм ($W$ - целое) и $n$ предметов весом $w_i$ грамм и стоимостью $c_i$ за грамм. Мы умеем отрезать от любого предмета целое количество грамм. Требуется набрать рюкзак максимальной стоимости.</p>
+<h3 id="&#1056;&#1077;&#1096;&#1077;&#1085;&#1080;&#1077;">&#1056;&#1077;&#1096;&#1077;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1056;&#1077;&#1096;&#1077;&#1085;&#1080;&#1077;">&#182;</a></h3><p>Также будем решать эту задачу жадно. Отсортируем предметы по убыванию "плотности ценности" $\frac{c_i}{w_i}$ и будем брать их жадно. От последнего предмета, который не влезет полностью, возьмем часть.</p>
+<h3 id="&#1044;&#1086;&#1082;&#1072;&#1079;&#1072;&#1090;&#1077;&#1083;&#1100;&#1089;&#1090;&#1074;&#1086;">&#1044;&#1086;&#1082;&#1072;&#1079;&#1072;&#1090;&#1077;&#1083;&#1100;&#1089;&#1090;&#1074;&#1086;<a class="anchor-link" href="#&#1044;&#1086;&#1082;&#1072;&#1079;&#1072;&#1090;&#1077;&#1083;&#1100;&#1089;&#1090;&#1074;&#1086;">&#182;</a></h3><p>Давайте представим, что мы уже поделили все предметы на кусочки веса 1 грамм, при этом их ценность стала равна $\frac{c_i}{w_i}$. Понятно, что из кусочков одинакого веса 1 грамм всегда оптимально просто взять кусочки с максимальной ценностью.</p>
+<p>Заметим, что в жадном алгоритме мы как раз и набираем максимальные по $\frac{c_i}{w_i}$ кусочки веса 1.</p>
+<p>Предьявим алгоритм:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pair</span><span class="o">&lt;</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="o">&gt;</span> <span class="n">items</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+
+<span class="nb">int</span> <span class="n">c</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">W</span><span class="p">;</span>                 <span class="o">//</span> <span class="n">стоимость</span> <span class="n">и</span> <span class="n">вес</span> <span class="n">предмета</span> 
+<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">W</span><span class="p">;</span> 
+<span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span> 
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">c</span> <span class="o">&gt;&gt;</span> <span class="n">w</span><span class="p">;</span>
+    <span class="n">items</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">c</span><span class="p">,</span> <span class="n">w</span><span class="p">};</span>
+<span class="p">}</span>
+
+<span class="n">sort</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">items</span> <span class="o">+</span> <span class="n">n</span><span class="p">);</span>
+
+<span class="nb">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="o">--</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">ans</span> <span class="o">+=</span> <span class="nb">min</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">second</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span> <span class="o">*</span> <span class="n">items</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">first</span><span class="p">;</span>
+    <span class="n">W</span> <span class="o">-=</span> <span class="nb">min</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">second</span><span class="p">,</span> <span class="n">W</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ans</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Итоговая асимптотика: $O(n + n\log n) = O(n\log n)$.</p>
+<p>Заметим, что если предметы резать нельзя, такой алгоритм не сработает. Как решать задачу для такого случая обсудим на одной из следующих лекций.</p>
 
 </div>
 </div>
@@ -13164,31 +13247,22 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#1055;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100;-C">&#1055;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100; C<a class="anchor-link" href="#&#1055;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100;-C">&#182;</a></h2><p>Осень:</p>
-<ul>
-<li><a href="sorting">Сортировки</a></li>
-<li><a href="binary_search">Бинарный поиск</a></li>
-<li><a href="number_theory">Теория чисел</a></li>
-<li><a href="stl">Стандартная библиотека шаблонов С++</a></li>
-<li><a href="greedy">Жадный алгоритм</a></li>
-<li><a href="dp_intro">Введение в динамическое программирование</a></li>
-<li><a href="">Рюкзак, НВП и НОП</a></li>
-<li><a href="scanline">Сканирующая прямая</a></li>
-<li><a href="data_structures">Структуры данных</a></li>
-<li><a href="dfs">Графы и поиск в глубину</a></li>
-<li><a href="bfs">Поиск в ширину и алгоритм Дейкстры</a></li>
-</ul>
-<p>Весна:</p>
-<ol>
-<li>???</li>
-</ol>
-<p>Преподаватели:</p>
-<ul>
-<li><a href="http://t.me/andrewgark">Андрей Гаркавый</a> — C1</li>
-<li><a href="http://t.me/pntn13">Антон Алёшин</a> — C2</li>
-<li><a href="http://t.me/riskingh">Максим Гришкин</a> — C2</li>
-<li><a href="http://t.me/Glebodin">Глеб Лобанов</a> — C3</li>
-</ul>
+<h2 id="&#1055;&#1088;&#1080;&#1084;&#1077;&#1088;-&#1079;&#1072;&#1076;&#1072;&#1095;&#1080;:-&#1042;&#1099;&#1073;&#1086;&#1088;-&#1079;&#1072;&#1103;&#1074;&#1086;&#1082;">&#1055;&#1088;&#1080;&#1084;&#1077;&#1088; &#1079;&#1072;&#1076;&#1072;&#1095;&#1080;: &#1042;&#1099;&#1073;&#1086;&#1088; &#1079;&#1072;&#1103;&#1074;&#1086;&#1082;<a class="anchor-link" href="#&#1055;&#1088;&#1080;&#1084;&#1077;&#1088;-&#1079;&#1072;&#1076;&#1072;&#1095;&#1080;:-&#1042;&#1099;&#1073;&#1086;&#1088;-&#1079;&#1072;&#1103;&#1074;&#1086;&#1082;">&#182;</a></h2><p><strong>Условие</strong></p>
+<p>Даны заявки на проведение занятий в некоторой аудитории. В каждой заявке указаны начало и конец занятия $(s_i$ и $f_i$ для $i$-ой заявки). Нужно из всех заявок оставить как можно больше так, чтобы они не пересекались. При этом если одна заявка закончилась во время $t$, а следующая началась во время $t$, то их можно ставить подряд.</p>
+<p><strong>Решение</strong></p>
+<p>Здесь жадность становится не такой уже очевидной, потому что неясно в каком порядке рассматривать заявки, те непонятно как "жадно" их набирать.</p>
+<p>Давайте посмотрим на <strong>самую первую по времени конца заявку</strong>. Заметьте, что нам всегда выгодно включить её в оптимальный ответ - она заканчивается раньше всех остальных, а поэтому если в оптимальном ответе самая первая заявка - другая, мы можем безболезненно заменить её на самую первую по времени конца, и новых пересечений не появится, так как мы просто сдвинули самую первую заявку еще левее.</p>
+<p>Раз всегда есть оптимальный ответ, в котором выбрана эта самая левая по времени конца заявка, давайте её возьмем, и выберем <strong>самую первую по времени конца заявку из оставшихся, не пересекающихся с той</strong>.</p>
+<p>Из такого рассуждения про одну самую левую по времени конца заявку следует сразу и общее жадное решение задачи - нужно идти слева направо по заявкам, которые отсортированы по времени конца, и брать новую, если можем, то есть если её начало не раньше, чем конец самой последней уже выбранной.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h2><p>Вам нужно решить как можно больше задач из этого контеста:</p>
+<p><a href="https://informatics.msk.ru/mod/statements/view3.php?id=35449">https://informatics.msk.ru/mod/statements/view3.php?id=35449</a></p>
 
 </div>
 </div>
