@@ -105,3 +105,38 @@ a[href^='https://www.topcoder.com/']:before {
     padding-top: 10px;
 }
 
+details {
+    background: #F9F9F9;
+    border-radius: 8px;
+    padding-left: 8px;
+    margin-top: 10px;
+}
+
+summary::-webkit-details-marker {
+    display: none
+}
+
+summary:hover {
+    cursor: pointer;
+}
+
+/*
+summary:after {
+    content: "▶";
+    float: left;
+    font-size: 0.7em;
+    font-weight: bold;
+    margin-left: -25px;
+    padding: 0;
+    text-align: center;
+    width: 25px;
+}
+
+details[open] summary:after {
+    content: "▼";
+}
+*/
+
+details[open] summary {
+    text-decoration: underline;
+}
