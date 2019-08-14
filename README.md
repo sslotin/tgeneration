@@ -1,3 +1,0 @@
-# Tinkoff Generation
-
-
